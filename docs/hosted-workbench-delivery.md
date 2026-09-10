@@ -85,7 +85,9 @@ python tools/package_interactive_workbench.py
 node tools/install_host.mjs
 ```
 
-From `C:\lab\repos\sfx-platform`, use `scripts/package-remote-lab.mjs` for service changes and `scripts/package-hf-lab.mjs` for the Space. Deploy only the reviewed artifacts with the existing scoped credentials. Promote the service by immutable image digest and preserve App Service storage and the single-worker setting. The deployed service image is recorded in the release evidence; do not substitute a mutable tag when verifying a release.
+The Space's [deployment tooling](../deploy/README.md) now lives in this repository. Run `python tools/hf_space.py package`, `python tools/hf_space.py check`, and `python tools/hf_space.py deploy` from the workbench root; installing assets into the website checkout first is optional. The packager consumes the existing `sfx-platform` host and preserves the Space's configured secrets.
+
+For remote service changes, `C:\lab\repos\sfx-platform\scripts\package-remote-lab.mjs` remains the service packager. Promote that service by immutable image digest and preserve App Service storage and the single-worker setting. The deployed service image is recorded in the release evidence; do not substitute a mutable tag when verifying a release.
 
 Run `tests/browser_workbench.py --origin https://bpmsoftwaresolutions-sidefx.hf.space --subject <published-subject>` for each case, supplying `--example` for the four fixtures. `browser_interactions.py` covers the three engines. `browser_recovery.py --restart-service` deliberately restarts the existing service and should run after other invocations finish. Private browser tests consume `HF_TOKEN` from the environment; credentials are not written into evidence.
 

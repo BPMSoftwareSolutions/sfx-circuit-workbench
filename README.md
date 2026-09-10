@@ -113,9 +113,20 @@ tools/         Resolution, building, verification and gate runners
 `build/`, `evidence/`, `providers/resolved/`, `experiences/derived/` and `fixtures/scenes/`
 are generated. Re-run the gate rather than editing them.
 
-`tools/package_interactive_workbench.py` builds the hosted package;
-`tools/install_host.mjs` installs it into the existing `sfx-platform` host. The platform's
-deployment scripts package the private Space and its remote invocation service.
+`tools/package_interactive_workbench.py` builds the hosted workbench. This repository
+also owns its [Hugging Face deployment tooling](deploy/README.md): Docker configuration,
+host packaging, upload, status, and verification of the running release.
+
+```sh
+python -m pip install -r deploy/requirements.txt
+python tools/hf_space.py package --platform-root C:/lab/repos/sfx-platform
+python tools/hf_space.py check
+python tools/hf_space.py deploy
+```
+
+The packager consumes the existing `sfx-platform` host and this repository's built
+assets directly. `tools/install_host.mjs` remains available for installing the assets
+into the website checkout. The remote invocation service has a separate deployment.
 
 ## Where change belongs
 
