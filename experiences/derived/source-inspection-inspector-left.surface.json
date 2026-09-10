@@ -115,7 +115,9 @@
                                 "label": "",
                                 "group": "Native execution graph"
                               }
-                            ]
+                            ],
+                            "optionTextFormat": "viewOption",
+                            "optionTextSource": "scenes"
                           },
                           "interaction": {
                             "semanticAction": "select-source-view"
@@ -823,7 +825,8 @@
                                         "value": "64",
                                         "label": ""
                                       }
-                                    ]
+                                    ],
+                                    "optionTextFormat": "speedOption"
                                   },
                                   "interaction": {
                                     "semanticAction": "set-trace-speed"

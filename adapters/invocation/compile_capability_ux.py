@@ -516,11 +516,13 @@ def main(argv=None) -> int:
         outcome_plans = compile_outcomes(ux, pilot, registry, findings)
 
         errors = [f for f in findings if f["severity"] == "error"]
+        # No timestamp: a compiled artifact is a pure function of its inputs, and
+        # stamping it makes every rebuild a diff even when nothing changed. When
+        # it was compiled belongs to the receipt, which records the run.
         plan = {
             "planVersion": "capability-dialog-plan.v1",
             "uxId": ux["uxId"],
             "subject": ux["subject"],
-            "compiledAt": now_utc(),
             "pins": dict(ux["pins"], observed=pins["observed"], current=pins["current"]),
             "input": {
                 "dialogTitle": ux["input"]["dialogTitle"],
