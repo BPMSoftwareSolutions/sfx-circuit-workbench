@@ -2,7 +2,7 @@
   "planVersion": "capability-dialog-plan.v1",
   "uxId": "provider-resolution",
   "subject": "resolve-sidefx-eligible-providers",
-  "compiledAt": "2026-09-10T17:48:33+00:00",
+  "compiledAt": "2026-09-10T17:54:00+00:00",
   "pins": {
     "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
     "inputContract": "sidefx-provider-resolution-request.v1",

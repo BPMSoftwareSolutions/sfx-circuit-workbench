@@ -244,7 +244,21 @@ def main(argv=None) -> int:
     # --- compose ----------------------------------------------------------
     surface = WORKBENCH / experience["declarations"]["surface"]
     resolved_surface = json.loads(surface.read_text(encoding="utf-8"))
+    catalogue = []
+    for reference in experience["declarations"]["scenes"]:
+        entry = json.loads((WORKBENCH / reference).read_text(encoding="utf-8"))
+        catalogue.append({
+            "fixtureId": Path(reference).name.replace(".scene.json", ""),
+            "viewId": entry["identities"]["viewId"],
+            "viewKind": entry["identities"]["viewKind"],
+            "label": entry["label"],
+            "coverage": {"nodes": entry["coverage"]["nodes"],
+                         "routes": entry["coverage"]["routes"],
+                         "omittedSourceNodes": entry["coverage"]["omittedSourceNodes"]},
+        })
+
     resolved_surface = resolve_text_refs(resolved_surface, text_pack, findings)
+    resolved_surface = resolve_option_text(resolved_surface, text_pack, catalogue, findings)
     staged_surface = staging / surface.name
     staged_surface.write_text(
         json.dumps(resolved_surface, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

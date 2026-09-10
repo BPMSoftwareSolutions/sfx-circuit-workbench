@@ -1,6 +1,6 @@
 {
   "receiptType": "topology-ingestion-receipt.v1",
-  "ingestedAt": "2026-09-10T17:48:32+00:00",
+  "ingestedAt": "2026-09-10T17:53:59+00:00",
   "adapter": {
     "name": "ingest-topology-view",
     "version": "1.0.0"

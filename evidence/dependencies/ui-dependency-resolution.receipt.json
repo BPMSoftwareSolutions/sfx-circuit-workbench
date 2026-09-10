@@ -1,6 +1,6 @@
 {
   "receiptType": "ui-dependency-resolution-receipt.v1",
-  "resolvedAt": "2026-09-10T17:48:32+00:00",
+  "resolvedAt": "2026-09-10T17:53:58+00:00",
   "manifest": {
     "path": "C:/lab/sfx-circuit-workbench/dependencies/ui-dependencies.manifest.json",
     "sha256": "02b4007bff53f5bd7a4dfbac94f9bab483a1ac1378a54d89b5aa92fab048f82f",

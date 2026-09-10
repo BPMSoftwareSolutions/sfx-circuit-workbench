@@ -1,6 +1,6 @@
 {
   "receiptType": "dialog-composition-receipt.v1",
-  "composedAt": "2026-09-10T17:48:36+00:00",
+  "composedAt": "2026-09-10T17:54:05+00:00",
   "statement": "Every compiled dialog plan is composed through the pinned sidefx-ui circuits. Input and outcome dialogs use the same path.",
   "summary": {
     "dialogs": 9,
@@ -25,7 +25,7 @@
       "warningFindings": 0,
       "resolved": {
         "path": "build/invoke/stages/dialog-input-hello-world.resolved.json",
-        "sha256": "c51dd3c8b5b704d32f1095a3d9b8713f628fdd81bf021353e10d2129a119d1fd"
+        "sha256": "8536807645baec9cc53f13cd52e90dfdcd654dae64e70839f8f38956364cc3a1"
       },
       "resolvedExtent": null
     },
@@ -44,7 +44,7 @@
       "warningFindings": 1,
       "resolved": {
         "path": "build/invoke/stages/dialog-outcome-hello-world-greeting.resolved.json",
-        "sha256": "c455f263727d1c9c67e1dd6416a7ac9a9aa97fb92c701b8a785edb65a7958677"
+        "sha256": "094a1d3b40c80225a894659d48ae5fe809471d1cfa0e031c2833ab4fc47892d8"
       },
       "resolvedExtent": null
     },
@@ -63,7 +63,7 @@
       "warningFindings": 0,
       "resolved": {
         "path": "build/invoke/stages/dialog-input-live-finance.resolved.json",
-        "sha256": "e7b667d39d3dd6957f9c68f2b7ace2cbc57438f38a0668155d27d427533c75d9"
+        "sha256": "af50dbeab8c07394d6c155e85090dbd95d5f0d8e34801713787c8b55a8adfa73"
       },
       "resolvedExtent": null
     },
@@ -82,7 +82,7 @@
       "warningFindings": 2,
       "resolved": {
         "path": "build/invoke/stages/dialog-outcome-live-finance-price.resolved.json",
-        "sha256": "3cae89189b0d715a1eaac0295d4bc454eb23dd2bbe8735a7d372e8bf86795b3a"
+        "sha256": "f04db5e6fad87bc2ba4b24cd717410776b8558958e07cdb11844312fd28fd9d5"
       },
       "resolvedExtent": null
     },
@@ -101,7 +101,7 @@
       "warningFindings": 0,
       "resolved": {
         "path": "build/invoke/stages/dialog-input-personal-greeting.resolved.json",
-        "sha256": "4ab529c2d172575e61abf448d05b4658e6c56f830a695ddb2204f7b40cd91758"
+        "sha256": "9f0061b8acea691394f7c355472b0c758d6e824d781c3b7a17f0e4c46999f88a"
       },
       "resolvedExtent": null
     },
@@ -120,7 +120,7 @@
       "warningFindings": 1,
       "resolved": {
         "path": "build/invoke/stages/dialog-outcome-personal-greeting-greeting.resolved.json",
-        "sha256": "80ca368f3280e830299482026969bf0ddd75823a8bcdfc37ac6fbdc9d6dbd8da"
+        "sha256": "7d821fad11f5f386935cd99c2b381e4e2f61271f64f3268780f82db0c1f3545a"
       },
       "resolvedExtent": null
     },
@@ -139,7 +139,7 @@
       "warningFindings": 0,
       "resolved": {
         "path": "build/invoke/stages/dialog-input-provider-resolution.resolved.json",
-        "sha256": "7831c0f6eee1373d9b794da1a9e097a5debad4c8d628c18583fd0ba2a6a8f053"
+        "sha256": "92ebda07defb1f76f59cb3ecece180f1377cece69e7fc0bb3c01cce400d112de"
       },
       "resolvedExtent": null
     },
@@ -158,7 +158,7 @@
       "warningFindings": 3,
       "resolved": {
         "path": "build/invoke/stages/dialog-outcome-provider-resolution-resolved.resolved.json",
-        "sha256": "a3b785816a8bf94d432e1b11399adcedc9de28d711d0949167a85d834f59f318"
+        "sha256": "3f9b4304cab3c17a86c77df89ca202a90be3c05dfd9c2c5cad2b8c208451abbd"
       },
       "resolvedExtent": null
     },
@@ -177,7 +177,7 @@
       "warningFindings": 3,
       "resolved": {
         "path": "build/invoke/stages/dialog-outcome-provider-resolution-not-observable.resolved.json",
-        "sha256": "28ae54c21438c245aa95ae1eeb73e95f382d7ed306a2262dbf54d3ea57148d5d"
+        "sha256": "58653a2159940e057f8337225465d8b5e54350af76ee288f9faeaa64c4c87146"
       },
       "resolvedExtent": null
     }

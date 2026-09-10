@@ -661,38 +661,6 @@
     window.dispatchEvent(new CustomEvent("sfx-scene-loaded", { detail: { sceneId: scene.sceneId } }));
   }
 
-  /* Option labels are formatted from data at load: the source views from the
-   * packaged scene catalogue, the speeds from their declared values. The surface
-   * declares the options' identities and order; it does not spell their text,
-   * because that text describes counts the scene owns. */
-  function renderOptions() {
-    var viewBinding = bindingByState["view.selected"];
-    var viewNode = viewBinding && component(viewBinding.component);
-    var viewControl = viewNode && viewNode.querySelector(viewBinding.mutates.selector);
-    if (viewControl) {
-      viewControl.replaceChildren();
-      config.scenes.forEach(function (descriptor) {
-        var option = document.createElement("option");
-        option.value = descriptor.viewId;
-        option.textContent = text.format("viewOption", {
-          label: descriptor.label,
-          nodes: descriptor.coverage.nodes,
-          routes: descriptor.coverage.routes
-        });
-        viewControl.appendChild(option);
-      });
-    }
-
-    var speedBinding = bindingByState["trace.speed"];
-    var speedNode = speedBinding && component(speedBinding.component);
-    var speedControl = speedNode && speedNode.querySelector(speedBinding.mutates.selector);
-    if (speedControl) {
-      Array.prototype.forEach.call(speedControl.options, function (option) {
-        option.textContent = text.format("speedOption", { value: option.value });
-      });
-    }
-  }
-
   function setSpeed(value) {
     var binding = bindingByState["trace.speed"];
     var node = binding && component(binding.component);
@@ -787,7 +755,6 @@
 
   /* ---------------------------------------------------------------- start */
 
-  renderOptions();
   loadScene(config.initialViewId);
   reportHeight();
 
