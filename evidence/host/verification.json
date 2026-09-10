@@ -1,9 +1,0 @@
-{
-  "receiptType": "hosted-workbench-verification.v1",
-  "passed": false,
-  "origin": "https://bpmsoftwaresolutions-sidefx.hf.space",
-  "runs": [],
-  "findings": [
-    "AssertionError"
-  ]
-}

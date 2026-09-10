@@ -10,12 +10,13 @@ node_modules/
 !.env.example
 !.env.template
 
-# Generated packages: large, fully derived from declarations. Rebuild with
-#   python tools/build_workbench.py
+# Generated output. Rebuild rather than commit:
+#   python tools/build_workbench.py     -> build/
+#   python tools/m2_gate.py             -> evidence/
 build/
+evidence/
 
-# Deliberately NOT ignored:
-#   evidence/**              durable verification receipts; retain them with the work they prove
+# Deliberately NOT ignored, because these are inputs rather than output:
 #   fixtures/baseline/**     the frozen reference, retained byte for byte
 #   fixtures/scenes/**       ingested scenes; small, and worth reviewing in a diff
 #   providers/resolved/**    resolved provider profiles; the theme is reviewable output
