@@ -1,0 +1,38 @@
+{
+  "verifiedAt": "2026-09-10T16:44:45.921954+00:00",
+  "scope": "Viewport layout and zoom regression; no backend or capability authority changes",
+  "space": "BPMSoftwareSolutions/SideFX",
+  "private": true,
+  "commit": "470b7e72d82e42a6181e8433fc867af89ed9eeaf",
+  "runningCommit": "470b7e72d82e42a6181e8433fc867af89ed9eeaf",
+  "stage": "RUNNING",
+  "fullWidth": true,
+  "header": "mini",
+  "packageVersion": {
+    "contentDigest": "sha256:1aa77178b7b1c905e8860e3b3abe804464782d8e89338ed6c1a0b9bc53c6b5e6",
+    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304"
+  },
+  "browserChecks": "../browser/hosted-viewport-checks.json",
+  "engines": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "checks": [
+    "zoom with visible scrollbars",
+    "read at 100%",
+    "scroll enlarged diagram",
+    "zoom to 200% and back",
+    "fit diagram",
+    "edge-to-edge viewport",
+    "no document overflow",
+    "circuit fills remaining height",
+    "details disclosure",
+    "dialog after resize",
+    "draft retained",
+    "no invocation on cancel"
+  ],
+  "signedInSpaceCheck": "Read at 100% held at 100%; three zoom-in clicks reached 200%; restored Fit and visually confirmed the full-viewport page",
+  "priorInvocationRelease": "5f3f33b7b392c6eb270a47a7e861cec7cbc8cfae",
+  "passed": true
+}

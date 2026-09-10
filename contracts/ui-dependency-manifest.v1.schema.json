@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sidefx.local/sfx-circuit-workbench/contracts/ui-dependency-manifest.v1.schema.json",
+  "title": "ui-dependency-manifest.v1",
+  "description": "A pinned, relocatable resolution of a consumed capability closure. Capability identity is authoritative; folder and root are location facts that may move.",
+  "type": "object",
+  "required": ["manifestVersion", "root", "composition", "constituents", "reproductionPolicy"],
+  "additionalProperties": false,
+  "properties": {
+    "manifestVersion": { "const": "ui-dependency-manifest.v1" },
+    "statement": { "type": "string" },
+    "provenance": {
+      "type": "object",
+      "required": ["workspaceGovernance"],
+      "properties": {
+        "workspaceGovernance": {
+          "enum": ["UNMANAGED_PROVISIONAL", "MANAGED_ADMITTED"],
+          "description": "Pinning a workspace is not a claim of managed estate admission. Record which it is."
+        },
+        "note": { "type": "string" },
+        "inspectedOn": { "type": "string", "format": "date" }
+      }
+    },
+    "root": {
+      "type": "object",
+      "required": ["default", "environmentVariable"],
+      "additionalProperties": false,
+      "properties": {
+        "default": { "type": "string" },
+        "environmentVariable": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "composition": { "$ref": "#/$defs/pin" },
+    "constituents": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/pin" } },
+    "downstream": { "type": "array", "items": { "$ref": "#/$defs/pin" } },
+    "specimens": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["surfaceId", "authority", "retainedResolved", "retainedReceipt"],
+        "properties": {
+          "surfaceId": { "type": "string" },
+          "authority": { "type": "string" },
+          "retainedResolved": { "type": "string" },
+          "retainedReceipt": { "type": "string" },
+          "role": { "type": "string" }
+        }
+      }
+    },
+    "reproductionPolicy": {
+      "type": "object",
+      "required": ["byteIdenticalResolvedProduct", "criterion", "permittedDeltaFields"],
+      "additionalProperties": false,
+      "properties": {
+        "byteIdenticalResolvedProduct": { "type": "boolean" },
+        "reason": { "type": "string" },
+        "criterion": { "enum": ["BYTE_IDENTITY", "SEMANTIC_EQUIVALENCE_WITH_ENUMERATED_DELTAS"] },
+        "permittedDeltaFields": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Field paths whose difference is a recorded relocation or timestamp fact. Anything else is a divergence."
+        },
+        "invariantFields": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "pin": {
+      "type": "object",
+      "required": ["capabilityId", "folder", "version"],
+      "additionalProperties": false,
+      "properties": {
+        "capabilityId": { "type": "string", "minLength": 1 },
+        "folder": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Folder name under the resolved root. It need not equal the capability id."
+        },
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+        "module": { "type": "string" },
+        "layer": { "enum": ["geometry", "interaction"] },
+        "role": { "type": "string" },
+        "runtime": { "type": "string" },
+        "semanticAuthority": { "type": "string" },
+        "schemas": { "type": "object", "additionalProperties": { "type": "string" } },
+        "tools": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

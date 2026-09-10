@@ -1,0 +1,167 @@
+{
+  "manifestVersion": "ui-dependency-manifest.v1",
+  "statement": "Pinned, relocatable resolution of the sidefx-ui capability closure that sfx-circuit-workbench consumes. Capability identity is authoritative; the folder name and the root are location facts that may move.",
+  "provenance": {
+    "workspaceGovernance": "UNMANAGED_PROVISIONAL",
+    "note": "The sidefx-ui workspaces describe themselves as unmanaged, provisional computational material. This manifest pins what is consumed and verifies it by digest. Pinning is not a claim of managed estate admission.",
+    "inspectedOn": "2026-09-10"
+  },
+  "root": {
+    "default": "C:/lab/sidefx-ui",
+    "environmentVariable": "SIDEFX_UI_ROOT",
+    "note": "Resolution order: --root argument, then SIDEFX_UI_ROOT, then default. The declared constituentWorkspaces inside sidefx-compose-ui-surface/capability.json still name the pre-move C:/lab/<folder> locations; this manifest supersedes them at resolution time without mutating that workspace."
+  },
+  "composition": {
+    "capabilityId": "compose-ui-surface",
+    "folder": "sidefx-compose-ui-surface",
+    "version": "1.0.0",
+    "module": "compose_ui_surface.py",
+    "schemas": {
+      "authority": "schemas/ui-surface.v1.schema.json",
+      "capability": "schemas/ui-capability.v1.schema.json"
+    }
+  },
+  "constituents": [
+    {
+      "capabilityId": "establish-ui-surface",
+      "folder": "sidefx-ui-surface",
+      "version": "1.0.0",
+      "module": "establish_ui_surface.py",
+      "layer": "geometry"
+    },
+    {
+      "capabilityId": "establish-ui-container",
+      "folder": "sidefx-ui-container",
+      "version": "1.0.0",
+      "module": "establish_ui_container.py",
+      "layer": "geometry"
+    },
+    {
+      "capabilityId": "resolve-ui-layout",
+      "folder": "sidefx-ui-layout",
+      "version": "1.0.0",
+      "module": "resolve_ui_layout.py",
+      "layer": "geometry"
+    },
+    {
+      "capabilityId": "establish-ui-component",
+      "folder": "sidefx-ui-component",
+      "version": "1.0.0",
+      "module": "establish_ui_component.py",
+      "layer": "geometry",
+      "semanticAuthority": "semantics/component-semantics.v1.json"
+    },
+    {
+      "capabilityId": "establish-ui-state",
+      "folder": "sidefx-ui-state",
+      "version": "1.0.0",
+      "module": "establish_ui_state.py",
+      "layer": "interaction",
+      "semanticAuthority": "semantics/state-semantics.v1.json"
+    },
+    {
+      "capabilityId": "bind-ui-state",
+      "folder": "sidefx-ui-binding",
+      "version": "1.1.0",
+      "module": "bind_ui_state.py",
+      "layer": "interaction"
+    },
+    {
+      "capabilityId": "validate-ui-state",
+      "folder": "sidefx-ui-validation",
+      "version": "1.1.0",
+      "module": "validate_ui_state.py",
+      "layer": "interaction",
+      "semanticAuthority": "semantics/validation-semantics.v1.json"
+    },
+    {
+      "capabilityId": "dispatch-ui-action",
+      "folder": "sidefx-ui-action",
+      "version": "1.0.0",
+      "module": "dispatch_ui_action.py",
+      "layer": "interaction"
+    }
+  ],
+  "downstream": [
+    {
+      "capabilityId": "project-ui-surface",
+      "folder": "sidefx-project-ui-surface",
+      "version": "1.1.0",
+      "module": "project_ui_surface.py",
+      "role": "HTML projection target provider",
+      "tools": ["observe_realized_geometry.py"]
+    },
+    {
+      "capabilityId": "realize-html-interaction",
+      "folder": "sidefx-html-interaction",
+      "version": "1.0.0",
+      "module": "realize_html_interaction.py",
+      "role": "Browser interaction plan lowering",
+      "runtime": "runtime/sidefx-ui-runtime.js"
+    }
+  ],
+  "specimens": [
+    {
+      "surfaceId": "design-canvas",
+      "authority": "surfaces/design-canvas.surface.json",
+      "retainedResolved": "out/design-canvas.resolved.json",
+      "retainedReceipt": "out/design-canvas.receipt.json",
+      "role": "Composition closure reproduction specimen for M0."
+    },
+    {
+      "surfaceId": "mortgage-application",
+      "authority": "surfaces/mortgage-application.surface.json",
+      "retainedResolved": "out/mortgage-application.resolved.json",
+      "retainedReceipt": "out/mortgage-application.receipt.json",
+      "role": "Interaction-layer closure reproduction specimen for M0."
+    },
+    {
+      "surfaceId": "component-families",
+      "authority": "surfaces/component-families.surface.json",
+      "retainedResolved": "out/component-families.resolved.json",
+      "retainedReceipt": "out/component-families.receipt.json",
+      "role": "Component taxonomy closure reproduction specimen for M0."
+    },
+    {
+      "surfaceId": "site-shell",
+      "authority": "surfaces/site-shell.surface.json",
+      "retainedResolved": "out/site-shell.resolved.json",
+      "retainedReceipt": "out/site-shell.receipt.json",
+      "role": "Shell layout closure reproduction specimen for M0."
+    },
+    {
+      "surfaceId": "overlay-policy",
+      "authority": "surfaces/overlay-policy.surface.json",
+      "retainedResolved": "out/overlay-policy.resolved.json",
+      "retainedReceipt": "out/overlay-policy.receipt.json",
+      "role": "Overlay policy closure reproduction specimen for M0."
+    }
+  ],
+  "reproductionPolicy": {
+    "byteIdenticalResolvedProduct": false,
+    "reason": "The resolved product and its receipt embed absolute input paths and a composition timestamp. Relocating the workspace necessarily changes those fields, so byte identity is unattainable and is not the correct exit criterion.",
+    "criterion": "SEMANTIC_EQUIVALENCE_WITH_ENUMERATED_DELTAS",
+    "permittedDeltaFields": [
+      "/resolvedAt",
+      "/composedAt",
+      "/authority/path",
+      "/inputs/authority/path",
+      "/inputs/authoritySchema/path",
+      "/outputs/resolved/path",
+      "/outputs/resolved/sha256",
+      "/outputs/receipt/path",
+      "/composition/workspace",
+      "/composition/declarationSha256",
+      "/composition/realization/module",
+      "/capabilities/*/realization/module",
+      "/capabilities/*/semanticAuthority/path"
+    ],
+    "invariantFields": [
+      "every realization sha256",
+      "every capability version",
+      "every semantic authority digest",
+      "all resolved geometry and interaction evidence",
+      "all findings and finding-code ownership"
+    ]
+  }
+}

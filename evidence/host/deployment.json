@@ -1,0 +1,13 @@
+{
+  "space": "BPMSoftwareSolutions/SideFX",
+  "origin": "https://bpmsoftwaresolutions-sidefx.hf.space",
+  "private": true,
+  "stage": "RUNNING",
+  "commit": "5f3f33b7b392c6eb270a47a7e861cec7cbc8cfae",
+  "runningCommit": "5f3f33b7b392c6eb270a47a7e861cec7cbc8cfae",
+  "packageVersion": {
+    "contentDigest": "sha256:3d0f029645a5574d3d354b3e01eddc6ec36e796b72683e8387940eca2f840117",
+    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304"
+  },
+  "serviceImage": "bpmaiengineacr.azurecr.io/sidefx/lab-service@sha256:61222cf866ca6ec7f6696786097e8e5618919919e8283287cc67a3b9d94a39ae"
+}

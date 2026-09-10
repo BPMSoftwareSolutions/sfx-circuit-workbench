@@ -1,0 +1,336 @@
+{
+  "receiptType": "overlay-provider-receipt.v1",
+  "verifiedAt": "2026-09-10T16:23:45+00:00",
+  "statement": "The overlay provider's decisions — anchor resolution against a real scene, placement and clipping avoidance, motion intent under reduced motion, the input-to-outcome lifecycle, and focus containment — are exercised as pure logic.",
+  "modules": [
+    "runtime/overlay-anchor.js",
+    "runtime/dialog-lifecycle.js",
+    "runtime/focus-containment.js"
+  ],
+  "node": "v20.19.0",
+  "summary": {
+    "cases": 61,
+    "passed": 61,
+    "failed": 0,
+    "groups": [
+      "anchor",
+      "placement",
+      "motion",
+      "lifecycle",
+      "focus"
+    ]
+  },
+  "results": [
+    {
+      "group": "anchor",
+      "case": "a node's centre maps through the camera into viewport space",
+      "passed": true
+    },
+    {
+      "group": "anchor",
+      "case": "changing the camera moves the anchor, so it must be recomputed",
+      "passed": true
+    },
+    {
+      "group": "anchor",
+      "case": "an identity present in the scene resolves to a point",
+      "passed": true
+    },
+    {
+      "group": "anchor",
+      "case": "an absent identity falls back to a labelled viewport transition",
+      "passed": true
+    },
+    {
+      "group": "anchor",
+      "case": "the fallback still carries the semantic identity",
+      "passed": true
+    },
+    {
+      "group": "anchor",
+      "case": "with no scene loaded the anchor is unavailable, not an error",
+      "passed": true
+    },
+    {
+      "group": "anchor",
+      "case": "an anchor naming a different scene does not resolve against this one",
+      "passed": true
+    },
+    {
+      "group": "placement",
+      "case": "an anchor with room below places below it",
+      "passed": true
+    },
+    {
+      "group": "placement",
+      "case": "an anchor near the bottom flips above rather than overflowing",
+      "passed": true
+    },
+    {
+      "group": "placement",
+      "case": "a corner anchor still yields a box inside the viewport",
+      "passed": true
+    },
+    {
+      "group": "placement",
+      "case": "no anchor point centres the overlay",
+      "passed": true
+    },
+    {
+      "group": "placement",
+      "case": "an overlay larger than the viewport is reported, not drawn negative",
+      "passed": true
+    },
+    {
+      "group": "placement",
+      "case": "the transform origin sits inside the overlay box",
+      "passed": true
+    },
+    {
+      "group": "motion",
+      "case": "the declared intent is used when motion is not reduced",
+      "passed": true
+    },
+    {
+      "group": "motion",
+      "case": "reduced motion substitutes the declared fallback",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "a dialog starts closed with no run and no result",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "opening expands from the anchor and focuses the first control",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "editing records the draft",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "an invalid submission submits nothing and keeps the dialog open",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "an invalid submission preserves the draft and focuses the first invalid",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "cancelling before submit invokes nothing",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "a valid submission moves to submitting and counts one invocation",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "a second submit while in flight is refused, not queued",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "a submitted request cannot be cancelled from the dialog",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "admission associates the run and collapses toward the input node",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "execution events apply while the run proceeds",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "an intermediate outcome updates its node without stealing focus",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "another run's terminal outcome shows an indicator, not a dialog",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "the active terminal outcome expands from the outcome anchor",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "dismissing collapses, restores focus and keeps the result indicator",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "dismissal does not erase the retained outcome",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "a retained result can be reopened from its node",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "a run that finishes immediately sequences without inventing delay",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "an immediate outcome is retained like any other",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "a refusal preserves the draft and shows why",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "acknowledging a refusal returns to editing without resubmitting",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "an uncertain delivery is retained for reconciliation",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "an uncertain delivery does not resubmit",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "changing input clears the displayed result but keeps the indicator",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "an outcome with no admitted run is refused",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "dismissing when nothing is open is refused",
+      "passed": true
+    },
+    {
+      "group": "lifecycle",
+      "case": "an unknown event is refused, not ignored",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "opening focuses the first suitable control",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "an explicit autofocus wins over document order",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "a disabled first control is skipped",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "a hidden control is skipped",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "with nothing focusable, focus goes to the dialog, not the page",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "Tab moves forward",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "Tab wraps from the last control to the first",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "Shift+Tab wraps from the first control to the last",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "a single focusable control wraps to itself rather than escaping",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "focus arriving from outside the trap is pulled to an end",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "with nothing focusable, containment still returns the dialog",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "after an invalid submission focus goes to the first invalid control",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "an invalid flag on the descriptor is honoured too",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "containment recognises the dialog container itself",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "containment rejects a node outside the overlay",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "focus returns to the opener when it is still focusable",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "a vanished opener yields no return target, so the provider must choose",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "Escape is permitted while editing and while showing an outcome",
+      "passed": true
+    },
+    {
+      "group": "focus",
+      "case": "Escape is refused while a submission is in flight",
+      "passed": true
+    }
+  ],
+  "notEstablished": [
+    "No browser or DOM implementation is available here, so nothing below the decision layer is executed: whether focus actually moved, whether an animation actually ran, and whether the overlay was actually painted are all unverified.",
+    "The provider's DOM layer in runtime/overlay-provider.js is unexercised.",
+    "Anchor recomputation is proven to depend on camera state; it has not been observed reacting to a real zoom, pan or resize.",
+    "No capability was invoked, and no dialog has been opened by a person."
+  ]
+}

@@ -1,0 +1,4390 @@
+{
+  "sceneVersion": "circuit-scene.v1",
+  "sceneId": "author-tooling-capability-candidate/n-69b6853533ab1d663473efb6",
+  "label": "Capability blueprint",
+  "identities": {
+    "capabilityId": "author-tooling-capability-candidate",
+    "viewId": "n-69b6853533ab1d663473efb6",
+    "viewKind": "blueprint",
+    "sourceIdentity": "author-tooling-capability-candidate/blueprint",
+    "scenarioId": null
+  },
+  "traceMode": "ILLUSTRATIVE",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-4f03361737474a4270a26b2f",
+        "identity": "author-tooling-capability-candidate",
+        "kind": "event",
+        "label": "author tooling capability candidate",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/0",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "author-capability-candidate.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "author-capability-candidate"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "capability-authoring-context.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "capability-authoring-context"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "projectable-capability-authoring-result.v2",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "projectable-capability-authoring-result"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/author-tooling-capability-candidate",
+            "checkpoints": [
+              "author-tooling-capability-candidate-admit-input",
+              "author-tooling-capability-candidate-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "author-tooling-capability-candidate-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/author-tooling-capability-candidate"
+          }
+        }
+      },
+      {
+        "id": "n-f5e2679361151d42375a26db",
+        "identity": "admit-capability-authoring-context",
+        "kind": "event",
+        "label": "admit capability authoring context",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/1",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "admit-capability-authoring-context.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "admit-capability-authoring-context"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "capability-authoring-context.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "capability-authoring-context"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "admitted-capability-authoring-context.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "admitted-capability-authoring-context"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/admit-capability-authoring-context",
+            "checkpoints": [
+              "admit-capability-authoring-context-admit-input",
+              "admit-capability-authoring-context-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "admit-capability-authoring-context-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/admit-capability-authoring-context"
+          }
+        }
+      },
+      {
+        "id": "n-7093c29ea048ca5ce733f4bd",
+        "identity": "prove-authoring-work-unit-readiness",
+        "kind": "decision",
+        "label": "prove authoring work unit readiness",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/2",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "junction",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "prove-authoring-work-unit-readiness.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "prove-authoring-work-unit-readiness"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "eligible-artifact-authoring-work-unit.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "eligible-artifact-authoring-work-unit"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "authoring-work-unit-readiness-proof.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "authoring-work-unit-readiness-proof",
+              "variants": [
+                {
+                  "projectionOrdinal": 0,
+                  "variantId": "AUTHORING_READY"
+                },
+                {
+                  "projectionOrdinal": 1,
+                  "variantId": "REPRESENTATION_UNSAFE"
+                },
+                {
+                  "projectionOrdinal": 2,
+                  "variantId": "SCHEMA_UNSATISFIABLE"
+                },
+                {
+                  "projectionOrdinal": 3,
+                  "variantId": "CONTEXT_INCOMPLETE"
+                },
+                {
+                  "projectionOrdinal": 4,
+                  "variantId": "PROVIDER_INCOMPATIBLE"
+                },
+                {
+                  "projectionOrdinal": 5,
+                  "variantId": "DEPENDENCY_UNRESOLVED"
+                },
+                {
+                  "projectionOrdinal": 6,
+                  "variantId": "MUTATION_SCOPE_DIVERGENT"
+                },
+                {
+                  "projectionOrdinal": 7,
+                  "variantId": "WORK_UNIT_TOO_BROAD"
+                }
+              ]
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/prove-authoring-work-unit-readiness",
+            "checkpoints": [
+              "prove-authoring-work-unit-readiness-admit-input",
+              "prove-authoring-work-unit-readiness-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "prove-authoring-work-unit-readiness-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/prove-authoring-work-unit-readiness"
+          }
+        }
+      },
+      {
+        "id": "n-9ecca390c74e2f39cc8471b2",
+        "identity": "prepare-authoring-testimony-for-admission",
+        "kind": "event",
+        "label": "prepare authoring testimony for admission",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/3",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "prepare-authoring-testimony-for-admission.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "prepare-authoring-testimony-for-admission"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "authoring-testimony-source.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "authoring-testimony-source"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "authoring-testimony-for-admission.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "authoring-testimony-for-admission"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/prepare-authoring-testimony-for-admission",
+            "checkpoints": [
+              "prepare-authoring-testimony-for-admission-admit-input",
+              "prepare-authoring-testimony-for-admission-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "prepare-authoring-testimony-for-admission-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/prepare-authoring-testimony-for-admission"
+          }
+        }
+      },
+      {
+        "id": "n-3b06685e5e41c1c2275d0628",
+        "identity": "establish-conforming-authoring-work-unit",
+        "kind": "event",
+        "label": "establish conforming authoring work unit",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/4",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "establish-conforming-authoring-work-unit.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "establish-conforming-authoring-work-unit"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "classified-authoring-findings.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "classified-authoring-findings"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "conforming-authoring-work-unit.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "conforming-authoring-work-unit"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/establish-conforming-authoring-work-unit",
+            "checkpoints": [
+              "establish-conforming-authoring-work-unit-admit-input",
+              "establish-conforming-authoring-work-unit-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "establish-conforming-authoring-work-unit-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/establish-conforming-authoring-work-unit"
+          }
+        }
+      },
+      {
+        "id": "n-d4f45405acf5a4caf292d008",
+        "identity": "apply-unique-mechanical-repair",
+        "kind": "event",
+        "label": "apply unique mechanical repair",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/5",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "apply-unique-mechanical-repair.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "apply-unique-mechanical-repair"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "mechanical-repair-resolution.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "mechanical-repair-resolution"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "mechanically-repaired-testimony.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "mechanically-repaired-testimony"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/apply-unique-mechanical-repair",
+            "checkpoints": [
+              "apply-unique-mechanical-repair-admit-input",
+              "apply-unique-mechanical-repair-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "apply-unique-mechanical-repair-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/apply-unique-mechanical-repair"
+          }
+        }
+      },
+      {
+        "id": "n-063e5ae63c5a68ae00d2bf0c",
+        "identity": "resolve-capability-authoring-profile",
+        "kind": "event",
+        "label": "resolve capability authoring profile",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/6",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "resolve-capability-authoring-profile.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "resolve-capability-authoring-profile"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "admitted-capability-authoring-context.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "admitted-capability-authoring-context"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "bounded-capability-authoring-profile.v2",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "bounded-capability-authoring-profile"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/resolve-capability-authoring-profile",
+            "checkpoints": [
+              "resolve-capability-authoring-profile-admit-input",
+              "resolve-capability-authoring-profile-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "resolve-capability-authoring-profile-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/resolve-capability-authoring-profile"
+          }
+        }
+      },
+      {
+        "id": "n-3c0b5c2765b13333bbf0a048",
+        "identity": "initialize-artifact-authoring-ledger",
+        "kind": "event",
+        "label": "initialize artifact authoring ledger",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/7",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "initialize-artifact-authoring-ledger.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "initialize-artifact-authoring-ledger"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "bounded-capability-authoring-profile.v2",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "bounded-capability-authoring-profile"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "artifact-authoring-ledger.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "artifact-authoring-ledger"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/initialize-artifact-authoring-ledger",
+            "checkpoints": [
+              "initialize-artifact-authoring-ledger-admit-input",
+              "initialize-artifact-authoring-ledger-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "initialize-artifact-authoring-ledger-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/initialize-artifact-authoring-ledger"
+          }
+        }
+      },
+      {
+        "id": "n-caa7578b3d31c30c6f29f7d7",
+        "identity": "select-next-eligible-artifact-fragment",
+        "kind": "decision",
+        "label": "select next eligible artifact fragment",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/8",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "junction",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "select-next-eligible-artifact-fragment.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "select-next-eligible-artifact-fragment"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "artifact-authoring-ledger.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "artifact-authoring-ledger"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "eligible-artifact-authoring-work-unit.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "eligible-artifact-authoring-work-unit",
+              "variants": [
+                {
+                  "projectionOrdinal": 0,
+                  "variantId": "WORK_SELECTED"
+                },
+                {
+                  "projectionOrdinal": 1,
+                  "variantId": "ALL_CLOSED"
+                },
+                {
+                  "projectionOrdinal": 2,
+                  "variantId": "WORK_HELD"
+                }
+              ]
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/select-next-eligible-artifact-fragment",
+            "checkpoints": [
+              "select-next-eligible-artifact-fragment-admit-input",
+              "select-next-eligible-artifact-fragment-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "select-next-eligible-artifact-fragment-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/select-next-eligible-artifact-fragment"
+          }
+        }
+      },
+      {
+        "id": "n-8c8cbbcf896197fee6894616",
+        "identity": "construct-bounded-authoring-envelope",
+        "kind": "event",
+        "label": "construct bounded authoring envelope",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/9",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "construct-bounded-authoring-envelope.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "construct-bounded-authoring-envelope"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "authoring-work-unit-readiness-proof.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "authoring-work-unit-readiness-proof"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "bounded-authoring-envelope.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "bounded-authoring-envelope"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/construct-bounded-authoring-envelope",
+            "checkpoints": [
+              "construct-bounded-authoring-envelope-admit-input",
+              "construct-bounded-authoring-envelope-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "construct-bounded-authoring-envelope-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/construct-bounded-authoring-envelope"
+          }
+        }
+      },
+      {
+        "id": "n-0720f398cdec54319026f576",
+        "identity": "obtain-authoring-testimony",
+        "kind": "event",
+        "label": "obtain authoring testimony",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/10",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "obtain-authoring-testimony.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "obtain-authoring-testimony"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "bounded-authoring-envelope.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "bounded-authoring-envelope"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "governed-authoring-testimony.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "governed-authoring-testimony"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/obtain-authoring-testimony",
+            "checkpoints": [
+              "obtain-authoring-testimony-admit-input",
+              "obtain-authoring-testimony-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "obtain-authoring-testimony-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/obtain-authoring-testimony"
+          }
+        }
+      },
+      {
+        "id": "n-50b3844447d360634c59c09d",
+        "identity": "admit-structured-authoring-testimony",
+        "kind": "decision",
+        "label": "admit structured authoring testimony",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/11",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "junction",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "admit-structured-authoring-testimony.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "admit-structured-authoring-testimony"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "authoring-testimony-for-admission.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "authoring-testimony-for-admission"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "authoring-testimony-admission-result.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "authoring-testimony-admission-result",
+              "variants": [
+                {
+                  "projectionOrdinal": 0,
+                  "variantId": "TESTIMONY_ADMITTED"
+                },
+                {
+                  "projectionOrdinal": 1,
+                  "variantId": "REPRESENTATION_DEFECT"
+                }
+              ]
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/admit-structured-authoring-testimony",
+            "checkpoints": [
+              "admit-structured-authoring-testimony-admit-input",
+              "admit-structured-authoring-testimony-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "admit-structured-authoring-testimony-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/admit-structured-authoring-testimony"
+          }
+        }
+      },
+      {
+        "id": "n-faec1c9b97d5ee5031926d03",
+        "identity": "classify-authoring-testimony",
+        "kind": "decision",
+        "label": "classify authoring testimony",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/12",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "junction",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "classify-authoring-testimony.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "classify-authoring-testimony"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "authoring-testimony-admission-result.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "authoring-testimony-admission-result"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "classified-authoring-findings.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "classified-authoring-findings",
+              "variants": [
+                {
+                  "projectionOrdinal": 0,
+                  "variantId": "TESTIMONY_CONFORMS"
+                },
+                {
+                  "projectionOrdinal": 1,
+                  "variantId": "REPAIRABLE_DEFECTS"
+                },
+                {
+                  "projectionOrdinal": 2,
+                  "variantId": "NONREPAIRABLE_DEFECTS"
+                }
+              ]
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/classify-authoring-testimony",
+            "checkpoints": [
+              "classify-authoring-testimony-admit-input",
+              "classify-authoring-testimony-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "classify-authoring-testimony-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/classify-authoring-testimony"
+          }
+        }
+      },
+      {
+        "id": "n-84c7848b5d62826cf905bb47",
+        "identity": "resolve-mechanical-repair-uniqueness",
+        "kind": "decision",
+        "label": "resolve mechanical repair uniqueness",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/13",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "junction",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "resolve-mechanical-repair-uniqueness.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "resolve-mechanical-repair-uniqueness"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "classified-authoring-findings.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "classified-authoring-findings"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "mechanical-repair-resolution.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "mechanical-repair-resolution",
+              "variants": [
+                {
+                  "projectionOrdinal": 0,
+                  "variantId": "UNIQUE_REPAIR"
+                },
+                {
+                  "projectionOrdinal": 1,
+                  "variantId": "NOT_MECHANICALLY_REPAIRABLE"
+                },
+                {
+                  "projectionOrdinal": 2,
+                  "variantId": "AMBIGUOUS_REPAIR"
+                }
+              ]
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/resolve-mechanical-repair-uniqueness",
+            "checkpoints": [
+              "resolve-mechanical-repair-uniqueness-admit-input",
+              "resolve-mechanical-repair-uniqueness-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "resolve-mechanical-repair-uniqueness-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/resolve-mechanical-repair-uniqueness"
+          }
+        }
+      },
+      {
+        "id": "n-307af118b1577f19a0af213d",
+        "identity": "integrate-conforming-authoring-work-unit",
+        "kind": "event",
+        "label": "integrate conforming authoring work unit",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/14",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "integrate-conforming-authoring-work-unit.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "integrate-conforming-authoring-work-unit"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "conforming-authoring-work-unit.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "conforming-authoring-work-unit"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "artifact-authoring-ledger.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "artifact-authoring-ledger"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/integrate-conforming-authoring-work-unit",
+            "checkpoints": [
+              "integrate-conforming-authoring-work-unit-admit-input",
+              "integrate-conforming-authoring-work-unit-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "integrate-conforming-authoring-work-unit-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/integrate-conforming-authoring-work-unit"
+          }
+        }
+      },
+      {
+        "id": "n-ba17bc65ee48200d4278713f",
+        "identity": "authorize-authoring-attempt",
+        "kind": "decision",
+        "label": "authorize authoring attempt",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/15",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "junction",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "authorize-authoring-attempt.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "authorize-authoring-attempt"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "classified-authoring-findings.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "classified-authoring-findings"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "authorized-authoring-attempt.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "authorized-authoring-attempt",
+              "variants": [
+                {
+                  "projectionOrdinal": 0,
+                  "variantId": "RETRY_AUTHORIZED"
+                },
+                {
+                  "projectionOrdinal": 1,
+                  "variantId": "PROVIDER_SWITCH_AUTHORIZED"
+                },
+                {
+                  "projectionOrdinal": 2,
+                  "variantId": "BOUNDED_REPAIR_AUTHORIZED"
+                },
+                {
+                  "projectionOrdinal": 3,
+                  "variantId": "TERMINAL_REJECTION"
+                }
+              ]
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/authorize-authoring-attempt",
+            "checkpoints": [
+              "authorize-authoring-attempt-admit-input",
+              "authorize-authoring-attempt-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "authorize-authoring-attempt-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/authorize-authoring-attempt"
+          }
+        }
+      },
+      {
+        "id": "n-e6c9792efdebead2f3a215ab",
+        "identity": "repair-authoring-work-unit",
+        "kind": "event",
+        "label": "repair authoring work unit",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/16",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "repair-authoring-work-unit.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "repair-authoring-work-unit"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "authorized-authoring-attempt.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "authorized-authoring-attempt"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "bounded-authoring-repair-request.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "bounded-authoring-repair-request"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/repair-authoring-work-unit",
+            "checkpoints": [
+              "repair-authoring-work-unit-admit-input",
+              "repair-authoring-work-unit-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "repair-authoring-work-unit-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/repair-authoring-work-unit"
+          }
+        }
+      },
+      {
+        "id": "n-b00d881b7138762be3915a88",
+        "identity": "assemble-canonical-authority-artifacts",
+        "kind": "event",
+        "label": "assemble canonical authority artifacts",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/17",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "assemble-canonical-authority-artifacts.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "assemble-canonical-authority-artifacts"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "artifact-authoring-ledger.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "artifact-authoring-ledger"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "projectable-capability-candidate.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "projectable-capability-candidate"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/assemble-canonical-authority-artifacts",
+            "checkpoints": [
+              "assemble-canonical-authority-artifacts-admit-input",
+              "assemble-canonical-authority-artifacts-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "assemble-canonical-authority-artifacts-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/assemble-canonical-authority-artifacts"
+          }
+        }
+      },
+      {
+        "id": "n-0cb64081f15a4b34b5542f9f",
+        "identity": "prove-candidate-authoring-closure",
+        "kind": "event",
+        "label": "prove candidate authoring closure",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/18",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "prove-candidate-authoring-closure.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "prove-candidate-authoring-closure"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "projectable-capability-candidate.v1",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "projectable-capability-candidate"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "projectable-capability-authoring-result.v2",
+                "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+              },
+              "identity": "projectable-capability-authoring-result"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "authorizedDimensions": [
+              "change-id",
+              "route-id",
+              "terminal-disposition",
+              "capability-id",
+              "work-unit-id",
+              "attempt-id",
+              "finding-class",
+              "provider-identity"
+            ],
+            "causalAddress": "author-tooling-capability-candidate/prove-candidate-authoring-closure",
+            "checkpoints": [
+              "prove-candidate-authoring-closure-admit-input",
+              "prove-candidate-authoring-closure-emit-outcome"
+            ],
+            "evidenceDestination": "capability-change-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "prove-candidate-authoring-closure-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/author-tooling-capability-candidate/node/prove-candidate-authoring-closure"
+          }
+        }
+      },
+      {
+        "id": "n-b8c83a94a739d37d729b31e1",
+        "identity": "candidate-returned-terminal",
+        "kind": "termination",
+        "label": "candidate returned terminal",
+        "detail": "SUCCESS",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/19",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "terminal",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": "SUCCESS",
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": null
+        }
+      },
+      {
+        "id": "n-7ad217586b5a6ed7017d91ac",
+        "identity": "testimony-rejected-terminal",
+        "kind": "rejection",
+        "label": "testimony rejected terminal",
+        "detail": "REJECTED",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/20",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "terminal",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": "REJECTED",
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": null
+        }
+      },
+      {
+        "id": "n-109f5b7de6472f58a493304e",
+        "identity": "authoring-held-terminal",
+        "kind": "termination",
+        "label": "authoring held terminal",
+        "detail": "HELD",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/21",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "terminal",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": "HELD",
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": null
+        }
+      },
+      {
+        "id": "n-a0accb90c28e3c07c3f0a5a8",
+        "identity": "authoring-model-invocation-provider",
+        "kind": "provider-port",
+        "label": "authoring model invocation provider",
+        "detail": "PROVIDER",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/22",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "provider-slot",
+          "altitude": "PROVIDER",
+          "terminalDisposition": null,
+          "cell": null,
+          "providerSlot": {
+            "mode": "governed-model-invocation",
+            "portId": "authoring-model-invocation-provider-port"
+          },
+          "requiredProducts": null,
+          "observability": null
+        }
+      },
+      {
+        "id": "n-6aa010df69c11adf55b4bafb",
+        "identity": "unique-repair-reauthority",
+        "kind": "input",
+        "label": "unique repair reauthority",
+        "detail": "OPERATION",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/23",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "state",
+          "altitude": "OPERATION",
+          "terminalDisposition": null,
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": null
+        }
+      },
+      {
+        "id": "n-25c87a5a16e5c2b2459de788",
+        "identity": "work-unit-advance-authority",
+        "kind": "input",
+        "label": "work unit advance authority",
+        "detail": "OPERATION",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/24",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "state",
+          "altitude": "OPERATION",
+          "terminalDisposition": null,
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": null
+        }
+      },
+      {
+        "id": "n-e402427d4694e76cc23f23b8",
+        "identity": "retry-selected",
+        "kind": "input",
+        "label": "retry selected",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/25",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "state",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": null
+        }
+      },
+      {
+        "id": "n-41886c294c9c51f08e7d0fa3",
+        "identity": "switch-selected",
+        "kind": "input",
+        "label": "switch selected",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/26",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "state",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": null
+        }
+      },
+      {
+        "id": "n-ef1277eb7c50746d6c0dc7e7",
+        "identity": "retry-attempt-authority",
+        "kind": "input",
+        "label": "retry attempt authority",
+        "detail": "OPERATION",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/27",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "state",
+          "altitude": "OPERATION",
+          "terminalDisposition": null,
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": null
+        }
+      },
+      {
+        "id": "n-136183f1faf4c8d19e5fd1c5",
+        "identity": "provider-switch-attempt-authority",
+        "kind": "input",
+        "label": "provider switch attempt authority",
+        "detail": "OPERATION",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/28",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "state",
+          "altitude": "OPERATION",
+          "terminalDisposition": null,
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": null
+        }
+      },
+      {
+        "id": "n-6244deef9fe1f8bb18eddcfb",
+        "identity": "repair-attempt-authority",
+        "kind": "input",
+        "label": "repair attempt authority",
+        "detail": "OPERATION",
+        "source": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/nodes/29",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "nativeKind": "state",
+          "altitude": "OPERATION",
+          "terminalDisposition": null,
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": null
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "n-a5aaa2773db847502e939c98",
+        "identity": "from-author-tooling-capability-candidate-to-admit-capability-authoring-context",
+        "source": "n-4f03361737474a4270a26b2f",
+        "target": "n-f5e2679361151d42375a26db",
+        "kind": "TRANSITION",
+        "traversable": true,
+        "label": "NARROWS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/0",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "from-author-tooling-capability-candidate-to-admit-capability-authoring-context-traversed"
+            ]
+          },
+          "projectionOrdinal": 0,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-9cba4783f92079d589aa286d",
+        "identity": "admit-to-resolve",
+        "source": "n-f5e2679361151d42375a26db",
+        "target": "n-063e5ae63c5a68ae00d2bf0c",
+        "kind": "TRANSITION",
+        "traversable": true,
+        "label": "NARROWS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/1",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "admit-to-resolve-traversed"
+            ]
+          },
+          "projectionOrdinal": 1,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-6dbd1c41ac18b7d1b32e6696",
+        "identity": "resolve-to-initialize",
+        "source": "n-063e5ae63c5a68ae00d2bf0c",
+        "target": "n-3c0b5c2765b13333bbf0a048",
+        "kind": "TRANSITION",
+        "traversable": true,
+        "label": "NARROWS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/2",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "resolve-to-initialize-traversed"
+            ]
+          },
+          "projectionOrdinal": 2,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-329e1720d3f44668d3e2d192",
+        "identity": "initialize-to-select",
+        "source": "n-3c0b5c2765b13333bbf0a048",
+        "target": "n-caa7578b3d31c30c6f29f7d7",
+        "kind": "TRANSITION",
+        "traversable": true,
+        "label": "NARROWS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/3",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "initialize-to-select-traversed"
+            ]
+          },
+          "projectionOrdinal": 3,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-422b83d308b5052bd513c024",
+        "identity": "select-work-selected",
+        "source": "n-caa7578b3d31c30c6f29f7d7",
+        "target": "n-7093c29ea048ca5ce733f4bd",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "WORK_SELECTED",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/4",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "select-work-selected-traversed"
+            ]
+          },
+          "projectionOrdinal": 4,
+          "selectingVariant": "WORK_SELECTED",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-51f0088787cc6725aa3bc066",
+        "identity": "select-all-closed",
+        "source": "n-caa7578b3d31c30c6f29f7d7",
+        "target": "n-b00d881b7138762be3915a88",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "ALL_CLOSED",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/5",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "select-all-closed-traversed"
+            ]
+          },
+          "projectionOrdinal": 5,
+          "selectingVariant": "ALL_CLOSED",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-5c869c3d5d531089504efcf1",
+        "identity": "select-work-held",
+        "source": "n-caa7578b3d31c30c6f29f7d7",
+        "target": "n-109f5b7de6472f58a493304e",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "WORK_HELD",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/6",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "select-work-held-traversed"
+            ]
+          },
+          "projectionOrdinal": 6,
+          "selectingVariant": "WORK_HELD",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "TERMINATES"
+        }
+      },
+      {
+        "id": "n-5feda7a88255064695896128",
+        "identity": "construct-to-obtain",
+        "source": "n-8c8cbbcf896197fee6894616",
+        "target": "n-0720f398cdec54319026f576",
+        "kind": "TRANSITION",
+        "traversable": true,
+        "label": "NARROWS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/7",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "construct-to-obtain-traversed"
+            ]
+          },
+          "projectionOrdinal": 7,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-c6d22a3e3827d129b2e3448f",
+        "identity": "admit-to-classify",
+        "source": "n-50b3844447d360634c59c09d",
+        "target": "n-faec1c9b97d5ee5031926d03",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "TESTIMONY_ADMITTED",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/8",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "admit-to-classify-traversed"
+            ]
+          },
+          "projectionOrdinal": 8,
+          "selectingVariant": "TESTIMONY_ADMITTED",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-d9b555e7107e5c2617817124",
+        "identity": "classify-conforms",
+        "source": "n-faec1c9b97d5ee5031926d03",
+        "target": "n-3b06685e5e41c1c2275d0628",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "TESTIMONY_CONFORMS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/9",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "classify-conforms-traversed"
+            ]
+          },
+          "projectionOrdinal": 9,
+          "selectingVariant": "TESTIMONY_CONFORMS",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-ec532adbfe5b9ee9b49b82cf",
+        "identity": "classify-repairable",
+        "source": "n-faec1c9b97d5ee5031926d03",
+        "target": "n-84c7848b5d62826cf905bb47",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "REPAIRABLE_DEFECTS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/10",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "classify-repairable-traversed"
+            ]
+          },
+          "projectionOrdinal": 10,
+          "selectingVariant": "REPAIRABLE_DEFECTS",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-a332cea2f2be7e0201cb9912",
+        "identity": "classify-nonrepairable",
+        "source": "n-faec1c9b97d5ee5031926d03",
+        "target": "n-ba17bc65ee48200d4278713f",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "NONREPAIRABLE_DEFECTS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/11",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "classify-nonrepairable-traversed"
+            ]
+          },
+          "projectionOrdinal": 11,
+          "selectingVariant": "NONREPAIRABLE_DEFECTS",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-ddcd2f48b2ff6c798446c3c0",
+        "identity": "resolve-unique-repair",
+        "source": "n-84c7848b5d62826cf905bb47",
+        "target": "n-d4f45405acf5a4caf292d008",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "UNIQUE_REPAIR",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/12",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "resolve-unique-repair-traversed"
+            ]
+          },
+          "projectionOrdinal": 12,
+          "selectingVariant": "UNIQUE_REPAIR",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-5db84cb7119480c80b8c984d",
+        "identity": "resolve-not-repairable",
+        "source": "n-84c7848b5d62826cf905bb47",
+        "target": "n-ba17bc65ee48200d4278713f",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "NOT_MECHANICALLY_REPAIRABLE",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/13",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "resolve-not-repairable-traversed"
+            ]
+          },
+          "projectionOrdinal": 13,
+          "selectingVariant": "NOT_MECHANICALLY_REPAIRABLE",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-66d545c275104c2eac9eb55e",
+        "identity": "resolve-ambiguous",
+        "source": "n-84c7848b5d62826cf905bb47",
+        "target": "n-ba17bc65ee48200d4278713f",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "AMBIGUOUS_REPAIR",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/14",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "resolve-ambiguous-traversed"
+            ]
+          },
+          "projectionOrdinal": 14,
+          "selectingVariant": "AMBIGUOUS_REPAIR",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-3d67868afba601e0921da4dd",
+        "identity": "authorize-retry",
+        "source": "n-ba17bc65ee48200d4278713f",
+        "target": "n-e402427d4694e76cc23f23b8",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "RETRY_AUTHORIZED",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/15",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "authorize-retry-traversed"
+            ]
+          },
+          "projectionOrdinal": 15,
+          "selectingVariant": "RETRY_AUTHORIZED",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-e5698bc5c2b954decf7cb601",
+        "identity": "authorize-provider-switch",
+        "source": "n-ba17bc65ee48200d4278713f",
+        "target": "n-41886c294c9c51f08e7d0fa3",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "PROVIDER_SWITCH_AUTHORIZED",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/16",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "authorize-provider-switch-traversed"
+            ]
+          },
+          "projectionOrdinal": 16,
+          "selectingVariant": "PROVIDER_SWITCH_AUTHORIZED",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-6136930a0dca962b8f4a5a3c",
+        "identity": "authorize-bounded-repair",
+        "source": "n-ba17bc65ee48200d4278713f",
+        "target": "n-e6c9792efdebead2f3a215ab",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "BOUNDED_REPAIR_AUTHORIZED",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/17",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "authorize-bounded-repair-traversed"
+            ]
+          },
+          "projectionOrdinal": 17,
+          "selectingVariant": "BOUNDED_REPAIR_AUTHORIZED",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-9072e0dda6463904b2b17f92",
+        "identity": "authorize-terminal-rejection",
+        "source": "n-ba17bc65ee48200d4278713f",
+        "target": "n-7ad217586b5a6ed7017d91ac",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "TERMINAL_REJECTION",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/18",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "authorize-terminal-rejection-traversed"
+            ]
+          },
+          "projectionOrdinal": 18,
+          "selectingVariant": "TERMINAL_REJECTION",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "TERMINATES"
+        }
+      },
+      {
+        "id": "n-a1fbbf067dd775806d01c10f",
+        "identity": "assemble-to-prove",
+        "source": "n-b00d881b7138762be3915a88",
+        "target": "n-0cb64081f15a4b34b5542f9f",
+        "kind": "TRANSITION",
+        "traversable": true,
+        "label": "NARROWS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/19",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "assemble-to-prove-traversed"
+            ]
+          },
+          "projectionOrdinal": 19,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-9585846f53d22c6a273f26b8",
+        "identity": "prove-to-terminal",
+        "source": "n-0cb64081f15a4b34b5542f9f",
+        "target": "n-b8c83a94a739d37d729b31e1",
+        "kind": "TRANSITION",
+        "traversable": true,
+        "label": "TERMINATES",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/20",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "prove-to-terminal-traversed"
+            ]
+          },
+          "projectionOrdinal": 20,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "TERMINATES"
+        }
+      },
+      {
+        "id": "n-be9b563f52be6f90d299e144",
+        "identity": "obtain-to-authoring-provider",
+        "source": "n-0720f398cdec54319026f576",
+        "target": "n-a0accb90c28e3c07c3f0a5a8",
+        "kind": "ALTITUDE_DESCENT",
+        "traversable": true,
+        "label": "DESCENDS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/21",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "obtain-to-authoring-provider-traversed"
+            ]
+          },
+          "projectionOrdinal": 21,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "DESCENDS"
+        }
+      },
+      {
+        "id": "n-21973cd6beebee2b5cda72fd",
+        "identity": "authoring-provider-to-obtain",
+        "source": "n-a0accb90c28e3c07c3f0a5a8",
+        "target": "n-0720f398cdec54319026f576",
+        "kind": "BOUNDED_RETURN",
+        "traversable": true,
+        "label": "BOUNDED_RETURN",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/22",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "boundedReturn": {
+            "authority": {
+              "authorityId": "bounded-capability-authoring-profile.v2",
+              "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+            },
+            "bound": 1,
+            "kind": "RESUMPTION"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "authoring-provider-to-obtain-traversed"
+            ]
+          },
+          "projectionOrdinal": 22,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "BOUNDED_RETURN"
+        }
+      },
+      {
+        "id": "n-d51a4edff7012d5dd76ad527",
+        "identity": "admit-representation-defect",
+        "source": "n-50b3844447d360634c59c09d",
+        "target": "n-faec1c9b97d5ee5031926d03",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "REPRESENTATION_DEFECT",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/23",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "admit-representation-defect-traversed"
+            ]
+          },
+          "projectionOrdinal": 23,
+          "selectingVariant": "REPRESENTATION_DEFECT",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-e7deb27d0c36a23cb3ffa7f0",
+        "identity": "apply-to-reauthority",
+        "source": "n-d4f45405acf5a4caf292d008",
+        "target": "n-6aa010df69c11adf55b4bafb",
+        "kind": "ALTITUDE_DESCENT",
+        "traversable": true,
+        "label": "DESCENDS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/24",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "apply-to-reauthority-traversed"
+            ]
+          },
+          "projectionOrdinal": 24,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "DESCENDS"
+        }
+      },
+      {
+        "id": "n-e8aafdbde6d11a7a9a657389",
+        "identity": "reauthority-to-prepare",
+        "source": "n-6aa010df69c11adf55b4bafb",
+        "target": "n-9ecca390c74e2f39cc8471b2",
+        "kind": "BOUNDED_RETURN",
+        "traversable": true,
+        "label": "BOUNDED_RETURN",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/25",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "boundedReturn": {
+            "authority": {
+              "authorityId": "mechanical-repair-resolution.v1",
+              "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+            },
+            "bound": 1,
+            "kind": "REPAIR"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "reauthority-to-prepare-traversed"
+            ]
+          },
+          "projectionOrdinal": 25,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "BOUNDED_RETURN"
+        }
+      },
+      {
+        "id": "n-b51acddb9f55f2c6754ffd76",
+        "identity": "integrate-to-work-advance",
+        "source": "n-307af118b1577f19a0af213d",
+        "target": "n-25c87a5a16e5c2b2459de788",
+        "kind": "ALTITUDE_DESCENT",
+        "traversable": true,
+        "label": "DESCENDS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/26",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "integrate-to-work-advance-traversed"
+            ]
+          },
+          "projectionOrdinal": 26,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "DESCENDS"
+        }
+      },
+      {
+        "id": "n-21a4e591b2890d5312031096",
+        "identity": "work-advance-to-select",
+        "source": "n-25c87a5a16e5c2b2459de788",
+        "target": "n-caa7578b3d31c30c6f29f7d7",
+        "kind": "BOUNDED_RETURN",
+        "traversable": true,
+        "label": "BOUNDED_RETURN",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/27",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "boundedReturn": {
+            "authority": {
+              "authorityId": "artifact-authoring-ledger.v1",
+              "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+            },
+            "bound": 1,
+            "kind": "RESUMPTION"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "work-advance-to-select-traversed"
+            ]
+          },
+          "projectionOrdinal": 27,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "BOUNDED_RETURN"
+        }
+      },
+      {
+        "id": "n-797e01e9898f8d99522e8d5e",
+        "identity": "preflight-ready",
+        "source": "n-7093c29ea048ca5ce733f4bd",
+        "target": "n-8c8cbbcf896197fee6894616",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "AUTHORING_READY",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/28",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "preflight-ready-traversed"
+            ]
+          },
+          "projectionOrdinal": 28,
+          "selectingVariant": "AUTHORING_READY",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-52c81c56d0601586073d9262",
+        "identity": "preflight-representation-unsafe",
+        "source": "n-7093c29ea048ca5ce733f4bd",
+        "target": "n-109f5b7de6472f58a493304e",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "REPRESENTATION_UNSAFE",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/29",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "preflight-representation-unsafe-traversed"
+            ]
+          },
+          "projectionOrdinal": 29,
+          "selectingVariant": "REPRESENTATION_UNSAFE",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "TERMINATES"
+        }
+      },
+      {
+        "id": "n-22e988bd54ed20c5fce420ff",
+        "identity": "preflight-schema-unsatisfiable",
+        "source": "n-7093c29ea048ca5ce733f4bd",
+        "target": "n-109f5b7de6472f58a493304e",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "SCHEMA_UNSATISFIABLE",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/30",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "preflight-schema-unsatisfiable-traversed"
+            ]
+          },
+          "projectionOrdinal": 30,
+          "selectingVariant": "SCHEMA_UNSATISFIABLE",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "TERMINATES"
+        }
+      },
+      {
+        "id": "n-8483b9099c4023c5ce583239",
+        "identity": "preflight-context-incomplete",
+        "source": "n-7093c29ea048ca5ce733f4bd",
+        "target": "n-109f5b7de6472f58a493304e",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "CONTEXT_INCOMPLETE",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/31",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "preflight-context-incomplete-traversed"
+            ]
+          },
+          "projectionOrdinal": 31,
+          "selectingVariant": "CONTEXT_INCOMPLETE",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "TERMINATES"
+        }
+      },
+      {
+        "id": "n-e7fa80555f71bd406058b5fb",
+        "identity": "preflight-provider-incompatible",
+        "source": "n-7093c29ea048ca5ce733f4bd",
+        "target": "n-109f5b7de6472f58a493304e",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "PROVIDER_INCOMPATIBLE",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/32",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "preflight-provider-incompatible-traversed"
+            ]
+          },
+          "projectionOrdinal": 32,
+          "selectingVariant": "PROVIDER_INCOMPATIBLE",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "TERMINATES"
+        }
+      },
+      {
+        "id": "n-7f8fa84f85035309542cba9a",
+        "identity": "preflight-dependency-unresolved",
+        "source": "n-7093c29ea048ca5ce733f4bd",
+        "target": "n-109f5b7de6472f58a493304e",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "DEPENDENCY_UNRESOLVED",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/33",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "preflight-dependency-unresolved-traversed"
+            ]
+          },
+          "projectionOrdinal": 33,
+          "selectingVariant": "DEPENDENCY_UNRESOLVED",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "TERMINATES"
+        }
+      },
+      {
+        "id": "n-842dc1191ceea500095490a1",
+        "identity": "preflight-mutation-scope-divergent",
+        "source": "n-7093c29ea048ca5ce733f4bd",
+        "target": "n-109f5b7de6472f58a493304e",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "MUTATION_SCOPE_DIVERGENT",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/34",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "preflight-mutation-scope-divergent-traversed"
+            ]
+          },
+          "projectionOrdinal": 34,
+          "selectingVariant": "MUTATION_SCOPE_DIVERGENT",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "TERMINATES"
+        }
+      },
+      {
+        "id": "n-56265cd6d7f2b8cc58237013",
+        "identity": "preflight-work-unit-too-broad",
+        "source": "n-7093c29ea048ca5ce733f4bd",
+        "target": "n-109f5b7de6472f58a493304e",
+        "kind": "BRANCH_ROUTE",
+        "traversable": true,
+        "label": "WORK_UNIT_TOO_BROAD",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/35",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "preflight-work-unit-too-broad-traversed"
+            ]
+          },
+          "projectionOrdinal": 35,
+          "selectingVariant": "WORK_UNIT_TOO_BROAD",
+          "semanticPrecedence": "INDEPENDENT",
+          "semanticProgress": "TERMINATES"
+        }
+      },
+      {
+        "id": "n-8f1230e7b89a3571ea264120",
+        "identity": "retry-selected-to-retry-authority",
+        "source": "n-e402427d4694e76cc23f23b8",
+        "target": "n-ef1277eb7c50746d6c0dc7e7",
+        "kind": "ALTITUDE_DESCENT",
+        "traversable": true,
+        "label": "DESCENDS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/36",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "retry-selected-to-retry-authority-traversed"
+            ]
+          },
+          "projectionOrdinal": 36,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "DESCENDS"
+        }
+      },
+      {
+        "id": "n-b57ee47b3a2f7c7c59ba42cb",
+        "identity": "retry-authority-to-obtain",
+        "source": "n-ef1277eb7c50746d6c0dc7e7",
+        "target": "n-0720f398cdec54319026f576",
+        "kind": "BOUNDED_RETURN",
+        "traversable": true,
+        "label": "BOUNDED_RETURN",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/37",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "boundedReturn": {
+            "authority": {
+              "authorityId": "bounded-capability-authoring-profile.v2",
+              "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+            },
+            "bound": 1,
+            "kind": "RESUMPTION"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "retry-authority-to-obtain-traversed"
+            ]
+          },
+          "projectionOrdinal": 37,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "BOUNDED_RETURN"
+        }
+      },
+      {
+        "id": "n-3138b45363927acaae14ebde",
+        "identity": "switch-selected-to-switch-authority",
+        "source": "n-41886c294c9c51f08e7d0fa3",
+        "target": "n-136183f1faf4c8d19e5fd1c5",
+        "kind": "ALTITUDE_DESCENT",
+        "traversable": true,
+        "label": "DESCENDS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/38",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "switch-selected-to-switch-authority-traversed"
+            ]
+          },
+          "projectionOrdinal": 38,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "DESCENDS"
+        }
+      },
+      {
+        "id": "n-c4b06e733f7bfd7ec66b3bae",
+        "identity": "switch-authority-to-readiness",
+        "source": "n-136183f1faf4c8d19e5fd1c5",
+        "target": "n-7093c29ea048ca5ce733f4bd",
+        "kind": "BOUNDED_RETURN",
+        "traversable": true,
+        "label": "BOUNDED_RETURN",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/39",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "boundedReturn": {
+            "authority": {
+              "authorityId": "bounded-capability-authoring-profile.v2",
+              "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+            },
+            "bound": 1,
+            "kind": "RESUMPTION"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "switch-authority-to-readiness-traversed"
+            ]
+          },
+          "projectionOrdinal": 39,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "BOUNDED_RETURN"
+        }
+      },
+      {
+        "id": "n-dbd61d062825968a812f19ff",
+        "identity": "repair-to-repair-authority",
+        "source": "n-e6c9792efdebead2f3a215ab",
+        "target": "n-6244deef9fe1f8bb18eddcfb",
+        "kind": "ALTITUDE_DESCENT",
+        "traversable": true,
+        "label": "DESCENDS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/40",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "repair-to-repair-authority-traversed"
+            ]
+          },
+          "projectionOrdinal": 40,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "DESCENDS"
+        }
+      },
+      {
+        "id": "n-fc0fb7d3bda36eb3b9713757",
+        "identity": "repair-authority-to-readiness",
+        "source": "n-6244deef9fe1f8bb18eddcfb",
+        "target": "n-7093c29ea048ca5ce733f4bd",
+        "kind": "BOUNDED_RETURN",
+        "traversable": true,
+        "label": "BOUNDED_RETURN",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/41",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "boundedReturn": {
+            "authority": {
+              "authorityId": "bounded-capability-authoring-profile.v2",
+              "digest": "sha256:641666f1b99655bebeabb53dc32b0bbf6112a14687bd359224e1da4802c13a51"
+            },
+            "bound": 1,
+            "kind": "REPAIR"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "repair-authority-to-readiness-traversed"
+            ]
+          },
+          "projectionOrdinal": 41,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "BOUNDED_RETURN"
+        }
+      },
+      {
+        "id": "n-fd0ac13f8f2864b7bb983b76",
+        "identity": "establish-to-integrate",
+        "source": "n-3b06685e5e41c1c2275d0628",
+        "target": "n-307af118b1577f19a0af213d",
+        "kind": "TRANSITION",
+        "traversable": true,
+        "label": "NARROWS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/42",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "establish-to-integrate-traversed"
+            ]
+          },
+          "projectionOrdinal": 42,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-a6f2cc4b30743c12d3f8c37f",
+        "identity": "obtain-to-prepare",
+        "source": "n-0720f398cdec54319026f576",
+        "target": "n-9ecca390c74e2f39cc8471b2",
+        "kind": "TRANSITION",
+        "traversable": true,
+        "label": "NARROWS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/43",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "obtain-to-prepare-traversed"
+            ]
+          },
+          "projectionOrdinal": 43,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "NARROWS"
+        }
+      },
+      {
+        "id": "n-20b1cc9e0f7846ef412c801c",
+        "identity": "prepare-to-admit",
+        "source": "n-9ecca390c74e2f39cc8471b2",
+        "target": "n-50b3844447d360634c59c09d",
+        "kind": "TRANSITION",
+        "traversable": true,
+        "label": "NARROWS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics/edges/44",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:9226fd29f929e1ef75e21494d63839c774a872c230d37a4bbf8bbd2c17e73d80"
+            },
+            "checkpoints": [
+              "prepare-to-admit-traversed"
+            ]
+          },
+          "projectionOrdinal": 44,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "NARROWS"
+        }
+      }
+    ]
+  },
+  "geometry": {
+    "width": 6481.6,
+    "height": 1612.4,
+    "engine": "networkx",
+    "boxes": {
+      "n-4f03361737474a4270a26b2f": [
+        40.0,
+        1219.0,
+        270,
+        135
+      ],
+      "n-f5e2679361151d42375a26db": [
+        435.25,
+        1219.0,
+        270,
+        135
+      ],
+      "n-7093c29ea048ca5ce733f4bd": [
+        2047.0,
+        950.5000000000001,
+        270,
+        176
+      ],
+      "n-9ecca390c74e2f39cc8471b2": [
+        3382.0,
+        533.0000000000001,
+        270,
+        135
+      ],
+      "n-3b06685e5e41c1c2275d0628": [
+        4752.2,
+        146.0,
+        270,
+        135
+      ],
+      "n-d4f45405acf5a4caf292d008": [
+        5258.5,
+        441.0,
+        270,
+        135
+      ],
+      "n-063e5ae63c5a68ae00d2bf0c": [
+        830.5,
+        1219.0,
+        270,
+        135
+      ],
+      "n-3c0b5c2765b13333bbf0a048": [
+        1225.8,
+        1219.0,
+        270,
+        135
+      ],
+      "n-caa7578b3d31c30c6f29f7d7": [
+        1621.0,
+        1198.5,
+        270,
+        176
+      ],
+      "n-8c8cbbcf896197fee6894616": [
+        2540.5,
+        567.0000000000001,
+        270,
+        135
+      ],
+      "n-0720f398cdec54319026f576": [
+        2944.8,
+        567.0000000000001,
+        270,
+        135
+      ],
+      "n-50b3844447d360634c59c09d": [
+        3819.2,
+        512.5000000000001,
+        270,
+        176
+      ],
+      "n-faec1c9b97d5ee5031926d03": [
+        4288.0,
+        535.5000000000001,
+        270,
+        176
+      ],
+      "n-84c7848b5d62826cf905bb47": [
+        4752.2,
+        535.5000000000001,
+        270,
+        176
+      ],
+      "n-307af118b1577f19a0af213d": [
+        5258.5,
+        113.0,
+        270,
+        135
+      ],
+      "n-ba17bc65ee48200d4278713f": [
+        5258.5,
+        783.5000000000001,
+        270,
+        176
+      ],
+      "n-e6c9792efdebead2f3a215ab": [
+        5763.2,
+        541.0000000000001,
+        270,
+        135
+      ],
+      "n-b00d881b7138762be3915a88": [
+        2047.0,
+        1389.0,
+        270,
+        135
+      ],
+      "n-0cb64081f15a4b34b5542f9f": [
+        2540.5,
+        1389.0,
+        270,
+        135
+      ],
+      "n-b8c83a94a739d37d729b31e1": [
+        2944.8,
+        1389.0,
+        270,
+        135
+      ],
+      "n-7ad217586b5a6ed7017d91ac": [
+        5763.2,
+        843.0000000000001,
+        270,
+        135
+      ],
+      "n-109f5b7de6472f58a493304e": [
+        2540.5,
+        1033.0,
+        270,
+        135
+      ],
+      "n-a0accb90c28e3c07c3f0a5a8": [
+        3382.0,
+        1081.0,
+        270,
+        135
+      ],
+      "n-6aa010df69c11adf55b4bafb": [
+        5763.2,
+        321.0,
+        270,
+        135
+      ],
+      "n-25c87a5a16e5c2b2459de788": [
+        5763.2,
+        101.0,
+        270,
+        135
+      ],
+      "n-e402427d4694e76cc23f23b8": [
+        5763.2,
+        1063.0,
+        270,
+        135
+      ],
+      "n-41886c294c9c51f08e7d0fa3": [
+        5763.2,
+        1365.0,
+        270,
+        135
+      ],
+      "n-ef1277eb7c50746d6c0dc7e7": [
+        6157.8,
+        1063.0,
+        270,
+        135
+      ],
+      "n-136183f1faf4c8d19e5fd1c5": [
+        6157.8,
+        1365.0,
+        270,
+        135
+      ],
+      "n-6244deef9fe1f8bb18eddcfb": [
+        6157.8,
+        541.0000000000001,
+        270,
+        135
+      ]
+    },
+    "overlaps": 0
+  },
+  "materials": [
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/3a54046d850149829e577c655ac5fbc718785202592a752717ffb9f2950e9c8e.webp",
+      "sha256": "3a54046d850149829e577c655ac5fbc718785202592a752717ffb9f2950e9c8e",
+      "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/3a54046d850149829e577c655ac5fbc718785202592a752717ffb9f2950e9c8e.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a.webp",
+      "sha256": "49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a",
+      "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/71c591ed2d4687a4b376828684bbe913e3a837d8def04a95e82e924bb7f08faa.webp",
+      "sha256": "71c591ed2d4687a4b376828684bbe913e3a837d8def04a95e82e924bb7f08faa",
+      "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/71c591ed2d4687a4b376828684bbe913e3a837d8def04a95e82e924bb7f08faa.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126.webp",
+      "sha256": "8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126",
+      "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/9637072de851f78ab39cd1aae35a0d6c0dd9ed1bf36a5aed756d85e58855ccd6.webp",
+      "sha256": "9637072de851f78ab39cd1aae35a0d6c0dd9ed1bf36a5aed756d85e58855ccd6",
+      "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/9637072de851f78ab39cd1aae35a0d6c0dd9ed1bf36a5aed756d85e58855ccd6.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp",
+      "sha256": "bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c",
+      "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp"
+    }
+  ],
+  "hitTargets": [
+    {
+      "targetId": "n-a5aaa2773db847502e939c98",
+      "entityKind": "route",
+      "entityId": "n-a5aaa2773db847502e939c98",
+      "accessibleName": "TRANSITION: NARROWS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-9cba4783f92079d589aa286d",
+      "entityKind": "route",
+      "entityId": "n-9cba4783f92079d589aa286d",
+      "accessibleName": "TRANSITION: NARROWS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-6dbd1c41ac18b7d1b32e6696",
+      "entityKind": "route",
+      "entityId": "n-6dbd1c41ac18b7d1b32e6696",
+      "accessibleName": "TRANSITION: NARROWS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-329e1720d3f44668d3e2d192",
+      "entityKind": "route",
+      "entityId": "n-329e1720d3f44668d3e2d192",
+      "accessibleName": "TRANSITION: NARROWS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-422b83d308b5052bd513c024",
+      "entityKind": "route",
+      "entityId": "n-422b83d308b5052bd513c024",
+      "accessibleName": "BRANCH_ROUTE: WORK_SELECTED",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-51f0088787cc6725aa3bc066",
+      "entityKind": "route",
+      "entityId": "n-51f0088787cc6725aa3bc066",
+      "accessibleName": "BRANCH_ROUTE: ALL_CLOSED",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-5c869c3d5d531089504efcf1",
+      "entityKind": "route",
+      "entityId": "n-5c869c3d5d531089504efcf1",
+      "accessibleName": "BRANCH_ROUTE: WORK_HELD",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-5feda7a88255064695896128",
+      "entityKind": "route",
+      "entityId": "n-5feda7a88255064695896128",
+      "accessibleName": "TRANSITION: NARROWS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-c6d22a3e3827d129b2e3448f",
+      "entityKind": "route",
+      "entityId": "n-c6d22a3e3827d129b2e3448f",
+      "accessibleName": "BRANCH_ROUTE: TESTIMONY_ADMITTED",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-d9b555e7107e5c2617817124",
+      "entityKind": "route",
+      "entityId": "n-d9b555e7107e5c2617817124",
+      "accessibleName": "BRANCH_ROUTE: TESTIMONY_CONFORMS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-ec532adbfe5b9ee9b49b82cf",
+      "entityKind": "route",
+      "entityId": "n-ec532adbfe5b9ee9b49b82cf",
+      "accessibleName": "BRANCH_ROUTE: REPAIRABLE_DEFECTS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-a332cea2f2be7e0201cb9912",
+      "entityKind": "route",
+      "entityId": "n-a332cea2f2be7e0201cb9912",
+      "accessibleName": "BRANCH_ROUTE: NONREPAIRABLE_DEFECTS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-ddcd2f48b2ff6c798446c3c0",
+      "entityKind": "route",
+      "entityId": "n-ddcd2f48b2ff6c798446c3c0",
+      "accessibleName": "BRANCH_ROUTE: UNIQUE_REPAIR",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-5db84cb7119480c80b8c984d",
+      "entityKind": "route",
+      "entityId": "n-5db84cb7119480c80b8c984d",
+      "accessibleName": "BRANCH_ROUTE: NOT_MECHANICALLY_REPAIRABLE",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-66d545c275104c2eac9eb55e",
+      "entityKind": "route",
+      "entityId": "n-66d545c275104c2eac9eb55e",
+      "accessibleName": "BRANCH_ROUTE: AMBIGUOUS_REPAIR",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-3d67868afba601e0921da4dd",
+      "entityKind": "route",
+      "entityId": "n-3d67868afba601e0921da4dd",
+      "accessibleName": "BRANCH_ROUTE: RETRY_AUTHORIZED",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-e5698bc5c2b954decf7cb601",
+      "entityKind": "route",
+      "entityId": "n-e5698bc5c2b954decf7cb601",
+      "accessibleName": "BRANCH_ROUTE: PROVIDER_SWITCH_AUTHORIZED",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-6136930a0dca962b8f4a5a3c",
+      "entityKind": "route",
+      "entityId": "n-6136930a0dca962b8f4a5a3c",
+      "accessibleName": "BRANCH_ROUTE: BOUNDED_REPAIR_AUTHORIZED",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-9072e0dda6463904b2b17f92",
+      "entityKind": "route",
+      "entityId": "n-9072e0dda6463904b2b17f92",
+      "accessibleName": "BRANCH_ROUTE: TERMINAL_REJECTION",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-a1fbbf067dd775806d01c10f",
+      "entityKind": "route",
+      "entityId": "n-a1fbbf067dd775806d01c10f",
+      "accessibleName": "TRANSITION: NARROWS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-9585846f53d22c6a273f26b8",
+      "entityKind": "route",
+      "entityId": "n-9585846f53d22c6a273f26b8",
+      "accessibleName": "TRANSITION: TERMINATES",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-be9b563f52be6f90d299e144",
+      "entityKind": "route",
+      "entityId": "n-be9b563f52be6f90d299e144",
+      "accessibleName": "ALTITUDE_DESCENT: DESCENDS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-21973cd6beebee2b5cda72fd",
+      "entityKind": "route",
+      "entityId": "n-21973cd6beebee2b5cda72fd",
+      "accessibleName": "BOUNDED_RETURN: BOUNDED_RETURN",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-d51a4edff7012d5dd76ad527",
+      "entityKind": "route",
+      "entityId": "n-d51a4edff7012d5dd76ad527",
+      "accessibleName": "BRANCH_ROUTE: REPRESENTATION_DEFECT",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-e7deb27d0c36a23cb3ffa7f0",
+      "entityKind": "route",
+      "entityId": "n-e7deb27d0c36a23cb3ffa7f0",
+      "accessibleName": "ALTITUDE_DESCENT: DESCENDS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-e8aafdbde6d11a7a9a657389",
+      "entityKind": "route",
+      "entityId": "n-e8aafdbde6d11a7a9a657389",
+      "accessibleName": "BOUNDED_RETURN: BOUNDED_RETURN",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-b51acddb9f55f2c6754ffd76",
+      "entityKind": "route",
+      "entityId": "n-b51acddb9f55f2c6754ffd76",
+      "accessibleName": "ALTITUDE_DESCENT: DESCENDS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-21a4e591b2890d5312031096",
+      "entityKind": "route",
+      "entityId": "n-21a4e591b2890d5312031096",
+      "accessibleName": "BOUNDED_RETURN: BOUNDED_RETURN",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-797e01e9898f8d99522e8d5e",
+      "entityKind": "route",
+      "entityId": "n-797e01e9898f8d99522e8d5e",
+      "accessibleName": "BRANCH_ROUTE: AUTHORING_READY",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-52c81c56d0601586073d9262",
+      "entityKind": "route",
+      "entityId": "n-52c81c56d0601586073d9262",
+      "accessibleName": "BRANCH_ROUTE: REPRESENTATION_UNSAFE",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-22e988bd54ed20c5fce420ff",
+      "entityKind": "route",
+      "entityId": "n-22e988bd54ed20c5fce420ff",
+      "accessibleName": "BRANCH_ROUTE: SCHEMA_UNSATISFIABLE",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-8483b9099c4023c5ce583239",
+      "entityKind": "route",
+      "entityId": "n-8483b9099c4023c5ce583239",
+      "accessibleName": "BRANCH_ROUTE: CONTEXT_INCOMPLETE",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-e7fa80555f71bd406058b5fb",
+      "entityKind": "route",
+      "entityId": "n-e7fa80555f71bd406058b5fb",
+      "accessibleName": "BRANCH_ROUTE: PROVIDER_INCOMPATIBLE",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-7f8fa84f85035309542cba9a",
+      "entityKind": "route",
+      "entityId": "n-7f8fa84f85035309542cba9a",
+      "accessibleName": "BRANCH_ROUTE: DEPENDENCY_UNRESOLVED",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-842dc1191ceea500095490a1",
+      "entityKind": "route",
+      "entityId": "n-842dc1191ceea500095490a1",
+      "accessibleName": "BRANCH_ROUTE: MUTATION_SCOPE_DIVERGENT",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-56265cd6d7f2b8cc58237013",
+      "entityKind": "route",
+      "entityId": "n-56265cd6d7f2b8cc58237013",
+      "accessibleName": "BRANCH_ROUTE: WORK_UNIT_TOO_BROAD",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-8f1230e7b89a3571ea264120",
+      "entityKind": "route",
+      "entityId": "n-8f1230e7b89a3571ea264120",
+      "accessibleName": "ALTITUDE_DESCENT: DESCENDS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-b57ee47b3a2f7c7c59ba42cb",
+      "entityKind": "route",
+      "entityId": "n-b57ee47b3a2f7c7c59ba42cb",
+      "accessibleName": "BOUNDED_RETURN: BOUNDED_RETURN",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-3138b45363927acaae14ebde",
+      "entityKind": "route",
+      "entityId": "n-3138b45363927acaae14ebde",
+      "accessibleName": "ALTITUDE_DESCENT: DESCENDS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-c4b06e733f7bfd7ec66b3bae",
+      "entityKind": "route",
+      "entityId": "n-c4b06e733f7bfd7ec66b3bae",
+      "accessibleName": "BOUNDED_RETURN: BOUNDED_RETURN",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-dbd61d062825968a812f19ff",
+      "entityKind": "route",
+      "entityId": "n-dbd61d062825968a812f19ff",
+      "accessibleName": "ALTITUDE_DESCENT: DESCENDS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-fc0fb7d3bda36eb3b9713757",
+      "entityKind": "route",
+      "entityId": "n-fc0fb7d3bda36eb3b9713757",
+      "accessibleName": "BOUNDED_RETURN: BOUNDED_RETURN",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-fd0ac13f8f2864b7bb983b76",
+      "entityKind": "route",
+      "entityId": "n-fd0ac13f8f2864b7bb983b76",
+      "accessibleName": "TRANSITION: NARROWS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-a6f2cc4b30743c12d3f8c37f",
+      "entityKind": "route",
+      "entityId": "n-a6f2cc4b30743c12d3f8c37f",
+      "accessibleName": "TRANSITION: NARROWS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-20b1cc9e0f7846ef412c801c",
+      "entityKind": "route",
+      "entityId": "n-20b1cc9e0f7846ef412c801c",
+      "accessibleName": "TRANSITION: NARROWS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-4f03361737474a4270a26b2f",
+      "entityKind": "node",
+      "entityId": "n-4f03361737474a4270a26b2f",
+      "accessibleName": "event: author tooling capability candidate",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-f5e2679361151d42375a26db",
+      "entityKind": "node",
+      "entityId": "n-f5e2679361151d42375a26db",
+      "accessibleName": "event: admit capability authoring context",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-7093c29ea048ca5ce733f4bd",
+      "entityKind": "node",
+      "entityId": "n-7093c29ea048ca5ce733f4bd",
+      "accessibleName": "decision: prove authoring work unit readiness",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-9ecca390c74e2f39cc8471b2",
+      "entityKind": "node",
+      "entityId": "n-9ecca390c74e2f39cc8471b2",
+      "accessibleName": "event: prepare authoring testimony for admission",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-3b06685e5e41c1c2275d0628",
+      "entityKind": "node",
+      "entityId": "n-3b06685e5e41c1c2275d0628",
+      "accessibleName": "event: establish conforming authoring work unit",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-d4f45405acf5a4caf292d008",
+      "entityKind": "node",
+      "entityId": "n-d4f45405acf5a4caf292d008",
+      "accessibleName": "event: apply unique mechanical repair",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-063e5ae63c5a68ae00d2bf0c",
+      "entityKind": "node",
+      "entityId": "n-063e5ae63c5a68ae00d2bf0c",
+      "accessibleName": "event: resolve capability authoring profile",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-3c0b5c2765b13333bbf0a048",
+      "entityKind": "node",
+      "entityId": "n-3c0b5c2765b13333bbf0a048",
+      "accessibleName": "event: initialize artifact authoring ledger",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-caa7578b3d31c30c6f29f7d7",
+      "entityKind": "node",
+      "entityId": "n-caa7578b3d31c30c6f29f7d7",
+      "accessibleName": "decision: select next eligible artifact fragment",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-8c8cbbcf896197fee6894616",
+      "entityKind": "node",
+      "entityId": "n-8c8cbbcf896197fee6894616",
+      "accessibleName": "event: construct bounded authoring envelope",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-0720f398cdec54319026f576",
+      "entityKind": "node",
+      "entityId": "n-0720f398cdec54319026f576",
+      "accessibleName": "event: obtain authoring testimony",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-50b3844447d360634c59c09d",
+      "entityKind": "node",
+      "entityId": "n-50b3844447d360634c59c09d",
+      "accessibleName": "decision: admit structured authoring testimony",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-faec1c9b97d5ee5031926d03",
+      "entityKind": "node",
+      "entityId": "n-faec1c9b97d5ee5031926d03",
+      "accessibleName": "decision: classify authoring testimony",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-84c7848b5d62826cf905bb47",
+      "entityKind": "node",
+      "entityId": "n-84c7848b5d62826cf905bb47",
+      "accessibleName": "decision: resolve mechanical repair uniqueness",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-307af118b1577f19a0af213d",
+      "entityKind": "node",
+      "entityId": "n-307af118b1577f19a0af213d",
+      "accessibleName": "event: integrate conforming authoring work unit",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-ba17bc65ee48200d4278713f",
+      "entityKind": "node",
+      "entityId": "n-ba17bc65ee48200d4278713f",
+      "accessibleName": "decision: authorize authoring attempt",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-e6c9792efdebead2f3a215ab",
+      "entityKind": "node",
+      "entityId": "n-e6c9792efdebead2f3a215ab",
+      "accessibleName": "event: repair authoring work unit",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-b00d881b7138762be3915a88",
+      "entityKind": "node",
+      "entityId": "n-b00d881b7138762be3915a88",
+      "accessibleName": "event: assemble canonical authority artifacts",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-0cb64081f15a4b34b5542f9f",
+      "entityKind": "node",
+      "entityId": "n-0cb64081f15a4b34b5542f9f",
+      "accessibleName": "event: prove candidate authoring closure",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-b8c83a94a739d37d729b31e1",
+      "entityKind": "node",
+      "entityId": "n-b8c83a94a739d37d729b31e1",
+      "accessibleName": "termination: candidate returned terminal",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-7ad217586b5a6ed7017d91ac",
+      "entityKind": "node",
+      "entityId": "n-7ad217586b5a6ed7017d91ac",
+      "accessibleName": "rejection: testimony rejected terminal",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-109f5b7de6472f58a493304e",
+      "entityKind": "node",
+      "entityId": "n-109f5b7de6472f58a493304e",
+      "accessibleName": "termination: authoring held terminal",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-a0accb90c28e3c07c3f0a5a8",
+      "entityKind": "node",
+      "entityId": "n-a0accb90c28e3c07c3f0a5a8",
+      "accessibleName": "provider-port: authoring model invocation provider",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-6aa010df69c11adf55b4bafb",
+      "entityKind": "node",
+      "entityId": "n-6aa010df69c11adf55b4bafb",
+      "accessibleName": "input: unique repair reauthority",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-25c87a5a16e5c2b2459de788",
+      "entityKind": "node",
+      "entityId": "n-25c87a5a16e5c2b2459de788",
+      "accessibleName": "input: work unit advance authority",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-e402427d4694e76cc23f23b8",
+      "entityKind": "node",
+      "entityId": "n-e402427d4694e76cc23f23b8",
+      "accessibleName": "input: retry selected",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-41886c294c9c51f08e7d0fa3",
+      "entityKind": "node",
+      "entityId": "n-41886c294c9c51f08e7d0fa3",
+      "accessibleName": "input: switch selected",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-ef1277eb7c50746d6c0dc7e7",
+      "entityKind": "node",
+      "entityId": "n-ef1277eb7c50746d6c0dc7e7",
+      "accessibleName": "input: retry attempt authority",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-136183f1faf4c8d19e5fd1c5",
+      "entityKind": "node",
+      "entityId": "n-136183f1faf4c8d19e5fd1c5",
+      "accessibleName": "input: provider switch attempt authority",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-6244deef9fe1f8bb18eddcfb",
+      "entityKind": "node",
+      "entityId": "n-6244deef9fe1f8bb18eddcfb",
+      "accessibleName": "input: repair attempt authority",
+      "keyboardActivable": true
+    }
+  ],
+  "scene": {
+    "kind": "svg",
+    "retained": "fixtures/scenes/blueprint-authority.svg",
+    "sha256": "f5691f9463b82ebc2a95eb256d96535d18e5344d12342d8edc8585523a08de65",
+    "bytes": 76211,
+    "screening": {
+      "scriptsRejected": true,
+      "eventHandlersRejected": true,
+      "unapprovedReferencesRejected": true,
+      "passed": true
+    }
+  },
+  "coverage": {
+    "nodes": 30,
+    "routes": 45,
+    "omittedSourceNodes": 0,
+    "omittedSourceEdges": 0,
+    "representationComplete": true,
+    "nodeKinds": {
+      "event": 13,
+      "decision": 6,
+      "termination": 2,
+      "rejection": 1,
+      "provider-port": 1,
+      "input": 7
+    },
+    "routeKinds": {
+      "TRANSITION": 10,
+      "BRANCH_ROUTE": 23,
+      "ALTITUDE_DESCENT": 6,
+      "BOUNDED_RETURN": 6
+    },
+    "observability": {
+      "instrumented": false,
+      "note": "Declared topology only. No execution instrumentation exists for this view; representation completeness says nothing about observability."
+    }
+  },
+  "topology": {
+    "roots": [
+      "n-4f03361737474a4270a26b2f"
+    ],
+    "leaves": [
+      "n-b8c83a94a739d37d729b31e1",
+      "n-7ad217586b5a6ed7017d91ac",
+      "n-109f5b7de6472f58a493304e"
+    ],
+    "weakComponents": 1,
+    "cyclicComponentCount": 1
+  },
+  "provenance": {
+    "sourceAuthority": {
+      "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+      "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+      "pointer": "/semantics",
+      "kind": "DECLARED",
+      "label": "SQL selected blueprint definition",
+      "definitionPk": "8687",
+      "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+    },
+    "ingestedFrom": {
+      "path": "C:/lab/sfx-circuit-workbench/fixtures/baseline/author-tooling-capability-candidate/n-69b6853533ab1d663473efb6.js",
+      "sha256": "ae15739ac724fd408f2bf4146ffad5f01366fbf6d11eda9f1941aa8262cfa9cb"
+    },
+    "adapter": {
+      "name": "ingest-topology-view",
+      "version": "1.0.0"
+    }
+  },
+  "findings": []
+}

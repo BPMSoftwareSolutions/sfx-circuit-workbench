@@ -1,0 +1,105 @@
+{
+  "receiptType": "m1-parity-receipt.v1",
+  "verifiedAt": "2026-09-10T16:23:38+00:00",
+  "passed": true,
+  "checks": {
+    "sourceFidelity": {
+      "scenes": {
+        "blueprint-authority": {
+          "nodes": 30,
+          "routes": 45,
+          "hitTargets": 75,
+          "checks": {
+            "nodeCount": true,
+            "routeCount": true,
+            "omissionsPreserved": true,
+            "identitiesDistinct": true,
+            "geometryComplete": true,
+            "everyEntitySelectable": true,
+            "sourceDigestsRetained": true,
+            "traceModeIllustrative": true,
+            "representationSeparateFromObservability": true
+          },
+          "conforms": true
+        },
+        "native-execution": {
+          "nodes": 10,
+          "routes": 9,
+          "hitTargets": 19,
+          "checks": {
+            "nodeCount": true,
+            "routeCount": true,
+            "omissionsPreserved": true,
+            "identitiesDistinct": true,
+            "geometryComplete": true,
+            "everyEntitySelectable": true,
+            "sourceDigestsRetained": true,
+            "traceModeIllustrative": true,
+            "representationSeparateFromObservability": true
+          },
+          "conforms": true
+        }
+      },
+      "conforms": true
+    },
+    "controlParity": {
+      "recordedControls": 22,
+      "mappedControls": 22,
+      "declaredComponents": 31,
+      "declaredActions": 17,
+      "deliberateAdditions": [
+        "capability-title",
+        "trace-mode-readout",
+        "workbench-eyebrow"
+      ],
+      "conforms": true
+    },
+    "optionality": {
+      "componentsCompared": 31,
+      "componentsMoved": 18,
+      "identitySetPreserved": true,
+      "semanticsPreserved": true,
+      "invariants": {
+        "componentIds": true,
+        "semanticIdentities": true,
+        "stateIds": true,
+        "bindingTargets": true,
+        "validationRules": true,
+        "actionIds": true,
+        "scenarioEvents": true
+      },
+      "providerProfilesDiffer": true,
+      "conforms": true
+    },
+    "architecture": {
+      "requiredFeatures": [
+        "camera-transform",
+        "keyboard-activation",
+        "material-presentation",
+        "node-selection",
+        "route-selection",
+        "scene-payload",
+        "trace-overlay",
+        "vector-export"
+      ],
+      "featureSetsAgree": true,
+      "circuitRealized": true,
+      "unsupportedPathProven": {
+        "attempted": true,
+        "providerId": "html-absolute",
+        "raised": true,
+        "exitCode": 1
+      },
+      "undeclaredFindings": 0,
+      "conforms": true
+    }
+  },
+  "findings": [],
+  "notEstablished": [
+    "No browser was run. Visual parity against the reference screenshot is unmeasured.",
+    "Resolved-versus-observed geometry conformance is unmeasured; the foundation's 0.5 px tolerance has not been applied to this surface.",
+    "Interaction parity across Chromium, Firefox and WebKit is unmeasured.",
+    "The captured 15% and 25% camera states remain derivations, not measurements.",
+    "No hosted package exists; the Space and website embed are unverified."
+  ]
+}

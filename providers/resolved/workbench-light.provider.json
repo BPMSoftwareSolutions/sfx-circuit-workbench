@@ -1,0 +1,393 @@
+{
+  "providerId": "html-workbench-light",
+  "targetName": "HTML5",
+  "title": "Workbench light presentation",
+  "note": "This profile is the only place in the workspace that knows what HTML is. The projector reads it and never names an element itself, so swapping this file for a WPF or SwiftUI profile changes the realization without changing the projector or the authority. Because the resolver has already applied every padding into child geometry, this profile emits no CSS padding of its own; re-applying it would double-count. Decoration must never displace governed geometry: a CSS border participates in layout and shifts the padding box, which is the containing block for absolutely positioned children, so every rule here is drawn with an inset box-shadow instead. A border that occupies space is a geometry claim, and geometry belongs to the resolver. Caught by observe_realized_geometry.py, which reported 13 nodes displaced by exactly 1px. Realization resolves type-first, then by semantic family. Composite elements are declared through nested `parts`, so a table or a labelled field is structure in this profile rather than a branch in the projector. Even which elements are self-closing is declared here, in voidElements, so the projector holds no HTML fact whatsoever. A bound component's value is read straight off binding.value through the same dotted-path mechanism as any other content, so presenting state needed no new projector capability. Feedback resolves its text through a declared precedence: a bound validation disposition overrides the component's own default, so a realization can never assert something the authority did not say. A withheld action realizes as disabled with its reason as the title. That drawing is not enforcement: an execution capability checks the same disposition rather than trusting what the projection drew. The document skeleton, the geometry syntax, the attribute names carrying semantic testimony and the presentation expressions all live here now. The projector was found to be holding all of them when a second target was first attempted.",
+  "container": {
+    "element": "div",
+    "class": "ui-container"
+  },
+  "componentWrapper": {
+    "element": "div",
+    "class": "ui-component"
+  },
+  "components": {
+    "heading": {
+      "element": "h2",
+      "textFrom": "content.text"
+    },
+    "text": {
+      "element": "p",
+      "textFrom": "content.text"
+    },
+    "label": {
+      "element": "span",
+      "textFrom": "content.text"
+    },
+    "value": {
+      "element": "output",
+      "textFrom": "content.value"
+    },
+    "action": {
+      "element": "button",
+      "textFrom": "content.label",
+      "attributes": {
+        "type": "button"
+      },
+      "attributesFrom": {
+        "data-semantic-action": "interaction.semanticAction",
+        "data-action-disposition": "action.disposition",
+        "title": "action.withheldReason"
+      },
+      "attributesWhenTrue": {
+        "disabled": "action.withheld"
+      }
+    },
+    "link": {
+      "element": "a",
+      "textFrom": "content.label",
+      "attributesFrom": {
+        "href": "content.destination",
+        "data-semantic-action": "interaction.semanticAction"
+      }
+    },
+    "input": {
+      "element": "label",
+      "class": "field",
+      "parts": [
+        {
+          "element": "span",
+          "class": "field-label",
+          "textFrom": "content.label"
+        },
+        {
+          "element": "input",
+          "attributes": {
+            "type": "text"
+          },
+          "attributesFrom": {
+            "placeholder": "content.placeholder",
+            "value": "binding.value"
+          }
+        }
+      ]
+    },
+    "choice": {
+      "element": "label",
+      "class": "field",
+      "parts": [
+        {
+          "element": "span",
+          "class": "field-label",
+          "textFrom": "content.label"
+        },
+        {
+          "element": "select",
+          "repeatFrom": "content.options",
+          "itemElement": "option",
+          "itemTextFrom": "label",
+          "itemAttributesFrom": {
+            "value": "value"
+          }
+        }
+      ]
+    },
+    "toggle": {
+      "element": "label",
+      "class": "switch",
+      "parts": [
+        {
+          "element": "input",
+          "attributes": {
+            "type": "checkbox"
+          },
+          "attributesWhenTrue": {
+            "checked": "binding.value"
+          }
+        },
+        {
+          "element": "span",
+          "textFrom": "content.label"
+        }
+      ]
+    },
+    "image": {
+      "element": "img",
+      "attributesFrom": {
+        "src": "content.source",
+        "alt": "content.alternativeText"
+      }
+    },
+    "media": {
+      "element": "video",
+      "attributes": {
+        "controls": ""
+      },
+      "attributesFrom": {
+        "src": "content.source"
+      }
+    },
+    "navigation": {
+      "element": "nav",
+      "repeatFrom": "content.items",
+      "itemElement": "a",
+      "itemTextFrom": "label",
+      "itemAttributesFrom": {
+        "href": "destination"
+      }
+    },
+    "breadcrumb": {
+      "element": "nav",
+      "class": "crumbs",
+      "repeatFrom": "content.items",
+      "itemElement": "a",
+      "itemTextFrom": "label",
+      "itemAttributesFrom": {
+        "href": "destination"
+      }
+    },
+    "collection": {
+      "element": "ul",
+      "repeatFrom": "content.items",
+      "itemElement": "li",
+      "itemTextFrom": "label"
+    },
+    "table": {
+      "element": "table",
+      "parts": [
+        {
+          "element": "thead",
+          "parts": [
+            {
+              "element": "tr",
+              "repeatFrom": "content.columns",
+              "itemElement": "th",
+              "itemTextFrom": "label"
+            }
+          ]
+        },
+        {
+          "element": "tbody",
+          "repeatFrom": "content.items",
+          "itemElement": "tr",
+          "itemCellsFrom": "cells",
+          "cellElement": "td"
+        }
+      ]
+    },
+    "feedback": {
+      "element": "aside",
+      "textFromAny": [
+        "binding.value",
+        "content.text"
+      ]
+    },
+    "progress": {
+      "element": "div",
+      "class": "meter",
+      "parts": [
+        {
+          "element": "span",
+          "textFrom": "content.text"
+        },
+        {
+          "element": "progress",
+          "attributes": {
+            "max": "1"
+          },
+          "attributesFrom": {
+            "value": "content.completion"
+          }
+        }
+      ]
+    },
+    "circuit": {
+      "element": "div",
+      "class": "circuit-scene",
+      "attributes": {
+        "role": "application",
+        "tabindex": "0"
+      },
+      "attributesFrom": {
+        "aria-label": "content.label",
+        "data-scene-contract": "content.sceneContract",
+        "data-scene": "content.scene",
+        "data-trace-mode": "content.traceMode",
+        "data-semantic-action": "interaction.semanticAction"
+      },
+      "parts": [
+        {
+          "element": "div",
+          "class": "circuit-stage",
+          "attributes": {
+            "data-circuit-stage": "true"
+          }
+        }
+      ]
+    }
+  },
+  "intentStyles": {
+    "brand": "font-size:19px;font-weight:500;line-height:1.35;max-width:600px;color:var(--ink);",
+    "prominent-value": "font-size:28px;font-weight:600;font-variant-numeric:tabular-nums;",
+    "lede": "font-size:16px;line-height:1.55;color:var(--ink-soft);max-width:78ch;",
+    "body": "font-size:13px;line-height:1.6;overflow-wrap:anywhere;color:var(--inspect-ink);",
+    "section-label": "font:10px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);",
+    "card-title": "font-size:20px;line-height:1.35;font-weight:500;color:var(--inspect-ink);",
+    "fine-print": "font:10px/1.6 ui-monospace,monospace;overflow-wrap:anywhere;color:var(--inspect-muted);",
+    "primary-action": "align-self:stretch;",
+    "horizontal-inline": "display:flex;flex-direction:row;gap:8px;flex-wrap:wrap;align-items:center;",
+    "vertical-list": "display:flex;flex-direction:column;gap:0;align-items:stretch;overflow:auto;",
+    "secondary-action": "align-self:stretch;",
+    "view-selector": "align-self:stretch;",
+    "coverage-readout": "font:10px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:right;min-width:0;",
+    "toggle-action": "align-self:stretch;",
+    "zoom-readout": "font-size:11px;text-align:center;color:var(--ink);",
+    "search-field": "align-self:stretch;",
+    "inline-choice": "display:flex;flex-direction:row;align-items:center;gap:6px;font-size:12px;color:#c2d6d9;",
+    "inline-toggle": "display:flex;flex-direction:row;align-items:center;gap:6px;font-size:12px;color:#c2d6d9;",
+    "live-status": "font-size:12px;color:var(--status);",
+    "trace-mode-badge": "font:10px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--complete);text-align:right;",
+    "code-block": "font:11px/1.6 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;overflow:auto;color:var(--inspect-ink);",
+    "circuit-scene": "position:absolute;inset:0;",
+    "dialog-field": "align-self:stretch;",
+    "outcome-text": "font-size:13px;line-height:1.6;overflow-wrap:anywhere;",
+    "outcome-metric": "font-size:15px;font-variant-numeric:tabular-nums;",
+    "outcome-disposition": "font:10px/1.5 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;",
+    "outcome-record": "font-size:12px;",
+    "outcome-collection": "font-size:12px;",
+    "outcome-findings": "font-size:12px;color:var(--findings);",
+    "outcome-evidence": "font:10px/1.6 ui-monospace,monospace;color:var(--muted);overflow-wrap:anywhere;"
+  },
+  "roleStyles": {
+    "site-header": "background:var(--chrome);box-shadow:inset 0 -1px 0 var(--rule);",
+    "site-footer": "background:var(--chrome);box-shadow:inset 0 1px 0 var(--rule);",
+    "section-navigation": "background:var(--chrome-soft);box-shadow:inset -1px 0 0 var(--rule);",
+    "card": "background:var(--card);box-shadow:inset 0 0 0 1px var(--rule);border-radius:12px;",
+    "workbench-header": "box-shadow:inset 0 -1px 0 var(--rule);",
+    "authority-coverage-strip": "background:var(--strip);",
+    "workbench-toolbar": "box-shadow:inset 0 -1px 0 var(--rule);",
+    "circuit-viewport": "background:var(--circuit);",
+    "component-outline": "background:var(--panel);box-shadow:inset 1px 0 0 var(--rule);",
+    "illustrative-trace-controls": "box-shadow:inset 0 1px 0 var(--rule);",
+    "source-inspection": "background:var(--inspect);color:var(--inspect-ink);",
+    "trace-mode-declaration": "display:flex;align-items:center;justify-content:flex-end;"
+  },
+  "baseStyles": ":root{--shell:#f4f6f6;--circuit:#ffffff;--ink:#16323d;--strip:#e6eced;--panel:#eef2f3;--control:#ffffff;--control-edge:#b8c8cd;--rule:#cdd9dc;--muted:#5b7379;--status:#3d5a61;--pressed:#16323d;--pressed-ink:#f1f6f6;--focus:#0f766e;--complete:#0f766e;--inspect:#16323d;--inspect-ink:#e7eeef;--inspect-muted:#a6bcc0;--findings:#b45309;color-scheme:light;}\n*{box-sizing:border-box;}\nbody{margin:0;background:var(--shell);color:var(--ink);font:14px/1.5 Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased;}\n.ui-surface{position:relative;margin:0 auto;overflow:auto;background:var(--shell);}\n.ui-container{position:absolute;}\n.ui-component{position:absolute;display:flex;flex-direction:column;justify-content:center;min-width:0;}\n.ui-component>*{margin:0;min-width:0;}\nbutton,input,select{font:inherit;border:1px solid var(--control-edge);background:var(--control);color:#e3eeee;border-radius:3px;}\nbutton{font-size:12px;padding:8px 12px;cursor:pointer;}\nbutton:hover{background:#26434b;}\nbutton[aria-pressed='true']{background:var(--pressed);color:var(--pressed-ink);}\nbutton[disabled]{opacity:.45;cursor:not-allowed;}\nbutton:focus-visible,select:focus-visible,input:focus-visible,[data-entity]:focus-visible,[data-route]:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}\nselect{width:100%;max-width:100%;font:13px/1.5 Inter,Arial,sans-serif;padding:10px;}\ninput{padding:10px 8px;width:100%;font:12px/1.3 Inter,Arial,sans-serif;}\noutput{font-size:11px;min-width:40px;text-align:center;font-variant-numeric:tabular-nums;}\n.ui-component [data-component-type=\"input\"],.ui-component [data-component-type=\"choice\"]{display:flex;flex-direction:column;gap:9px;min-width:0;}\n.ui-component [data-component-type=\"input\"]>span,.ui-component [data-component-type=\"choice\"]>span{font:10px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}\n.ui-component [data-component-type=\"toggle\"]{display:flex;flex-direction:row;align-items:center;gap:6px;font-size:12px;color:#c2d6d9;}\n.ui-component [data-component-type=\"toggle\"] input{width:16px;height:16px;accent-color:#9ce4d1;}\n.ui-component ul{list-style:none;margin:0;padding:0;}\n[data-component-type=\"circuit\"]{position:relative;width:100%;height:100%;overflow:auto;background:var(--circuit);overscroll-behavior:contain;}\n[data-circuit-stage]{min-width:100%;min-height:100%;display:grid;place-items:center;padding:20px;}\n[data-circuit-stage]>svg{display:block;max-width:none;flex:none;}\n[data-circuit-stage] [data-entity],[data-circuit-stage] [data-route]{cursor:pointer;}\n[data-circuit-stage] [data-entity]:hover{filter:brightness(1.4);}\n[data-circuit-stage] .selected{filter:drop-shadow(0 0 6px #afffe3);}\n[data-circuit-stage] .active-route .route-path{stroke:#f7ffff;stroke-width:5;}\n[data-component-type=\"circuit\"].base .material{display:none;}\n[data-circuit-stage] .material{pointer-events:none;}\n.circuit-unsupported{margin:20px;padding:12px 14px;font:12px/1.5 ui-monospace,monospace;color:#ffd9b8;box-shadow:inset 0 0 0 1px #895621;border-radius:4px;}\n.sfx-overlay{position:fixed;z-index:60;width:560px;max-width:calc(100vw - 32px);background:var(--panel);color:var(--ink);border-radius:6px;box-shadow:inset 0 0 0 1px var(--rule),0 18px 48px rgba(0,0,0,.45);will-change:transform,opacity;}\n.sfx-overlay:focus-visible{outline:2px solid var(--focus);outline-offset:3px;}\n.sfx-overlay[data-anchor-strategy='viewport-transition']{box-shadow:inset 0 0 0 1px var(--control-edge),0 18px 48px rgba(0,0,0,.45);}\n.sfx-overlay-anchor-note{margin:0;padding:8px 20px 14px;font:11px/1.5 ui-monospace,monospace;color:var(--muted);}\n.sfx-overlay-scrim{position:fixed;inset:0;z-index:59;background:rgba(22,50,61,.35);}\n@media (prefers-reduced-motion:reduce){.sfx-overlay{transition:none !important;}}\n.sfx-result-component{width:100%;height:100%;overflow:auto;padding:4px 0;font-size:13px;}\n.sfx-result-component h3{font:10px/1.5 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;}\n.sfx-result-component p{margin:4px 0;white-space:pre-wrap;overflow-wrap:anywhere;}\n.sfx-result-component .sfx-result-metric{font-size:36px;font-weight:600;color:#a2edcc;letter-spacing:-.03em;}\n.sfx-result-meta{font-size:11px;color:var(--muted);}\n.sfx-result-fields{display:grid;grid-template-columns:minmax(100px,1fr) minmax(0,2fr);gap:5px 14px;margin:0;}\n.sfx-result-fields dt{color:var(--muted);text-transform:capitalize;}\n.sfx-result-fields dd{margin:0;overflow-wrap:anywhere;}\n.sfx-result-row{padding:8px 0;border-bottom:1px solid var(--rule);}\n.sfx-delivery-status{padding:24px;min-height:180px;}\n.sfx-dialog-content>.ui-surface{margin:0;background:var(--panel);}\n.sfx-dialog-content [data-component-id=dialog-status]{font-size:11px;overflow:auto;}\n.sfx-overlay [data-component-id=dialog-title],.sfx-overlay [data-component-id=outcome-title]{font-size:20px;}\n.sfx-overlay [data-component-id$=-feedback]{font-size:11px;color:#efbc98;}\n[data-circuit-stage] .live-active{filter:drop-shadow(0 0 9px #b5f4e1);}\n[data-circuit-stage] .live-observed .route-path{stroke:#a7efce;stroke-width:4;}\n[data-circuit-stage] .live-result{filter:drop-shadow(0 0 8px #72e1ad);}\n[data-circuit-stage] .live-uncertain{filter:drop-shadow(0 0 8px #e0b56f);}\n.sfx-overlay{overscroll-behavior:contain;}\n\n.sfx-overlay{--inspect-ink:var(--ink);--inspect-muted:var(--muted);}\n\n[data-component-id=\"component-outline\"] li{margin:0 0 5px;}\n[data-component-id=\"component-outline\"] li button{width:100%;text-align:left;min-height:50px;padding:9px;border-color:var(--rule);line-height:1.35;}\n[data-component-id=\"component-outline\"] li small{display:block;margin-bottom:5px;font:8px/1.3 ui-monospace,monospace;text-transform:uppercase;color:var(--muted);}\n",
+  "outlineStyles": ".ui-container{outline:1px solid rgba(220,38,38,.42);outline-offset:-1px;}\n.ui-component{outline:1px dashed rgba(37,99,235,.5);outline-offset:-1px;}\n.ui-container::after{content:attr(data-region-id);position:absolute;left:0;top:0;font:9px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(220,38,38,.85);color:#fff;padding:0 4px;z-index:9;pointer-events:none;}",
+  "families": {
+    "information": {
+      "element": "p",
+      "textFrom": "content.text"
+    },
+    "action": {
+      "element": "button",
+      "attributes": {
+        "type": "button"
+      },
+      "textFrom": "content.label",
+      "attributesWhenTrue": {
+        "disabled": "action.withheld"
+      }
+    },
+    "input": {
+      "element": "label",
+      "textFrom": "content.label"
+    },
+    "media": {
+      "element": "img",
+      "attributesFrom": {
+        "src": "content.source",
+        "alt": "content.alternativeText"
+      }
+    },
+    "navigation": {
+      "element": "nav",
+      "repeatFrom": "content.items",
+      "itemElement": "a",
+      "itemTextFrom": "label",
+      "itemAttributesFrom": {
+        "href": "destination"
+      }
+    },
+    "collection": {
+      "element": "ul",
+      "repeatFrom": "content.items",
+      "itemElement": "li",
+      "itemTextFrom": "label"
+    },
+    "feedback": {
+      "element": "aside",
+      "textFromAny": [
+        "binding.value",
+        "content.text"
+      ]
+    }
+  },
+  "voidElements": [
+    "img",
+    "input",
+    "br",
+    "hr",
+    "source",
+    "track",
+    "col",
+    "area",
+    "embed",
+    "wbr"
+  ],
+  "document": {
+    "fileExtension": ".html",
+    "template": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>{title}</title>\n<meta name=\"generator\" content=\"sidefx-project-ui-surface\" />\n<meta name=\"sidefx-surface-id\" content=\"{surfaceId}\" />\n<meta name=\"sidefx-provider\" content=\"{providerId}\" />\n<style>{styles}</style>\n</head>\n<body>\n<div class=\"ui-surface\" data-surface-profile=\"{surfaceProfile}\" style=\"width:{width}px;height:{height}px;\">\n{body}\n</div>\n</body>\n</html>\n"
+  },
+  "classAs": {
+    "attribute": "class",
+    "template": "{class}"
+  },
+  "geometry": {
+    "attribute": "style",
+    "template": "left:{x}px;top:{y}px;width:{width}px;height:{height}px;"
+  },
+  "presentation": {
+    "styling": {
+      "attribute": "style",
+      "template": "{styling}"
+    },
+    "hidden": {
+      "attribute": "style",
+      "template": "display:none;"
+    },
+    "clip": {
+      "attribute": "style",
+      "template": "overflow:hidden;"
+    },
+    "layer": {
+      "attribute": "style",
+      "template": "z-index:{layer};"
+    }
+  },
+  "testimony": {
+    "container": {
+      "regionId": "data-region-id",
+      "regionPath": "data-region-path",
+      "role": "data-role",
+      "tenantPolicy": "data-tenant-policy"
+    },
+    "wrapper": {
+      "componentId": "data-component-id"
+    },
+    "component": {
+      "componentType": "data-component-type",
+      "semanticFamily": "data-semantic-family",
+      "semanticIdentity": "data-semantic-identity",
+      "presentationIntent": "data-presentation-intent",
+      "realizedVia": "data-realized-via",
+      "boundState": "data-bound-state",
+      "bindingDirection": "data-binding-direction",
+      "actionDisposition": "data-action-disposition"
+    }
+  },
+  "derivedFrom": {
+    "providerId": "html-absolute",
+    "presentationProfile": "workbench-light"
+  }
+}

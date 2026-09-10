@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sidefx.local/sfx-circuit-workbench/contracts/workbench-command.v1.schema.json",
+  "title": "workbench-command.v1",
+  "description": "Everything a browser is permitted to submit, and nothing else. A publication id, a published subject, editable values keyed by declared pointer, an optional example selection, and a request identity for deduplication. `additionalProperties: false` is the enforcement, not the documentation: a canonical envelope, namespace override, fixed-field override, provider inventory or endpoint selection has no place to go in this shape.",
+  "type": "object",
+  "required": ["commandVersion", "requestId", "publicationId", "subject"],
+  "additionalProperties": false,
+  "properties": {
+    "commandVersion": { "const": "workbench-command.v1" },
+    "requestId": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 128,
+      "description": "Client-generated request identity. The service persists the request-to-run association before initiating any external effect, so a repeat of the same requestId reconciles to the same run rather than executing twice. Disabling a button is not duplicate-execution protection."
+    },
+    "publicationId": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "Which publication this command was composed against. A mismatch is a stale publication and is refused."
+    },
+    "subject": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A published capability subject. The server resolves it to a namespace and plan; the browser never names either."
+    },
+    "editableValues": {
+      "type": "object",
+      "description": "Values keyed by JSON pointer. Every key must be declared editable for this subject by the publication's ownership declaration. An undeclared or non-editable pointer is refused rather than ignored.",
+      "propertyNames": { "pattern": "^/" },
+      "additionalProperties": true
+    },
+    "exampleSelection": {
+      "type": "string",
+      "description": "Which retained example to run, for subjects whose input the server owns entirely. Must be in the publication's allow-list for this subject. The example's payload is never carried here."
+    },
+    "expectedDraftRevision": {
+      "type": "string",
+      "description": "Optional optimistic revision check. Changing input invalidates a previously displayed result."
+    }
+  }
+}

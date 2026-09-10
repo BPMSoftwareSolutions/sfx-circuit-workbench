@@ -1,0 +1,312 @@
+{
+  "recordVersion": "workbench-control-behavior.v1",
+  "statement": "Observed control surface and behavior of the existing estate-topology viewer, recorded from its retained template, stylesheet and runtime. This is the M1 parity target: each entry names what the recreated workbench must reproduce, and which declaration or provider is expected to own it.",
+  "provenance": {
+    "method": "STATIC_SOURCE_READING",
+    "note": "Recorded by reading the retained template, stylesheet and runtime. No application run, browser measurement or interaction capture was performed to produce this record. Entries marked requiresMeasurement are stated as derivations and must be confirmed against a running instance during M1.",
+    "recordedOn": "2026-09-10",
+    "sources": [
+      "templates/estate-topology/index.html",
+      "templates/estate-topology/viewer.css",
+      "templates/estate-topology/viewer.js"
+    ]
+  },
+  "presentationProfile": {
+    "shellBackground": "#0a1b28",
+    "circuitBackground": "#071722",
+    "principalText": "#dfebed",
+    "outlineColumnPx": 245,
+    "drawingRegionPx": 630,
+    "note": "Extracted for the named presentation profile the plan requires. Font metrics that affect measurement need new geometry evidence before they may change."
+  },
+  "controls": [
+    {
+      "id": "view",
+      "element": "select",
+      "label": "Source view",
+      "owner": "selected-view state + catalog binding",
+      "behavior": [
+        "Options are grouped into optgroups built in the fixed order blueprint, operations, native, expression.",
+        "Group labels are 'Blueprint authority', 'Declared operation flow', 'Native execution graph', 'Mechanic dependencies'.",
+        "An empty group is not appended.",
+        "Option text is `${label} · ${analytics.nodes} components / ${analytics.edges} routes`.",
+        "Option value is the view id; change triggers a graph load.",
+        "After a successful load the select value is reasserted to the loaded view id."
+      ],
+      "parityCriterion": "Same grouped choices in the same order, with the selected option visible and reflected; selection loads the correct graph."
+    },
+    {
+      "id": "scope",
+      "element": "span",
+      "owner": "read-only value from source view",
+      "behavior": [
+        "Displays the view-kind display name.",
+        "Displays 'Loading source graph…' while a load is in flight.",
+        "Displays 'Source graph identity mismatch' when the loaded payload id differs from the requested id.",
+        "Displays 'Source graph unavailable' when the payload script fails to load."
+      ],
+      "parityCriterion": "Same four states, including both failure states."
+    },
+    {
+      "id": "coverage",
+      "element": "span",
+      "owner": "read-only value from source view",
+      "behavior": [
+        "Displays `${nodes} components · ${edges} routes · ${omittedSourceNodes} source components omitted`."
+      ],
+      "parityCriterion": "Exact node/route/omission counts; missing evidence is shown rather than hidden."
+    },
+    {
+      "id": "material",
+      "element": "button",
+      "owner": "shared presentation state",
+      "behavior": [
+        "Removes the body 'base' class, sets its own aria-pressed true and the Base SVG button's aria-pressed false.",
+        "Pressed on initial load."
+      ],
+      "parityCriterion": "Pressed state reflected; material visibility changes without altering graph identity."
+    },
+    {
+      "id": "base",
+      "element": "button",
+      "owner": "shared presentation state",
+      "behavior": [
+        "Adds the body 'base' class, sets its own aria-pressed true and the Material button's aria-pressed false."
+      ],
+      "parityCriterion": "Pressed state reflected; material visibility changes without altering graph identity."
+    },
+    {
+      "id": "fit",
+      "element": "button",
+      "label": "Fit diagram",
+      "owner": "camera state + scene interaction provider",
+      "behavior": [
+        "scale = min(1, (viewport.clientWidth - 40) / layout.width, (viewport.clientHeight - 40) / layout.height).",
+        "Never scales above 1.",
+        "Applies sizing but does not scroll."
+      ],
+      "parityCriterion": "Identical fit arithmetic and clamp; camera change does not relayout authority."
+    },
+    {
+      "id": "read",
+      "element": "button",
+      "label": "Read at 100%",
+      "owner": "camera state",
+      "behavior": ["scale = 1."],
+      "parityCriterion": "Exact reading scale."
+    },
+    {
+      "id": "plus",
+      "element": "button",
+      "owner": "camera state",
+      "behavior": ["scale = min(2, scale * 1.3)."],
+      "parityCriterion": "Same step factor and upper clamp of 2."
+    },
+    {
+      "id": "minus",
+      "element": "button",
+      "owner": "camera state",
+      "behavior": ["scale = max(0.01, scale / 1.3)."],
+      "parityCriterion": "Same step factor and lower clamp of 0.01."
+    },
+    {
+      "id": "zoom",
+      "element": "output",
+      "owner": "camera state projection",
+      "behavior": [
+        "Displays Math.round(scale * 100) + '%'.",
+        "Updated by every sizing operation.",
+        "The SVG element width/height are set to layout.width * scale and layout.height * scale in px."
+      ],
+      "parityCriterion": "Same rounding and the same physical stage sizing."
+    },
+    {
+      "id": "download",
+      "element": "button",
+      "label": "Download SVG",
+      "owner": "export action over the verified base scene",
+      "behavior": [
+        "Parses view.svg as image/svg+xml, removes every <image> element, serializes and downloads as a blob.",
+        "File name is `${catalog.capabilityId}-${view.id}.svg`.",
+        "Object URL is revoked after 1000 ms.",
+        "No-op when no view is loaded."
+      ],
+      "parityCriterion": "Complete vector export with material images removed, same file name, and no execution claims."
+    },
+    {
+      "id": "viewport",
+      "element": "div",
+      "owner": "viewport container + scene provider",
+      "behavior": [
+        "tabindex 0, labelled 'Scrollable source diagram'.",
+        "Holds a single stage element whose first child is the injected SVG.",
+        "Scrolling is native overflow; there is no pointer pan gesture in the current implementation."
+      ],
+      "parityCriterion": "Same clipping, centering and scroll behavior. A pointer pan gesture would be an addition, not parity."
+    },
+    {
+      "id": "search",
+      "element": "input[type=search]",
+      "label": "Find a component",
+      "owner": "search state + filtered collection",
+      "behavior": [
+        "On every input the outline is rebuilt.",
+        "Match is case-insensitive substring over `${identity} ${label} ${detail}`.",
+        "Filtering rebuilds the outline wholesale; the current implementation does not preserve outline focus."
+      ],
+      "parityCriterion": "Same match field set and semantics. Keyed collection updates with focus preservation are a required M1 improvement, recorded here as a deliberate difference."
+    },
+    {
+      "id": "outline",
+      "element": "div of buttons",
+      "owner": "filtered collection + selection action",
+      "behavior": [
+        "Each entry is a button containing a <small> with the node kind and the node label as text.",
+        "Selecting an entry inspects the node, raises scale to at least 0.7, and scrolls the node box centre into the viewport centre.",
+        "Scroll target: scrollLeft = (x + w/2) * scale - clientWidth/2, scrollTop = (y + h/2) * scale - clientHeight/2, unclamped."
+      ],
+      "parityCriterion": "Same identity/label/detail search, same selection, same bring-into-view arithmetic."
+    },
+    {
+      "id": "routes",
+      "element": "div of buttons",
+      "label": "Outgoing routes",
+      "owner": "selected-entity state + collection",
+      "behavior": [
+        "Lists outgoing edges of the selected node, excluding edges of kind 'provider-binding'.",
+        "Button text is `${edge.label} → ${targetNode.label}`.",
+        "Activating a route stops playback and animates travel along that single route.",
+        "Cleared on load, on reset and while a trace is stepping."
+      ],
+      "parityCriterion": "Same traversable-edge rule, same labels and same navigation effect."
+    },
+    {
+      "id": "play",
+      "element": "button",
+      "owner": "illustrative playback state",
+      "behavior": [
+        "Toggles between running and stopped.",
+        "Label sequence: 'Trace flow' when idle, 'Pause trace' while running, 'Resume trace' when paused mid-trace, 'Replay trace' when the trace has completed.",
+        "Starting with a selected node plans the trace from that node; otherwise from declared roots."
+      ],
+      "parityCriterion": "Same four label states and the same finite declared-route behavior."
+    },
+    {
+      "id": "next",
+      "element": "button",
+      "label": "Next step",
+      "owner": "illustrative playback state",
+      "behavior": [
+        "Text is replaced from 'Next route' to 'Next step' by the runtime at startup.",
+        "Stops playback, then advances exactly one wave."
+      ],
+      "parityCriterion": "Same single-wave advance and the same rendered label."
+    },
+    {
+      "id": "reset",
+      "element": "button",
+      "owner": "illustrative playback state",
+      "behavior": [
+        "Stops playback, clears visited routes and components, clears the planned trace and cursor.",
+        "Clears the selected and active-route classes, clears the outgoing route list and the selection.",
+        "Restores the idle flow status message."
+      ],
+      "parityCriterion": "Same full reset with no residual selection or route highlight."
+    },
+    {
+      "id": "trace-speed",
+      "element": "select",
+      "label": "Speed",
+      "owner": "illustrative playback state",
+      "behavior": [
+        "Created by the runtime, not present in the template. Options are 1×, 4×, 16×, 64×.",
+        "Route animation duration is 800 ms divided by the selected multiplier.",
+        "On load the value is chosen from the planned wave count: more than 500 waves selects 16×, more than 80 selects 4×, otherwise 1×."
+      ],
+      "parityCriterion": "Same options, same duration arithmetic and the same automatic selection thresholds."
+    },
+    {
+      "id": "trace-follow",
+      "element": "input[type=checkbox]",
+      "label": "Follow flow",
+      "owner": "illustrative playback state",
+      "behavior": [
+        "Created by the runtime, not present in the template. Checked by default.",
+        "When checked, the camera scrolls to keep the animated point centred, but only along an axis whose scaled extent exceeds the viewport.",
+        "Following is suppressed under prefers-reduced-motion and while a parallel wave is being framed.",
+        "A parallel wave instead frames the union of its endpoint boxes and rescales to fit with a 60 px margin."
+      ],
+      "parityCriterion": "Same follow rule, same suppression conditions and the same parallel framing arithmetic. The graph must remain usable without following."
+    },
+    {
+      "id": "flow-status",
+      "element": "p[aria-live=polite]",
+      "owner": "illustrative playback state",
+      "behavior": [
+        "Idle: 'Select a component, then follow its declared routes.'",
+        "Idle on an expression view: 'Arrows show named expression dependencies; conditional arguments remain distinct.'",
+        "Convergence selected: 'Convergence: inspect its declared requirements before following the continuation.'",
+        "Fan-out selected: 'All fan-out members are declared. Choose a member to inspect.'",
+        "Multiple routes: 'Choose a declared route to follow. Alternatives are not executed by this diagram.'",
+        "No routes: 'End of this declared path.'",
+        "Single-route wave: `Tracing ${n} / ${edges} · ${kind}`.",
+        "Parallel wave: `Tracing ${a}–${b} / ${edges} · ${n} parallel branches`.",
+        "Paused: `Trace paused · ${visited} / ${edges} routes`.",
+        "Complete: `Trace complete · ${visited} / ${edges} routes · ${visitedNodes} / ${nodes} components. All declared alternatives inspected.` and data-state='complete'."
+      ],
+      "parityCriterion": "Same message set, same counts and the same live-region announcement behavior."
+    },
+    {
+      "id": "inspection",
+      "element": "section",
+      "owner": "selected-entity state + text/value components",
+      "behavior": [
+        "kind shows the node kind or the edge kind; on load it shows the view-kind display name.",
+        "title shows the entity label; on load it shows the view label.",
+        "detail shows facts.responsibility, falling back to the node detail, or the edge kind.",
+        "facts shows JSON.stringify({identity, ...facts}, null, 2).",
+        "source shows `${label} · SHA-256 ${sha256} · ${pointer}` from the node source or the edge provenance.",
+        "findings shows the view findings joined as `${code}: ${identity}` separated by ' · '.",
+        "The evidence sentence stating that tracing establishes no execution evidence is fixed template text."
+      ],
+      "parityCriterion": "Same detail, facts, contracts, source digest/pointer and findings, including the fixed evidence disclaimer."
+    }
+  ],
+  "loadBehavior": {
+    "raceProtection": "A monotonic load token is incremented per load; a payload arriving under a stale token is discarded, so an older response cannot replace the newly selected graph.",
+    "identityCheck": "The loaded payload id must equal the requested view id, or the load is refused with 'Source graph identity mismatch'.",
+    "transport": "The payload is injected as a <script> assigning window.ESTATE_TOPOLOGY_VIEW, and the catalog as window.ESTATE_TOPOLOGY_CATALOG. The plan requires replacing this executable transport with schema-checked data.",
+    "sceneInjection": "The SVG string is assigned to stage.innerHTML, then every [data-entity] and [data-route] element receives click and Enter/Space keydown handlers that inspect it.",
+    "defaultZoomRule": [
+      "fit() is applied first.",
+      "If the fitted scale is below 0.35, the scale is set to 0.7 and the viewport is scrolled to centre the first declared root, clamped at zero.",
+      "So a large graph does not open at its fitted zoom. The captured 15% state is a Fit diagram result, not the load default."
+    ],
+    "onError": "A failed payload script sets 'Source graph unavailable' and removes the script element."
+  },
+  "embedding": {
+    "channel": "parent.postMessage({type:'sidefx-circuit-height', height: document.body.scrollHeight}, '*')",
+    "triggers": ["after a successful load", "on every body resize via ResizeObserver", "once at startup"],
+    "hostBoundary": "The host frame is sandboxed allow-scripts allow-downloads and accepts height messages only from that frame's window, with opaque origin null and bounded numeric heights.",
+    "limit": "The wildcard target origin and null source origin authenticate nothing. This channel may report height; it may not carry commands."
+  },
+  "accessibility": {
+    "keyboardActivation": "Graph entities respond to Enter and Space with preventDefault.",
+    "liveRegion": "flow-status is aria-live polite.",
+    "reducedMotion": "Under prefers-reduced-motion the route animation completes in a single frame and camera following is suppressed.",
+    "alternativeNavigation": "The outline and the outgoing route list are the non-visual ways to traverse the diagram.",
+    "knownGap": "Outline rebuilds do not preserve focus; the plan requires keyed collection updates and focus restoration in M1."
+  },
+  "traceSemantics": {
+    "mode": "ILLUSTRATIVE",
+    "statement": "planTrace constructs a finite illustration covering every declared edge exactly once, including branch alternatives, and illustrates cycles once. It observes no branch decision and executes no provider.",
+    "rules": [
+      "Provider-binding edges are excluded from traversal and are instead appended alongside the flow wave that reaches their port.",
+      "A binding does not activate other ports that share the same provider.",
+      "On an expression view, and for convergence nodes generally, a node becomes eligible only once its declared requirement edges have been visited.",
+      "Unreached nodes are appended as single-node waves so that every component is covered.",
+      "The wave structure is what produces parallel-branch framing and the parallel status message."
+    ],
+    "mustNotBecome": "Observed replay or live execution. Those modes require identified execution evidence and must remain visually and textually distinct."
+  }
+}

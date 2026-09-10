@@ -1,0 +1,47 @@
+{
+  "bindingVersion": "lab-publication-binding.v1",
+  "statement": "Where the compiled Lab publication is read from. The publication carries pinned schema bytes, input ownership, retained examples and authority pins for each published subject. This workbench consumes it; it does not author it.",
+  "publication": {
+    "default": "C:/lab/repos/sfx-platform/generated/lab-publication.json",
+    "environmentVariable": "SFX_LAB_PUBLICATION",
+    "producedBy": "npm run publish:lab, in sfx-platform",
+    "note": "Regeneration checks source bytes, schema pins, the fixture digest, the provider-input binding and the exact fixture allow-list before writing a publication."
+  },
+  "governance": {
+    "grantsManagedAdmission": false,
+    "note": "The publication supplies application policy. It is not registered estate authority and it does not grant managed admission or remote authentication."
+  },
+  "commandBoundary": {
+    "endpoint": "POST /commands",
+    "browserMaySubmit": [
+      "publicationId",
+      "subject",
+      "editable values keyed by declared pointer",
+      "an optional example selector"
+    ],
+    "browserMayNotSubmit": [
+      "a canonical envelope",
+      "a namespace override",
+      "a fixed-field override",
+      "a provider inventory",
+      "an endpoint or subject outside the publication"
+    ],
+    "serverResponsibilities": [
+      "resolve the published subject",
+      "construct canonical input from ownership declarations",
+      "reject extra fields",
+      "check authority pins before loading the executing plan",
+      "validate the returned outcome against the retained schema"
+    ],
+    "refusalCodes": {
+      "INVOCATION_BINDING_STALE": "The pinned plan no longer matches the selected authority.",
+      "INVOCATION_BINDING_REFUSED": "An unlisted identity, or a preparation request that is not permitted."
+    },
+    "note": "Reproduced from the Lab's own ownership policy so the workbench adapter can be checked against it. The loopback command service independently applies the same policy, so a direct command request cannot forge fixture inventory either."
+  },
+  "executionSemantics": {
+    "synchronous": true,
+    "automaticRetry": false,
+    "note": "The deployed pilot is synchronous and deliberately preserves uncertainty. It has no durable asynchronous run-status service, which is why run acceptance is proposed as a separate protocol rather than assumed to exist."
+  }
+}

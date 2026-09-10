@@ -1,0 +1,50 @@
+{
+  "receiptType": "hosted-workbench-verification.v1",
+  "passed": true,
+  "origin": "https://bpmsoftwaresolutions-sidefx.hf.space",
+  "runs": [
+    {
+      "file": "say-hello-world-chromium.json",
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "observations": 15,
+      "observationsReceivedBeforeCompletion": 15
+    },
+    {
+      "file": "greet-by-name-chromium.json",
+      "runId": "run-6297d529b94a661e923413b6564d0b02a54693e1e672339a3baa63c72c24b334",
+      "observations": 15,
+      "observationsReceivedBeforeCompletion": 15
+    },
+    {
+      "file": "resolve-equity-market-price-evidence-chromium.json",
+      "runId": "run-ed83d0f8f8957c24bed613192ee6c974925477ff7c994200cdd247d77e52dbf1",
+      "observations": 17,
+      "observationsReceivedBeforeCompletion": 17
+    },
+    {
+      "file": "resolve-sidefx-eligible-providers-hold-admitted-providers-that-declare-no-target.json",
+      "runId": "run-076bcb917e95dccf47976719453e635ae56543351b906b9ebf44da35ae425607",
+      "observations": 15,
+      "observationsReceivedBeforeCompletion": 15
+    },
+    {
+      "file": "resolve-sidefx-eligible-providers-admit-provider-once-its-target-is-declared.json",
+      "runId": "run-f2361ce4619310d1ab0b509c37015060f1522d6f19314db47eed55df5b73775e",
+      "observations": 15,
+      "observationsReceivedBeforeCompletion": 15
+    },
+    {
+      "file": "resolve-sidefx-eligible-providers-refuse-target-the-binding-does-not-declare.json",
+      "runId": "run-600517b561770a4b4d777a61240d66f4b35f2a8c155e1b1b922b1cd369a9812d",
+      "observations": 15,
+      "observationsReceivedBeforeCompletion": 15
+    },
+    {
+      "file": "resolve-sidefx-eligible-providers-refuse-unadmitted-and-unconformed-providers.json",
+      "runId": "run-75c81f0c95ded431421808cd7fdb88b5d6456914fc1944395103293a0baf4166",
+      "observations": 15,
+      "observationsReceivedBeforeCompletion": 15
+    }
+  ],
+  "findings": []
+}

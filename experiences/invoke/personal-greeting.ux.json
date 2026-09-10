@@ -1,0 +1,86 @@
+{
+  "uxVersion": "capability-ux.v1",
+  "uxId": "personal-greeting",
+  "title": "Personal greeting input and outcome",
+  "note": "One required text field bound to /payload/name, with the contract's own length bounds compiled into the interaction plan. The name is preserved exactly as supplied and the returned text is escaped.",
+  "subject": "greet-by-name",
+  "pins": {
+    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+    "inputContract": "personal-greeting-request.v1",
+    "inputSchemaDigest": "sha256:b800857e3c2d721221a37b98ef2fb2daf2e761df365e89a92359b5a6eabee1fb",
+    "outcomeSchemaDigests": {
+      "personal-greeting.v1": "sha256:18489ffe8c38d0181db073af4e471ac1329a76a4441fb53037208800a5439424"
+    }
+  },
+  "input": {
+    "dialogTitle": "Enter Capability Input",
+    "description": "Enter a name. It is preserved exactly as you supply it.",
+    "anchor": {
+      "kind": "scene-node",
+      "nodeIdentity": "cell:scenario:greet-by-name:input",
+      "fallback": "viewport-transition"
+    },
+    "intents": {
+      "submit": {
+        "label": "Submit",
+        "actionId": "submit-personal-greeting",
+        "scenarioEvent": "workbench.capability.submitted",
+        "presentationIntent": "primary-action"
+      },
+      "cancel": {
+        "label": "Cancel",
+        "actionId": "cancel-personal-greeting",
+        "scenarioEvent": "workbench.capability.cancelled",
+        "presentationIntent": "secondary-action"
+      }
+    },
+    "groups": [
+      {
+        "groupId": "who",
+        "label": "Who to greet",
+        "fields": [
+          {
+            "pointer": "/payload/name",
+            "label": "Name",
+            "control": "text",
+            "help": "1 to 100 Unicode code points.",
+            "order": 1
+          }
+        ]
+      }
+    ]
+  },
+  "outcomes": [
+    {
+      "outcomeId": "greeting",
+      "contract": "personal-greeting.v1",
+      "dialogTitle": "Capability outcome",
+      "match": {
+        "contractId": "personal-greeting.v1"
+      },
+      "anchor": {
+        "kind": "scene-node",
+        "nodeIdentity": "cell:scenario:greet-by-name:outcome",
+        "fallback": "viewport-transition"
+      },
+      "layout": [
+        {
+          "elementId": "message",
+          "family": "text",
+          "label": "Greeting",
+          "pointer": "/payload/message"
+        }
+      ]
+    }
+  ],
+  "delivery": {
+    "refusedTitle": "Request refused",
+    "uncertainTitle": "Delivery uncertain",
+    "uncertainGuidance": "The request was sent but its outcome is not established. It is retained for reconciliation and is not resubmitted automatically."
+  },
+  "motion": {
+    "open": "expand-from-anchor",
+    "close": "collapse-to-anchor",
+    "reducedMotionFallback": "none"
+  }
+}

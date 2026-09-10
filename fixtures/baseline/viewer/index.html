@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{{TITLE}} · SideFX blueprint workbench</title>
+    <link
+      rel="stylesheet"
+      href="/media/library/templates/estate-topology/viewer.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div>
+        <span class="eyebrow">SIDEFX / CIRCUIT WORKBENCH</span>
+        <h1>{{TITLE}}</h1>
+      </div>
+      <label
+        >Source view<select id="view" aria-label="Source view"></select
+      ></label>
+    </header>
+    <div class="summary">
+      <span id="scope"></span><span id="coverage"></span>
+    </div>
+    <div class="toolbar">
+      <div>
+        <button id="material" aria-pressed="true">Material</button
+        ><button id="base" aria-pressed="false">Base SVG</button>
+      </div>
+      <div>
+        <button id="fit">Fit diagram</button
+        ><button id="read">Read at 100%</button
+        ><button id="minus" aria-label="Zoom out">−</button
+        ><output id="zoom">100%</output
+        ><button id="plus" aria-label="Zoom in">+</button
+        ><button id="download">Download SVG</button>
+      </div>
+    </div>
+    <main>
+      <div class="drawing">
+        <div id="viewport" tabindex="0" aria-label="Scrollable source diagram">
+          <div id="stage"></div>
+        </div>
+        <div class="flow">
+          <button id="play">Trace flow</button
+          ><button id="next">Next route</button
+          ><button id="reset">Reset</button>
+          <p id="flow-status" aria-live="polite">
+            Select a component, then follow its declared routes.
+          </p>
+        </div>
+        <div id="routes" aria-label="Outgoing routes"></div>
+      </div>
+      <aside>
+        <label class="search"
+          >Find a component<input
+            id="search"
+            type="search"
+            placeholder="Identity, mechanic, or responsibility"
+        /></label>
+        <div id="outline" aria-label="Diagram components"></div>
+      </aside>
+    </main>
+    <section class="inspection">
+      <div>
+        <span class="eyebrow" id="kind">INSPECT THE SOURCE</span>
+        <h2 id="title">Every component keeps its identity.</h2>
+        <p id="detail">
+          Select a shape or route to inspect its responsibility, contracts and
+          exact source.
+        </p>
+      </div>
+      <div>
+        <details>
+          <summary>Identity, contracts and provenance</summary>
+          <pre id="facts"></pre>
+          <p id="source"></p>
+        </details>
+        <p id="findings"></p>
+        <p class="evidence">
+          Declared topology. Tracing illustrates source relationships; it does
+          not run providers or establish execution evidence.
+        </p>
+      </div>
+    </section>
+    <script src="{{CATALOG}}"></script>
+    <script src="data.js"></script>
+    <script src="/media/library/templates/estate-topology/viewer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+{
+  "receiptType": "dialog-composition-receipt.v1",
+  "composedAt": "2026-09-10T16:41:40+00:00",
+  "statement": "Every compiled dialog plan is composed through the pinned sidefx-ui circuits. Input and outcome dialogs use the same path.",
+  "summary": {
+    "dialogs": 9,
+    "composed": 9,
+    "failed": 0,
+    "inputs": 4,
+    "outcomes": 5
+  },
+  "dialogs": [
+    {
+      "uxId": "hello-world",
+      "kind": "input",
+      "surfaceId": "dialog-input-hello-world",
+      "surface": "build/invoke/surfaces/dialog-input-hello-world.surface.json",
+      "components": null,
+      "state": 0,
+      "bindings": 0,
+      "validation": 0,
+      "actions": 2,
+      "composed": true,
+      "errorFindings": 0,
+      "warningFindings": 0,
+      "resolved": {
+        "path": "build/invoke/stages/dialog-input-hello-world.resolved.json",
+        "sha256": "ac2c7934d792abcc96b09c30e6e301480f82ddf50191d1afc02c1c496f3aeded"
+      },
+      "resolvedExtent": null
+    },
+    {
+      "uxId": "hello-world",
+      "kind": "outcome",
+      "surfaceId": "dialog-outcome-hello-world-greeting",
+      "surface": "build/invoke/surfaces/dialog-outcome-hello-world-greeting.surface.json",
+      "components": null,
+      "state": 1,
+      "bindings": 1,
+      "validation": 0,
+      "actions": 1,
+      "composed": true,
+      "errorFindings": 0,
+      "warningFindings": 1,
+      "resolved": {
+        "path": "build/invoke/stages/dialog-outcome-hello-world-greeting.resolved.json",
+        "sha256": "16b75721f3e941cdf5a81e3f095fc1cb0693dad083b04cba1c33d20450f85f30"
+      },
+      "resolvedExtent": null
+    },
+    {
+      "uxId": "live-finance",
+      "kind": "input",
+      "surfaceId": "dialog-input-live-finance",
+      "surface": "build/invoke/surfaces/dialog-input-live-finance.surface.json",
+      "components": null,
+      "state": 2,
+      "bindings": 4,
+      "validation": 2,
+      "actions": 2,
+      "composed": true,
+      "errorFindings": 0,
+      "warningFindings": 0,
+      "resolved": {
+        "path": "build/invoke/stages/dialog-input-live-finance.resolved.json",
+        "sha256": "b50de837f37986f5369533d69732675bdd1ac9288174702a653b09bc01cd9349"
+      },
+      "resolvedExtent": null
+    },
+    {
+      "uxId": "live-finance",
+      "kind": "outcome",
+      "surfaceId": "dialog-outcome-live-finance-price",
+      "surface": "build/invoke/surfaces/dialog-outcome-live-finance-price.surface.json",
+      "components": null,
+      "state": 5,
+      "bindings": 5,
+      "validation": 0,
+      "actions": 1,
+      "composed": true,
+      "errorFindings": 0,
+      "warningFindings": 2,
+      "resolved": {
+        "path": "build/invoke/stages/dialog-outcome-live-finance-price.resolved.json",
+        "sha256": "3cc2048a97f2b8d9add12dcb13e9097afbc57c62591de83340e2b76f626a5bfb"
+      },
+      "resolvedExtent": null
+    },
+    {
+      "uxId": "personal-greeting",
+      "kind": "input",
+      "surfaceId": "dialog-input-personal-greeting",
+      "surface": "build/invoke/surfaces/dialog-input-personal-greeting.surface.json",
+      "components": null,
+      "state": 1,
+      "bindings": 2,
+      "validation": 1,
+      "actions": 2,
+      "composed": true,
+      "errorFindings": 0,
+      "warningFindings": 0,
+      "resolved": {
+        "path": "build/invoke/stages/dialog-input-personal-greeting.resolved.json",
+        "sha256": "586c289d718e1e1d01f20d2c45a66c5b00adeb0b912e0e584d50fe22d1ca30f3"
+      },
+      "resolvedExtent": null
+    },
+    {
+      "uxId": "personal-greeting",
+      "kind": "outcome",
+      "surfaceId": "dialog-outcome-personal-greeting-greeting",
+      "surface": "build/invoke/surfaces/dialog-outcome-personal-greeting-greeting.surface.json",
+      "components": null,
+      "state": 1,
+      "bindings": 1,
+      "validation": 0,
+      "actions": 1,
+      "composed": true,
+      "errorFindings": 0,
+      "warningFindings": 1,
+      "resolved": {
+        "path": "build/invoke/stages/dialog-outcome-personal-greeting-greeting.resolved.json",
+        "sha256": "8b260d202930664817517d01933e643dfcf6ac741116f159c3bcab3a5fca50bf"
+      },
+      "resolvedExtent": null
+    },
+    {
+      "uxId": "provider-resolution",
+      "kind": "input",
+      "surfaceId": "dialog-input-provider-resolution",
+      "surface": "build/invoke/surfaces/dialog-input-provider-resolution.surface.json",
+      "components": null,
+      "state": 1,
+      "bindings": 2,
+      "validation": 1,
+      "actions": 2,
+      "composed": true,
+      "errorFindings": 0,
+      "warningFindings": 0,
+      "resolved": {
+        "path": "build/invoke/stages/dialog-input-provider-resolution.resolved.json",
+        "sha256": "3a294a1dad1e2087f11a8e5753333fb2f0aba7b52632c0cb6e4f2b2a5917e0a3"
+      },
+      "resolvedExtent": null
+    },
+    {
+      "uxId": "provider-resolution",
+      "kind": "outcome",
+      "surfaceId": "dialog-outcome-provider-resolution-resolved",
+      "surface": "build/invoke/surfaces/dialog-outcome-provider-resolution-resolved.surface.json",
+      "components": null,
+      "state": 6,
+      "bindings": 6,
+      "validation": 0,
+      "actions": 1,
+      "composed": true,
+      "errorFindings": 0,
+      "warningFindings": 3,
+      "resolved": {
+        "path": "build/invoke/stages/dialog-outcome-provider-resolution-resolved.resolved.json",
+        "sha256": "1d9f25272d896bbbd8ea529ecb3f31a1d46ca8d85436ee12c994da04d9877e6c"
+      },
+      "resolvedExtent": null
+    },
+    {
+      "uxId": "provider-resolution",
+      "kind": "outcome",
+      "surfaceId": "dialog-outcome-provider-resolution-not-observable",
+      "surface": "build/invoke/surfaces/dialog-outcome-provider-resolution-not-observable.surface.json",
+      "components": null,
+      "state": 6,
+      "bindings": 6,
+      "validation": 0,
+      "actions": 1,
+      "composed": true,
+      "errorFindings": 0,
+      "warningFindings": 3,
+      "resolved": {
+        "path": "build/invoke/stages/dialog-outcome-provider-resolution-not-observable.resolved.json",
+        "sha256": "b5ad470f0b0880e91eb2ef7588aa7ecbf950516b20a372ccb75e38c3974cba4f"
+      },
+      "resolvedExtent": null
+    }
+  ],
+  "notEstablished": [
+    "No browser has rendered these dialogs; expansion and collapse are unexercised.",
+    "No capability was invoked from them."
+  ]
+}

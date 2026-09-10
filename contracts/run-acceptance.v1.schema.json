@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sidefx.local/sfx-circuit-workbench/contracts/run-acceptance.v1.schema.json",
+  "title": "run-acceptance.v1",
+  "description": "The early response the input-to-outcome lifecycle needs: a run identity issued at admission, before the outcome exists. The deployed pilot is synchronous and its completion response cannot acknowledge a run early enough for the dialog handoff, so this protocol is proposed work sitting in front of that validated execution boundary — not a description of what the service does today.",
+  "type": "object",
+  "required": ["acceptanceVersion", "requestId", "disposition"],
+  "additionalProperties": false,
+  "properties": {
+    "acceptanceVersion": { "const": "run-acceptance.v1" },
+    "requestId": { "type": "string" },
+    "disposition": {
+      "enum": ["ADMITTED", "REFUSED", "UNCERTAIN"],
+      "description": "ADMITTED issues a runId. REFUSED preserves the draft and states why. UNCERTAIN means delivery could not be established: the request is retained for reconciliation and is never automatically resubmitted."
+    },
+    "runId": {
+      "type": "string",
+      "description": "Present only when ADMITTED. Persisted against requestId before any external effect begins, which is what makes a repeat safe."
+    },
+    "deduplicated": {
+      "type": "boolean",
+      "description": "True when this requestId already had a run. The same runId is returned; nothing executes a second time."
+    },
+    "selection": {
+      "type": "object",
+      "description": "What the server resolved the command to. Echoed so the workbench can show which authority actually ran, and pin the outcome to it.",
+      "additionalProperties": false,
+      "properties": {
+        "subject": { "type": "string" },
+        "namespace": { "type": "string" },
+        "scenarioId": { "type": "string" },
+        "publicationId": { "type": "string" },
+        "authorityPins": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    },
+    "refusal": {
+      "type": "object",
+      "description": "Why a request was refused. Distinct codes matter: a stale publication, an unavailable provider, a refused input and a domain failure are different facts and are never collapsed into one error.",
+      "required": ["code", "message"],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "enum": [
+            "SUBJECT_NOT_PUBLISHED",
+            "PUBLICATION_STALE",
+            "POINTER_NOT_EDITABLE",
+            "POINTER_NOT_DECLARED",
+            "EXAMPLE_NOT_PERMITTED",
+            "INPUT_INADMISSIBLE",
+            "INVOCATION_BINDING_STALE",
+            "INVOCATION_BINDING_REFUSED",
+            "PROVIDER_UNAVAILABLE",
+            "NOT_AUTHORIZED"
+          ]
+        },
+        "message": { "type": "string" },
+        "pointer": { "type": "string" },
+        "detail": { "type": "string" }
+      }
+    },
+    "acceptedAt": { "type": "string" }
+  }
+}

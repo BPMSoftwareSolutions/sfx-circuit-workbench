@@ -1,0 +1,51 @@
+{
+  "mapVersion": "workbench-control-parity-map.v1",
+  "statement": "Maps each control recorded in the frozen reference to the declarations that now own it. A recorded control with no owner is a parity gap; an owner naming a component or action the surface does not declare is a broken map. Both fail the M1 gate.",
+  "basis": {
+    "record": "fixtures/baseline/control-behavior.json",
+    "surface": "experiences/source-inspection/source-inspection.surface.json"
+  },
+  "controls": [
+    { "control": "view", "components": ["source-view"], "actions": ["select-source-view"], "state": ["view.selected"] },
+    { "control": "scope", "components": ["view-scope"], "actions": [], "state": ["view.scope"] },
+    { "control": "coverage", "components": ["view-coverage"], "actions": [], "state": ["view.coverage"] },
+    { "control": "material", "components": ["show-material"], "actions": ["show-material"], "state": ["presentation.mode"] },
+    { "control": "base", "components": ["show-base-svg"], "actions": ["show-base-svg"], "state": ["presentation.mode"] },
+    { "control": "fit", "components": ["fit-diagram"], "actions": ["fit-diagram"], "state": ["camera.scale"] },
+    { "control": "read", "components": ["read-at-100"], "actions": ["read-at-100"], "state": ["camera.scale"] },
+    { "control": "plus", "components": ["zoom-in"], "actions": ["zoom-in"], "state": ["camera.scale"] },
+    { "control": "minus", "components": ["zoom-out"], "actions": ["zoom-out"], "state": ["camera.scale"] },
+    { "control": "zoom", "components": ["zoom-readout"], "actions": [], "state": ["camera.zoom-label"] },
+    { "control": "download", "components": ["download-svg"], "actions": ["download-svg"], "state": [] },
+    { "control": "viewport", "components": ["circuit"], "actions": ["select-circuit-entity"], "state": ["selection.entity-id"] },
+    { "control": "search", "components": ["component-search"], "actions": ["search-components"], "state": ["search.query"] },
+    { "control": "outline", "components": ["component-outline"], "actions": ["select-component"], "state": ["outline.items"] },
+    { "control": "routes", "components": ["outgoing-routes"], "actions": ["follow-route"], "state": ["routes.items"] },
+    { "control": "play", "components": ["play-trace"], "actions": ["play-trace"], "state": ["trace.play-label"] },
+    { "control": "next", "components": ["next-trace-step"], "actions": ["next-trace-step"], "state": [] },
+    { "control": "reset", "components": ["reset-trace"], "actions": ["reset-trace"], "state": [] },
+    { "control": "trace-speed", "components": ["trace-speed"], "actions": ["set-trace-speed"], "state": ["trace.speed"] },
+    { "control": "trace-follow", "components": ["trace-follow"], "actions": ["toggle-trace-follow"], "state": ["trace.follow"] },
+    { "control": "flow-status", "components": ["flow-status"], "actions": [], "state": ["trace.status"] },
+    {
+      "control": "inspection",
+      "components": ["inspect-kind", "inspect-title", "inspect-detail", "inspect-facts", "inspect-source", "inspect-findings", "evidence-limit"],
+      "actions": [],
+      "state": ["selection.kind", "selection.title", "selection.detail", "selection.facts", "selection.source", "view.findings"]
+    }
+  ],
+  "additions": [
+    {
+      "component": "trace-mode-readout",
+      "reason": "The plan requires trace mode to be explicit throughout the interface. The reference implied it only in fixed prose; this states it as bound state so observed replay and live execution cannot later be confused with it."
+    },
+    {
+      "component": "workbench-eyebrow",
+      "reason": "The reference's eyebrow text, declared as its own component rather than as template decoration."
+    },
+    {
+      "component": "capability-title",
+      "reason": "The reference's title, declared as a component."
+    }
+  ]
+}

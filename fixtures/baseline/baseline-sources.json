@@ -1,0 +1,91 @@
+{
+  "declarationVersion": "workbench-baseline-sources.v1",
+  "statement": "The exact reference material the recreated workbench must reproduce. Two captured views of one capability, plus the viewer template, stylesheet and runtime that produced them.",
+  "capturedOn": "2026-09-10",
+  "roots": {
+    "products": {
+      "default": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology",
+      "environmentVariable": "SFX_ESTATE_TOPOLOGY_PRODUCTS",
+      "note": "Restored topology products served by the website."
+    },
+    "template": {
+      "default": "C:/lab/repos/content-creation-mission/templates/estate-topology",
+      "environmentVariable": "SFX_ESTATE_TOPOLOGY_TEMPLATE",
+      "note": "Authoring template, stylesheet and runtime."
+    }
+  },
+  "capability": {
+    "capabilityId": "author-tooling-capability-candidate",
+    "title": "Convergently author an SDA capability candidate from canonical source authority",
+    "catalog": "catalog.js",
+    "note": "Both captured views belong to this one capability. They are two baselines, not conflicting definitions of one graph."
+  },
+  "views": [
+    {
+      "fixtureId": "blueprint-authority",
+      "viewId": "n-69b6853533ab1d663473efb6",
+      "expected": {
+        "label": "Capability blueprint",
+        "kind": "blueprint",
+        "nodes": 30,
+        "edges": 45,
+        "omittedSourceNodes": 0,
+        "omittedSourceEdges": 0
+      },
+      "capture": {
+        "medium": "SCREENSHOT",
+        "asset": "docs/assets/current-circuit-workbench.png",
+        "viewport": { "width": 1220, "height": 827 },
+        "zoomPercent": 15,
+        "presentation": "material",
+        "selection": null,
+        "zoomStateDerivation": [
+          "The fitted scale at this layout is well below the 0.35 threshold, so the loader would have opened this view at 70%.",
+          "A displayed 15% is therefore a Fit diagram result reached after load, not the load default.",
+          "Reproducing 15% exactly requires the drawing viewport to measure about 1005 x 630 CSS px; at 975 px it rounds to 14%.",
+          "This derivation must be confirmed by measuring a running instance during M1."
+        ],
+        "requiresMeasurement": true
+      }
+    },
+    {
+      "fixtureId": "native-execution",
+      "viewId": "n-0bdad09bdc9fab51e42f65dd",
+      "expected": {
+        "label": "Execution · Admit the capability authoring context",
+        "kind": "native",
+        "nodes": 10,
+        "edges": 9,
+        "omittedSourceNodes": 0,
+        "omittedSourceEdges": 0
+      },
+      "capture": {
+        "medium": "DOM_HTML",
+        "asset": null,
+        "viewport": null,
+        "zoomPercent": 25,
+        "presentation": "material",
+        "selection": "captured selected elements and trace classes were present in the pasted DOM",
+        "zoomStateDerivation": [
+          "25% is neither this view's fitted scale nor the 70% load default at the screenshot viewport.",
+          "It is a user-reached camera state, consistent with zoom-out steps or a narrower viewport.",
+          "Browser-added attributes and transient trace tokens in that capture are artifacts, not UI authority.",
+          "The pasted DOM itself is not retained in this workspace; only the facts it established are recorded here."
+        ],
+        "requiresMeasurement": true
+      }
+    }
+  ],
+  "templateFiles": ["index.html", "viewer.css", "viewer.js"],
+  "materials": {
+    "folder": "textures",
+    "note": "Content-addressed material images referenced by the captured scenes. Only the textures the two fixtures reference are frozen."
+  },
+  "ingestionPolicy": {
+    "rejectScripts": true,
+    "rejectEventHandlers": true,
+    "rejectUnapprovedExternalReferences": true,
+    "approvedReferencePrefixes": ["/media/library/outputs/estate-topology/textures/"],
+    "note": "The plan requires scripts, event handlers and unapproved external references to be rejected when a legacy SVG is consumed as a scene artifact."
+  }
+}

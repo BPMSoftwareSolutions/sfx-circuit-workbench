@@ -1,0 +1,82 @@
+{
+  "receiptType": "milestone-gate-receipt.v1",
+  "milestone": "M0",
+  "title": "Freeze the reference and make composition portable",
+  "evaluatedAt": "2026-09-10T16:23:34+00:00",
+  "passed": true,
+  "declarations": [
+    {
+      "declaration": "dependencies/ui-dependencies.manifest.json",
+      "schema": "ui-dependency-manifest.v1.schema.json",
+      "valid": true,
+      "sha256": "02b4007bff53f5bd7a4dfbac94f9bab483a1ac1378a54d89b5aa92fab048f82f"
+    },
+    {
+      "declaration": "fixtures/baseline/baseline-sources.json",
+      "schema": "workbench-baseline-sources.v1.schema.json",
+      "valid": true,
+      "sha256": "d0921c610b12a0aec8dc685d63c18b1fc7b1cf0f2eb1a7b7fdbd510a4ce4aab8"
+    }
+  ],
+  "steps": [
+    {
+      "step": "resolve-ui-dependencies",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "step": "reproduce-specimen-receipts",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "step": "verify-baseline",
+      "exitCode": 0,
+      "passed": true
+    }
+  ],
+  "exitCriteria": [
+    {
+      "criterion": "Clean dependency resolution",
+      "met": true,
+      "evidence": "evidence/dependencies/ui-dependency-resolution.receipt.json",
+      "observed": {
+        "expected": 11,
+        "resolved": 11,
+        "errors": 0,
+        "clean": true
+      }
+    },
+    {
+      "criterion": "Existing specimen receipts reproduced against the packaged closure",
+      "met": true,
+      "evidence": "evidence/dependencies/specimen-reproduction.receipt.json",
+      "observed": {
+        "specimens": 5,
+        "conformant": 5,
+        "divergent": 0,
+        "totalDivergences": 0
+      },
+      "qualification": "SEMANTIC_EQUIVALENCE_WITH_ENUMERATED_DELTAS"
+    },
+    {
+      "criterion": "A baseline manifest identifies exactly what is being recreated",
+      "met": true,
+      "evidence": "fixtures/baseline/baseline-manifest.json",
+      "observed": {
+        "views": 2,
+        "materials": 7,
+        "templateFiles": 3,
+        "errors": 0,
+        "frozen": true
+      }
+    }
+  ],
+  "findings": [],
+  "notEstablished": [
+    "No browser was run, no geometry was measured and no interaction was captured.",
+    "The captured zoom states are derived from source reading and remain marked requiresMeasurement.",
+    "No capability was invoked; these fixtures are declared topology and carry no execution evidence.",
+    "Reproduction is semantic equivalence with enumerated relocation deltas, not byte identity."
+  ]
+}

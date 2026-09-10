@@ -1,0 +1,227 @@
+{
+  "planVersion": "capability-dialog-plan.v1",
+  "uxId": "personal-greeting",
+  "subject": "greet-by-name",
+  "compiledAt": "2026-09-10T16:41:36+00:00",
+  "pins": {
+    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+    "inputContract": "personal-greeting-request.v1",
+    "inputSchemaDigest": "sha256:b800857e3c2d721221a37b98ef2fb2daf2e761df365e89a92359b5a6eabee1fb",
+    "outcomeSchemaDigests": {
+      "personal-greeting.v1": "sha256:18489ffe8c38d0181db073af4e471ac1329a76a4441fb53037208800a5439424"
+    },
+    "observed": {
+      "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+      "inputContract": "personal-greeting-request.v1",
+      "inputSchemaDigest": "sha256:b800857e3c2d721221a37b98ef2fb2daf2e761df365e89a92359b5a6eabee1fb"
+    },
+    "current": true
+  },
+  "input": {
+    "dialogTitle": "Enter Capability Input",
+    "description": "Enter a name. It is preserved exactly as you supply it.",
+    "anchor": {
+      "kind": "scene-node",
+      "nodeIdentity": "cell:scenario:greet-by-name:input",
+      "fallback": "viewport-transition"
+    },
+    "state": [
+      {
+        "stateId": "input.payload-name",
+        "semanticType": "text",
+        "meaning": "1 to 100 Unicode code points.",
+        "mutability": "mutable",
+        "initialValue": ""
+      }
+    ],
+    "components": [
+      {
+        "id": "field-payload-name",
+        "componentType": "input",
+        "semanticIdentity": "greet-by-name/payload/name",
+        "presentationIntent": "dialog-field",
+        "content": {
+          "label": "Name"
+        }
+      },
+      {
+        "id": "dialog-submit",
+        "componentType": "action",
+        "semanticIdentity": "greet-by-name#submit",
+        "presentationIntent": "primary-action",
+        "content": {
+          "label": "Submit"
+        },
+        "interaction": {
+          "semanticAction": "submit-personal-greeting"
+        }
+      },
+      {
+        "id": "dialog-cancel",
+        "componentType": "action",
+        "semanticIdentity": "greet-by-name#cancel",
+        "presentationIntent": "secondary-action",
+        "content": {
+          "label": "Cancel"
+        },
+        "interaction": {
+          "semanticAction": "cancel-personal-greeting"
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "bindingId": "bind-payload-name",
+        "component": "field-payload-name",
+        "state": "input.payload-name",
+        "direction": "read-write"
+      }
+    ],
+    "validation": [
+      {
+        "validationId": "valid-payload-name",
+        "state": "input.payload-name",
+        "rules": [
+          {
+            "kind": "required",
+            "message": "Name is required."
+          },
+          {
+            "kind": "minLength",
+            "value": 1
+          },
+          {
+            "kind": "maxLength",
+            "value": 100
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "actionId": "submit-personal-greeting",
+        "meaning": "Submit the admitted input for execution.",
+        "requiresAdmissible": [
+          "input.payload-name"
+        ],
+        "scenarioEvent": "workbench.capability.submitted"
+      },
+      {
+        "actionId": "cancel-personal-greeting",
+        "meaning": "Close the dialog without invoking anything.",
+        "requiresAdmissible": [],
+        "scenarioEvent": "workbench.capability.cancelled"
+      }
+    ],
+    "fields": [
+      {
+        "pointer": "/payload/name",
+        "stateId": "input.payload-name",
+        "componentId": "field-payload-name",
+        "control": "text",
+        "required": true,
+        "constraints": [
+          "maxLength",
+          "minLength",
+          "required"
+        ],
+        "visibleWhen": null
+      }
+    ],
+    "exampleSelector": null,
+    "editablePointers": [
+      "/payload/name"
+    ]
+  },
+  "outcomes": [
+    {
+      "outcomeId": "greeting",
+      "contract": "personal-greeting.v1",
+      "dialogTitle": "Capability outcome",
+      "match": {
+        "contractId": "personal-greeting.v1"
+      },
+      "isNegative": false,
+      "anchor": {
+        "kind": "scene-node",
+        "nodeIdentity": "cell:scenario:greet-by-name:outcome",
+        "fallback": "viewport-transition"
+      },
+      "state": [
+        {
+          "stateId": "outcome.greeting.message",
+          "semanticType": "text",
+          "meaning": "Greeting",
+          "mutability": "fixed",
+          "initialValue": ""
+        }
+      ],
+      "components": [
+        {
+          "id": "outcome-greeting-message",
+          "componentType": "text",
+          "semanticIdentity": "greet-by-name#greeting.message",
+          "presentationIntent": "outcome-text",
+          "content": {
+            "text": ""
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "bindingId": "bind-o-greeting-message",
+          "component": "outcome-greeting-message",
+          "state": "outcome.greeting.message",
+          "direction": "read"
+        }
+      ],
+      "elements": [
+        {
+          "elementId": "message",
+          "family": "text",
+          "pointers": {
+            "value": "/payload/message"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Greeting",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        }
+      ]
+    }
+  ],
+  "delivery": {
+    "refusedTitle": "Request refused",
+    "uncertainTitle": "Delivery uncertain",
+    "uncertainGuidance": "The request was sent but its outcome is not established. It is retained for reconciliation and is not resubmitted automatically."
+  },
+  "motion": {
+    "open": "expand-from-anchor",
+    "close": "collapse-to-anchor",
+    "reducedMotionFallback": "none"
+  },
+  "registry": {
+    "path": "providers/component-registry.v1.json",
+    "sha256": "e604ca8b31da5d4be07847635591d249b4b51350e68eecf6b964fbd6f51ccea8",
+    "version": "component-registry.v1"
+  },
+  "findings": [],
+  "executionBoundary": {
+    "browserMaySubmit": [
+      "publicationId",
+      "subject",
+      "editableValues",
+      "exampleSelection"
+    ],
+    "browserMayNotSubmit": [
+      "canonical envelope",
+      "namespace override",
+      "fixed-field override",
+      "provider inventory",
+      "endpoint selection"
+    ],
+    "note": "The server resolves the published subject and constructs canonical input. This plan describes a dialog, and grants nothing."
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sidefx.local/sfx-circuit-workbench/contracts/circuit-scene.v1.schema.json",
+  "title": "circuit-scene.v1",
+  "description": "A resolved circuit scene: source and view identities, the complete node and route sets, resolved graph-space geometry, material references, semantic hit targets, identity mapping, coverage and findings. The scene provider receives this. It never receives executable HTML supplied by a user, and it carries no execution testimony.",
+  "type": "object",
+  "required": ["sceneVersion", "sceneId", "identities", "traceMode", "graph", "geometry", "hitTargets", "coverage", "provenance"],
+  "additionalProperties": false,
+  "properties": {
+    "sceneVersion": { "const": "circuit-scene.v1" },
+    "sceneId": { "type": "string", "minLength": 1 },
+    "label": { "type": "string" },
+    "identities": {
+      "type": "object",
+      "description": "Separate identities are maintained deliberately. A projection identifier is not a substitute for source authority.",
+      "required": ["capabilityId", "viewId", "viewKind", "sourceIdentity"],
+      "additionalProperties": false,
+      "properties": {
+        "capabilityId": { "type": "string", "minLength": 1 },
+        "viewId": {
+          "type": "string",
+          "description": "Graph view identity, as published by the topology product."
+        },
+        "viewKind": { "enum": ["blueprint", "operations", "native", "expression"] },
+        "sourceIdentity": {
+          "type": "string",
+          "description": "The source capability/scenario identity this view projects."
+        },
+        "scenarioId": { "type": ["string", "null"] }
+      }
+    },
+    "traceMode": {
+      "enum": ["ILLUSTRATIVE", "OBSERVED_REPLAY", "LIVE_EXECUTION"],
+      "description": "Declared topology alone is ILLUSTRATIVE and establishes no execution evidence. The other modes require identified execution testimony and must remain distinguishable in the interface and in exported evidence."
+    },
+    "graph": {
+      "type": "object",
+      "required": ["nodes", "routes"],
+      "additionalProperties": false,
+      "properties": {
+        "nodes": { "type": "array", "items": { "$ref": "#/$defs/node" } },
+        "routes": { "type": "array", "items": { "$ref": "#/$defs/route" } }
+      }
+    },
+    "geometry": {
+      "type": "object",
+      "description": "Graph-space geometry. The shell layout determines the viewport rectangle; the scene provider owns geometry inside it. Graphviz performed graph layout; resolve-ui-layout does not infer graph topology from relationships.",
+      "required": ["width", "height", "boxes", "engine"],
+      "additionalProperties": false,
+      "properties": {
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "height": { "type": "number", "exclusiveMinimum": 0 },
+        "engine": { "type": "string" },
+        "boxes": {
+          "type": "object",
+          "description": "Node id to [x, y, width, height] in graph space.",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 4,
+            "maxItems": 4
+          }
+        },
+        "overlaps": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "materials": {
+      "type": "array",
+      "description": "Content-addressed material references the scene needs. Every reference must have been approved at ingestion.",
+      "items": {
+        "type": "object",
+        "required": ["reference", "sha256"],
+        "additionalProperties": false,
+        "properties": {
+          "reference": { "type": "string" },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "retained": { "type": "string" }
+        }
+      }
+    },
+    "hitTargets": {
+      "type": "array",
+      "description": "Semantic hit targets the provider must expose for selection and keyboard activation. A renderer change must preserve these.",
+      "items": {
+        "type": "object",
+        "required": ["targetId", "entityKind", "entityId", "accessibleName"],
+        "additionalProperties": false,
+        "properties": {
+          "targetId": { "type": "string", "description": "Projection identifier within the scene artifact." },
+          "entityKind": { "enum": ["node", "route"] },
+          "entityId": { "type": "string" },
+          "accessibleName": { "type": "string" },
+          "keyboardActivable": { "type": "boolean" }
+        }
+      }
+    },
+    "scene": {
+      "type": "object",
+      "description": "The verified scene artifact. For the first migration this is a screened legacy SVG consumed as data.",
+      "required": ["kind", "sha256", "screening"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["svg"] },
+        "retained": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "bytes": { "type": "integer", "minimum": 0 },
+        "screening": {
+          "type": "object",
+          "required": ["scriptsRejected", "eventHandlersRejected", "unapprovedReferencesRejected", "passed"],
+          "additionalProperties": false,
+          "properties": {
+            "scriptsRejected": { "type": "boolean" },
+            "eventHandlersRejected": { "type": "boolean" },
+            "unapprovedReferencesRejected": { "type": "boolean" },
+            "passed": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "description": "A graph can be fully represented while only partially observable. Representation and observability are reported separately.",
+      "required": ["nodes", "routes", "omittedSourceNodes", "omittedSourceEdges", "representationComplete"],
+      "additionalProperties": false,
+      "properties": {
+        "nodes": { "type": "integer", "minimum": 0 },
+        "routes": { "type": "integer", "minimum": 0 },
+        "omittedSourceNodes": { "type": "integer", "minimum": 0 },
+        "omittedSourceEdges": { "type": "integer", "minimum": 0 },
+        "representationComplete": { "type": "boolean" },
+        "nodeKinds": { "type": "object", "additionalProperties": { "type": "integer" } },
+        "routeKinds": { "type": "object", "additionalProperties": { "type": "integer" } },
+        "observability": {
+          "type": "object",
+          "description": "What execution instrumentation could establish about this view. Unestablished until M3.",
+          "properties": {
+            "instrumented": { "type": "boolean" },
+            "note": { "type": "string" }
+          }
+        }
+      }
+    },
+    "topology": {
+      "type": "object",
+      "description": "Structural facts the illustrative trace planner and the inspector need.",
+      "additionalProperties": false,
+      "properties": {
+        "roots": { "type": "array", "items": { "type": "string" } },
+        "leaves": { "type": "array", "items": { "type": "string" } },
+        "weakComponents": { "type": "integer", "minimum": 0 },
+        "cyclicComponentCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["sourceAuthority", "ingestedFrom", "adapter"],
+      "additionalProperties": false,
+      "properties": {
+        "sourceAuthority": {
+          "type": "object",
+          "description": "The declared source this view was compiled from.",
+          "additionalProperties": true
+        },
+        "ingestedFrom": {
+          "type": "object",
+          "required": ["path", "sha256"],
+          "properties": {
+            "path": { "type": "string" },
+            "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+          }
+        },
+        "adapter": {
+          "type": "object",
+          "required": ["name", "version"],
+          "properties": {
+            "name": { "type": "string" },
+            "version": { "type": "string" },
+            "sha256": { "type": "string" }
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code", "severity", "detail"],
+        "properties": {
+          "code": { "type": "string" },
+          "severity": { "enum": ["error", "warning", "info"] },
+          "identity": { "type": "string" },
+          "detail": { "type": "string" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": ["id", "identity", "kind", "label"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "description": "Graph entity id; a projection identifier." },
+        "identity": { "type": "string", "description": "Source identity. This is the authority." },
+        "kind": { "type": "string" },
+        "label": { "type": "string" },
+        "detail": { "type": "string" },
+        "source": { "$ref": "#/$defs/sourceReference" },
+        "facts": { "type": "object", "additionalProperties": true }
+      }
+    },
+    "route": {
+      "type": "object",
+      "required": ["id", "identity", "source", "target", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "identity": { "type": "string" },
+        "source": { "type": "string" },
+        "target": { "type": "string" },
+        "kind": { "type": "string" },
+        "label": { "type": "string" },
+        "traversable": {
+          "type": "boolean",
+          "description": "False for provider-binding routes, which accompany the wave that reaches their port rather than being traversed."
+        },
+        "provenance": { "$ref": "#/$defs/sourceReference" },
+        "facts": { "type": "object", "additionalProperties": true }
+      }
+    },
+    "sourceReference": {
+      "type": "object",
+      "description": "Where this entity came from, with its digest and pointer retained.",
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string" },
+        "path": { "type": "string" },
+        "sha256": { "type": "string" },
+        "pointer": { "type": "string" },
+        "kind": { "type": "string" },
+        "label": { "type": "string" },
+        "encoding": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+
+# Local credentials are supplied by the environment, never source control.
+.env
+.env.*
+*.env
+!.env.example
+!.env.template
+
+# Generated packages: large, fully derived from declarations. Rebuild with
+#   python tools/build_workbench.py
+build/
+
+# Deliberately NOT ignored:
+#   evidence/**              durable verification receipts; retain them with the work they prove
+#   fixtures/baseline/**     the frozen reference, retained byte for byte
+#   fixtures/scenes/**       ingested scenes; small, and worth reviewing in a diff
+#   providers/resolved/**    resolved provider profiles; the theme is reviewable output
+#   experiences/derived/**   derived surface and experience; the optionality proof's subject

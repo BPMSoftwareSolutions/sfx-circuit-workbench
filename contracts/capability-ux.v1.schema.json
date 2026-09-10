@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sidefx.local/sfx-circuit-workbench/contracts/capability-ux.v1.schema.json",
+  "title": "capability-ux.v1",
+  "description": "Presentation and anchoring for one capability's input and outcome dialogs. It chooses among compatible presentations; it cannot widen a contract, invent a successful outcome, or make a system-owned field editable. Shape comes from the pinned input contract; permission comes from the input ownership declaration; only presentation comes from here.",
+  "type": "object",
+  "required": ["uxVersion", "uxId", "subject", "pins", "input", "outcomes"],
+  "additionalProperties": false,
+  "properties": {
+    "uxVersion": { "const": "capability-ux.v1" },
+    "uxId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "type": "string" },
+    "note": { "type": "string" },
+    "subject": {
+      "type": "string",
+      "description": "The published capability subject. Never a namespace or endpoint; the server resolves those."
+    },
+    "pins": {
+      "type": "object",
+      "description": "What this declaration was compiled against. A pin that no longer matches must produce a stale-publication finding before the experience is offered for execution.",
+      "required": ["publicationId", "inputContract", "inputSchemaDigest"],
+      "additionalProperties": false,
+      "properties": {
+        "publicationId": { "type": "string" },
+        "inputContract": { "type": "string" },
+        "inputSchemaDigest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+        "outcomeSchemaDigests": {
+          "type": "object",
+          "additionalProperties": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+        },
+        "providerInputBindingDigest": { "type": "string" },
+        "capabilityRevision": { "type": "string" }
+      }
+    },
+    "input": {
+      "type": "object",
+      "required": ["dialogTitle", "anchor", "intents"],
+      "additionalProperties": false,
+      "properties": {
+        "dialogTitle": { "type": "string" },
+        "description": { "type": "string" },
+        "anchor": { "$ref": "#/$defs/anchor" },
+        "groups": {
+          "type": "array",
+          "description": "Presentation grouping over field pointers. Grouping and order are presentation; they never change which pointers exist or who owns them.",
+          "items": {
+            "type": "object",
+            "required": ["groupId", "fields"],
+            "additionalProperties": false,
+            "properties": {
+              "groupId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+              "label": { "type": "string" },
+              "help": { "type": "string" },
+              "fields": { "type": "array", "items": { "$ref": "#/$defs/field" } }
+            }
+          }
+        },
+        "exampleSelector": {
+          "type": "object",
+          "description": "For capabilities whose input is a retained fixture the server owns entirely. The user selects an example; the payload stays server-owned.",
+          "required": ["label"],
+          "additionalProperties": false,
+          "properties": {
+            "label": { "type": "string" },
+            "help": { "type": "string" },
+            "required": { "type": "boolean", "default": true }
+          }
+        },
+        "intents": {
+          "type": "object",
+          "required": ["submit", "cancel"],
+          "additionalProperties": false,
+          "properties": {
+            "submit": { "$ref": "#/$defs/intent" },
+            "cancel": { "$ref": "#/$defs/intent" }
+          }
+        }
+      }
+    },
+    "outcomes": {
+      "type": "array",
+      "minItems": 1,
+      "description": "One entry per permitted outcome contract and variant. A variant is matched by validated contract identity and discriminator, never guessed from which fields happen to be present.",
+      "items": {
+        "type": "object",
+        "required": ["outcomeId", "contract", "match", "anchor", "layout"],
+        "additionalProperties": false,
+        "properties": {
+          "outcomeId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "contract": { "type": "string" },
+          "dialogTitle": { "type": "string" },
+          "match": {
+            "type": "object",
+            "description": "How this variant is identified. contractId must match; a discriminator pointer narrows further.",
+            "required": ["contractId"],
+            "additionalProperties": false,
+            "properties": {
+              "contractId": { "type": "string" },
+              "discriminatorPointer": { "type": "string" },
+              "discriminatorValues": { "type": "array", "items": { "type": "string" } },
+              "isNegative": {
+                "type": "boolean",
+                "default": false,
+                "description": "True for a declared negative domain outcome. A negative outcome has a declared layout of its own; it is never rendered as a success card."
+              }
+            }
+          },
+          "anchor": { "$ref": "#/$defs/anchor" },
+          "layout": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/outcomeElement" }
+          }
+        }
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "description": "How refused, uncertain and unmapped deliveries are presented. These are workbench delivery states, never fabricated capability output.",
+      "additionalProperties": false,
+      "properties": {
+        "refusedTitle": { "type": "string" },
+        "uncertainTitle": { "type": "string" },
+        "uncertainGuidance": { "type": "string" }
+      }
+    },
+    "motion": {
+      "type": "object",
+      "description": "Declared intents only. Duration and easing come from the shared presentation profile, and the animation never schedules execution or manufactures progress.",
+      "additionalProperties": false,
+      "properties": {
+        "open": { "enum": ["expand-from-anchor", "fade", "none"] },
+        "close": { "enum": ["collapse-to-anchor", "fade", "none"] },
+        "reducedMotionFallback": { "enum": ["none", "fade"] }
+      }
+    }
+  },
+  "$defs": {
+    "anchor": {
+      "type": "object",
+      "description": "Where this dialog emerges from on the circuit. The semantic identity is authoritative; the graph entity id is a projection identifier that a re-layout may change.",
+      "required": ["kind"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["scene-node", "viewport"] },
+        "sceneId": { "type": "string" },
+        "nodeIdentity": {
+          "type": "string",
+          "description": "Source identity of the anchoring node. Resolved against the scene at open time."
+        },
+        "fallback": {
+          "enum": ["viewport-transition"],
+          "description": "Used when the anchor node is not present in the current view. The dialog still carries its semantic identity."
+        }
+      }
+    },
+    "field": {
+      "type": "object",
+      "required": ["pointer"],
+      "additionalProperties": false,
+      "properties": {
+        "pointer": {
+          "type": "string",
+          "description": "JSON pointer into the input contract. Must exist in the pinned schema and must be declared editable by the ownership declaration."
+        },
+        "label": { "type": "string" },
+        "help": { "type": "string" },
+        "control": {
+          "type": "string",
+          "description": "Preferred control. The registry decides whether it is compatible with the resolved schema shape; an incompatible preference is a compilation finding, not a silent substitution."
+        },
+        "placeholder": { "type": "string" },
+        "order": { "type": "integer" },
+        "visibleWhen": {
+          "type": "object",
+          "description": "Conditional presentation. It never bypasses required-field validation.",
+          "required": ["pointer", "equals"],
+          "additionalProperties": false,
+          "properties": {
+            "pointer": { "type": "string" },
+            "equals": {}
+          }
+        }
+      }
+    },
+    "intent": {
+      "type": "object",
+      "required": ["label", "actionId"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string" },
+        "actionId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "scenarioEvent": { "type": "string" },
+        "presentationIntent": { "type": "string" }
+      }
+    },
+    "outcomeElement": {
+      "type": "object",
+      "required": ["elementId", "family"],
+      "additionalProperties": false,
+      "properties": {
+        "elementId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "family": {
+          "enum": ["text", "metric", "disposition", "record", "collection", "findings", "evidence"],
+          "description": "A registered outcome presentation family. A chart or artifact family is not offered until its component and bindings are established."
+        },
+        "label": { "type": "string" },
+        "pointer": { "type": "string" },
+        "pointers": {
+          "type": "object",
+          "description": "Named pointers a family requires, such as amount, currency, unit and timestamp for a metric.",
+          "additionalProperties": { "type": "string" }
+        },
+        "itemPath": { "type": "string" },
+        "fields": { "type": "array", "items": { "type": "string" } },
+        "emptyText": { "type": "string" },
+        "dispositionLabels": {
+          "type": "object",
+          "description": "Declared mapping from domain disposition to label. Provider success and business success stay separate.",
+          "additionalProperties": { "type": "string" }
+        },
+        "precision": { "type": "integer", "minimum": 0 },
+        "presentationIntent": { "type": "string" }
+      }
+    }
+  }
+}

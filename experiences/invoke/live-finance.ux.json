@@ -1,0 +1,141 @@
+{
+  "uxVersion": "capability-ux.v1",
+  "uxId": "live-finance",
+  "title": "Live equity price input and outcome",
+  "note": "Two editable fields: free text under a declared pattern, and an enumeration. The outcome puts the price first with its currency, market time and attribution, then the provider and normalisation evidence beneath it. Provider transport success and domain success stay separate facts, and a live price is compared to its own retained provider testimony rather than to a previous run's number.",
+  "subject": "resolve-equity-market-price-evidence",
+  "pins": {
+    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+    "inputContract": "live-equity-price-request.v1",
+    "inputSchemaDigest": "sha256:97b2f584d847b242202f4c06d90d9051492a47f83293d6f74f0e6be54929d539",
+    "providerInputBindingDigest": "sha256:09ecb038af10e553a16ec517857dc1eaf9efd4a6e1e608bc47fb4ca27e947f9b",
+    "outcomeSchemaDigests": {
+      "equity-market-price-evidence.v1": "sha256:7491b5daf9ab87fb56b86a61fe661ad86dc03b305cca97517d3819183d49ca24"
+    }
+  },
+  "input": {
+    "dialogTitle": "Enter Capability Input",
+    "description": "Enter an uppercase symbol such as AAPL. One request; there is no automatic retry.",
+    "anchor": {
+      "kind": "scene-node",
+      "nodeIdentity": "cell:scenario:resolve-equity-market-price-evidence:input",
+      "fallback": "viewport-transition"
+    },
+    "intents": {
+      "submit": {
+        "label": "Submit",
+        "actionId": "submit-live-finance",
+        "scenarioEvent": "workbench.capability.submitted",
+        "presentationIntent": "primary-action"
+      },
+      "cancel": {
+        "label": "Cancel",
+        "actionId": "cancel-live-finance",
+        "scenarioEvent": "workbench.capability.cancelled",
+        "presentationIntent": "secondary-action"
+      }
+    },
+    "groups": [
+      {
+        "groupId": "quote",
+        "label": "What to quote",
+        "fields": [
+          {
+            "pointer": "/payload/symbol",
+            "label": "Stock symbol",
+            "control": "text",
+            "placeholder": "AAPL",
+            "help": "Uppercase letters, digits and . ^ = -",
+            "order": 1
+          },
+          {
+            "pointer": "/payload/region",
+            "label": "Region",
+            "control": "select",
+            "help": "Only US is currently permitted.",
+            "order": 2
+          }
+        ]
+      }
+    ]
+  },
+  "outcomes": [
+    {
+      "outcomeId": "price",
+      "contract": "equity-market-price-evidence.v1",
+      "dialogTitle": "Capability outcome",
+      "match": {
+        "contractId": "equity-market-price-evidence.v1",
+        "discriminatorPointer": "/disposition",
+        "discriminatorValues": [
+          "EQUITY_MARKET_PRICE_EVIDENCE_RESOLVED"
+        ]
+      },
+      "anchor": {
+        "kind": "scene-node",
+        "nodeIdentity": "cell:scenario:resolve-equity-market-price-evidence:outcome",
+        "fallback": "viewport-transition"
+      },
+      "layout": [
+        {
+          "elementId": "price",
+          "family": "metric",
+          "label": "Observed price",
+          "pointers": {
+            "amount": "/payload/observedPrice",
+            "currency": "/payload/currency",
+            "timestamp": "/payload/observedMarketTime"
+          },
+          "precision": 2,
+          "presentationIntent": "prominent-value"
+        },
+        {
+          "elementId": "quote",
+          "family": "record",
+          "label": "Quote",
+          "fields": [
+            "/payload/symbol",
+            "/payload/region",
+            "/payload/exchange",
+            "/payload/marketState"
+          ]
+        },
+        {
+          "elementId": "disposition",
+          "family": "disposition",
+          "label": "Domain disposition",
+          "pointer": "/disposition",
+          "dispositionLabels": {
+            "EQUITY_MARKET_PRICE_EVIDENCE_RESOLVED": "Canonical price evidence resolved"
+          }
+        },
+        {
+          "elementId": "attribution",
+          "family": "text",
+          "label": "Source attribution",
+          "pointer": "/payload/sourceAttribution"
+        },
+        {
+          "elementId": "provider",
+          "family": "evidence",
+          "label": "Provider and normalisation",
+          "pointers": {
+            "bindingId": "/providerTestimony/bindingId",
+            "providerId": "/providerTestimony/providerId",
+            "nativeShape": "/providerTestimony/nativeShape"
+          }
+        }
+      ]
+    }
+  ],
+  "delivery": {
+    "refusedTitle": "Request refused",
+    "uncertainTitle": "Delivery uncertain",
+    "uncertainGuidance": "The request was sent but its outcome is not established. It is retained for reconciliation and is not resubmitted automatically."
+  },
+  "motion": {
+    "open": "expand-from-anchor",
+    "close": "collapse-to-anchor",
+    "reducedMotionFallback": "none"
+  }
+}

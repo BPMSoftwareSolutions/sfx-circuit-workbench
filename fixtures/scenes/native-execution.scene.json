@@ -1,0 +1,1000 @@
+{
+  "sceneVersion": "circuit-scene.v1",
+  "sceneId": "author-tooling-capability-candidate/n-0bdad09bdc9fab51e42f65dd",
+  "label": "Execution \u00b7 Admit the capability authoring context",
+  "identities": {
+    "capabilityId": "author-tooling-capability-candidate",
+    "viewId": "n-0bdad09bdc9fab51e42f65dd",
+    "viewKind": "native",
+    "sourceIdentity": "author-tooling-capability-candidate/native/admit-capability-authoring-context",
+    "scenarioId": null
+  },
+  "traceMode": "ILLUSTRATIVE",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-80cf0e78dfd94883baa2893d",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1",
+        "kind": "event",
+        "label": "sda authority transformation port.v1",
+        "detail": "author-tooling-capability-candidate/scenario/admit-capability-authoring-context/operation/admit-capability-authoring-context.operation.1",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/cells/0",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "nativeKind": "mechanic",
+          "altitude": "mechanic",
+          "parent": "cell:scenario:admit-capability-authoring-context",
+          "input": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:input",
+            "contractId": "capability-authoring-context.v1"
+          },
+          "outcome": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:outcome",
+            "contractId": "admitted-capability-authoring-context.v1",
+            "variants": [
+              "CANCELLED",
+              "FAILURE",
+              "SUCCESS"
+            ]
+          },
+          "authority": {
+            "kind": "mechanic",
+            "authorityId": "operation:sda-authority-transformation-port.v1",
+            "authorityDigest": "sha256:61fcf05658767ff3aa27ef45bcd901af33ac28c7a2b0b78939c8b7714fd63ecd",
+            "protocolRef": "cell-execution-protocol.v1",
+            "providerSlotId": "slot:cell:mechanic:admit-capability-authoring-context.operation.1"
+          },
+          "external": false
+        }
+      },
+      {
+        "id": "n-6ac95b2138dce21c814fed55",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1:expression",
+        "kind": "event",
+        "label": "object.v1",
+        "detail": "/expression",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/cells/1",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "nativeKind": "mechanic",
+          "altitude": "mechanic",
+          "parent": "cell:mechanic:admit-capability-authoring-context.operation.1",
+          "input": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression:input",
+            "contractId": "semantic-value.v1",
+            "cardinality": "named-product"
+          },
+          "outcome": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression:outcome",
+            "contractId": "semantic-value.v1",
+            "variants": [
+              "VALUE"
+            ]
+          },
+          "authority": {
+            "kind": "mechanic",
+            "authorityId": "mechanic:object.v1",
+            "authorityDigest": "sha256:a1792fa8683b20af37002ce6e37ea02644cd63e792c4e97eb2ccf327ddfade94",
+            "protocolRef": "cell-execution-protocol.v1",
+            "providerSlotId": "slot:mechanic:admit-capability-authoring-context.operation.1:expression"
+          },
+          "external": false
+        }
+      },
+      {
+        "id": "n-e02a15ea8aaaebab50996063",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.contractId",
+        "kind": "event",
+        "label": "literal.v1",
+        "detail": "/expression/fields/contractId",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/cells/2",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "nativeKind": "mechanic",
+          "altitude": "mechanic",
+          "parent": "cell:mechanic:admit-capability-authoring-context.operation.1",
+          "input": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.contractId:input",
+            "contractId": "semantic-value.v1",
+            "cardinality": "one"
+          },
+          "outcome": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.contractId:outcome",
+            "contractId": "semantic-value.v1",
+            "variants": [
+              "VALUE"
+            ]
+          },
+          "authority": {
+            "kind": "mechanic",
+            "authorityId": "mechanic:literal.v1",
+            "authorityDigest": "sha256:7f7a96a5e71186e05b4850e573afc120040e1e9885c50306c08a4205593c2888",
+            "protocolRef": "cell-execution-protocol.v1",
+            "providerSlotId": "slot:mechanic:admit-capability-authoring-context.operation.1:expression.fields.contractId"
+          },
+          "external": false
+        }
+      },
+      {
+        "id": "n-60a124a91ea6f19c70cb5a57",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload",
+        "kind": "event",
+        "label": "merge.v1",
+        "detail": "/expression/fields/payload",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/cells/3",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "nativeKind": "mechanic",
+          "altitude": "mechanic",
+          "parent": "cell:mechanic:admit-capability-authoring-context.operation.1",
+          "input": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload:input",
+            "contractId": "semantic-value.v1",
+            "cardinality": "named-product"
+          },
+          "outcome": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload:outcome",
+            "contractId": "semantic-value.v1",
+            "variants": [
+              "VALUE"
+            ]
+          },
+          "authority": {
+            "kind": "mechanic",
+            "authorityId": "mechanic:merge.v1",
+            "authorityDigest": "sha256:73ec5d036c47066971fe1048aa13cee8efd516856b73a71d599a2f02d9eb20a5",
+            "protocolRef": "cell-execution-protocol.v1",
+            "providerSlotId": "slot:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload"
+          },
+          "external": false
+        }
+      },
+      {
+        "id": "n-cd8623eab3483702df4b9f22",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.0",
+        "kind": "event",
+        "label": "path.v1",
+        "detail": "/expression/fields/payload/values/0",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/cells/4",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "nativeKind": "mechanic",
+          "altitude": "mechanic",
+          "parent": "cell:mechanic:admit-capability-authoring-context.operation.1",
+          "input": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.0:input",
+            "contractId": "semantic-value.v1",
+            "cardinality": "one"
+          },
+          "outcome": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.0:outcome",
+            "contractId": "semantic-value.v1",
+            "variants": [
+              "VALUE"
+            ]
+          },
+          "authority": {
+            "kind": "mechanic",
+            "authorityId": "mechanic:path.v1",
+            "authorityDigest": "sha256:68a56dd759339a459af5bbb1f0e11ca384b4845abcecfd45961bd78f8a033bf9",
+            "protocolRef": "cell-execution-protocol.v1",
+            "providerSlotId": "slot:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.0"
+          },
+          "external": false
+        }
+      },
+      {
+        "id": "n-0a7f944198948c25ca0437c3",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1",
+        "kind": "event",
+        "label": "object.v1",
+        "detail": "/expression/fields/payload/values/1",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/cells/5",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "nativeKind": "mechanic",
+          "altitude": "mechanic",
+          "parent": "cell:mechanic:admit-capability-authoring-context.operation.1",
+          "input": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1:input",
+            "contractId": "semantic-value.v1",
+            "cardinality": "named-product"
+          },
+          "outcome": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1:outcome",
+            "contractId": "semantic-value.v1",
+            "variants": [
+              "VALUE"
+            ]
+          },
+          "authority": {
+            "kind": "mechanic",
+            "authorityId": "mechanic:object.v1",
+            "authorityDigest": "sha256:2efa7fb6249be7d35a0b438ae602f36ae8a2d894932a245918a431904d14e719",
+            "protocolRef": "cell-execution-protocol.v1",
+            "providerSlotId": "slot:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1"
+          },
+          "external": false
+        }
+      },
+      {
+        "id": "n-2b24f1a9d66e0a5697827a7c",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.blueprintCellId",
+        "kind": "event",
+        "label": "literal.v1",
+        "detail": "/expression/fields/payload/values/1/fields/blueprintCellId",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/cells/6",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "nativeKind": "mechanic",
+          "altitude": "mechanic",
+          "parent": "cell:mechanic:admit-capability-authoring-context.operation.1",
+          "input": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.blueprintCellId:input",
+            "contractId": "semantic-value.v1",
+            "cardinality": "one"
+          },
+          "outcome": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.blueprintCellId:outcome",
+            "contractId": "semantic-value.v1",
+            "variants": [
+              "VALUE"
+            ]
+          },
+          "authority": {
+            "kind": "mechanic",
+            "authorityId": "mechanic:literal.v1",
+            "authorityDigest": "sha256:eb73fdff98019cf666baa79449314d26b84a63793348ccbd7a559f84e7ed107c",
+            "protocolRef": "cell-execution-protocol.v1",
+            "providerSlotId": "slot:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.blueprintCellId"
+          },
+          "external": false
+        }
+      },
+      {
+        "id": "n-f6f0768df3c2d11b5c1ec248",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.closed",
+        "kind": "event",
+        "label": "literal.v1",
+        "detail": "/expression/fields/payload/values/1/fields/closed",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/cells/7",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "nativeKind": "mechanic",
+          "altitude": "mechanic",
+          "parent": "cell:mechanic:admit-capability-authoring-context.operation.1",
+          "input": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.closed:input",
+            "contractId": "semantic-value.v1",
+            "cardinality": "one"
+          },
+          "outcome": {
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.closed:outcome",
+            "contractId": "semantic-value.v1",
+            "variants": [
+              "VALUE"
+            ]
+          },
+          "authority": {
+            "kind": "mechanic",
+            "authorityId": "mechanic:literal.v1",
+            "authorityDigest": "sha256:ece26850da582fa39f625915a7897a003d02821ce22d0d1d3a119ad1c3e94ad4",
+            "protocolRef": "cell-execution-protocol.v1",
+            "providerSlotId": "slot:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.closed"
+          },
+          "external": false
+        }
+      },
+      {
+        "id": "n-08cbadcd9c8c49fb624db983",
+        "identity": "cell:scenario:admit-capability-authoring-context",
+        "kind": "outcome",
+        "label": "admit capability authoring context.v1",
+        "detail": "author-tooling-capability-candidate/scenario/admit-capability-authoring-context",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/cells/282",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "nativeKind": "scenario",
+          "altitude": "scenario",
+          "parent": null,
+          "input": {
+            "portId": "cell:scenario:admit-capability-authoring-context:input",
+            "contractId": "capability-authoring-context.v1"
+          },
+          "outcome": {
+            "portId": "cell:scenario:admit-capability-authoring-context:outcome",
+            "contractId": "admitted-capability-authoring-context.v1",
+            "variants": [
+              "CONTEXT_ADMITTED",
+              "CONTEXT_HELD"
+            ]
+          },
+          "authority": {
+            "kind": "scenario",
+            "authorityId": "admit-capability-authoring-context.v1",
+            "authorityDigest": "sha256:3909a03098b7a8fe12145f267b0a7c121af27cb2dcd6da2cc14e093bd4cd3321",
+            "protocolRef": "cell-execution-protocol.v1"
+          },
+          "external": false
+        }
+      },
+      {
+        "id": "n-694740ff0de5c5abcafbd18c",
+        "identity": "cell:scenario:resolve-capability-authoring-profile",
+        "kind": "outcome",
+        "label": "resolve capability authoring profile.v1",
+        "detail": "author-tooling-capability-candidate/scenario/resolve-capability-authoring-profile",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/cells/298",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "nativeKind": "scenario",
+          "altitude": "scenario",
+          "parent": null,
+          "input": {
+            "portId": "cell:scenario:resolve-capability-authoring-profile:input",
+            "contractId": "admitted-capability-authoring-context.v1"
+          },
+          "outcome": {
+            "portId": "cell:scenario:resolve-capability-authoring-profile:outcome",
+            "contractId": "bounded-capability-authoring-profile.v2",
+            "variants": [
+              "PROFILE_RESOLVED"
+            ]
+          },
+          "authority": {
+            "kind": "scenario",
+            "authorityId": "resolve-capability-authoring-profile.v1",
+            "authorityDigest": "sha256:831506389cc337c44410183074c351b5678c399f6030dbf541f2b7617ecba660",
+            "protocolRef": "cell-execution-protocol.v1"
+          },
+          "external": true
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "n-4e7058e793d5511a3395cc23",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1:expression:dependency:1",
+        "source": "n-e02a15ea8aaaebab50996063",
+        "target": "n-cd8623eab3483702df4b9f22",
+        "kind": "sequence",
+        "traversable": true,
+        "label": "sequence",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/edges/0",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "from": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.contractId",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.contractId:outcome"
+          },
+          "to": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.0",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.0:input"
+          },
+          "edgeContractId": "semantic-value.v1",
+          "authorityDigest": "sha256:4135c3c2a644aa68d2151ede45ef965fdbf4d0f38f87a9402e7e538d655114bb",
+          "sourcePointers": [
+            "semantic-transformation.authority.json#/expression"
+          ]
+        }
+      },
+      {
+        "id": "n-3109f21caa72879d914c694c",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1:expression:dependency:result",
+        "source": "n-60a124a91ea6f19c70cb5a57",
+        "target": "n-6ac95b2138dce21c814fed55",
+        "kind": "sequence",
+        "traversable": true,
+        "label": "sequence",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/edges/1",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "from": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload:outcome"
+          },
+          "to": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression:input"
+          },
+          "edgeContractId": "semantic-value.v1",
+          "authorityDigest": "sha256:4135c3c2a644aa68d2151ede45ef965fdbf4d0f38f87a9402e7e538d655114bb",
+          "sourcePointers": [
+            "semantic-transformation.authority.json#/expression"
+          ]
+        }
+      },
+      {
+        "id": "n-a4ff8872dbb838bf2dcf18e6",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload:dependency:1",
+        "source": "n-cd8623eab3483702df4b9f22",
+        "target": "n-2b24f1a9d66e0a5697827a7c",
+        "kind": "sequence",
+        "traversable": true,
+        "label": "sequence",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/edges/2",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "from": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.0",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.0:outcome"
+          },
+          "to": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.blueprintCellId",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.blueprintCellId:input"
+          },
+          "edgeContractId": "semantic-value.v1",
+          "authorityDigest": "sha256:4135c3c2a644aa68d2151ede45ef965fdbf4d0f38f87a9402e7e538d655114bb",
+          "sourcePointers": [
+            "semantic-transformation.authority.json#/expression/fields/payload"
+          ]
+        }
+      },
+      {
+        "id": "n-a5b1d45ff1dd2b01d6349617",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload:dependency:result",
+        "source": "n-0a7f944198948c25ca0437c3",
+        "target": "n-60a124a91ea6f19c70cb5a57",
+        "kind": "sequence",
+        "traversable": true,
+        "label": "sequence",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/edges/3",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "from": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1:outcome"
+          },
+          "to": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload:input"
+          },
+          "edgeContractId": "semantic-value.v1",
+          "authorityDigest": "sha256:4135c3c2a644aa68d2151ede45ef965fdbf4d0f38f87a9402e7e538d655114bb",
+          "sourcePointers": [
+            "semantic-transformation.authority.json#/expression/fields/payload"
+          ]
+        }
+      },
+      {
+        "id": "n-cc4000c648e2a883351567d8",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1:dependency:1",
+        "source": "n-2b24f1a9d66e0a5697827a7c",
+        "target": "n-f6f0768df3c2d11b5c1ec248",
+        "kind": "sequence",
+        "traversable": true,
+        "label": "sequence",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/edges/4",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "from": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.blueprintCellId",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.blueprintCellId:outcome"
+          },
+          "to": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.closed",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.closed:input"
+          },
+          "edgeContractId": "semantic-value.v1",
+          "authorityDigest": "sha256:4135c3c2a644aa68d2151ede45ef965fdbf4d0f38f87a9402e7e538d655114bb",
+          "sourcePointers": [
+            "semantic-transformation.authority.json#/expression/fields/payload/values/1"
+          ]
+        }
+      },
+      {
+        "id": "n-7bb89b93760d960e1d971c73",
+        "identity": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1:dependency:result",
+        "source": "n-f6f0768df3c2d11b5c1ec248",
+        "target": "n-0a7f944198948c25ca0437c3",
+        "kind": "sequence",
+        "traversable": true,
+        "label": "sequence",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/edges/5",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "from": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.closed",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1.fields.closed:outcome"
+          },
+          "to": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression.fields.payload.values.1:input"
+          },
+          "edgeContractId": "semantic-value.v1",
+          "authorityDigest": "sha256:4135c3c2a644aa68d2151ede45ef965fdbf4d0f38f87a9402e7e538d655114bb",
+          "sourcePointers": [
+            "semantic-transformation.authority.json#/expression/fields/payload/values/1"
+          ]
+        }
+      },
+      {
+        "id": "n-2c209a4a849a80d933fc05f0",
+        "identity": "edge:return:admit-capability-authoring-context",
+        "source": "n-80cf0e78dfd94883baa2893d",
+        "target": "n-08cbadcd9c8c49fb624db983",
+        "kind": "return",
+        "traversable": true,
+        "label": "return",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/edges/264",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "from": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:outcome"
+          },
+          "to": {
+            "cellId": "cell:scenario:admit-capability-authoring-context",
+            "portId": "cell:scenario:admit-capability-authoring-context:outcome"
+          },
+          "edgeContractId": "admitted-capability-authoring-context.v1",
+          "authorityDigest": "sha256:8e9c09f27170cde4d8b396265cc8d0cd1d076f5974112f79dc39332cedbc6e51",
+          "sourcePointers": [
+            "scenarios#/1"
+          ]
+        }
+      },
+      {
+        "id": "n-6f834bc1a2cf3303b584fabf",
+        "identity": "edge:return:cell:mechanic:admit-capability-authoring-context.operation.1:expression:cell:mechanic:admit-capability-authoring-context.operation.1:0",
+        "source": "n-6ac95b2138dce21c814fed55",
+        "target": "n-80cf0e78dfd94883baa2893d",
+        "kind": "return",
+        "traversable": true,
+        "label": "return",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/edges/270",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "from": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:expression:outcome"
+          },
+          "to": {
+            "cellId": "cell:mechanic:admit-capability-authoring-context.operation.1",
+            "portId": "cell:mechanic:admit-capability-authoring-context.operation.1:outcome"
+          },
+          "edgeContractId": "admitted-capability-authoring-context.v1",
+          "authorityDigest": "sha256:f5dad01b14ed91e09ff47a93f95e54565e7582efce33302957bbe5450db9a0e4",
+          "sourcePointers": [
+            "executionAuthorities/admit-capability-authoring-context/operations/0"
+          ]
+        }
+      },
+      {
+        "id": "n-c55c6d79fabb0b3509c14ae3",
+        "identity": "edge:transition-admit-to-resolve",
+        "source": "n-08cbadcd9c8c49fb624db983",
+        "target": "n-694740ff0de5c5abcafbd18c",
+        "kind": "sequence",
+        "traversable": true,
+        "label": "sequence",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "/canonicalGraph/edges/310",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "from": {
+            "cellId": "cell:scenario:admit-capability-authoring-context",
+            "portId": "cell:scenario:admit-capability-authoring-context:outcome"
+          },
+          "to": {
+            "cellId": "cell:scenario:resolve-capability-authoring-profile",
+            "portId": "cell:scenario:resolve-capability-authoring-profile:input"
+          },
+          "edgeContractId": "admitted-capability-authoring-context.v1",
+          "authorityDigest": "sha256:f0de4e647bd5f2acc0d93c72af543d04e548a212765851f3bbd29f12a515d194",
+          "sourcePointers": [
+            "transitions#/0"
+          ]
+        }
+      }
+    ]
+  },
+  "geometry": {
+    "width": 2880.3,
+    "height": 835.78,
+    "engine": "networkx",
+    "boxes": {
+      "n-80cf0e78dfd94883baa2893d": [
+        225.62,
+        193.27999999999997,
+        270,
+        135
+      ],
+      "n-6ac95b2138dce21c814fed55": [
+        2556.6,
+        413.28,
+        270,
+        135
+      ],
+      "n-e02a15ea8aaaebab50996063": [
+        225.62,
+        413.28,
+        270,
+        135
+      ],
+      "n-60a124a91ea6f19c70cb5a57": [
+        2168.1,
+        413.28,
+        270,
+        135
+      ],
+      "n-cd8623eab3483702df4b9f22": [
+        614.12,
+        413.28,
+        270,
+        135
+      ],
+      "n-0a7f944198948c25ca0437c3": [
+        1779.6,
+        413.28,
+        270,
+        135
+      ],
+      "n-2b24f1a9d66e0a5697827a7c": [
+        1002.5999999999999,
+        413.28,
+        270,
+        135
+      ],
+      "n-f6f0768df3c2d11b5c1ec248": [
+        1391.1,
+        413.28,
+        270,
+        135
+      ],
+      "n-08cbadcd9c8c49fb624db983": [
+        225.62,
+        633.28,
+        270,
+        135
+      ],
+      "n-694740ff0de5c5abcafbd18c": [
+        614.12,
+        633.28,
+        270,
+        135
+      ]
+    },
+    "overlaps": 0
+  },
+  "materials": [
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e.webp",
+      "sha256": "7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e",
+      "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp",
+      "sha256": "bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c",
+      "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp"
+    }
+  ],
+  "hitTargets": [
+    {
+      "targetId": "n-4e7058e793d5511a3395cc23",
+      "entityKind": "route",
+      "entityId": "n-4e7058e793d5511a3395cc23",
+      "accessibleName": "sequence: sequence",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-3109f21caa72879d914c694c",
+      "entityKind": "route",
+      "entityId": "n-3109f21caa72879d914c694c",
+      "accessibleName": "sequence: sequence",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-a4ff8872dbb838bf2dcf18e6",
+      "entityKind": "route",
+      "entityId": "n-a4ff8872dbb838bf2dcf18e6",
+      "accessibleName": "sequence: sequence",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-a5b1d45ff1dd2b01d6349617",
+      "entityKind": "route",
+      "entityId": "n-a5b1d45ff1dd2b01d6349617",
+      "accessibleName": "sequence: sequence",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-cc4000c648e2a883351567d8",
+      "entityKind": "route",
+      "entityId": "n-cc4000c648e2a883351567d8",
+      "accessibleName": "sequence: sequence",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-7bb89b93760d960e1d971c73",
+      "entityKind": "route",
+      "entityId": "n-7bb89b93760d960e1d971c73",
+      "accessibleName": "sequence: sequence",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-2c209a4a849a80d933fc05f0",
+      "entityKind": "route",
+      "entityId": "n-2c209a4a849a80d933fc05f0",
+      "accessibleName": "return: return",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-6f834bc1a2cf3303b584fabf",
+      "entityKind": "route",
+      "entityId": "n-6f834bc1a2cf3303b584fabf",
+      "accessibleName": "return: return",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-c55c6d79fabb0b3509c14ae3",
+      "entityKind": "route",
+      "entityId": "n-c55c6d79fabb0b3509c14ae3",
+      "accessibleName": "sequence: sequence",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-80cf0e78dfd94883baa2893d",
+      "entityKind": "node",
+      "entityId": "n-80cf0e78dfd94883baa2893d",
+      "accessibleName": "event: sda authority transformation port.v1",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-6ac95b2138dce21c814fed55",
+      "entityKind": "node",
+      "entityId": "n-6ac95b2138dce21c814fed55",
+      "accessibleName": "event: object.v1",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-e02a15ea8aaaebab50996063",
+      "entityKind": "node",
+      "entityId": "n-e02a15ea8aaaebab50996063",
+      "accessibleName": "event: literal.v1",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-60a124a91ea6f19c70cb5a57",
+      "entityKind": "node",
+      "entityId": "n-60a124a91ea6f19c70cb5a57",
+      "accessibleName": "event: merge.v1",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-cd8623eab3483702df4b9f22",
+      "entityKind": "node",
+      "entityId": "n-cd8623eab3483702df4b9f22",
+      "accessibleName": "event: path.v1",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-0a7f944198948c25ca0437c3",
+      "entityKind": "node",
+      "entityId": "n-0a7f944198948c25ca0437c3",
+      "accessibleName": "event: object.v1",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-2b24f1a9d66e0a5697827a7c",
+      "entityKind": "node",
+      "entityId": "n-2b24f1a9d66e0a5697827a7c",
+      "accessibleName": "event: literal.v1",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-f6f0768df3c2d11b5c1ec248",
+      "entityKind": "node",
+      "entityId": "n-f6f0768df3c2d11b5c1ec248",
+      "accessibleName": "event: literal.v1",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-08cbadcd9c8c49fb624db983",
+      "entityKind": "node",
+      "entityId": "n-08cbadcd9c8c49fb624db983",
+      "accessibleName": "outcome: admit capability authoring context.v1",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-694740ff0de5c5abcafbd18c",
+      "entityKind": "node",
+      "entityId": "n-694740ff0de5c5abcafbd18c",
+      "accessibleName": "outcome: resolve capability authoring profile.v1",
+      "keyboardActivable": true
+    }
+  ],
+  "scene": {
+    "kind": "svg",
+    "retained": "fixtures/scenes/native-execution.svg",
+    "sha256": "aaa9b13c81549387a50ae5af1516af2bfb01152cf7465280a1b3ae347b09ba5e",
+    "bytes": 19763,
+    "screening": {
+      "scriptsRejected": true,
+      "eventHandlersRejected": true,
+      "unapprovedReferencesRejected": true,
+      "passed": true
+    }
+  },
+  "coverage": {
+    "nodes": 10,
+    "routes": 9,
+    "omittedSourceNodes": 0,
+    "omittedSourceEdges": 0,
+    "representationComplete": true,
+    "nodeKinds": {
+      "event": 8,
+      "outcome": 2
+    },
+    "routeKinds": {
+      "sequence": 7,
+      "return": 2
+    },
+    "observability": {
+      "instrumented": false,
+      "note": "Declared topology only. No execution instrumentation exists for this view; representation completeness says nothing about observability."
+    }
+  },
+  "topology": {
+    "roots": [
+      "n-e02a15ea8aaaebab50996063"
+    ],
+    "leaves": [
+      "n-694740ff0de5c5abcafbd18c"
+    ],
+    "weakComponents": 1,
+    "cyclicComponentCount": 0
+  },
+  "provenance": {
+    "sourceAuthority": {
+      "id": "src-00002",
+      "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+      "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+      "pointer": "",
+      "kind": "DECLARED",
+      "label": "policy / consumer-execution-embodiment-plan.v3",
+      "encoding": "capsule-entry"
+    },
+    "ingestedFrom": {
+      "path": "C:/lab/sfx-circuit-workbench/fixtures/baseline/author-tooling-capability-candidate/n-0bdad09bdc9fab51e42f65dd.js",
+      "sha256": "507254705f93c899a61f91e33aa137331679e7ec79aee30002fa48c3181b3e37"
+    },
+    "adapter": {
+      "name": "ingest-topology-view",
+      "version": "1.0.0"
+    }
+  },
+  "findings": []
+}

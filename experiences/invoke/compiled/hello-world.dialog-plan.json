@@ -1,0 +1,166 @@
+{
+  "planVersion": "capability-dialog-plan.v1",
+  "uxId": "hello-world",
+  "subject": "say-hello-world",
+  "compiledAt": "2026-09-10T16:41:36+00:00",
+  "pins": {
+    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+    "inputContract": "hello-world-request.v1",
+    "inputSchemaDigest": "sha256:0cb0cff2850d0636dd684850c859b4216e4b65e3ebb1f646fcb7c34771a08eb0",
+    "outcomeSchemaDigests": {
+      "hello-world-greeting.v1": "sha256:032a564e36eb1123f46c112386f96eded1a50c074537eb5e0f40c8beb7ba83c8"
+    },
+    "observed": {
+      "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+      "inputContract": "hello-world-request.v1",
+      "inputSchemaDigest": "sha256:0cb0cff2850d0636dd684850c859b4216e4b65e3ebb1f646fcb7c34771a08eb0"
+    },
+    "current": true
+  },
+  "input": {
+    "dialogTitle": "Enter Capability Input",
+    "description": "No input is required. The contract and payload are server-owned.",
+    "anchor": {
+      "kind": "scene-node",
+      "nodeIdentity": "cell:scenario:say-hello-world:input",
+      "fallback": "viewport-transition"
+    },
+    "state": [],
+    "components": [
+      {
+        "id": "dialog-submit",
+        "componentType": "action",
+        "semanticIdentity": "say-hello-world#submit",
+        "presentationIntent": "primary-action",
+        "content": {
+          "label": "Submit"
+        },
+        "interaction": {
+          "semanticAction": "submit-hello-world"
+        }
+      },
+      {
+        "id": "dialog-cancel",
+        "componentType": "action",
+        "semanticIdentity": "say-hello-world#cancel",
+        "presentationIntent": "secondary-action",
+        "content": {
+          "label": "Cancel"
+        },
+        "interaction": {
+          "semanticAction": "cancel-hello-world"
+        }
+      }
+    ],
+    "bindings": [],
+    "validation": [],
+    "actions": [
+      {
+        "actionId": "submit-hello-world",
+        "meaning": "Submit the admitted input for execution.",
+        "requiresAdmissible": [],
+        "scenarioEvent": "workbench.capability.submitted"
+      },
+      {
+        "actionId": "cancel-hello-world",
+        "meaning": "Close the dialog without invoking anything.",
+        "requiresAdmissible": [],
+        "scenarioEvent": "workbench.capability.cancelled"
+      }
+    ],
+    "fields": [],
+    "exampleSelector": null,
+    "editablePointers": []
+  },
+  "outcomes": [
+    {
+      "outcomeId": "greeting",
+      "contract": "hello-world-greeting.v1",
+      "dialogTitle": "Capability outcome",
+      "match": {
+        "contractId": "hello-world-greeting.v1"
+      },
+      "isNegative": false,
+      "anchor": {
+        "kind": "scene-node",
+        "nodeIdentity": "cell:scenario:say-hello-world:outcome",
+        "fallback": "viewport-transition"
+      },
+      "state": [
+        {
+          "stateId": "outcome.greeting.message",
+          "semanticType": "text",
+          "meaning": "Greeting",
+          "mutability": "fixed",
+          "initialValue": ""
+        }
+      ],
+      "components": [
+        {
+          "id": "outcome-greeting-message",
+          "componentType": "text",
+          "semanticIdentity": "say-hello-world#greeting.message",
+          "presentationIntent": "outcome-text",
+          "content": {
+            "text": ""
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "bindingId": "bind-o-greeting-message",
+          "component": "outcome-greeting-message",
+          "state": "outcome.greeting.message",
+          "direction": "read"
+        }
+      ],
+      "elements": [
+        {
+          "elementId": "message",
+          "family": "text",
+          "pointers": {
+            "value": "/payload/message"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Greeting",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        }
+      ]
+    }
+  ],
+  "delivery": {
+    "refusedTitle": "Request refused",
+    "uncertainTitle": "Delivery uncertain",
+    "uncertainGuidance": "The request was sent but its outcome is not established. It is retained for reconciliation and is not resubmitted automatically."
+  },
+  "motion": {
+    "open": "expand-from-anchor",
+    "close": "collapse-to-anchor",
+    "reducedMotionFallback": "none"
+  },
+  "registry": {
+    "path": "providers/component-registry.v1.json",
+    "sha256": "e604ca8b31da5d4be07847635591d249b4b51350e68eecf6b964fbd6f51ccea8",
+    "version": "component-registry.v1"
+  },
+  "findings": [],
+  "executionBoundary": {
+    "browserMaySubmit": [
+      "publicationId",
+      "subject",
+      "editableValues",
+      "exampleSelection"
+    ],
+    "browserMayNotSubmit": [
+      "canonical envelope",
+      "namespace override",
+      "fixed-field override",
+      "provider inventory",
+      "endpoint selection"
+    ],
+    "note": "The server resolves the published subject and constructs canonical input. This plan describes a dialog, and grants nothing."
+  }
+}

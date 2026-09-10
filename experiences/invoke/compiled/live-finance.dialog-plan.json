@@ -1,0 +1,458 @@
+{
+  "planVersion": "capability-dialog-plan.v1",
+  "uxId": "live-finance",
+  "subject": "resolve-equity-market-price-evidence",
+  "compiledAt": "2026-09-10T16:41:36+00:00",
+  "pins": {
+    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+    "inputContract": "live-equity-price-request.v1",
+    "inputSchemaDigest": "sha256:97b2f584d847b242202f4c06d90d9051492a47f83293d6f74f0e6be54929d539",
+    "providerInputBindingDigest": "sha256:09ecb038af10e553a16ec517857dc1eaf9efd4a6e1e608bc47fb4ca27e947f9b",
+    "outcomeSchemaDigests": {
+      "equity-market-price-evidence.v1": "sha256:7491b5daf9ab87fb56b86a61fe661ad86dc03b305cca97517d3819183d49ca24"
+    },
+    "observed": {
+      "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+      "inputContract": "live-equity-price-request.v1",
+      "inputSchemaDigest": "sha256:97b2f584d847b242202f4c06d90d9051492a47f83293d6f74f0e6be54929d539"
+    },
+    "current": true
+  },
+  "input": {
+    "dialogTitle": "Enter Capability Input",
+    "description": "Enter an uppercase symbol such as AAPL. One request; there is no automatic retry.",
+    "anchor": {
+      "kind": "scene-node",
+      "nodeIdentity": "cell:scenario:resolve-equity-market-price-evidence:input",
+      "fallback": "viewport-transition"
+    },
+    "state": [
+      {
+        "stateId": "input.payload-symbol",
+        "semanticType": "text",
+        "meaning": "Uppercase letters, digits and . ^ = -",
+        "mutability": "mutable",
+        "initialValue": ""
+      },
+      {
+        "stateId": "input.payload-region",
+        "semanticType": "selection",
+        "meaning": "Only US is currently permitted.",
+        "mutability": "mutable",
+        "initialValue": ""
+      }
+    ],
+    "components": [
+      {
+        "id": "field-payload-symbol",
+        "componentType": "input",
+        "semanticIdentity": "resolve-equity-market-price-evidence/payload/symbol",
+        "presentationIntent": "dialog-field",
+        "content": {
+          "label": "Stock symbol",
+          "placeholder": "AAPL"
+        }
+      },
+      {
+        "id": "field-payload-region",
+        "componentType": "choice",
+        "semanticIdentity": "resolve-equity-market-price-evidence/payload/region",
+        "presentationIntent": "dialog-field",
+        "content": {
+          "label": "Region",
+          "options": [
+            {
+              "value": "US",
+              "label": "US"
+            }
+          ]
+        }
+      },
+      {
+        "id": "dialog-submit",
+        "componentType": "action",
+        "semanticIdentity": "resolve-equity-market-price-evidence#submit",
+        "presentationIntent": "primary-action",
+        "content": {
+          "label": "Submit"
+        },
+        "interaction": {
+          "semanticAction": "submit-live-finance"
+        }
+      },
+      {
+        "id": "dialog-cancel",
+        "componentType": "action",
+        "semanticIdentity": "resolve-equity-market-price-evidence#cancel",
+        "presentationIntent": "secondary-action",
+        "content": {
+          "label": "Cancel"
+        },
+        "interaction": {
+          "semanticAction": "cancel-live-finance"
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "bindingId": "bind-payload-symbol",
+        "component": "field-payload-symbol",
+        "state": "input.payload-symbol",
+        "direction": "read-write"
+      },
+      {
+        "bindingId": "bind-payload-region",
+        "component": "field-payload-region",
+        "state": "input.payload-region",
+        "direction": "read-write"
+      }
+    ],
+    "validation": [
+      {
+        "validationId": "valid-payload-symbol",
+        "state": "input.payload-symbol",
+        "rules": [
+          {
+            "kind": "required",
+            "message": "Stock symbol is required."
+          },
+          {
+            "kind": "minLength",
+            "value": 1
+          },
+          {
+            "kind": "maxLength",
+            "value": 24
+          },
+          {
+            "kind": "pattern",
+            "value": "^[A-Z0-9.^=-]{1,24}$",
+            "message": "Stock symbol does not match its declared form."
+          }
+        ]
+      },
+      {
+        "validationId": "valid-payload-region",
+        "state": "input.payload-region",
+        "rules": [
+          {
+            "kind": "required",
+            "message": "Region is required."
+          },
+          {
+            "kind": "minLength",
+            "value": 2
+          },
+          {
+            "kind": "maxLength",
+            "value": 2
+          },
+          {
+            "kind": "oneOf",
+            "values": [
+              "US"
+            ],
+            "message": "Choose a declared value."
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "actionId": "submit-live-finance",
+        "meaning": "Submit the admitted input for execution.",
+        "requiresAdmissible": [
+          "input.payload-symbol",
+          "input.payload-region"
+        ],
+        "scenarioEvent": "workbench.capability.submitted"
+      },
+      {
+        "actionId": "cancel-live-finance",
+        "meaning": "Close the dialog without invoking anything.",
+        "requiresAdmissible": [],
+        "scenarioEvent": "workbench.capability.cancelled"
+      }
+    ],
+    "fields": [
+      {
+        "pointer": "/payload/symbol",
+        "stateId": "input.payload-symbol",
+        "componentId": "field-payload-symbol",
+        "control": "text",
+        "required": true,
+        "constraints": [
+          "maxLength",
+          "minLength",
+          "pattern",
+          "required"
+        ],
+        "visibleWhen": null
+      },
+      {
+        "pointer": "/payload/region",
+        "stateId": "input.payload-region",
+        "componentId": "field-payload-region",
+        "control": "select",
+        "required": true,
+        "constraints": [
+          "maxLength",
+          "minLength",
+          "oneOf",
+          "required"
+        ],
+        "visibleWhen": null
+      }
+    ],
+    "exampleSelector": null,
+    "editablePointers": [
+      "/payload/symbol",
+      "/payload/region"
+    ]
+  },
+  "outcomes": [
+    {
+      "outcomeId": "price",
+      "contract": "equity-market-price-evidence.v1",
+      "dialogTitle": "Capability outcome",
+      "match": {
+        "contractId": "equity-market-price-evidence.v1",
+        "discriminatorPointer": "/disposition",
+        "discriminatorValues": [
+          "EQUITY_MARKET_PRICE_EVIDENCE_RESOLVED"
+        ]
+      },
+      "isNegative": false,
+      "anchor": {
+        "kind": "scene-node",
+        "nodeIdentity": "cell:scenario:resolve-equity-market-price-evidence:outcome",
+        "fallback": "viewport-transition"
+      },
+      "state": [
+        {
+          "stateId": "outcome.price.price",
+          "semanticType": "text",
+          "meaning": "Observed price",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.price.quote",
+          "semanticType": "text",
+          "meaning": "Quote",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.price.disposition",
+          "semanticType": "text",
+          "meaning": "Domain disposition",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.price.attribution",
+          "semanticType": "text",
+          "meaning": "Source attribution",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.price.provider",
+          "semanticType": "text",
+          "meaning": "Provider and normalisation",
+          "mutability": "fixed",
+          "initialValue": ""
+        }
+      ],
+      "components": [
+        {
+          "id": "outcome-price-price",
+          "componentType": "value",
+          "semanticIdentity": "resolve-equity-market-price-evidence#price.price",
+          "presentationIntent": "prominent-value",
+          "content": {
+            "value": ""
+          }
+        },
+        {
+          "id": "outcome-price-quote",
+          "componentType": "collection",
+          "semanticIdentity": "resolve-equity-market-price-evidence#price.quote",
+          "presentationIntent": "outcome-record",
+          "content": {
+            "items": [],
+            "emptyText": ""
+          }
+        },
+        {
+          "id": "outcome-price-disposition",
+          "componentType": "value",
+          "semanticIdentity": "resolve-equity-market-price-evidence#price.disposition",
+          "presentationIntent": "outcome-disposition",
+          "content": {
+            "value": ""
+          }
+        },
+        {
+          "id": "outcome-price-attribution",
+          "componentType": "text",
+          "semanticIdentity": "resolve-equity-market-price-evidence#price.attribution",
+          "presentationIntent": "outcome-text",
+          "content": {
+            "text": ""
+          }
+        },
+        {
+          "id": "outcome-price-provider",
+          "componentType": "text",
+          "semanticIdentity": "resolve-equity-market-price-evidence#price.provider",
+          "presentationIntent": "outcome-evidence",
+          "content": {
+            "text": ""
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "bindingId": "bind-o-price-price",
+          "component": "outcome-price-price",
+          "state": "outcome.price.price",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-price-quote",
+          "component": "outcome-price-quote",
+          "state": "outcome.price.quote",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-price-disposition",
+          "component": "outcome-price-disposition",
+          "state": "outcome.price.disposition",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-price-attribution",
+          "component": "outcome-price-attribution",
+          "state": "outcome.price.attribution",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-price-provider",
+          "component": "outcome-price-provider",
+          "state": "outcome.price.provider",
+          "direction": "read"
+        }
+      ],
+      "elements": [
+        {
+          "elementId": "price",
+          "family": "metric",
+          "pointers": {
+            "amount": "/payload/observedPrice",
+            "currency": "/payload/currency",
+            "timestamp": "/payload/observedMarketTime"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Observed price",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": 2
+        },
+        {
+          "elementId": "quote",
+          "family": "record",
+          "pointers": {},
+          "itemPath": null,
+          "fields": [
+            "/payload/symbol",
+            "/payload/region",
+            "/payload/exchange",
+            "/payload/marketState"
+          ],
+          "label": "Quote",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        },
+        {
+          "elementId": "disposition",
+          "family": "disposition",
+          "pointers": {
+            "value": "/disposition"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Domain disposition",
+          "emptyText": null,
+          "dispositionLabels": {
+            "EQUITY_MARKET_PRICE_EVIDENCE_RESOLVED": "Canonical price evidence resolved"
+          },
+          "precision": null
+        },
+        {
+          "elementId": "attribution",
+          "family": "text",
+          "pointers": {
+            "value": "/payload/sourceAttribution"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Source attribution",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        },
+        {
+          "elementId": "provider",
+          "family": "evidence",
+          "pointers": {
+            "bindingId": "/providerTestimony/bindingId",
+            "providerId": "/providerTestimony/providerId",
+            "nativeShape": "/providerTestimony/nativeShape"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Provider and normalisation",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        }
+      ]
+    }
+  ],
+  "delivery": {
+    "refusedTitle": "Request refused",
+    "uncertainTitle": "Delivery uncertain",
+    "uncertainGuidance": "The request was sent but its outcome is not established. It is retained for reconciliation and is not resubmitted automatically."
+  },
+  "motion": {
+    "open": "expand-from-anchor",
+    "close": "collapse-to-anchor",
+    "reducedMotionFallback": "none"
+  },
+  "registry": {
+    "path": "providers/component-registry.v1.json",
+    "sha256": "e604ca8b31da5d4be07847635591d249b4b51350e68eecf6b964fbd6f51ccea8",
+    "version": "component-registry.v1"
+  },
+  "findings": [],
+  "executionBoundary": {
+    "browserMaySubmit": [
+      "publicationId",
+      "subject",
+      "editableValues",
+      "exampleSelection"
+    ],
+    "browserMayNotSubmit": [
+      "canonical envelope",
+      "namespace override",
+      "fixed-field override",
+      "provider inventory",
+      "endpoint selection"
+    ],
+    "note": "The server resolves the published subject and constructs canonical input. This plan describes a dialog, and grants nothing."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sidefx.local/sfx-circuit-workbench/contracts/workbench-experience.v1.schema.json",
+  "title": "workbench-experience.v1",
+  "description": "One workbench mode: which declarations compose it, which provider features it requires, which UI implementation revisions it pins, and which findings it expects. A finding the experience declares and explains is a recorded boundary; a finding it does not declare is new and fails the gate.",
+  "type": "object",
+  "required": ["experienceVersion", "experienceId", "mode", "declarations", "requiredProviderFeatures", "uiDependencies", "expectedFindings"],
+  "additionalProperties": false,
+  "properties": {
+    "experienceVersion": { "const": "workbench-experience.v1" },
+    "experienceId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "type": "string" },
+    "note": { "type": "string" },
+    "mode": { "enum": ["source-inspection", "invoke", "author", "compose", "deploy"] },
+    "supportedViewKinds": {
+      "type": "array",
+      "items": { "enum": ["blueprint", "operations", "native", "expression"] }
+    },
+    "declarations": {
+      "type": "object",
+      "required": ["surface", "presentationProfile"],
+      "additionalProperties": false,
+      "properties": {
+        "surface": { "type": "string" },
+        "presentationProfile": { "type": "string" },
+        "layoutProfile": { "type": ["string", "null"] },
+        "scenes": { "type": "array", "items": { "type": "string" } },
+        "runtime": { "type": "string" }
+      }
+    },
+    "requiredProviderFeatures": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Features the scene and interaction providers must support. A missing required feature must produce a visible unsupported result, never a silent reduction."
+    },
+    "uiDependencies": {
+      "type": "object",
+      "required": ["manifest"],
+      "additionalProperties": false,
+      "properties": {
+        "manifest": { "type": "string" },
+        "pinnedVersions": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    },
+    "stateProducers": {
+      "type": "array",
+      "description": "Who is permitted to change each state item. The foundation's mutability vocabulary is mutable/fixed only, which cannot express a value that is read-only to the user while an authorized producer changes it. Declared here until the state model is extended.",
+      "items": {
+        "type": "object",
+        "required": ["stateId", "producer"],
+        "additionalProperties": false,
+        "properties": {
+          "stateId": { "type": "string" },
+          "producer": { "enum": ["user", "workbench-runtime", "scene-provider", "authorized-service"] },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "expectedFindings": {
+      "type": "array",
+      "description": "Findings this experience knowingly produces, each with the reason it stands and where it would be resolved. Anything not listed here is a regression.",
+      "items": {
+        "type": "object",
+        "required": ["code", "stage", "severity", "reason", "resolvedBy"],
+        "additionalProperties": false,
+        "properties": {
+          "code": { "type": "string" },
+          "stage": { "enum": ["composition", "projection", "interaction", "runtime"] },
+          "severity": { "enum": ["error", "warning", "info"] },
+          "subject": { "type": "string" },
+          "reason": { "type": "string" },
+          "resolvedBy": { "type": "string" }
+        }
+      }
+    },
+    "notEstablished": { "type": "array", "items": { "type": "string" } }
+  }
+}

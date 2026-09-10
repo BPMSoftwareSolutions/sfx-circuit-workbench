@@ -1,0 +1,202 @@
+{
+  "uxVersion": "capability-ux.v1",
+  "uxId": "provider-resolution",
+  "title": "Provider resolution example selection and structured outcome",
+  "note": "Every input pointer is fixed or system-bound, so there is no editable control at all: the user chooses which retained example runs and the complete fixture stays server-owned. The outcome declares a layout for the negative domain disposition as well as the positive one, because NOT_OBSERVABLE is a real answer and must never be drawn as a success.",
+  "subject": "resolve-sidefx-eligible-providers",
+  "pins": {
+    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+    "inputContract": "sidefx-provider-resolution-request.v1",
+    "inputSchemaDigest": "sha256:40f6fb9a386c4db5c230acb03293e2d7c129898f689d991eb965b06a572997a2",
+    "outcomeSchemaDigests": {
+      "sidefx-semantic-provider-resolution.v1": "sha256:7e62ab89e4058fc1c550d0e77401db57b463de2294b391d8983c0825993525a9"
+    }
+  },
+  "input": {
+    "dialogTitle": "Enter Capability Input",
+    "description": "Choose a retained example. The complete fixture input stays server-owned.",
+    "anchor": {
+      "kind": "scene-node",
+      "nodeIdentity": "cell:scenario:resolve-sidefx-eligible-providers:input",
+      "fallback": "viewport-transition"
+    },
+    "intents": {
+      "submit": {
+        "label": "Submit",
+        "actionId": "submit-provider-resolution",
+        "scenarioEvent": "workbench.capability.submitted",
+        "presentationIntent": "primary-action"
+      },
+      "cancel": {
+        "label": "Cancel",
+        "actionId": "cancel-provider-resolution",
+        "scenarioEvent": "workbench.capability.cancelled",
+        "presentationIntent": "secondary-action"
+      }
+    },
+    "exampleSelector": {
+      "label": "Retained example",
+      "help": "Each example is a complete retained input the server owns.",
+      "required": true
+    }
+  },
+  "outcomes": [
+    {
+      "outcomeId": "resolved",
+      "contract": "sidefx-semantic-provider-resolution.v1",
+      "dialogTitle": "Capability outcome",
+      "match": {
+        "contractId": "sidefx-semantic-provider-resolution.v1",
+        "discriminatorPointer": "/disposition",
+        "discriminatorValues": [
+          "PROVIDERS_RESOLVED"
+        ]
+      },
+      "anchor": {
+        "kind": "scene-node",
+        "nodeIdentity": "cell:scenario:resolve-sidefx-eligible-providers:outcome",
+        "fallback": "viewport-transition"
+      },
+      "layout": [
+        {
+          "elementId": "disposition",
+          "family": "disposition",
+          "label": "Disposition",
+          "pointer": "/disposition",
+          "dispositionLabels": {
+            "PROVIDERS_RESOLVED": "Eligible providers found in this fixture",
+            "NOT_OBSERVABLE": "Eligibility is not established by this fixture"
+          }
+        },
+        {
+          "elementId": "considered",
+          "family": "metric",
+          "label": "Considered",
+          "pointers": {
+            "amount": "/consideredCount"
+          }
+        },
+        {
+          "elementId": "eligible",
+          "family": "metric",
+          "label": "Eligible",
+          "pointers": {
+            "amount": "/eligibleCount"
+          }
+        },
+        {
+          "elementId": "providers",
+          "family": "collection",
+          "label": "Providers",
+          "itemPath": "/providers",
+          "emptyText": "No providers were reported in this fixture.",
+          "fields": [
+            "providerAuthorityId",
+            "eligibilityDisposition",
+            "reasonCode",
+            "lifecycle"
+          ]
+        },
+        {
+          "elementId": "findings",
+          "family": "findings",
+          "label": "Findings",
+          "itemPath": "/findings"
+        },
+        {
+          "elementId": "digests",
+          "family": "evidence",
+          "label": "Trace digests",
+          "pointers": {
+            "snapshot": "/snapshotDigest",
+            "resolution": "/resolutionDigest"
+          }
+        }
+      ]
+    },
+    {
+      "outcomeId": "not-observable",
+      "contract": "sidefx-semantic-provider-resolution.v1",
+      "dialogTitle": "Capability outcome",
+      "match": {
+        "contractId": "sidefx-semantic-provider-resolution.v1",
+        "discriminatorPointer": "/disposition",
+        "discriminatorValues": [
+          "NOT_OBSERVABLE"
+        ],
+        "isNegative": true
+      },
+      "anchor": {
+        "kind": "scene-node",
+        "nodeIdentity": "cell:scenario:resolve-sidefx-eligible-providers:outcome",
+        "fallback": "viewport-transition"
+      },
+      "layout": [
+        {
+          "elementId": "disposition",
+          "family": "disposition",
+          "label": "Disposition",
+          "pointer": "/disposition",
+          "dispositionLabels": {
+            "PROVIDERS_RESOLVED": "Eligible providers found in this fixture",
+            "NOT_OBSERVABLE": "Eligibility is not established by this fixture"
+          }
+        },
+        {
+          "elementId": "considered",
+          "family": "metric",
+          "label": "Considered",
+          "pointers": {
+            "amount": "/consideredCount"
+          }
+        },
+        {
+          "elementId": "eligible",
+          "family": "metric",
+          "label": "Eligible",
+          "pointers": {
+            "amount": "/eligibleCount"
+          }
+        },
+        {
+          "elementId": "providers",
+          "family": "collection",
+          "label": "Providers",
+          "itemPath": "/providers",
+          "emptyText": "No providers were reported in this fixture.",
+          "fields": [
+            "providerAuthorityId",
+            "eligibilityDisposition",
+            "reasonCode",
+            "lifecycle"
+          ]
+        },
+        {
+          "elementId": "findings",
+          "family": "findings",
+          "label": "Findings",
+          "itemPath": "/findings"
+        },
+        {
+          "elementId": "digests",
+          "family": "evidence",
+          "label": "Trace digests",
+          "pointers": {
+            "snapshot": "/snapshotDigest",
+            "resolution": "/resolutionDigest"
+          }
+        }
+      ]
+    }
+  ],
+  "delivery": {
+    "refusedTitle": "Request refused",
+    "uncertainTitle": "Delivery uncertain",
+    "uncertainGuidance": "The request was sent but its outcome is not established. It is retained for reconciliation and is not resubmitted automatically."
+  },
+  "motion": {
+    "open": "expand-from-anchor",
+    "close": "collapse-to-anchor",
+    "reducedMotionFallback": "none"
+  }
+}

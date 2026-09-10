@@ -1,0 +1,141 @@
+{
+  "receiptType": "milestone-gate-receipt.v1",
+  "milestone": "M1",
+  "title": "Recreate the full source workbench",
+  "evaluatedAt": "2026-09-10T16:23:38+00:00",
+  "locallyVerifiablePassed": true,
+  "milestoneComplete": false,
+  "steps": [
+    {
+      "step": "m0-gate",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "step": "ingest-scenes",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "step": "presentation-profiles",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "step": "layout-profiles",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "step": "build-baseline",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "step": "build-variant",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "step": "verify-parity",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "step": "trace-parity",
+      "exitCode": 0,
+      "passed": true
+    }
+  ],
+  "exitCriteria": [
+    {
+      "criterion": "Both reference views match visually and functionally, including below-fold inspection and illustrative playback",
+      "met": false,
+      "partial": true,
+      "verified": [
+        "Both scenes ingest with their complete node and route identity sets.",
+        "All 22 recorded controls have a declared owner that exists in the surface.",
+        "Below-fold inspection is declared as components with bound state.",
+        "Illustrative playback is declared with its speed, follow and status state, and the trace planner is reimplemented against the scene contract.",
+        "The reimplemented trace planner produces wave-for-wave identical output to the frozen reference on every fixture: 8/8 cases passed."
+      ],
+      "unmet": [
+        "No browser has run the package, so visual match is unmeasured.",
+        "Resolved-versus-observed geometry conformance is unmeasured.",
+        "Playback, selection and camera behavior are unexercised at runtime."
+      ],
+      "evidence": "evidence/parity/m1-parity.receipt.json"
+    },
+    {
+      "criterion": "No source components or routes lost; alternate layout and theme retains identities",
+      "met": true,
+      "observed": {
+        "scenes": {
+          "blueprint-authority": {
+            "nodes": 30,
+            "routes": 45,
+            "hitTargets": 75
+          },
+          "native-execution": {
+            "nodes": 10,
+            "routes": 9,
+            "hitTargets": 19
+          }
+        },
+        "optionality": {
+          "componentsCompared": 31,
+          "componentsMoved": 18,
+          "invariants": {
+            "componentIds": true,
+            "semanticIdentities": true,
+            "stateIds": true,
+            "bindingTargets": true,
+            "validationRules": true,
+            "actionIds": true,
+            "scenarioEvents": true
+          },
+          "providerProfilesDiffer": true
+        }
+      },
+      "evidence": "evidence/parity/m1-parity.receipt.json"
+    },
+    {
+      "criterion": "Hosted inspection package works in the private Space and the website embed",
+      "met": false,
+      "partial": true,
+      "verified": [
+        "A self-contained package is assembled with its scenes, materials, interaction plan and runtime.",
+        "The embed height channel is declared, with the command channel explicitly off."
+      ],
+      "unmet": [
+        "This local gate does not inspect deployment; consult evidence/host/verification.json for the Space.",
+        "Website embed rollout and broad visual parity remain separate acceptance work."
+      ],
+      "evidence": "evidence/build/source-inspection.build.receipt.json"
+    }
+  ],
+  "findings": [],
+  "architectureChecks": {
+    "undeclaredFindingsBaseline": 0,
+    "undeclaredFindingsVariant": 0,
+    "unsupportedPathProven": {
+      "attempted": true,
+      "providerId": "html-absolute",
+      "raised": true,
+      "exitCode": 1
+    },
+    "tracePlannerParity": {
+      "cases": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    "circuitRealized": true
+  },
+  "notEstablished": [
+    "No browser was run. Visual parity against the reference screenshot is unmeasured.",
+    "Resolved-versus-observed geometry conformance is unmeasured; the foundation's 0.5 px tolerance has not been applied to this surface.",
+    "Interaction parity across Chromium, Firefox and WebKit is unmeasured.",
+    "The captured 15% and 25% camera states remain derivations, not measurements.",
+    "No hosted package exists; the Space and website embed are unverified."
+  ]
+}

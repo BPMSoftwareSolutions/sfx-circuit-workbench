@@ -1,0 +1,53 @@
+{
+  "profileVersion": "workbench-layout-profile.v1",
+  "profileId": "inspector-left",
+  "title": "Inspector on the left, inspection above the circuit",
+  "note": "The plan requires proving that relocating the inspector and changing the theme preserves action and source identity. This profile declares only region movement and sizing. It may not add, remove or rename a component, state, binding, validation rule or action — the deriver refuses if the derived surface differs from its basis in any of those sets.",
+  "basisSurface": "experiences/source-inspection/source-inspection.surface.json",
+  "surfaceId": "source-inspection-inspector-left",
+  "presentationProfile": "workbench-light",
+  "operations": [
+    {
+      "kind": "reorder-tracks",
+      "container": "main",
+      "order": ["aside", "drawing"],
+      "reason": "Relocate the component outline from the right edge to the left."
+    },
+    {
+      "kind": "resize-track",
+      "container": "main",
+      "child": "aside",
+      "size": "300px",
+      "reason": "A wider outline column, to change resolved geometry as well as order."
+    },
+    {
+      "kind": "reorder-tracks",
+      "container": "root",
+      "order": ["header", "summary", "toolbar", "inspection", "main", "flow", "routes"],
+      "reason": "Lift source inspection above the circuit, so it is no longer below the fold."
+    },
+    {
+      "kind": "resize-track",
+      "container": "root",
+      "child": "inspection",
+      "size": "240px",
+      "reason": "An explicit height is needed once inspection is no longer the trailing 1fr track."
+    },
+    {
+      "kind": "resize-track",
+      "container": "root",
+      "child": "main",
+      "size": "1fr",
+      "reason": "The circuit becomes the flexible track in this arrangement."
+    }
+  ],
+  "invariants": [
+    "componentIds",
+    "semanticIdentities",
+    "stateIds",
+    "bindingTargets",
+    "validationRules",
+    "actionIds",
+    "scenarioEvents"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "profileId": "viewport",
+  "basisSurface": "experiences/source-inspection/source-inspection.surface.json",
+  "rootRows": ["96px", "36px", "46px", "minmax(0,1fr)", "76px", "auto"],
+  "regionColumns": {
+    "header": ["minmax(0,1fr)", "minmax(280px,44%)"],
+    "summary": ["minmax(0,1fr)", "minmax(0,2fr)"],
+    "main": ["minmax(0,1fr)", "clamp(220px,20vw,320px)"]
+  },
+  "inspection": {
+    "label": "Component details and routes",
+    "regions": ["routes", "inspection"],
+    "rows": ["64px", "208px"],
+    "maxHeight": "32dvh"
+  }
+}

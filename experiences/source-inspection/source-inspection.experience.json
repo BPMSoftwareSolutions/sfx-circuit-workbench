@@ -1,0 +1,124 @@
+{
+  "experienceVersion": "workbench-experience.v1",
+  "experienceId": "source-inspection",
+  "title": "Source inspection: the recreated reference workbench",
+  "note": "M1's mode. It recreates the supplied workbench through declarations rather than page handlers, and deliberately does not add invocation, authoring, composition or deployment. Every finding this experience produces is listed below with the reason it stands; the gate fails on anything else.",
+  "mode": "source-inspection",
+  "supportedViewKinds": ["blueprint", "operations", "native", "expression"],
+  "declarations": {
+    "surface": "experiences/source-inspection/source-inspection.surface.json",
+    "presentationProfile": "profiles/workbench-dark.presentation.json",
+    "layoutProfile": null,
+    "scenes": [
+      "fixtures/scenes/blueprint-authority.scene.json",
+      "fixtures/scenes/native-execution.scene.json"
+    ],
+    "runtime": "runtime/workbench-runtime.js"
+  },
+  "requiredProviderFeatures": [
+    "scene-payload",
+    "node-selection",
+    "route-selection",
+    "keyboard-activation",
+    "camera-transform",
+    "material-presentation",
+    "trace-overlay",
+    "vector-export"
+  ],
+  "uiDependencies": {
+    "manifest": "dependencies/ui-dependencies.manifest.json",
+    "pinnedVersions": {
+      "compose-ui-surface": "1.0.0",
+      "establish-ui-surface": "1.0.0",
+      "establish-ui-container": "1.0.0",
+      "resolve-ui-layout": "1.0.0",
+      "establish-ui-component": "1.0.0",
+      "establish-ui-state": "1.0.0",
+      "bind-ui-state": "1.1.0",
+      "validate-ui-state": "1.1.0",
+      "dispatch-ui-action": "1.0.0",
+      "project-ui-surface": "1.1.0",
+      "realize-html-interaction": "1.0.0"
+    }
+  },
+  "stateProducers": [
+    { "stateId": "view.selected", "producer": "user" },
+    { "stateId": "search.query", "producer": "user" },
+    { "stateId": "trace.speed", "producer": "user", "note": "Also set by the workbench runtime from graph size at load, as the reference does." },
+    { "stateId": "trace.follow", "producer": "user" },
+    { "stateId": "presentation.mode", "producer": "user", "note": "Reflected through action pressed-state, which the binding model cannot express." },
+    { "stateId": "view.scope", "producer": "workbench-runtime" },
+    { "stateId": "view.coverage", "producer": "workbench-runtime" },
+    { "stateId": "view.findings", "producer": "workbench-runtime" },
+    { "stateId": "trace.mode", "producer": "workbench-runtime", "note": "Comes from the scene contract, never from the interface." },
+    { "stateId": "trace.status", "producer": "workbench-runtime" },
+    { "stateId": "trace.play-label", "producer": "workbench-runtime" },
+    { "stateId": "outline.items", "producer": "workbench-runtime" },
+    { "stateId": "routes.items", "producer": "workbench-runtime" },
+    { "stateId": "camera.scale", "producer": "scene-provider", "note": "A provider-owned physical operation, not a domain value." },
+    { "stateId": "camera.zoom-label", "producer": "scene-provider" },
+    { "stateId": "selection.entity-id", "producer": "scene-provider" },
+    { "stateId": "selection.kind", "producer": "scene-provider" },
+    { "stateId": "selection.title", "producer": "scene-provider" },
+    { "stateId": "selection.detail", "producer": "scene-provider" },
+    { "stateId": "selection.facts", "producer": "scene-provider" },
+    { "stateId": "selection.source", "producer": "scene-provider" }
+  ],
+  "expectedFindings": [
+    {
+      "code": "COMPONENT_TYPE_UNDECLARED",
+      "stage": "composition",
+      "severity": "warning",
+      "subject": "circuit",
+      "reason": "The shared component taxonomy in sidefx-ui does not declare an interactive circuit scene, which the architecture plan records as a foundation gap. componentType is deliberately an open string, so the type is still established and placed, and the workbench provider realizes it. What the taxonomy withholds is a family, which is why the circuit cannot carry a declared state binding.",
+      "resolvedBy": "Admitting a circuit component contract to component-semantics.v1 in sidefx-ui, through that workspace's own lifecycle."
+    },
+    {
+      "code": "UNCLAIMED_GRID_CELLS",
+      "stage": "composition",
+      "severity": "warning",
+      "subject": "root/toolbar",
+      "reason": "The toolbar's middle column is deliberately unclaimed: it is the gap that pushes the camera controls to the right edge. Declaring an empty container there instead would raise EMPTY_REGION, which would be the less honest of the two.",
+      "resolvedBy": "A main-axis alignment vocabulary in resolve-ui-layout would remove the need for a spacer column entirely."
+    },
+    {
+      "code": "UNBOUND_STATE",
+      "stage": "composition",
+      "severity": "warning",
+      "subject": "presentation.mode",
+      "reason": "Material and Base SVG reflect this state through their aria-pressed attribute. An action component declares no binding directions, so pressed-state reflection cannot be expressed as a binding.",
+      "resolvedBy": "A binding aspect for action pressed-state, or an action-family binding direction, in sidefx-ui."
+    },
+    {
+      "code": "UNBOUND_STATE",
+      "stage": "composition",
+      "severity": "warning",
+      "subject": "camera.scale",
+      "reason": "Camera scale is a provider-owned physical operation referenced by the plan, not a business-domain value. It is presented through camera.zoom-label, which is bound. This finding is expected and correct.",
+      "resolvedBy": "Nothing. The separation is deliberate."
+    },
+    {
+      "code": "UNBOUND_STATE",
+      "stage": "composition",
+      "severity": "warning",
+      "subject": "selection.entity-id",
+      "reason": "Selection is owned by the scene provider inside the circuit region. It cannot be bound to the circuit component because that component type has no declared family, and binding it to any other component would give a second owner to a region.",
+      "resolvedBy": "The same taxonomy admission that resolves COMPONENT_TYPE_UNDECLARED."
+    },
+    {
+      "code": "UNBOUND_STATE",
+      "stage": "composition",
+      "severity": "warning",
+      "subject": "trace.play-label",
+      "reason": "The playback affordance's label changes between Trace flow, Pause trace, Resume trace and Replay trace. An action component's label cannot be bound, so the workbench runtime produces it directly and reports WORKBENCH_PRODUCER_BINDING_UNAVAILABLE when it does.",
+      "resolvedBy": "An action-family binding direction for content.label in sidefx-ui."
+    }
+  ],
+  "notEstablished": [
+    "No browser has run this experience. Visual parity, geometry conformance and interaction parity across Chromium, Firefox and WebKit are unmeasured.",
+    "Nothing is hosted. The Hugging Face Space package and the website embed are not built or verified.",
+    "The generic runtime's reflect() updates validation bindings and action dispositions only; read-aspect value bindings are realized once at projection time. The workbench runtime supplies the producer-update owner the foundation lacks.",
+    "No capability is invoked. Every action reaches the dispatch boundary and stops with execution NOT_ATTEMPTED, because execute-scenario-event is unavailable.",
+    "Trace mode is ILLUSTRATIVE throughout. No observed replay or live execution exists."
+  ]
+}

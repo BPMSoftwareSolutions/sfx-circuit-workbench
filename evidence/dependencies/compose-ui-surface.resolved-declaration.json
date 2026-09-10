@@ -1,0 +1,110 @@
+{
+  "capabilityId": "compose-ui-surface",
+  "capabilityName": "Compose UI Surface",
+  "version": "1.0.0",
+  "platform": "SideFX.UI",
+  "kind": "composition",
+  "statement": "Compose the four SideFX.UI primitive circuits over one authority document into a coordinate-resolved region tree.",
+  "circuit": {
+    "input": [
+      "UiSurfaceAuthority"
+    ],
+    "event": "COMPOSE UI SURFACE",
+    "outcome": "The declared experience is resolved into one coordinate-resolved region tree with its interaction reality.",
+    "product": "ResolvedSurface"
+  },
+  "scenario": {
+    "given": "a UI surface authority document declaring a surface, a root container, and the arrangements and components composed beneath it",
+    "when": "the four primitive circuits are composed over that authority",
+    "then": "a coordinate-resolved region tree exists, with per-capability evidence for every circuit invoked"
+  },
+  "composes": [
+    "establish-ui-surface",
+    "establish-ui-container",
+    "resolve-ui-layout",
+    "establish-ui-component",
+    "establish-ui-state",
+    "validate-ui-state",
+    "bind-ui-state",
+    "dispatch-ui-action"
+  ],
+  "owns": [
+    "the order in which the primitive circuits are invoked",
+    "hierarchical coordinate composition: derived absolute position accumulated from local placements",
+    "per-capability evidence: identity, version, declaration digest, invocation count and outcome count for each circuit",
+    "the governance check that every finding code is declared by exactly one capability",
+    "digesting each constituent's declared semantic authority into evidence, without interpreting it",
+    "composing the interaction layer alongside the geometry layer: state is established independently of the region tree, because what is true of an interaction does not depend on where it is shown",
+    "resolving binding references across capabilities, and the completeness observations only the whole surface can make: state nothing presents, and value-capturing components that capture into nothing"
+  ],
+  "doesNotOwn": [
+    "any responsibility a primitive circuit holds; this capability invokes, it does not re-decide",
+    "a materialize-layout-regions step: turning a LayoutRegionSet into containers is resolve-ui-layout composed with establish-ui-container, and inventing a fifth identity for it would be an abstraction the model does not need",
+    "physical realization, which belongs to project-ui-surface"
+  ],
+  "findings": [
+    {
+      "code": "UNDECLARED_FINDING_CODE",
+      "severity": "error",
+      "meaning": "A finding was raised under a code no capability declares, or a code is declared by more than one capability."
+    },
+    {
+      "code": "CAPABILITY_DECLARATION_MISSING",
+      "severity": "error",
+      "meaning": "A composed capability has no declaration on disk."
+    },
+    {
+      "code": "MAX_DEPTH_EXCEEDED",
+      "severity": "error",
+      "meaning": "Composition is deeper than the recursion guard. The composition owns the recursion, so it owns the guard."
+    },
+    {
+      "code": "SEMANTIC_AUTHORITY_MISSING",
+      "severity": "error",
+      "meaning": "A composed capability declares semantic authority that is not present in its workspace."
+    },
+    {
+      "code": "BINDING_COMPONENT_UNKNOWN",
+      "severity": "error",
+      "meaning": "A binding names a component that no circuit established on this surface."
+    },
+    {
+      "code": "BINDING_STATE_UNKNOWN",
+      "severity": "error",
+      "meaning": "A binding names an item of state that no circuit established on this surface."
+    },
+    {
+      "code": "UNBOUND_STATE",
+      "severity": "warning",
+      "meaning": "An item of state is established that no binding presents. It is true of the interaction and invisible within it."
+    },
+    {
+      "code": "UNBOUND_INPUT_COMPONENT",
+      "severity": "warning",
+      "meaning": "A component whose family captures a value is bound to no state, so it captures into nothing."
+    },
+    {
+      "code": "VALIDATION_STATE_UNKNOWN",
+      "severity": "error",
+      "meaning": "A validation authority names an item of state that no circuit established."
+    }
+  ],
+  "providerRequirements": [],
+  "realizationBinding": {
+    "module": "compose_ui_surface.py",
+    "function": "main",
+    "note": "Resolves each constituent circuit from its own sibling capability workspace by capability id, loads it from that workspace's declared realizationBinding, and owns the recursion between container and layout. No primitive imports another, so the dependency graph is a star with this composition at the centre rather than a cycle."
+  },
+  "note": "The test of a composition model is whether existing capabilities compose cleanly. Where they do, no further identity is authored. This capability is not a fifth primitive: the primitive vocabulary remains four, and composing them is a distinct responsibility with its own identity and its own workspace. It composes two layers: the four geometry primitives, and the interaction primitives beginning with establish-ui-state. The geometry vocabulary remains four; the interaction layer is separate and grows independently.",
+  "workspace": "C:/lab/sidefx-ui/sidefx-compose-ui-surface",
+  "constituentWorkspaces": {
+    "establish-ui-surface": "C:/lab/sidefx-ui/sidefx-ui-surface",
+    "establish-ui-container": "C:/lab/sidefx-ui/sidefx-ui-container",
+    "resolve-ui-layout": "C:/lab/sidefx-ui/sidefx-ui-layout",
+    "establish-ui-component": "C:/lab/sidefx-ui/sidefx-ui-component",
+    "establish-ui-state": "C:/lab/sidefx-ui/sidefx-ui-state",
+    "bind-ui-state": "C:/lab/sidefx-ui/sidefx-ui-binding",
+    "validate-ui-state": "C:/lab/sidefx-ui/sidefx-ui-validation",
+    "dispatch-ui-action": "C:/lab/sidefx-ui/sidefx-ui-action"
+  }
+}

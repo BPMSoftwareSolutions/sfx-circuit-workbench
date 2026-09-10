@@ -1,0 +1,669 @@
+{
+  "planVersion": "capability-dialog-plan.v1",
+  "uxId": "provider-resolution",
+  "subject": "resolve-sidefx-eligible-providers",
+  "compiledAt": "2026-09-10T16:41:36+00:00",
+  "pins": {
+    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+    "inputContract": "sidefx-provider-resolution-request.v1",
+    "inputSchemaDigest": "sha256:40f6fb9a386c4db5c230acb03293e2d7c129898f689d991eb965b06a572997a2",
+    "outcomeSchemaDigests": {
+      "sidefx-semantic-provider-resolution.v1": "sha256:7e62ab89e4058fc1c550d0e77401db57b463de2294b391d8983c0825993525a9"
+    },
+    "observed": {
+      "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+      "inputContract": "sidefx-provider-resolution-request.v1",
+      "inputSchemaDigest": "sha256:40f6fb9a386c4db5c230acb03293e2d7c129898f689d991eb965b06a572997a2"
+    },
+    "current": true
+  },
+  "input": {
+    "dialogTitle": "Enter Capability Input",
+    "description": "Choose a retained example. The complete fixture input stays server-owned.",
+    "anchor": {
+      "kind": "scene-node",
+      "nodeIdentity": "cell:scenario:resolve-sidefx-eligible-providers:input",
+      "fallback": "viewport-transition"
+    },
+    "state": [
+      {
+        "stateId": "input.example",
+        "semanticType": "selection",
+        "meaning": "Which retained example to run.",
+        "mutability": "mutable",
+        "initialValue": "hold-admitted-providers-that-declare-no-target"
+      }
+    ],
+    "components": [
+      {
+        "id": "field-example",
+        "componentType": "choice",
+        "semanticIdentity": "resolve-sidefx-eligible-providers#example",
+        "presentationIntent": "dialog-field",
+        "content": {
+          "label": "Retained example",
+          "options": [
+            {
+              "value": "hold-admitted-providers-that-declare-no-target",
+              "label": "No target declared \u2014 eligibility held"
+            },
+            {
+              "value": "admit-provider-once-its-target-is-declared",
+              "label": "Matching target declared \u2014 eligible provider"
+            },
+            {
+              "value": "refuse-target-the-binding-does-not-declare",
+              "label": "Different target requested \u2014 eligibility held"
+            },
+            {
+              "value": "refuse-unadmitted-and-unconformed-providers",
+              "label": "Admission or conformance missing \u2014 eligibility held"
+            }
+          ]
+        }
+      },
+      {
+        "id": "dialog-submit",
+        "componentType": "action",
+        "semanticIdentity": "resolve-sidefx-eligible-providers#submit",
+        "presentationIntent": "primary-action",
+        "content": {
+          "label": "Submit"
+        },
+        "interaction": {
+          "semanticAction": "submit-provider-resolution"
+        }
+      },
+      {
+        "id": "dialog-cancel",
+        "componentType": "action",
+        "semanticIdentity": "resolve-sidefx-eligible-providers#cancel",
+        "presentationIntent": "secondary-action",
+        "content": {
+          "label": "Cancel"
+        },
+        "interaction": {
+          "semanticAction": "cancel-provider-resolution"
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "bindingId": "bind-example",
+        "component": "field-example",
+        "state": "input.example",
+        "direction": "read-write"
+      }
+    ],
+    "validation": [
+      {
+        "validationId": "valid-example",
+        "state": "input.example",
+        "rules": [
+          {
+            "kind": "required"
+          },
+          {
+            "kind": "oneOf",
+            "values": [
+              "hold-admitted-providers-that-declare-no-target",
+              "admit-provider-once-its-target-is-declared",
+              "refuse-target-the-binding-does-not-declare",
+              "refuse-unadmitted-and-unconformed-providers"
+            ],
+            "message": "Choose a retained example."
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "actionId": "submit-provider-resolution",
+        "meaning": "Submit the admitted input for execution.",
+        "requiresAdmissible": [
+          "input.example"
+        ],
+        "scenarioEvent": "workbench.capability.submitted"
+      },
+      {
+        "actionId": "cancel-provider-resolution",
+        "meaning": "Close the dialog without invoking anything.",
+        "requiresAdmissible": [],
+        "scenarioEvent": "workbench.capability.cancelled"
+      }
+    ],
+    "fields": [],
+    "exampleSelector": {
+      "stateId": "input.example",
+      "componentId": "field-example",
+      "options": [
+        "hold-admitted-providers-that-declare-no-target",
+        "admit-provider-once-its-target-is-declared",
+        "refuse-target-the-binding-does-not-declare",
+        "refuse-unadmitted-and-unconformed-providers"
+      ]
+    },
+    "editablePointers": []
+  },
+  "outcomes": [
+    {
+      "outcomeId": "resolved",
+      "contract": "sidefx-semantic-provider-resolution.v1",
+      "dialogTitle": "Capability outcome",
+      "match": {
+        "contractId": "sidefx-semantic-provider-resolution.v1",
+        "discriminatorPointer": "/disposition",
+        "discriminatorValues": [
+          "PROVIDERS_RESOLVED"
+        ]
+      },
+      "isNegative": false,
+      "anchor": {
+        "kind": "scene-node",
+        "nodeIdentity": "cell:scenario:resolve-sidefx-eligible-providers:outcome",
+        "fallback": "viewport-transition"
+      },
+      "state": [
+        {
+          "stateId": "outcome.resolved.disposition",
+          "semanticType": "text",
+          "meaning": "Disposition",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.resolved.considered",
+          "semanticType": "text",
+          "meaning": "Considered",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.resolved.eligible",
+          "semanticType": "text",
+          "meaning": "Eligible",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.resolved.providers",
+          "semanticType": "text",
+          "meaning": "Providers",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.resolved.findings",
+          "semanticType": "text",
+          "meaning": "Findings",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.resolved.digests",
+          "semanticType": "text",
+          "meaning": "Trace digests",
+          "mutability": "fixed",
+          "initialValue": ""
+        }
+      ],
+      "components": [
+        {
+          "id": "outcome-resolved-disposition",
+          "componentType": "value",
+          "semanticIdentity": "resolve-sidefx-eligible-providers#resolved.disposition",
+          "presentationIntent": "outcome-disposition",
+          "content": {
+            "value": ""
+          }
+        },
+        {
+          "id": "outcome-resolved-considered",
+          "componentType": "value",
+          "semanticIdentity": "resolve-sidefx-eligible-providers#resolved.considered",
+          "presentationIntent": "outcome-metric",
+          "content": {
+            "value": ""
+          }
+        },
+        {
+          "id": "outcome-resolved-eligible",
+          "componentType": "value",
+          "semanticIdentity": "resolve-sidefx-eligible-providers#resolved.eligible",
+          "presentationIntent": "outcome-metric",
+          "content": {
+            "value": ""
+          }
+        },
+        {
+          "id": "outcome-resolved-providers",
+          "componentType": "collection",
+          "semanticIdentity": "resolve-sidefx-eligible-providers#resolved.providers",
+          "presentationIntent": "outcome-collection",
+          "content": {
+            "items": [],
+            "emptyText": "No providers were reported in this fixture."
+          }
+        },
+        {
+          "id": "outcome-resolved-findings",
+          "componentType": "collection",
+          "semanticIdentity": "resolve-sidefx-eligible-providers#resolved.findings",
+          "presentationIntent": "outcome-findings",
+          "content": {
+            "items": [],
+            "emptyText": ""
+          }
+        },
+        {
+          "id": "outcome-resolved-digests",
+          "componentType": "text",
+          "semanticIdentity": "resolve-sidefx-eligible-providers#resolved.digests",
+          "presentationIntent": "outcome-evidence",
+          "content": {
+            "text": ""
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "bindingId": "bind-o-resolved-disposition",
+          "component": "outcome-resolved-disposition",
+          "state": "outcome.resolved.disposition",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-resolved-considered",
+          "component": "outcome-resolved-considered",
+          "state": "outcome.resolved.considered",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-resolved-eligible",
+          "component": "outcome-resolved-eligible",
+          "state": "outcome.resolved.eligible",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-resolved-providers",
+          "component": "outcome-resolved-providers",
+          "state": "outcome.resolved.providers",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-resolved-findings",
+          "component": "outcome-resolved-findings",
+          "state": "outcome.resolved.findings",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-resolved-digests",
+          "component": "outcome-resolved-digests",
+          "state": "outcome.resolved.digests",
+          "direction": "read"
+        }
+      ],
+      "elements": [
+        {
+          "elementId": "disposition",
+          "family": "disposition",
+          "pointers": {
+            "value": "/disposition"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Disposition",
+          "emptyText": null,
+          "dispositionLabels": {
+            "PROVIDERS_RESOLVED": "Eligible providers found in this fixture",
+            "NOT_OBSERVABLE": "Eligibility is not established by this fixture"
+          },
+          "precision": null
+        },
+        {
+          "elementId": "considered",
+          "family": "metric",
+          "pointers": {
+            "amount": "/consideredCount"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Considered",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        },
+        {
+          "elementId": "eligible",
+          "family": "metric",
+          "pointers": {
+            "amount": "/eligibleCount"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Eligible",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        },
+        {
+          "elementId": "providers",
+          "family": "collection",
+          "pointers": {},
+          "itemPath": "/providers",
+          "fields": [
+            "providerAuthorityId",
+            "eligibilityDisposition",
+            "reasonCode",
+            "lifecycle"
+          ],
+          "label": "Providers",
+          "emptyText": "No providers were reported in this fixture.",
+          "dispositionLabels": null,
+          "precision": null
+        },
+        {
+          "elementId": "findings",
+          "family": "findings",
+          "pointers": {},
+          "itemPath": "/findings",
+          "fields": null,
+          "label": "Findings",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        },
+        {
+          "elementId": "digests",
+          "family": "evidence",
+          "pointers": {
+            "snapshot": "/snapshotDigest",
+            "resolution": "/resolutionDigest"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Trace digests",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        }
+      ]
+    },
+    {
+      "outcomeId": "not-observable",
+      "contract": "sidefx-semantic-provider-resolution.v1",
+      "dialogTitle": "Capability outcome",
+      "match": {
+        "contractId": "sidefx-semantic-provider-resolution.v1",
+        "discriminatorPointer": "/disposition",
+        "discriminatorValues": [
+          "NOT_OBSERVABLE"
+        ],
+        "isNegative": true
+      },
+      "isNegative": true,
+      "anchor": {
+        "kind": "scene-node",
+        "nodeIdentity": "cell:scenario:resolve-sidefx-eligible-providers:outcome",
+        "fallback": "viewport-transition"
+      },
+      "state": [
+        {
+          "stateId": "outcome.not-observable.disposition",
+          "semanticType": "text",
+          "meaning": "Disposition",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.not-observable.considered",
+          "semanticType": "text",
+          "meaning": "Considered",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.not-observable.eligible",
+          "semanticType": "text",
+          "meaning": "Eligible",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.not-observable.providers",
+          "semanticType": "text",
+          "meaning": "Providers",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.not-observable.findings",
+          "semanticType": "text",
+          "meaning": "Findings",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.not-observable.digests",
+          "semanticType": "text",
+          "meaning": "Trace digests",
+          "mutability": "fixed",
+          "initialValue": ""
+        }
+      ],
+      "components": [
+        {
+          "id": "outcome-not-observable-disposition",
+          "componentType": "value",
+          "semanticIdentity": "resolve-sidefx-eligible-providers#not-observable.disposition",
+          "presentationIntent": "outcome-disposition",
+          "content": {
+            "value": ""
+          }
+        },
+        {
+          "id": "outcome-not-observable-considered",
+          "componentType": "value",
+          "semanticIdentity": "resolve-sidefx-eligible-providers#not-observable.considered",
+          "presentationIntent": "outcome-metric",
+          "content": {
+            "value": ""
+          }
+        },
+        {
+          "id": "outcome-not-observable-eligible",
+          "componentType": "value",
+          "semanticIdentity": "resolve-sidefx-eligible-providers#not-observable.eligible",
+          "presentationIntent": "outcome-metric",
+          "content": {
+            "value": ""
+          }
+        },
+        {
+          "id": "outcome-not-observable-providers",
+          "componentType": "collection",
+          "semanticIdentity": "resolve-sidefx-eligible-providers#not-observable.providers",
+          "presentationIntent": "outcome-collection",
+          "content": {
+            "items": [],
+            "emptyText": "No providers were reported in this fixture."
+          }
+        },
+        {
+          "id": "outcome-not-observable-findings",
+          "componentType": "collection",
+          "semanticIdentity": "resolve-sidefx-eligible-providers#not-observable.findings",
+          "presentationIntent": "outcome-findings",
+          "content": {
+            "items": [],
+            "emptyText": ""
+          }
+        },
+        {
+          "id": "outcome-not-observable-digests",
+          "componentType": "text",
+          "semanticIdentity": "resolve-sidefx-eligible-providers#not-observable.digests",
+          "presentationIntent": "outcome-evidence",
+          "content": {
+            "text": ""
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "bindingId": "bind-o-not-observable-disposition",
+          "component": "outcome-not-observable-disposition",
+          "state": "outcome.not-observable.disposition",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-not-observable-considered",
+          "component": "outcome-not-observable-considered",
+          "state": "outcome.not-observable.considered",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-not-observable-eligible",
+          "component": "outcome-not-observable-eligible",
+          "state": "outcome.not-observable.eligible",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-not-observable-providers",
+          "component": "outcome-not-observable-providers",
+          "state": "outcome.not-observable.providers",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-not-observable-findings",
+          "component": "outcome-not-observable-findings",
+          "state": "outcome.not-observable.findings",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-not-observable-digests",
+          "component": "outcome-not-observable-digests",
+          "state": "outcome.not-observable.digests",
+          "direction": "read"
+        }
+      ],
+      "elements": [
+        {
+          "elementId": "disposition",
+          "family": "disposition",
+          "pointers": {
+            "value": "/disposition"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Disposition",
+          "emptyText": null,
+          "dispositionLabels": {
+            "PROVIDERS_RESOLVED": "Eligible providers found in this fixture",
+            "NOT_OBSERVABLE": "Eligibility is not established by this fixture"
+          },
+          "precision": null
+        },
+        {
+          "elementId": "considered",
+          "family": "metric",
+          "pointers": {
+            "amount": "/consideredCount"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Considered",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        },
+        {
+          "elementId": "eligible",
+          "family": "metric",
+          "pointers": {
+            "amount": "/eligibleCount"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Eligible",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        },
+        {
+          "elementId": "providers",
+          "family": "collection",
+          "pointers": {},
+          "itemPath": "/providers",
+          "fields": [
+            "providerAuthorityId",
+            "eligibilityDisposition",
+            "reasonCode",
+            "lifecycle"
+          ],
+          "label": "Providers",
+          "emptyText": "No providers were reported in this fixture.",
+          "dispositionLabels": null,
+          "precision": null
+        },
+        {
+          "elementId": "findings",
+          "family": "findings",
+          "pointers": {},
+          "itemPath": "/findings",
+          "fields": null,
+          "label": "Findings",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        },
+        {
+          "elementId": "digests",
+          "family": "evidence",
+          "pointers": {
+            "snapshot": "/snapshotDigest",
+            "resolution": "/resolutionDigest"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Trace digests",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        }
+      ]
+    }
+  ],
+  "delivery": {
+    "refusedTitle": "Request refused",
+    "uncertainTitle": "Delivery uncertain",
+    "uncertainGuidance": "The request was sent but its outcome is not established. It is retained for reconciliation and is not resubmitted automatically."
+  },
+  "motion": {
+    "open": "expand-from-anchor",
+    "close": "collapse-to-anchor",
+    "reducedMotionFallback": "none"
+  },
+  "registry": {
+    "path": "providers/component-registry.v1.json",
+    "sha256": "e604ca8b31da5d4be07847635591d249b4b51350e68eecf6b964fbd6f51ccea8",
+    "version": "component-registry.v1"
+  },
+  "findings": [],
+  "executionBoundary": {
+    "browserMaySubmit": [
+      "publicationId",
+      "subject",
+      "editableValues",
+      "exampleSelection"
+    ],
+    "browserMayNotSubmit": [
+      "canonical envelope",
+      "namespace override",
+      "fixed-field override",
+      "provider inventory",
+      "endpoint selection"
+    ],
+    "note": "The server resolves the published subject and constructs canonical input. This plan describes a dialog, and grants nothing."
+  }
+}

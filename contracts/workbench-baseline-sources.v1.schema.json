@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sidefx.local/sfx-circuit-workbench/contracts/workbench-baseline-sources.v1.schema.json",
+  "title": "workbench-baseline-sources.v1",
+  "description": "Declares the captured reference material a workbench recreation is measured against, and the expectations each captured view must meet before it may be retained.",
+  "type": "object",
+  "required": ["declarationVersion", "roots", "capability", "views", "templateFiles", "ingestionPolicy"],
+  "additionalProperties": false,
+  "properties": {
+    "declarationVersion": { "const": "workbench-baseline-sources.v1" },
+    "statement": { "type": "string" },
+    "capturedOn": { "type": "string", "format": "date" },
+    "roots": {
+      "type": "object",
+      "required": ["products", "template"],
+      "additionalProperties": { "$ref": "#/$defs/root" }
+    },
+    "capability": {
+      "type": "object",
+      "required": ["capabilityId", "catalog"],
+      "properties": {
+        "capabilityId": { "type": "string", "minLength": 1 },
+        "title": { "type": "string" },
+        "catalog": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "views": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["fixtureId", "viewId", "expected", "capture"],
+        "additionalProperties": false,
+        "properties": {
+          "fixtureId": { "type": "string", "minLength": 1 },
+          "viewId": { "type": "string", "minLength": 1 },
+          "expected": {
+            "type": "object",
+            "required": ["label", "kind", "nodes", "edges", "omittedSourceNodes", "omittedSourceEdges"],
+            "additionalProperties": false,
+            "properties": {
+              "label": { "type": "string" },
+              "kind": { "enum": ["blueprint", "operations", "native", "expression"] },
+              "nodes": { "type": "integer", "minimum": 0 },
+              "edges": { "type": "integer", "minimum": 0 },
+              "omittedSourceNodes": { "type": "integer", "minimum": 0 },
+              "omittedSourceEdges": { "type": "integer", "minimum": 0 }
+            }
+          },
+          "capture": {
+            "type": "object",
+            "required": ["medium", "zoomPercent", "requiresMeasurement"],
+            "additionalProperties": false,
+            "properties": {
+              "medium": { "enum": ["SCREENSHOT", "DOM_HTML"] },
+              "asset": { "type": ["string", "null"] },
+              "viewport": {
+                "type": ["object", "null"],
+                "required": ["width", "height"],
+                "properties": {
+                  "width": { "type": "number" },
+                  "height": { "type": "number" }
+                }
+              },
+              "zoomPercent": { "type": "number" },
+              "presentation": { "enum": ["material", "base"] },
+              "selection": { "type": ["string", "null"] },
+              "zoomStateDerivation": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Why the captured zoom is what it is. A derivation is not a measurement."
+              },
+              "requiresMeasurement": {
+                "type": "boolean",
+                "description": "True while the captured state is derived from source reading rather than observed in a running instance."
+              }
+            }
+          }
+        }
+      }
+    },
+    "templateFiles": { "type": "array", "items": { "type": "string" } },
+    "materials": {
+      "type": "object",
+      "required": ["folder"],
+      "properties": {
+        "folder": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "ingestionPolicy": {
+      "type": "object",
+      "required": ["rejectScripts", "rejectEventHandlers", "rejectUnapprovedExternalReferences"],
+      "additionalProperties": false,
+      "properties": {
+        "rejectScripts": { "type": "boolean" },
+        "rejectEventHandlers": { "type": "boolean" },
+        "rejectUnapprovedExternalReferences": { "type": "boolean" },
+        "approvedReferencePrefixes": { "type": "array", "items": { "type": "string" } },
+        "note": { "type": "string" }
+      }
+    }
+  },
+  "$defs": {
+    "root": {
+      "type": "object",
+      "required": ["default", "environmentVariable"],
+      "additionalProperties": false,
+      "properties": {
+        "default": { "type": "string" },
+        "environmentVariable": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

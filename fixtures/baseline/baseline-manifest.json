@@ -1,0 +1,290 @@
+{
+  "manifestVersion": "workbench-baseline-manifest.v1",
+  "statement": "Exactly what the recreated workbench is being measured against. Every artifact here is retained byte for byte and digested.",
+  "frozenAt": "2026-09-10T14:05:36+00:00",
+  "sources": {
+    "declaration": {
+      "path": "C:/lab/sfx-circuit-workbench/fixtures/baseline/baseline-sources.json",
+      "sha256": "d0921c610b12a0aec8dc685d63c18b1fc7b1cf0f2eb1a7b7fdbd510a4ce4aab8"
+    },
+    "products": {
+      "path": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology",
+      "selectedFrom": "declaration-default"
+    },
+    "template": {
+      "path": "C:/lab/repos/content-creation-mission/templates/estate-topology",
+      "selectedFrom": "declaration-default"
+    }
+  },
+  "capability": {
+    "capabilityId": "author-tooling-capability-candidate",
+    "title": "Convergently author an SDA capability candidate from canonical source authority",
+    "catalog": "catalog.js",
+    "note": "Both captured views belong to this one capability. They are two baselines, not conflicting definitions of one graph."
+  },
+  "controlBehavior": {
+    "path": "fixtures/baseline/control-behavior.json",
+    "sha256": "10194f1b906ce00624a77540c61226a7b492e9b0d2899951f7352e168cfa054e"
+  },
+  "referenceScreenshot": {
+    "path": "docs/assets/current-circuit-workbench.png",
+    "sha256": "b48d8f1f1a7fe4f86cd763ebe3e415878caf9668132bcdd008f3d1935fbc9a6a",
+    "bytes": 160199,
+    "viewport": {
+      "width": 1220,
+      "height": 827
+    }
+  },
+  "artifacts": {
+    "catalog": {
+      "source": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/author-tooling-capability-candidate/catalog.js",
+      "retained": "fixtures/baseline/author-tooling-capability-candidate/catalog.js",
+      "sha256": "0658829aeeed7c81923bd75ac05be02c4fff0197b9e882a63817361badad2944",
+      "bytes": 14886
+    },
+    "views": [
+      {
+        "fixtureId": "blueprint-authority",
+        "viewId": "n-69b6853533ab1d663473efb6",
+        "capture": {
+          "medium": "SCREENSHOT",
+          "asset": "docs/assets/current-circuit-workbench.png",
+          "viewport": {
+            "width": 1220,
+            "height": 827
+          },
+          "zoomPercent": 15,
+          "presentation": "material",
+          "selection": null,
+          "zoomStateDerivation": [
+            "The fitted scale at this layout is well below the 0.35 threshold, so the loader would have opened this view at 70%.",
+            "A displayed 15% is therefore a Fit diagram result reached after load, not the load default.",
+            "Reproducing 15% exactly requires the drawing viewport to measure about 1005 x 630 CSS px; at 975 px it rounds to 14%.",
+            "This derivation must be confirmed by measuring a running instance during M1."
+          ],
+          "requiresMeasurement": true
+        },
+        "artifact": {
+          "source": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/author-tooling-capability-candidate/n-69b6853533ab1d663473efb6.js",
+          "retained": "fixtures/baseline/author-tooling-capability-candidate/n-69b6853533ab1d663473efb6.js",
+          "sha256": "ae15739ac724fd408f2bf4146ffad5f01366fbf6d11eda9f1941aa8262cfa9cb",
+          "bytes": 188487
+        },
+        "observed": {
+          "label": "Capability blueprint",
+          "identity": "author-tooling-capability-candidate/blueprint",
+          "kind": "blueprint",
+          "nodes": 30,
+          "edges": 45,
+          "omittedSourceNodes": 0,
+          "omittedSourceEdges": 0,
+          "nodeKinds": {
+            "event": 13,
+            "decision": 6,
+            "termination": 2,
+            "rejection": 1,
+            "provider-port": 1,
+            "input": 7
+          },
+          "routeKinds": {
+            "TRANSITION": 10,
+            "BRANCH_ROUTE": 23,
+            "ALTITUDE_DESCENT": 6,
+            "BOUNDED_RETURN": 6
+          },
+          "weakComponents": 1,
+          "cyclicComponentCount": 1,
+          "roots": [
+            "n-4f03361737474a4270a26b2f"
+          ],
+          "leaves": [
+            "n-b8c83a94a739d37d729b31e1",
+            "n-7ad217586b5a6ed7017d91ac",
+            "n-109f5b7de6472f58a493304e"
+          ],
+          "findings": [],
+          "layout": {
+            "width": 6481.6,
+            "height": 1612.4,
+            "boxes": 30
+          },
+          "svgBytes": 76211,
+          "materialReferences": 6
+        },
+        "sourceAuthority": {
+          "path": "outputs/estate-topology/sources/4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b.json",
+          "sha256": "4acf17119049b6cb2361fd1f1fe5f41a35dad3d4be71a6a702e0cec5b6ae209b",
+          "pointer": "/semantics",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8687",
+          "definitionDigest": "4e9505a432a08c98066068cda9578644761892b04c77b21b1ff2f19a69db501b"
+        },
+        "derivedCamera": {
+          "fittedScaleAt1005x630": 0.1489,
+          "fittedPercent": 15,
+          "belowLoaderThreshold": true,
+          "loadDefaultScale": 0.7,
+          "note": "The loader raises any fitted scale below 0.35 to 0.70, so the captured zoom is not necessarily the load default.",
+          "requiresMeasurement": true
+        }
+      },
+      {
+        "fixtureId": "native-execution",
+        "viewId": "n-0bdad09bdc9fab51e42f65dd",
+        "capture": {
+          "medium": "DOM_HTML",
+          "asset": null,
+          "viewport": null,
+          "zoomPercent": 25,
+          "presentation": "material",
+          "selection": "captured selected elements and trace classes were present in the pasted DOM",
+          "zoomStateDerivation": [
+            "25% is neither this view's fitted scale nor the 70% load default at the screenshot viewport.",
+            "It is a user-reached camera state, consistent with zoom-out steps or a narrower viewport.",
+            "Browser-added attributes and transient trace tokens in that capture are artifacts, not UI authority.",
+            "The pasted DOM itself is not retained in this workspace; only the facts it established are recorded here."
+          ],
+          "requiresMeasurement": true
+        },
+        "artifact": {
+          "source": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/author-tooling-capability-candidate/n-0bdad09bdc9fab51e42f65dd.js",
+          "retained": "fixtures/baseline/author-tooling-capability-candidate/n-0bdad09bdc9fab51e42f65dd.js",
+          "sha256": "507254705f93c899a61f91e33aa137331679e7ec79aee30002fa48c3181b3e37",
+          "bytes": 49080
+        },
+        "observed": {
+          "label": "Execution \u00b7 Admit the capability authoring context",
+          "identity": "author-tooling-capability-candidate/native/admit-capability-authoring-context",
+          "kind": "native",
+          "nodes": 10,
+          "edges": 9,
+          "omittedSourceNodes": 0,
+          "omittedSourceEdges": 0,
+          "nodeKinds": {
+            "event": 8,
+            "outcome": 2
+          },
+          "routeKinds": {
+            "sequence": 7,
+            "return": 2
+          },
+          "weakComponents": 1,
+          "cyclicComponentCount": 0,
+          "roots": [
+            "n-e02a15ea8aaaebab50996063"
+          ],
+          "leaves": [
+            "n-694740ff0de5c5abcafbd18c"
+          ],
+          "findings": [],
+          "layout": {
+            "width": 2880.3,
+            "height": 835.78,
+            "boxes": 10
+          },
+          "svgBytes": 19752,
+          "materialReferences": 2
+        },
+        "sourceAuthority": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/5a160cf44911cca765512d9774938b5522722e4baf35709d0b6ba07cf2040d6b-8598d97c63c8ac41.json",
+          "sha256": "edc4879fdaa5abb1983bc8515892d5bfba2bdaa24d94a10d8844a2a8c4078c9b",
+          "pointer": "",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v3",
+          "encoding": "capsule-entry"
+        },
+        "derivedCamera": {
+          "fittedScaleAt1005x630": 0.335,
+          "fittedPercent": 34,
+          "belowLoaderThreshold": true,
+          "loadDefaultScale": 0.7,
+          "note": "The loader raises any fitted scale below 0.35 to 0.70, so the captured zoom is not necessarily the load default.",
+          "requiresMeasurement": true
+        }
+      }
+    ],
+    "template": [
+      {
+        "source": "C:/lab/repos/content-creation-mission/templates/estate-topology/index.html",
+        "retained": "fixtures/baseline/viewer/index.html",
+        "sha256": "88302df5bbeec01d207df1b86ac00cd6ec702ff8d0a354d4ea62a2963cf40ea5",
+        "bytes": 2966
+      },
+      {
+        "source": "C:/lab/repos/content-creation-mission/templates/estate-topology/viewer.css",
+        "retained": "fixtures/baseline/viewer/viewer.css",
+        "sha256": "cb243a78faa892c5cff7721d5a3d0cd4e7278cecec63397bc3c28e9f8dfe018c",
+        "bytes": 5518
+      },
+      {
+        "source": "C:/lab/repos/content-creation-mission/templates/estate-topology/viewer.js",
+        "retained": "fixtures/baseline/viewer/viewer.js",
+        "sha256": "9a6891b427ab31ca474a499f8fcb9ad1b4f23fad9a04794702972a4909a1d0f4",
+        "bytes": 19356
+      }
+    ],
+    "materials": [
+      {
+        "source": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/textures/3a54046d850149829e577c655ac5fbc718785202592a752717ffb9f2950e9c8e.webp",
+        "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/3a54046d850149829e577c655ac5fbc718785202592a752717ffb9f2950e9c8e.webp",
+        "sha256": "3a54046d850149829e577c655ac5fbc718785202592a752717ffb9f2950e9c8e",
+        "bytes": 13184,
+        "reference": "/media/library/outputs/estate-topology/textures/3a54046d850149829e577c655ac5fbc718785202592a752717ffb9f2950e9c8e.webp"
+      },
+      {
+        "source": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/textures/49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a.webp",
+        "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a.webp",
+        "sha256": "49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a",
+        "bytes": 11310,
+        "reference": "/media/library/outputs/estate-topology/textures/49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a.webp"
+      },
+      {
+        "source": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/textures/7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e.webp",
+        "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e.webp",
+        "sha256": "7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e",
+        "bytes": 22510,
+        "reference": "/media/library/outputs/estate-topology/textures/7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e.webp"
+      },
+      {
+        "source": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/textures/71c591ed2d4687a4b376828684bbe913e3a837d8def04a95e82e924bb7f08faa.webp",
+        "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/71c591ed2d4687a4b376828684bbe913e3a837d8def04a95e82e924bb7f08faa.webp",
+        "sha256": "71c591ed2d4687a4b376828684bbe913e3a837d8def04a95e82e924bb7f08faa",
+        "bytes": 28956,
+        "reference": "/media/library/outputs/estate-topology/textures/71c591ed2d4687a4b376828684bbe913e3a837d8def04a95e82e924bb7f08faa.webp"
+      },
+      {
+        "source": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/textures/8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126.webp",
+        "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126.webp",
+        "sha256": "8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126",
+        "bytes": 12660,
+        "reference": "/media/library/outputs/estate-topology/textures/8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126.webp"
+      },
+      {
+        "source": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/textures/9637072de851f78ab39cd1aae35a0d6c0dd9ed1bf36a5aed756d85e58855ccd6.webp",
+        "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/9637072de851f78ab39cd1aae35a0d6c0dd9ed1bf36a5aed756d85e58855ccd6.webp",
+        "sha256": "9637072de851f78ab39cd1aae35a0d6c0dd9ed1bf36a5aed756d85e58855ccd6",
+        "bytes": 11498,
+        "reference": "/media/library/outputs/estate-topology/textures/9637072de851f78ab39cd1aae35a0d6c0dd9ed1bf36a5aed756d85e58855ccd6.webp"
+      },
+      {
+        "source": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp",
+        "retained": "fixtures/baseline/author-tooling-capability-candidate/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp",
+        "sha256": "bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c",
+        "bytes": 11822,
+        "reference": "/media/library/outputs/estate-topology/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp"
+      }
+    ]
+  },
+  "summary": {
+    "views": 2,
+    "materials": 7,
+    "templateFiles": 3,
+    "errors": 0,
+    "frozen": true
+  },
+  "findings": [],
+  "traceMode": "ILLUSTRATIVE",
+  "evidenceLimit": "These fixtures are declared topology. They establish no execution evidence, and no capability was invoked to produce them."
+}

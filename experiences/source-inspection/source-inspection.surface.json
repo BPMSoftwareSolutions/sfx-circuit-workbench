@@ -1,0 +1,1425 @@
+{
+  "surfaceId": "source-inspection",
+  "title": "SideFX circuit workbench: source inspection",
+  "note": "The M1 recreation of the supplied workbench, declared rather than coded. Every control recorded in fixtures/baseline/control-behavior.json is declared here as a semantic component with its state, binding and action, so that the browser receives a lowered interaction plan instead of page handlers. The circuit itself is a `circuit` component: componentType is deliberately an open string in this authority, and a provider profile declares which types it can realize, so an unrealizable circuit is a visible projection finding rather than a silently flattened image. Nothing here names a framework, and nothing here invokes a capability: every action names a scenario event without crossing the execution boundary.",
+  "surface": {
+    "profile": "viewport",
+    "dimensions": {
+      "width": 1220,
+      "height": 1180
+    },
+    "coordinateSpace": "top-left-down",
+    "overflow": "scroll",
+    "interactionProfile": "pointer",
+    "rootContainer": {
+      "id": "root",
+      "role": "workbench-shell",
+      "presentation": {
+        "padding": 0,
+        "overflow": "clip",
+        "layer": 0
+      },
+      "layout": {
+        "kind": "stack",
+        "direction": "column",
+        "gap": 0,
+        "crossAlign": "stretch",
+        "tracks": [
+          {
+            "size": "96px",
+            "container": {
+              "id": "header",
+              "role": "workbench-header",
+              "presentation": {
+                "padding": [
+                  24,
+                  26
+                ]
+              },
+              "layout": {
+                "kind": "stack",
+                "direction": "row",
+                "gap": 24,
+                "crossAlign": "stretch",
+                "tracks": [
+                  {
+                    "size": "1fr",
+                    "container": {
+                      "id": "title-block",
+                      "role": "capability-identity",
+                      "layout": {
+                        "kind": "stack",
+                        "direction": "column",
+                        "gap": 6,
+                        "crossAlign": "stretch",
+                        "tracks": [
+                          {
+                            "size": "16px",
+                            "container": {
+                              "id": "eyebrow-slot",
+                              "components": [
+                                {
+                                  "id": "workbench-eyebrow",
+                                  "componentType": "label",
+                                  "semanticIdentity": "workbench-identity",
+                                  "presentationIntent": "section-label",
+                                  "content": {
+                                    "text": "SIDEFX / CIRCUIT WORKBENCH"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "1fr",
+                            "container": {
+                              "id": "title-slot",
+                              "components": [
+                                {
+                                  "id": "capability-title",
+                                  "componentType": "heading",
+                                  "semanticIdentity": "capability-title",
+                                  "presentationIntent": "brand",
+                                  "content": {
+                                    "text": "Convergently author an SDA capability candidate from canonical source authority"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "size": "532px",
+                    "container": {
+                      "id": "view-slot",
+                      "role": "source-view-selection",
+                      "components": [
+                        {
+                          "id": "source-view",
+                          "componentType": "choice",
+                          "semanticIdentity": "selected-source-view",
+                          "presentationIntent": "view-selector",
+                          "content": {
+                            "label": "Source view",
+                            "options": [
+                              {
+                                "value": "n-69b6853533ab1d663473efb6",
+                                "label": "Capability blueprint \u00c2\u00b7 30 components / 45 routes",
+                                "group": "Blueprint authority"
+                              },
+                              {
+                                "value": "n-0bdad09bdc9fab51e42f65dd",
+                                "label": "Execution \u00c2\u00b7 Admit the capability authoring context \u00c2\u00b7 10 components / 9 routes",
+                                "group": "Native execution graph"
+                              }
+                            ]
+                          },
+                          "interaction": {
+                            "semanticAction": "select-source-view"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "size": "42px",
+            "container": {
+              "id": "summary",
+              "role": "authority-coverage-strip",
+              "presentation": {
+                "padding": [
+                  12,
+                  26
+                ]
+              },
+              "layout": {
+                "kind": "stack",
+                "direction": "row",
+                "gap": 16,
+                "crossAlign": "stretch",
+                "tracks": [
+                  {
+                    "size": "1fr",
+                    "container": {
+                      "id": "scope-slot",
+                      "components": [
+                        {
+                          "id": "view-scope",
+                          "componentType": "value",
+                          "semanticIdentity": "source-view-kind",
+                          "presentationIntent": "section-label",
+                          "content": {
+                            "value": "Blueprint authority"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "size": "520px",
+                    "container": {
+                      "id": "coverage-slot",
+                      "components": [
+                        {
+                          "id": "view-coverage",
+                          "componentType": "value",
+                          "semanticIdentity": "source-coverage",
+                          "presentationIntent": "coverage-readout",
+                          "content": {
+                            "value": "30 components \u00c2\u00b7 45 routes \u00c2\u00b7 0 source components omitted"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "size": "46px",
+            "container": {
+              "id": "toolbar",
+              "role": "workbench-toolbar",
+              "presentation": {
+                "padding": [
+                  6,
+                  20
+                ]
+              },
+              "layout": {
+                "kind": "grid",
+                "columns": [
+                  "200px",
+                  "1fr",
+                  "560px"
+                ],
+                "rows": [
+                  "1fr"
+                ],
+                "columnGap": 12,
+                "rowGap": 0,
+                "areas": [
+                  {
+                    "column": [
+                      0,
+                      1
+                    ],
+                    "row": [
+                      0,
+                      1
+                    ],
+                    "container": {
+                      "id": "presentation-group",
+                      "role": "material-presentation",
+                      "layout": {
+                        "kind": "stack",
+                        "direction": "row",
+                        "gap": 8,
+                        "crossAlign": "stretch",
+                        "tracks": [
+                          {
+                            "size": "94px",
+                            "container": {
+                              "id": "material-slot",
+                              "components": [
+                                {
+                                  "id": "show-material",
+                                  "componentType": "action",
+                                  "semanticIdentity": "present-material",
+                                  "presentationIntent": "toggle-action",
+                                  "content": {
+                                    "label": "Material"
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "show-material"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "98px",
+                            "container": {
+                              "id": "base-slot",
+                              "components": [
+                                {
+                                  "id": "show-base-svg",
+                                  "componentType": "action",
+                                  "semanticIdentity": "present-base-svg",
+                                  "presentationIntent": "toggle-action",
+                                  "content": {
+                                    "label": "Base SVG"
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "show-base-svg"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "column": [
+                      2,
+                      3
+                    ],
+                    "row": [
+                      0,
+                      1
+                    ],
+                    "container": {
+                      "id": "camera-group",
+                      "role": "camera-controls",
+                      "layout": {
+                        "kind": "stack",
+                        "direction": "row",
+                        "gap": 8,
+                        "crossAlign": "stretch",
+                        "tracks": [
+                          {
+                            "size": "100px",
+                            "container": {
+                              "id": "fit-slot",
+                              "components": [
+                                {
+                                  "id": "fit-diagram",
+                                  "componentType": "action",
+                                  "semanticIdentity": "fit-circuit-to-viewport",
+                                  "presentationIntent": "secondary-action",
+                                  "content": {
+                                    "label": "Fit diagram"
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "fit-diagram"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "116px",
+                            "container": {
+                              "id": "read-slot",
+                              "components": [
+                                {
+                                  "id": "read-at-100",
+                                  "componentType": "action",
+                                  "semanticIdentity": "read-circuit-at-full-scale",
+                                  "presentationIntent": "secondary-action",
+                                  "content": {
+                                    "label": "Read at 100%"
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "read-at-100"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "38px",
+                            "container": {
+                              "id": "zoom-out-slot",
+                              "components": [
+                                {
+                                  "id": "zoom-out",
+                                  "componentType": "action",
+                                  "semanticIdentity": "reduce-camera-scale",
+                                  "presentationIntent": "secondary-action",
+                                  "content": {
+                                    "label": "\u2212",
+                                    "accessibleName": "Zoom out"
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "zoom-out"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "56px",
+                            "container": {
+                              "id": "zoom-readout-slot",
+                              "components": [
+                                {
+                                  "id": "zoom-readout",
+                                  "componentType": "value",
+                                  "semanticIdentity": "camera-scale",
+                                  "presentationIntent": "zoom-readout",
+                                  "content": {
+                                    "value": "15%"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "38px",
+                            "container": {
+                              "id": "zoom-in-slot",
+                              "components": [
+                                {
+                                  "id": "zoom-in",
+                                  "componentType": "action",
+                                  "semanticIdentity": "raise-camera-scale",
+                                  "presentationIntent": "secondary-action",
+                                  "content": {
+                                    "label": "+",
+                                    "accessibleName": "Zoom in"
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "zoom-in"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "1fr",
+                            "container": {
+                              "id": "download-slot",
+                              "components": [
+                                {
+                                  "id": "download-svg",
+                                  "componentType": "action",
+                                  "semanticIdentity": "export-base-scene",
+                                  "presentationIntent": "secondary-action",
+                                  "content": {
+                                    "label": "Download SVG"
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "download-svg"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "size": "630px",
+            "container": {
+              "id": "main",
+              "role": "circuit-and-outline",
+              "layout": {
+                "kind": "stack",
+                "direction": "row",
+                "gap": 0,
+                "crossAlign": "stretch",
+                "tracks": [
+                  {
+                    "size": "1fr",
+                    "container": {
+                      "id": "drawing",
+                      "role": "circuit-viewport",
+                      "presentation": {
+                        "overflow": "scroll"
+                      },
+                      "components": [
+                        {
+                          "id": "circuit",
+                          "componentType": "circuit",
+                          "semanticIdentity": "capability-circuit",
+                          "presentationIntent": "circuit-scene",
+                          "content": {
+                            "label": "Scrollable source diagram",
+                            "sceneContract": "circuit-scene.v1",
+                            "scene": "fixtures/scenes/blueprint-authority.scene.json",
+                            "traceMode": "ILLUSTRATIVE"
+                          },
+                          "interaction": {
+                            "semanticAction": "select-circuit-entity",
+                            "requiredProviderFeatures": [
+                              "scene-payload",
+                              "node-selection",
+                              "route-selection",
+                              "keyboard-activation",
+                              "camera-transform",
+                              "material-presentation",
+                              "trace-overlay",
+                              "vector-export"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "size": "245px",
+                    "container": {
+                      "id": "aside",
+                      "role": "component-outline",
+                      "presentation": {
+                        "padding": [
+                          16,
+                          10
+                        ],
+                        "overflow": "scroll"
+                      },
+                      "layout": {
+                        "kind": "stack",
+                        "direction": "column",
+                        "gap": 10,
+                        "crossAlign": "stretch",
+                        "tracks": [
+                          {
+                            "size": "62px",
+                            "container": {
+                              "id": "search-slot",
+                              "components": [
+                                {
+                                  "id": "component-search",
+                                  "componentType": "input",
+                                  "semanticIdentity": "outline-search-query",
+                                  "presentationIntent": "search-field",
+                                  "content": {
+                                    "label": "Find a component",
+                                    "placeholder": "Identity, mechanic, or responsibility"
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "search-components"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "1fr",
+                            "container": {
+                              "id": "outline-slot",
+                              "presentation": {
+                                "overflow": "scroll"
+                              },
+                              "components": [
+                                {
+                                  "id": "component-outline",
+                                  "componentType": "collection",
+                                  "semanticIdentity": "circuit-component-outline",
+                                  "presentationIntent": "vertical-list",
+                                  "content": {
+                                    "items": [],
+                                    "itemIdentity": "entityId",
+                                    "emptyText": "No component matches this search."
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "select-component"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "size": "88px",
+            "container": {
+              "id": "flow",
+              "role": "illustrative-trace-controls",
+              "presentation": {
+                "padding": [
+                  12,
+                  20
+                ]
+              },
+              "layout": {
+                "kind": "stack",
+                "direction": "column",
+                "gap": 8,
+                "crossAlign": "stretch",
+                "tracks": [
+                  {
+                    "size": "32px",
+                    "container": {
+                      "id": "flow-buttons",
+                      "layout": {
+                        "kind": "stack",
+                        "direction": "row",
+                        "gap": 8,
+                        "crossAlign": "stretch",
+                        "tracks": [
+                          {
+                            "size": "100px",
+                            "container": {
+                              "id": "play-slot",
+                              "components": [
+                                {
+                                  "id": "play-trace",
+                                  "componentType": "action",
+                                  "semanticIdentity": "illustrative-trace-playback",
+                                  "presentationIntent": "primary-action",
+                                  "content": {
+                                    "label": "Trace flow"
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "play-trace"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "96px",
+                            "container": {
+                              "id": "next-slot",
+                              "components": [
+                                {
+                                  "id": "next-trace-step",
+                                  "componentType": "action",
+                                  "semanticIdentity": "illustrative-trace-advance",
+                                  "presentationIntent": "secondary-action",
+                                  "content": {
+                                    "label": "Next step"
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "next-trace-step"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "78px",
+                            "container": {
+                              "id": "reset-slot",
+                              "components": [
+                                {
+                                  "id": "reset-trace",
+                                  "componentType": "action",
+                                  "semanticIdentity": "illustrative-trace-reset",
+                                  "presentationIntent": "secondary-action",
+                                  "content": {
+                                    "label": "Reset"
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "reset-trace"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "132px",
+                            "container": {
+                              "id": "speed-slot",
+                              "components": [
+                                {
+                                  "id": "trace-speed",
+                                  "componentType": "choice",
+                                  "semanticIdentity": "illustrative-trace-speed",
+                                  "presentationIntent": "inline-choice",
+                                  "content": {
+                                    "label": "Speed",
+                                    "options": [
+                                      {
+                                        "value": "1",
+                                        "label": "1\u00c3\u2014"
+                                      },
+                                      {
+                                        "value": "4",
+                                        "label": "4\u00c3\u2014"
+                                      },
+                                      {
+                                        "value": "16",
+                                        "label": "16\u00c3\u2014"
+                                      },
+                                      {
+                                        "value": "64",
+                                        "label": "64\u00c3\u2014"
+                                      }
+                                    ]
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "set-trace-speed"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "1fr",
+                            "container": {
+                              "id": "follow-slot",
+                              "components": [
+                                {
+                                  "id": "trace-follow",
+                                  "componentType": "toggle",
+                                  "semanticIdentity": "illustrative-trace-follow",
+                                  "presentationIntent": "inline-toggle",
+                                  "content": {
+                                    "label": "Follow flow"
+                                  },
+                                  "interaction": {
+                                    "semanticAction": "toggle-trace-follow"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "size": "1fr",
+                    "container": {
+                      "id": "flow-status-row",
+                      "layout": {
+                        "kind": "stack",
+                        "direction": "row",
+                        "gap": 12,
+                        "crossAlign": "stretch",
+                        "tracks": [
+                          {
+                            "size": "1fr",
+                            "container": {
+                              "id": "flow-status-slot",
+                              "components": [
+                                {
+                                  "id": "flow-status",
+                                  "componentType": "feedback",
+                                  "semanticIdentity": "illustrative-trace-status",
+                                  "presentationIntent": "live-status",
+                                  "content": {
+                                    "text": "Select a component, then follow its declared routes.",
+                                    "liveRegion": "polite"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "168px",
+                            "container": {
+                              "id": "trace-mode-slot",
+                              "role": "trace-mode-declaration",
+                              "components": [
+                                {
+                                  "id": "trace-mode-readout",
+                                  "componentType": "value",
+                                  "semanticIdentity": "declared-trace-mode",
+                                  "presentationIntent": "trace-mode-badge",
+                                  "content": {
+                                    "value": "ILLUSTRATIVE"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "size": "72px",
+            "container": {
+              "id": "routes",
+              "role": "outgoing-routes",
+              "presentation": {
+                "padding": [
+                  0,
+                  20
+                ],
+                "overflow": "scroll"
+              },
+              "components": [
+                {
+                  "id": "outgoing-routes",
+                  "componentType": "collection",
+                  "semanticIdentity": "selected-entity-outgoing-routes",
+                  "presentationIntent": "horizontal-inline",
+                  "content": {
+                    "items": [],
+                    "itemIdentity": "routeId",
+                    "emptyText": "End of this declared path.",
+                    "accessibleName": "Outgoing routes"
+                  },
+                  "interaction": {
+                    "semanticAction": "follow-route"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "size": "1fr",
+            "container": {
+              "id": "inspection",
+              "role": "source-inspection",
+              "presentation": {
+                "padding": [
+                  24,
+                  26
+                ]
+              },
+              "layout": {
+                "kind": "stack",
+                "direction": "row",
+                "gap": 26,
+                "crossAlign": "stretch",
+                "tracks": [
+                  {
+                    "size": "1fr",
+                    "container": {
+                      "id": "inspection-primary",
+                      "layout": {
+                        "kind": "stack",
+                        "direction": "column",
+                        "gap": 8,
+                        "crossAlign": "stretch",
+                        "tracks": [
+                          {
+                            "size": "16px",
+                            "container": {
+                              "id": "inspect-kind-slot",
+                              "components": [
+                                {
+                                  "id": "inspect-kind",
+                                  "componentType": "value",
+                                  "semanticIdentity": "selected-entity-kind",
+                                  "presentationIntent": "section-label",
+                                  "content": {
+                                    "value": "INSPECT THE SOURCE"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "56px",
+                            "container": {
+                              "id": "inspect-title-slot",
+                              "components": [
+                                {
+                                  "id": "inspect-title",
+                                  "componentType": "heading",
+                                  "semanticIdentity": "selected-entity-label",
+                                  "presentationIntent": "card-title",
+                                  "content": {
+                                    "text": "Every component keeps its identity."
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "1fr",
+                            "container": {
+                              "id": "inspect-detail-slot",
+                              "components": [
+                                {
+                                  "id": "inspect-detail",
+                                  "componentType": "text",
+                                  "semanticIdentity": "selected-entity-responsibility",
+                                  "presentationIntent": "body",
+                                  "content": {
+                                    "text": "Select a shape or route to inspect its responsibility, contracts and exact source."
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "size": "1fr",
+                    "container": {
+                      "id": "inspection-evidence",
+                      "layout": {
+                        "kind": "stack",
+                        "direction": "column",
+                        "gap": 8,
+                        "crossAlign": "stretch",
+                        "tracks": [
+                          {
+                            "size": "1fr",
+                            "container": {
+                              "id": "inspect-facts-slot",
+                              "presentation": {
+                                "overflow": "scroll"
+                              },
+                              "components": [
+                                {
+                                  "id": "inspect-facts",
+                                  "componentType": "text",
+                                  "semanticIdentity": "selected-entity-facts",
+                                  "presentationIntent": "code-block",
+                                  "content": {
+                                    "text": ""
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "34px",
+                            "container": {
+                              "id": "inspect-source-slot",
+                              "components": [
+                                {
+                                  "id": "inspect-source",
+                                  "componentType": "text",
+                                  "semanticIdentity": "selected-entity-source-pointer",
+                                  "presentationIntent": "fine-print",
+                                  "content": {
+                                    "text": ""
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "26px",
+                            "container": {
+                              "id": "inspect-findings-slot",
+                              "components": [
+                                {
+                                  "id": "inspect-findings",
+                                  "componentType": "text",
+                                  "semanticIdentity": "selected-view-findings",
+                                  "presentationIntent": "fine-print",
+                                  "content": {
+                                    "text": ""
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "size": "40px",
+                            "container": {
+                              "id": "evidence-slot",
+                              "components": [
+                                {
+                                  "id": "evidence-limit",
+                                  "componentType": "callout",
+                                  "semanticIdentity": "trace-evidence-limit",
+                                  "presentationIntent": "fine-print",
+                                  "content": {
+                                    "text": "Declared topology. Tracing illustrates source relationships; it does not run providers or establish execution evidence."
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "state": [
+    {
+      "stateId": "view.selected",
+      "semanticType": "selection",
+      "meaning": "Which source view of this capability is loaded.",
+      "mutability": "mutable",
+      "initialValue": "n-69b6853533ab1d663473efb6"
+    },
+    {
+      "stateId": "view.scope",
+      "semanticType": "text",
+      "meaning": "Display name of the loaded view kind, or the load failure state.",
+      "mutability": "fixed",
+      "initialValue": "Blueprint authority"
+    },
+    {
+      "stateId": "view.coverage",
+      "semanticType": "text",
+      "meaning": "Component, route and omission counts for the loaded view.",
+      "mutability": "fixed",
+      "initialValue": "30 components \u00c2\u00b7 45 routes \u00c2\u00b7 0 source components omitted"
+    },
+    {
+      "stateId": "view.findings",
+      "semanticType": "text",
+      "meaning": "Findings carried by the loaded view, as code and identity.",
+      "mutability": "fixed",
+      "initialValue": ""
+    },
+    {
+      "stateId": "presentation.mode",
+      "semanticType": "selection",
+      "meaning": "Whether material imagery is presented over the base scene.",
+      "mutability": "mutable",
+      "initialValue": "material"
+    },
+    {
+      "stateId": "camera.scale",
+      "semanticType": "number",
+      "meaning": "Camera scale applied to graph space. A physical provider operation, not a domain value.",
+      "mutability": "mutable",
+      "initialValue": 0.15
+    },
+    {
+      "stateId": "camera.zoom-label",
+      "semanticType": "text",
+      "meaning": "Camera scale as a whole percentage.",
+      "mutability": "fixed",
+      "initialValue": "15%"
+    },
+    {
+      "stateId": "search.query",
+      "semanticType": "text",
+      "meaning": "Outline filter over component identity, label and detail.",
+      "mutability": "mutable",
+      "initialValue": ""
+    },
+    {
+      "stateId": "outline.items",
+      "semanticType": "collection",
+      "meaning": "Components matching the current search, keyed by graph entity id.",
+      "mutability": "fixed",
+      "initialValue": []
+    },
+    {
+      "stateId": "routes.items",
+      "semanticType": "collection",
+      "meaning": "Traversable outgoing routes of the selected entity.",
+      "mutability": "fixed",
+      "initialValue": []
+    },
+    {
+      "stateId": "selection.entity-id",
+      "semanticType": "text",
+      "meaning": "Graph entity id of the selected node or route. A projection identifier.",
+      "mutability": "mutable",
+      "initialValue": ""
+    },
+    {
+      "stateId": "selection.kind",
+      "semanticType": "text",
+      "meaning": "Kind of the selected entity, or the view kind when nothing is selected.",
+      "mutability": "fixed",
+      "initialValue": "INSPECT THE SOURCE"
+    },
+    {
+      "stateId": "selection.title",
+      "semanticType": "text",
+      "meaning": "Label of the selected entity.",
+      "mutability": "fixed",
+      "initialValue": "Every component keeps its identity."
+    },
+    {
+      "stateId": "selection.detail",
+      "semanticType": "text",
+      "meaning": "Declared responsibility of the selected entity, or its detail.",
+      "mutability": "fixed",
+      "initialValue": "Select a shape or route to inspect its responsibility, contracts and exact source."
+    },
+    {
+      "stateId": "selection.facts",
+      "semanticType": "text",
+      "meaning": "Identity and declared facts of the selected entity.",
+      "mutability": "fixed",
+      "initialValue": ""
+    },
+    {
+      "stateId": "selection.source",
+      "semanticType": "text",
+      "meaning": "Source label, SHA-256 digest and pointer for the selected entity.",
+      "mutability": "fixed",
+      "initialValue": ""
+    },
+    {
+      "stateId": "trace.mode",
+      "semanticType": "selection",
+      "meaning": "Which trace mode the circuit is presenting. Illustrative establishes no execution evidence.",
+      "mutability": "fixed",
+      "initialValue": "ILLUSTRATIVE"
+    },
+    {
+      "stateId": "trace.status",
+      "semanticType": "text",
+      "meaning": "Live-announced playback status and route coverage.",
+      "mutability": "fixed",
+      "initialValue": "Select a component, then follow its declared routes."
+    },
+    {
+      "stateId": "trace.play-label",
+      "semanticType": "text",
+      "meaning": "Current playback affordance: trace, pause, resume or replay.",
+      "mutability": "fixed",
+      "initialValue": "Trace flow"
+    },
+    {
+      "stateId": "trace.speed",
+      "semanticType": "selection",
+      "meaning": "Playback speed multiplier; route duration is 800 ms divided by this value.",
+      "mutability": "mutable",
+      "initialValue": "1"
+    },
+    {
+      "stateId": "trace.follow",
+      "semanticType": "boolean",
+      "meaning": "Whether the camera follows the animated point. The graph must remain usable without it.",
+      "mutability": "mutable",
+      "initialValue": true
+    },
+    {
+      "stateId": "capability.title",
+      "semanticType": "text",
+      "mutability": "fixed",
+      "meaning": "Selected experience context",
+      "initialValue": "Convergently author an SDA capability candidate from canonical source authority"
+    },
+    {
+      "stateId": "experience.limit",
+      "semanticType": "text",
+      "mutability": "fixed",
+      "meaning": "Selected experience context",
+      "initialValue": "Declared topology. Illustrative playback does not execute a capability."
+    }
+  ],
+  "bindings": [
+    {
+      "bindingId": "bind-view",
+      "component": "source-view",
+      "state": "view.selected",
+      "direction": "read-write"
+    },
+    {
+      "bindingId": "bind-scope",
+      "component": "view-scope",
+      "state": "view.scope",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-coverage",
+      "component": "view-coverage",
+      "state": "view.coverage",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-findings",
+      "component": "inspect-findings",
+      "state": "view.findings",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-zoom",
+      "component": "zoom-readout",
+      "state": "camera.zoom-label",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-search",
+      "component": "component-search",
+      "state": "search.query",
+      "direction": "read-write"
+    },
+    {
+      "bindingId": "bind-outline",
+      "component": "component-outline",
+      "state": "outline.items",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-routes",
+      "component": "outgoing-routes",
+      "state": "routes.items",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-inspect-kind",
+      "component": "inspect-kind",
+      "state": "selection.kind",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-inspect-title",
+      "component": "inspect-title",
+      "state": "selection.title",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-inspect-detail",
+      "component": "inspect-detail",
+      "state": "selection.detail",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-inspect-facts",
+      "component": "inspect-facts",
+      "state": "selection.facts",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-inspect-source",
+      "component": "inspect-source",
+      "state": "selection.source",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-status",
+      "component": "flow-status",
+      "state": "trace.status",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-trace-mode",
+      "component": "trace-mode-readout",
+      "state": "trace.mode",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-speed",
+      "component": "trace-speed",
+      "state": "trace.speed",
+      "direction": "read-write"
+    },
+    {
+      "bindingId": "bind-follow",
+      "component": "trace-follow",
+      "state": "trace.follow",
+      "direction": "read-write"
+    },
+    {
+      "bindingId": "bind-capability-title",
+      "component": "capability-title",
+      "state": "capability.title",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-experience-limit",
+      "component": "evidence-limit",
+      "state": "experience.limit",
+      "direction": "read"
+    }
+  ],
+  "validation": [
+    {
+      "validationId": "view-known",
+      "state": "view.selected",
+      "rules": [
+        {
+          "kind": "required",
+          "message": "A source view must be selected."
+        },
+        {
+          "kind": "oneOf",
+          "values": [
+            "n-69b6853533ab1d663473efb6",
+            "n-0bdad09bdc9fab51e42f65dd"
+          ],
+          "message": "That source view is not published for this capability."
+        }
+      ]
+    },
+    {
+      "validationId": "presentation-known",
+      "state": "presentation.mode",
+      "rules": [
+        {
+          "kind": "oneOf",
+          "values": [
+            "material",
+            "base"
+          ],
+          "message": "Choose material or base presentation."
+        }
+      ]
+    },
+    {
+      "validationId": "camera-bounded",
+      "state": "camera.scale",
+      "rules": [
+        {
+          "kind": "required"
+        },
+        {
+          "kind": "minimum",
+          "value": 0.01,
+          "message": "The camera does not scale below 1%."
+        },
+        {
+          "kind": "maximum",
+          "value": 2,
+          "message": "The camera does not scale above 200%."
+        }
+      ]
+    },
+    {
+      "validationId": "speed-supported",
+      "state": "trace.speed",
+      "rules": [
+        {
+          "kind": "oneOf",
+          "values": [
+            "1",
+            "4",
+            "16",
+            "64"
+          ],
+          "message": "Choose a declared playback speed."
+        }
+      ]
+    },
+    {
+      "validationId": "trace-mode-declared",
+      "state": "trace.mode",
+      "rules": [
+        {
+          "kind": "oneOf",
+          "values": [
+            "ILLUSTRATIVE",
+            "OBSERVED_REPLAY",
+            "LIVE_EXECUTION"
+          ],
+          "message": "Trace mode must be one of the three declared modes."
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "actionId": "select-source-view",
+      "meaning": "Load a different published view of this capability.",
+      "requiresAdmissible": [
+        "view.selected"
+      ],
+      "scenarioEvent": "workbench.source-view.selected"
+    },
+    {
+      "actionId": "show-material",
+      "meaning": "Present material imagery over the base scene.",
+      "requiresAdmissible": [],
+      "scenarioEvent": "workbench.presentation.material-selected"
+    },
+    {
+      "actionId": "show-base-svg",
+      "meaning": "Present the base scene without material imagery.",
+      "requiresAdmissible": [],
+      "scenarioEvent": "workbench.presentation.base-selected"
+    },
+    {
+      "actionId": "fit-diagram",
+      "meaning": "Fit the whole circuit inside the drawing viewport.",
+      "requiresAdmissible": [],
+      "scenarioEvent": "workbench.camera.fitted"
+    },
+    {
+      "actionId": "read-at-100",
+      "meaning": "Set the camera to reading scale.",
+      "requiresAdmissible": [],
+      "scenarioEvent": "workbench.camera.reading-scale-set"
+    },
+    {
+      "actionId": "zoom-in",
+      "meaning": "Raise camera scale by the declared step.",
+      "requiresAdmissible": [
+        "camera.scale"
+      ],
+      "scenarioEvent": "workbench.camera.scale-raised"
+    },
+    {
+      "actionId": "zoom-out",
+      "meaning": "Reduce camera scale by the declared step.",
+      "requiresAdmissible": [
+        "camera.scale"
+      ],
+      "scenarioEvent": "workbench.camera.scale-reduced"
+    },
+    {
+      "actionId": "download-svg",
+      "meaning": "Export the verified base scene as vector, with material imagery removed.",
+      "requiresAdmissible": [],
+      "scenarioEvent": "workbench.scene.exported"
+    },
+    {
+      "actionId": "search-components",
+      "meaning": "Filter the outline over identity, label and detail.",
+      "requiresAdmissible": [],
+      "scenarioEvent": "workbench.outline.searched"
+    },
+    {
+      "actionId": "select-component",
+      "meaning": "Inspect a component and bring it into view.",
+      "requiresAdmissible": [],
+      "scenarioEvent": "workbench.entity.selected"
+    },
+    {
+      "actionId": "select-circuit-entity",
+      "meaning": "Inspect the node or route activated in the circuit.",
+      "requiresAdmissible": [],
+      "scenarioEvent": "workbench.entity.selected"
+    },
+    {
+      "actionId": "follow-route",
+      "meaning": "Travel one declared route from the selected entity.",
+      "requiresAdmissible": [],
+      "scenarioEvent": "workbench.route.followed"
+    },
+    {
+      "actionId": "play-trace",
+      "meaning": "Play or pause the illustrative trace. It establishes no execution evidence.",
+      "requiresAdmissible": [
+        "trace.speed"
+      ],
+      "scenarioEvent": "workbench.illustrative-trace.toggled"
+    },
+    {
+      "actionId": "next-trace-step",
+      "meaning": "Advance the illustrative trace by one wave.",
+      "requiresAdmissible": [
+        "trace.speed"
+      ],
+      "scenarioEvent": "workbench.illustrative-trace.advanced"
+    },
+    {
+      "actionId": "reset-trace",
+      "meaning": "Clear the illustrative trace, selection and route highlights.",
+      "requiresAdmissible": [],
+      "scenarioEvent": "workbench.illustrative-trace.reset"
+    },
+    {
+      "actionId": "set-trace-speed",
+      "meaning": "Choose the illustrative playback speed.",
+      "requiresAdmissible": [
+        "trace.speed"
+      ],
+      "scenarioEvent": "workbench.illustrative-trace.speed-set"
+    },
+    {
+      "actionId": "toggle-trace-follow",
+      "meaning": "Choose whether the camera follows the animated point.",
+      "requiresAdmissible": [],
+      "scenarioEvent": "workbench.illustrative-trace.follow-toggled"
+    }
+  ]
+}

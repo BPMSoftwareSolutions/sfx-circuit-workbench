@@ -1,0 +1,167 @@
+{
+  "registryVersion": "component-registry.v1",
+  "title": "Input control and outcome presentation registry",
+  "note": "The compilation rules that turn a resolved schema shape plus declared ownership into a semantic control. An entry declares the shapes it accepts, the UX properties it requires, its parser and its binding. New controls become registered entries; they are never arbitrary JavaScript or HTML embedded in a capability profile. A shape with no entry stays explicitly unsupported until one is established.",
+  "policy": {
+    "unmappedInput": "unsupported",
+    "unknownReference": "hold",
+    "ambiguousReference": "hold",
+    "rawJsonInput": "not-offered",
+    "runTrigger": "explicit-user-action",
+    "textRendering": "escaped-text",
+    "automaticRetry": false,
+    "note": "Carried from the Lab's compiled pilot defaults so the workbench does not quietly relax them."
+  },
+  "inputControls": [
+    {
+      "controlId": "text",
+      "componentType": "input",
+      "semanticType": "text",
+      "accepts": { "type": "string" },
+      "rejects": { "enum": true },
+      "parser": "verbatim",
+      "requiredUx": ["label"],
+      "constraintsHonoured": ["minLength", "maxLength", "pattern"],
+      "emptyValueIsDistinctFromMissing": true,
+      "note": "Whitespace and Unicode are preserved exactly as supplied; the declaration may not ask for normalisation the contract does not state."
+    },
+    {
+      "controlId": "textarea",
+      "componentType": "input",
+      "semanticType": "text",
+      "accepts": { "type": "string", "multiline": true },
+      "parser": "verbatim",
+      "requiredUx": ["label"],
+      "constraintsHonoured": ["minLength", "maxLength"],
+      "note": "Selected only when the UX declaration states the content is multiline. Shape alone never implies it."
+    },
+    {
+      "controlId": "select",
+      "componentType": "choice",
+      "semanticType": "selection",
+      "accepts": { "type": "string", "enum": true },
+      "parser": "verbatim",
+      "requiredUx": ["label"],
+      "constraintsHonoured": ["enum"],
+      "reflectsSelectedValue": true
+    },
+    {
+      "controlId": "toggle",
+      "componentType": "toggle",
+      "semanticType": "boolean",
+      "accepts": { "type": "boolean" },
+      "parser": "boolean",
+      "requiredUx": ["label"],
+      "absenceIsNotFalse": true,
+      "note": "An optional boolean that was never touched is absent, not false."
+    },
+    {
+      "controlId": "number",
+      "componentType": "input",
+      "semanticType": "number",
+      "accepts": { "type": ["number", "integer"] },
+      "parser": "number",
+      "requiredUx": ["label"],
+      "constraintsHonoured": ["minimum", "maximum", "multipleOf"],
+      "emptyValueIsDistinctFromZero": true
+    },
+    {
+      "controlId": "example-selection",
+      "componentType": "choice",
+      "semanticType": "selection",
+      "accepts": { "ownership": "system-bound", "source": "selected-retained-fixture" },
+      "parser": "verbatim",
+      "requiredUx": ["label"],
+      "note": "The user selects which retained example runs. The payload itself stays server-owned and is never sent by the browser."
+    }
+  ],
+  "unsupportedInputShapes": [
+    {
+      "shape": "object",
+      "reason": "A nested editable object needs a declared field group whose children bind to their own pointers. Only server-derived objects assembled from declared children are supported.",
+      "wouldRequire": "A group control with per-child binding and object assembly."
+    },
+    {
+      "shape": "array",
+      "reason": "A repeating group needs stable item identities, per-item validation and contract cardinality.",
+      "wouldRequire": "A collection editor component and its item-identity protocol."
+    },
+    {
+      "shape": "oneOf/anyOf discriminated variant",
+      "reason": "A variant selector must retain per-variant draft values separately and submit only the chosen admissible shape.",
+      "wouldRequire": "A variant selector control and per-variant draft state."
+    },
+    {
+      "shape": "date-time, money, file and other composite values",
+      "reason": "A string or object shape alone does not establish the meaning. These need a registered semantic component with a parser and binding protocol.",
+      "wouldRequire": "A registered composite component per value kind."
+    }
+  ],
+  "outcomeFamilies": [
+    {
+      "family": "text",
+      "componentType": "text",
+      "requiredPointers": ["value"],
+      "rendering": "escaped-text",
+      "note": "Returned text is escaped. Markup in an outcome is content, never markup."
+    },
+    {
+      "family": "metric",
+      "componentType": "value",
+      "requiredPointers": ["amount"],
+      "optionalPointers": ["currency", "unit", "timestamp", "precision"],
+      "note": "A scalar whose value is the point. Currency or unit must be declared, not inferred from the number."
+    },
+    {
+      "family": "disposition",
+      "componentType": "value",
+      "requiredPointers": ["value"],
+      "requiredUx": ["dispositionLabels"],
+      "note": "Domain disposition. Provider success and business success are separate facts and are never merged."
+    },
+    {
+      "family": "record",
+      "componentType": "collection",
+      "requiredUx": ["fields"],
+      "note": "Grouped read-only fields in declared order. Missing, null and zero remain distinct."
+    },
+    {
+      "family": "collection",
+      "componentType": "collection",
+      "requiredUx": ["itemPath"],
+      "optionalUx": ["fields", "emptyText"],
+      "note": "Repeated records with a declared item path and empty-state text."
+    },
+    {
+      "family": "findings",
+      "componentType": "collection",
+      "requiredUx": ["itemPath"],
+      "note": "Findings carried by the outcome, with their codes and identities."
+    },
+    {
+      "family": "evidence",
+      "componentType": "text",
+      "requiredPointers": [],
+      "note": "Digests, timestamps and authorised evidence references for this run."
+    }
+  ],
+  "unsupportedOutcomeFamilies": [
+    {
+      "family": "chart",
+      "reason": "A chart needs explicit series, axis, unit and missing-data mappings. An array being present is not a reason to draw one.",
+      "wouldRequire": "A registered chart component with declared series bindings."
+    },
+    {
+      "family": "artifact",
+      "reason": "An artifact or media result needs typed, authorised resource references and an availability state.",
+      "wouldRequire": "A registered artifact component and an authorised resource protocol."
+    }
+  ],
+  "deliveryStates": [
+    { "state": "ADMITTED", "meaning": "The service accepted the request and issued a run identity." },
+    { "state": "REFUSED", "meaning": "The service refused the request. The draft is preserved and the refusal is shown." },
+    { "state": "UNCERTAIN", "meaning": "Delivery could not be established. A recoverable pending view is retained and the request is reconciled, never automatically resubmitted." },
+    { "state": "COMPLETED", "meaning": "A validated outcome arrived and matched a declared variant." },
+    { "state": "OUTCOME_UNPRESENTABLE", "meaning": "A returned shape validated against no declared variant. A contract finding is shown with authorised diagnostic detail, never a plausible-looking success card." }
+  ]
+}

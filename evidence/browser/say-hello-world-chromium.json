@@ -1,0 +1,1234 @@
+{
+  "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+  "events": [
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:1",
+      "receivedAt": "2026-09-10T16:21:32.848Z",
+      "serverTime": "2026-09-10T16:21:35.142Z",
+      "observation": null
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:2",
+      "receivedAt": "2026-09-10T16:21:32.848Z",
+      "serverTime": "2026-09-10T16:21:35.189Z",
+      "observation": null
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:3",
+      "receivedAt": "2026-09-10T16:21:33.698Z",
+      "serverTime": "2026-09-10T16:21:35.893Z",
+      "observation": {
+        "observationType": "delivery-phase",
+        "phase": "readAuthority",
+        "status": "started",
+        "observedAt": "2026-09-10T16:21:35.893Z"
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:4",
+      "receivedAt": "2026-09-10T16:21:34.538Z",
+      "serverTime": "2026-09-10T16:21:36.886Z",
+      "observation": {
+        "observationType": "delivery-phase",
+        "phase": "readAuthority",
+        "status": "completed",
+        "observedAt": "2026-09-10T16:21:36.885Z"
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:5",
+      "receivedAt": "2026-09-10T16:21:34.538Z",
+      "serverTime": "2026-09-10T16:21:36.938Z",
+      "observation": {
+        "observationType": "delivery-phase",
+        "phase": "planNativeBody",
+        "status": "started",
+        "observedAt": "2026-09-10T16:21:36.886Z"
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:6",
+      "receivedAt": "2026-09-10T16:21:36.425Z",
+      "serverTime": "2026-09-10T16:21:38.397Z",
+      "observation": {
+        "observationType": "delivery-phase",
+        "phase": "planNativeBody",
+        "status": "completed",
+        "observedAt": "2026-09-10T16:21:38.396Z"
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:7",
+      "receivedAt": "2026-09-10T16:21:36.425Z",
+      "serverTime": "2026-09-10T16:21:38.431Z",
+      "observation": {
+        "observationType": "delivery-phase",
+        "phase": "loadMemoryModules",
+        "status": "started",
+        "observedAt": "2026-09-10T16:21:38.397Z"
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:8",
+      "receivedAt": "2026-09-10T16:21:36.425Z",
+      "serverTime": "2026-09-10T16:21:38.465Z",
+      "observation": {
+        "observationType": "delivery-phase",
+        "phase": "loadMemoryModules",
+        "status": "completed",
+        "observedAt": "2026-09-10T16:21:38.402Z"
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:9",
+      "receivedAt": "2026-09-10T16:21:36.425Z",
+      "serverTime": "2026-09-10T16:21:38.498Z",
+      "observation": {
+        "observationType": "delivery-phase",
+        "phase": "createScenario",
+        "status": "started",
+        "observedAt": "2026-09-10T16:21:38.402Z"
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:10",
+      "receivedAt": "2026-09-10T16:21:36.425Z",
+      "serverTime": "2026-09-10T16:21:38.538Z",
+      "observation": {
+        "observationType": "delivery-phase",
+        "phase": "createScenario",
+        "status": "completed",
+        "observedAt": "2026-09-10T16:21:38.465Z"
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:11",
+      "receivedAt": "2026-09-10T16:21:36.425Z",
+      "serverTime": "2026-09-10T16:21:38.576Z",
+      "observation": {
+        "observationType": "delivery-phase",
+        "phase": "executeScenario",
+        "status": "started",
+        "observedAt": "2026-09-10T16:21:38.465Z"
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:12",
+      "receivedAt": "2026-09-10T16:21:36.425Z",
+      "serverTime": "2026-09-10T16:21:38.616Z",
+      "observation": {
+        "observationType": "scenario-execution-observation.v1",
+        "status": "observed",
+        "observedAt": "2026-09-10T16:21:38.466Z",
+        "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+        "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+        "parentExecutionId": null,
+        "scenarioId": "say-hello-world",
+        "stepId": "admit-input",
+        "sequence": 0
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:13",
+      "receivedAt": "2026-09-10T16:21:36.425Z",
+      "serverTime": "2026-09-10T16:21:38.655Z",
+      "observation": {
+        "observationType": "scenario-execution-observation.v1",
+        "status": "observed",
+        "observedAt": "2026-09-10T16:21:38.466Z",
+        "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+        "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+        "parentExecutionId": null,
+        "scenarioId": "say-hello-world",
+        "stepId": "resolve-event-authority",
+        "sequence": 1
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:14",
+      "receivedAt": "2026-09-10T16:21:36.425Z",
+      "serverTime": "2026-09-10T16:21:38.691Z",
+      "observation": {
+        "observationType": "scenario-execution-observation.v1",
+        "status": "observed",
+        "observedAt": "2026-09-10T16:21:38.466Z",
+        "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+        "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+        "parentExecutionId": null,
+        "scenarioId": "say-hello-world",
+        "stepId": "execute-event-authority",
+        "sequence": 2
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:15",
+      "receivedAt": "2026-09-10T16:21:36.425Z",
+      "serverTime": "2026-09-10T16:21:38.730Z",
+      "observation": {
+        "observationType": "scenario-execution-observation.v1",
+        "status": "observed",
+        "observedAt": "2026-09-10T16:21:38.466Z",
+        "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+        "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+        "parentExecutionId": null,
+        "scenarioId": "say-hello-world",
+        "stepId": "admit-outcome",
+        "sequence": 3
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:16",
+      "receivedAt": "2026-09-10T16:21:36.425Z",
+      "serverTime": "2026-09-10T16:21:38.770Z",
+      "observation": {
+        "observationType": "scenario-execution-observation.v1",
+        "status": "observed",
+        "observedAt": "2026-09-10T16:21:38.466Z",
+        "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+        "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+        "parentExecutionId": null,
+        "scenarioId": "say-hello-world",
+        "stepId": "resolve-disposition",
+        "sequence": 4
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:17",
+      "receivedAt": "2026-09-10T16:21:36.425Z",
+      "serverTime": "2026-09-10T16:21:38.811Z",
+      "observation": {
+        "observationType": "delivery-phase",
+        "phase": "executeScenario",
+        "status": "completed",
+        "observedAt": "2026-09-10T16:21:38.466Z"
+      }
+    },
+    {
+      "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:18",
+      "receivedAt": "2026-09-10T16:21:36.880Z",
+      "serverTime": "2026-09-10T16:21:38.918Z",
+      "observation": null
+    }
+  ],
+  "snapshot": {
+    "runVersion": "workbench-run.v1",
+    "serviceInstanceId": "fe207223-f945-4ce8-8326-2218a63a7f59",
+    "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+    "requestId": "d43c3882-90e9-4869-9346-185b6a68e086",
+    "state": "COMPLETED",
+    "acceptedAt": "2026-09-10T16:21:35.106Z",
+    "selection": {
+      "subject": "say-hello-world",
+      "namespace": "sidefx:capabilities",
+      "scenarioId": "say-hello-world",
+      "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+      "authorityPins": {
+        "scenarioDefinitionDigest": "sha256:123b5017f236eae5d2cfcd3b0f7a27a1f85b01119bf2e1fe440dd65f7c539e8c",
+        "pinnedPlatformCommit": "716811046f52dd2a67f9ff308a50d755571cbbad",
+        "platformDigest": "sha256:4a9ce9d7b96c39aeadba21c7e65e7a2a3a7b4a545b8fe6dbf041c18f7b7cd9de",
+        "resolverVersion": "sha256:bf39e0a6ad0058b05ff479ae59d892d29a248a48a3ca67ae58f8b9e39eb19ffe",
+        "artifactDigest": "sha256:e50a0e7e3a982c3bfc25e68bf79a0045529181641936813f41ce0ebe1b953645"
+      }
+    },
+    "cursor": 18,
+    "events": [
+      {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:18",
+        "sequence": 18,
+        "kind": "run.terminal",
+        "observedAt": "2026-09-10T16:21:38.918Z"
+      }
+    ],
+    "result": {
+      "status": "EXECUTED",
+      "capabilityId": "say-hello-world",
+      "scenarioId": "say-hello-world",
+      "disposition": "terminated",
+      "outcome": {
+        "contractId": "hello-world-greeting.v1",
+        "payload": {
+          "message": "Hello, World!"
+        }
+      },
+      "observationCount": 5,
+      "executionCount": 1,
+      "durationMs": 3596,
+      "evidence": {
+        "timings": {
+          "unit": "milliseconds",
+          "queries": {
+            "capability-embodiment.sql": 361.1138920000001,
+            "scenario-closure.sql": 312.92259,
+            "mechanic-definitions.sql": 316.784668
+          },
+          "readAuthority": 992.8310479999999,
+          "planNativeBody": 1511.0045269999998,
+          "loadMemoryModules": 4.847874000000047,
+          "createScenario": 63.08348599999999,
+          "executeScenario": 1.108212999999978,
+          "processSetup": 612.373152,
+          "processTotal": 3186.625027
+        },
+        "authoritySource": "DATABASE",
+        "bodyStorage": "MEMORY_ONLY",
+        "managedAdmission": "NOT_REQUESTED",
+        "providerStatus": "CANDIDATE_PHYSICAL_PROVIDER",
+        "inputDigest": "sha256:91d0660e37e2a69401b4df44deebf2286b7a35f20fcdba05c5217218bae1d806",
+        "resultDigest": "sha256:da5fdc9a1ffc7bc8660ee136936523c33596bed333af3200f9d0600ee9928cf9",
+        "snapshotId": "sha256:1a770ac0795d10665a88166f8d8c968dc5b2d030fdfab2b837aa6071d135f9e9",
+        "projectionDigest": "sha256:5441dc0f88ac07771c1d8048532549fe481bc9d8fa2922932dd0d9f149db9023",
+        "authorityIdentity": {
+          "scenarioDefinitionDigest": "sha256:123b5017f236eae5d2cfcd3b0f7a27a1f85b01119bf2e1fe440dd65f7c539e8c",
+          "pinnedPlatformCommit": "716811046f52dd2a67f9ff308a50d755571cbbad",
+          "platformDigest": "sha256:4a9ce9d7b96c39aeadba21c7e65e7a2a3a7b4a545b8fe6dbf041c18f7b7cd9de",
+          "resolverVersion": "sha256:bf39e0a6ad0058b05ff479ae59d892d29a248a48a3ca67ae58f8b9e39eb19ffe",
+          "artifactDigest": "sha256:e50a0e7e3a982c3bfc25e68bf79a0045529181641936813f41ce0ebe1b953645"
+        },
+        "queries": [
+          {
+            "snapshotId": "sha256:1a770ac0795d10665a88166f8d8c968dc5b2d030fdfab2b837aa6071d135f9e9",
+            "projectionDigest": "sha256:5441dc0f88ac07771c1d8048532549fe481bc9d8fa2922932dd0d9f149db9023",
+            "viewDefinitionDigest": "sha256:9f945b0eca42156e6d70ee210e8babc2102b4e8dbd8b2369ea93694fc8549155",
+            "queryDigest": "sha256:e56e45dfbcf351d132815d7095769750ebc63da625a18b8713b252d414b499ba",
+            "resultDigest": "sha256:cd7f1193d57ac3b5a03e0b82ebf58a3780bcb08aea44e50dca1b8e1c2e533f91",
+            "resultObjectDigest": "sha256:47fe7c929d0de4d808bee601d59a10777b30f8e964829616b02b71795295a6fc",
+            "resultCanonicalization": "sorted-multiset-per-recordset.v1",
+            "rowLimit": 100000,
+            "truncated": false,
+            "rowCounts": [
+              1,
+              25,
+              7
+            ],
+            "disposition": "READ_QUERY_COMPLETE",
+            "objectRetention": "MEMORY_ONLY",
+            "inputDigest": "sha256:6414f6f15257071e9e93d792a480307a5b1c0238416ffa1ac9848482b7b4b428"
+          },
+          {
+            "snapshotId": "sha256:1a770ac0795d10665a88166f8d8c968dc5b2d030fdfab2b837aa6071d135f9e9",
+            "projectionDigest": "sha256:5441dc0f88ac07771c1d8048532549fe481bc9d8fa2922932dd0d9f149db9023",
+            "viewDefinitionDigest": "sha256:9f945b0eca42156e6d70ee210e8babc2102b4e8dbd8b2369ea93694fc8549155",
+            "queryDigest": "sha256:52ad25ad9c9b172c40afe35e25ef7821a04516f7b063d0537605e11fcdbf2d23",
+            "resultDigest": "sha256:8983331651d2c633f81aa4ebfbc31820f222dc1e8c44e693921e3fc0b8478bde",
+            "resultObjectDigest": "sha256:8c2d9706a25b1b5e6c4f807a9e5ab48df15c81d73dfc3c22e04d7e4a770712a7",
+            "resultCanonicalization": "sorted-multiset-per-recordset.v1",
+            "rowLimit": 100000,
+            "truncated": false,
+            "rowCounts": [
+              1
+            ],
+            "disposition": "READ_QUERY_COMPLETE",
+            "objectRetention": "MEMORY_ONLY",
+            "inputDigest": "sha256:b959536600634286668cf556ae1cf2192c36be0a05b2c3d1977d3c4b42c43523"
+          },
+          {
+            "snapshotId": "sha256:1a770ac0795d10665a88166f8d8c968dc5b2d030fdfab2b837aa6071d135f9e9",
+            "projectionDigest": "sha256:5441dc0f88ac07771c1d8048532549fe481bc9d8fa2922932dd0d9f149db9023",
+            "viewDefinitionDigest": "sha256:9f945b0eca42156e6d70ee210e8babc2102b4e8dbd8b2369ea93694fc8549155",
+            "queryDigest": "sha256:0d29368220f18746b2ba2c94ab707cdcbe0c3149c5ea6b32322efa7d197f5841",
+            "resultDigest": "sha256:f0b41a2d2d9e8132ad173f07a9c13b24af14659137dbb5b8744f06112cfe165b",
+            "resultObjectDigest": "sha256:a38756ce0396c47b10b4c937028264bad82192a0bee5603e42283b3cf2aec0b1",
+            "resultCanonicalization": "sorted-multiset-per-recordset.v1",
+            "rowLimit": 100000,
+            "truncated": false,
+            "rowCounts": [
+              191
+            ],
+            "disposition": "READ_QUERY_COMPLETE",
+            "objectRetention": "MEMORY_ONLY"
+          }
+        ],
+        "modules": [
+          {
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/composition.mjs",
+            "digest": "sha256:83f08d84fa0a0d669e397fb412e4b61d41d61eeaec9c5abe8e2e62de9be872dc"
+          },
+          {
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/scenario.mjs",
+            "digest": "sha256:7867f50b11a8aeec93e63630ec1479c252d747483c7e452f1b00093f40d10f10"
+          },
+          {
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/runtimes/node/schema-contract-admission-provider.mjs",
+            "digest": "sha256:b8b8b60d0023d2ab0bff2d1239a3e19d73ebe2d4405b47cef006004b370eac5a"
+          },
+          {
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/say-hello-world-port.mjs",
+            "digest": "sha256:9e80def457094b72bd8a2fe0fa8aeb363bb16a75d1a19d35d55dc700572cb576"
+          },
+          {
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/kernel/scenario-kernel.js",
+            "digest": "sha256:8a3cf0b6bac20fb514e631d27c29e5ec659625aaf885e2ccd64a7a340daa6384"
+          },
+          {
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/kernel/disposition-resolver.js",
+            "digest": "sha256:7cdae956253d6a48de978f1191c044d999d515f8aac7427393fa9da735faa688"
+          },
+          {
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/contract-validator.js",
+            "digest": "sha256:9ee125e72ba67428097f6af28d9698d161db4c0f83f5e14918057b3faaf7be46"
+          },
+          {
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/index.js",
+            "digest": "sha256:a83b3c4caa43ac6ab1996b708797e15cde6b5d4b036b95be1da918688142159d"
+          },
+          {
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/execution-authority-resolver.js",
+            "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+          },
+          {
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/semantic-executor.js",
+            "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+          },
+          {
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/disposition-resolver.js",
+            "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+          },
+          {
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/execution-observer.js",
+            "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+          }
+        ],
+        "resources": [
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/composition.mjs",
+            "digest": "sha256:83f08d84fa0a0d669e397fb412e4b61d41d61eeaec9c5abe8e2e62de9be872dc"
+          },
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/scenario.mjs",
+            "digest": "sha256:7867f50b11a8aeec93e63630ec1479c252d747483c7e452f1b00093f40d10f10"
+          },
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/runtimes/node/schema-contract-admission-provider.mjs",
+            "digest": "sha256:b8b8b60d0023d2ab0bff2d1239a3e19d73ebe2d4405b47cef006004b370eac5a"
+          },
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/say-hello-world-port.mjs",
+            "digest": "sha256:9e80def457094b72bd8a2fe0fa8aeb363bb16a75d1a19d35d55dc700572cb576"
+          },
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/kernel/scenario-kernel.js",
+            "digest": "sha256:8a3cf0b6bac20fb514e631d27c29e5ec659625aaf885e2ccd64a7a340daa6384"
+          },
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/kernel/disposition-resolver.js",
+            "digest": "sha256:7cdae956253d6a48de978f1191c044d999d515f8aac7427393fa9da735faa688"
+          },
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/contract-validator.js",
+            "digest": "sha256:9ee125e72ba67428097f6af28d9698d161db4c0f83f5e14918057b3faaf7be46"
+          },
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/index.js",
+            "digest": "sha256:a83b3c4caa43ac6ab1996b708797e15cde6b5d4b036b95be1da918688142159d"
+          },
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/execution-authority-resolver.js",
+            "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+          },
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/semantic-executor.js",
+            "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+          },
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/disposition-resolver.js",
+            "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+          },
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/execution-observer.js",
+            "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+          },
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/runtimes/node/schema-contract-admission-provider.mjs",
+            "digest": "sha256:b8b8b60d0023d2ab0bff2d1239a3e19d73ebe2d4405b47cef006004b370eac5a"
+          },
+          {
+            "kind": "installed-dependency",
+            "specifier": "ajv/dist/2020",
+            "version": "8.20.0"
+          },
+          {
+            "kind": "resource",
+            "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/contracts/authority.json",
+            "digest": "sha256:d07f1f7f54a8932389677f9e71949f472b301018663e35a116d2ba5c019d4bca"
+          }
+        ],
+        "externalDependencies": [
+          {
+            "name": "ajv",
+            "version": "8.20.0"
+          }
+        ],
+        "process": {
+          "fsWriteAllowed": false,
+          "expandedBodyReadAllowed": false,
+          "databaseCacheReadAllowed": false,
+          "childCalls": [
+            {
+              "executable": "git",
+              "args": [
+                "rev-parse",
+                "HEAD"
+              ],
+              "cwd": "/workspace/repos/scenario-driven-architecture"
+            },
+            {
+              "executable": "git",
+              "args": [
+                "diff",
+                "--name-only",
+                "716811046f52dd2a67f9ff308a50d755571cbbad",
+                "--",
+                "tools/src",
+                "languages/typescript",
+                "package.json"
+              ],
+              "cwd": "/workspace/repos/scenario-driven-architecture"
+            },
+            {
+              "executable": "git",
+              "args": [
+                "ls-files",
+                "--others",
+                "--exclude-standard",
+                "--",
+                "tools/src",
+                "languages/typescript",
+                "package.json"
+              ],
+              "cwd": "/workspace/repos/scenario-driven-architecture"
+            }
+          ]
+        }
+      },
+      "execution": {
+        "capabilityId": "say-hello-world",
+        "scenarioId": "say-hello-world",
+        "result": {
+          "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+          "scenarioId": "say-hello-world",
+          "disposition": "terminated",
+          "outcome": {
+            "contractId": "hello-world-greeting.v1",
+            "payload": {
+              "message": "Hello, World!"
+            }
+          },
+          "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+          "parentExecutionId": null,
+          "input": {
+            "contractId": "hello-world-request.v1",
+            "payload": {}
+          },
+          "event": {
+            "eventId": "say-hello-world",
+            "executionAuthorityId": "say-hello-world.v1"
+          }
+        },
+        "executions": [
+          {
+            "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+            "scenarioId": "say-hello-world",
+            "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+            "parentExecutionId": null,
+            "input": {
+              "contractId": "hello-world-request.v1",
+              "payload": {}
+            },
+            "event": {
+              "eventId": "say-hello-world",
+              "executionAuthorityId": "say-hello-world.v1"
+            },
+            "outcome": {
+              "contractId": "hello-world-greeting.v1",
+              "payload": {
+                "message": "Hello, World!"
+              }
+            },
+            "disposition": "terminated"
+          }
+        ],
+        "observations": [
+          {
+            "observationType": "scenario-execution-observation.v1",
+            "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+            "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+            "parentExecutionId": null,
+            "scenarioId": "say-hello-world",
+            "stepId": "admit-input",
+            "sequence": 0,
+            "status": "observed",
+            "observedAt": "2026-09-10T16:21:38.466Z"
+          },
+          {
+            "observationType": "scenario-execution-observation.v1",
+            "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+            "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+            "parentExecutionId": null,
+            "scenarioId": "say-hello-world",
+            "stepId": "resolve-event-authority",
+            "sequence": 1,
+            "status": "observed",
+            "observedAt": "2026-09-10T16:21:38.466Z"
+          },
+          {
+            "observationType": "scenario-execution-observation.v1",
+            "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+            "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+            "parentExecutionId": null,
+            "scenarioId": "say-hello-world",
+            "stepId": "execute-event-authority",
+            "sequence": 2,
+            "status": "observed",
+            "observedAt": "2026-09-10T16:21:38.466Z"
+          },
+          {
+            "observationType": "scenario-execution-observation.v1",
+            "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+            "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+            "parentExecutionId": null,
+            "scenarioId": "say-hello-world",
+            "stepId": "admit-outcome",
+            "sequence": 3,
+            "status": "observed",
+            "observedAt": "2026-09-10T16:21:38.466Z"
+          },
+          {
+            "observationType": "scenario-execution-observation.v1",
+            "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+            "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+            "parentExecutionId": null,
+            "scenarioId": "say-hello-world",
+            "stepId": "resolve-disposition",
+            "sequence": 4,
+            "status": "observed",
+            "observedAt": "2026-09-10T16:21:38.466Z"
+          }
+        ],
+        "evidence": {
+          "timings": {
+            "unit": "milliseconds",
+            "queries": {
+              "capability-embodiment.sql": 361.1138920000001,
+              "scenario-closure.sql": 312.92259,
+              "mechanic-definitions.sql": 316.784668
+            },
+            "readAuthority": 992.8310479999999,
+            "planNativeBody": 1511.0045269999998,
+            "loadMemoryModules": 4.847874000000047,
+            "createScenario": 63.08348599999999,
+            "executeScenario": 1.108212999999978,
+            "processSetup": 612.373152,
+            "processTotal": 3186.625027
+          },
+          "authoritySource": "DATABASE",
+          "bodyStorage": "MEMORY_ONLY",
+          "managedAdmission": "NOT_REQUESTED",
+          "providerStatus": "CANDIDATE_PHYSICAL_PROVIDER",
+          "inputDigest": "sha256:91d0660e37e2a69401b4df44deebf2286b7a35f20fcdba05c5217218bae1d806",
+          "resultDigest": "sha256:da5fdc9a1ffc7bc8660ee136936523c33596bed333af3200f9d0600ee9928cf9",
+          "snapshotId": "sha256:1a770ac0795d10665a88166f8d8c968dc5b2d030fdfab2b837aa6071d135f9e9",
+          "projectionDigest": "sha256:5441dc0f88ac07771c1d8048532549fe481bc9d8fa2922932dd0d9f149db9023",
+          "authorityIdentity": {
+            "scenarioDefinitionDigest": "sha256:123b5017f236eae5d2cfcd3b0f7a27a1f85b01119bf2e1fe440dd65f7c539e8c",
+            "pinnedPlatformCommit": "716811046f52dd2a67f9ff308a50d755571cbbad",
+            "platformDigest": "sha256:4a9ce9d7b96c39aeadba21c7e65e7a2a3a7b4a545b8fe6dbf041c18f7b7cd9de",
+            "resolverVersion": "sha256:bf39e0a6ad0058b05ff479ae59d892d29a248a48a3ca67ae58f8b9e39eb19ffe",
+            "artifactDigest": "sha256:e50a0e7e3a982c3bfc25e68bf79a0045529181641936813f41ce0ebe1b953645"
+          },
+          "queries": [
+            {
+              "snapshotId": "sha256:1a770ac0795d10665a88166f8d8c968dc5b2d030fdfab2b837aa6071d135f9e9",
+              "projectionDigest": "sha256:5441dc0f88ac07771c1d8048532549fe481bc9d8fa2922932dd0d9f149db9023",
+              "viewDefinitionDigest": "sha256:9f945b0eca42156e6d70ee210e8babc2102b4e8dbd8b2369ea93694fc8549155",
+              "queryDigest": "sha256:e56e45dfbcf351d132815d7095769750ebc63da625a18b8713b252d414b499ba",
+              "resultDigest": "sha256:cd7f1193d57ac3b5a03e0b82ebf58a3780bcb08aea44e50dca1b8e1c2e533f91",
+              "resultObjectDigest": "sha256:47fe7c929d0de4d808bee601d59a10777b30f8e964829616b02b71795295a6fc",
+              "resultCanonicalization": "sorted-multiset-per-recordset.v1",
+              "rowLimit": 100000,
+              "truncated": false,
+              "rowCounts": [
+                1,
+                25,
+                7
+              ],
+              "disposition": "READ_QUERY_COMPLETE",
+              "objectRetention": "MEMORY_ONLY",
+              "inputDigest": "sha256:6414f6f15257071e9e93d792a480307a5b1c0238416ffa1ac9848482b7b4b428"
+            },
+            {
+              "snapshotId": "sha256:1a770ac0795d10665a88166f8d8c968dc5b2d030fdfab2b837aa6071d135f9e9",
+              "projectionDigest": "sha256:5441dc0f88ac07771c1d8048532549fe481bc9d8fa2922932dd0d9f149db9023",
+              "viewDefinitionDigest": "sha256:9f945b0eca42156e6d70ee210e8babc2102b4e8dbd8b2369ea93694fc8549155",
+              "queryDigest": "sha256:52ad25ad9c9b172c40afe35e25ef7821a04516f7b063d0537605e11fcdbf2d23",
+              "resultDigest": "sha256:8983331651d2c633f81aa4ebfbc31820f222dc1e8c44e693921e3fc0b8478bde",
+              "resultObjectDigest": "sha256:8c2d9706a25b1b5e6c4f807a9e5ab48df15c81d73dfc3c22e04d7e4a770712a7",
+              "resultCanonicalization": "sorted-multiset-per-recordset.v1",
+              "rowLimit": 100000,
+              "truncated": false,
+              "rowCounts": [
+                1
+              ],
+              "disposition": "READ_QUERY_COMPLETE",
+              "objectRetention": "MEMORY_ONLY",
+              "inputDigest": "sha256:b959536600634286668cf556ae1cf2192c36be0a05b2c3d1977d3c4b42c43523"
+            },
+            {
+              "snapshotId": "sha256:1a770ac0795d10665a88166f8d8c968dc5b2d030fdfab2b837aa6071d135f9e9",
+              "projectionDigest": "sha256:5441dc0f88ac07771c1d8048532549fe481bc9d8fa2922932dd0d9f149db9023",
+              "viewDefinitionDigest": "sha256:9f945b0eca42156e6d70ee210e8babc2102b4e8dbd8b2369ea93694fc8549155",
+              "queryDigest": "sha256:0d29368220f18746b2ba2c94ab707cdcbe0c3149c5ea6b32322efa7d197f5841",
+              "resultDigest": "sha256:f0b41a2d2d9e8132ad173f07a9c13b24af14659137dbb5b8744f06112cfe165b",
+              "resultObjectDigest": "sha256:a38756ce0396c47b10b4c937028264bad82192a0bee5603e42283b3cf2aec0b1",
+              "resultCanonicalization": "sorted-multiset-per-recordset.v1",
+              "rowLimit": 100000,
+              "truncated": false,
+              "rowCounts": [
+                191
+              ],
+              "disposition": "READ_QUERY_COMPLETE",
+              "objectRetention": "MEMORY_ONLY"
+            }
+          ],
+          "modules": [
+            {
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/composition.mjs",
+              "digest": "sha256:83f08d84fa0a0d669e397fb412e4b61d41d61eeaec9c5abe8e2e62de9be872dc"
+            },
+            {
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/scenario.mjs",
+              "digest": "sha256:7867f50b11a8aeec93e63630ec1479c252d747483c7e452f1b00093f40d10f10"
+            },
+            {
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/runtimes/node/schema-contract-admission-provider.mjs",
+              "digest": "sha256:b8b8b60d0023d2ab0bff2d1239a3e19d73ebe2d4405b47cef006004b370eac5a"
+            },
+            {
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/say-hello-world-port.mjs",
+              "digest": "sha256:9e80def457094b72bd8a2fe0fa8aeb363bb16a75d1a19d35d55dc700572cb576"
+            },
+            {
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/kernel/scenario-kernel.js",
+              "digest": "sha256:8a3cf0b6bac20fb514e631d27c29e5ec659625aaf885e2ccd64a7a340daa6384"
+            },
+            {
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/kernel/disposition-resolver.js",
+              "digest": "sha256:7cdae956253d6a48de978f1191c044d999d515f8aac7427393fa9da735faa688"
+            },
+            {
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/contract-validator.js",
+              "digest": "sha256:9ee125e72ba67428097f6af28d9698d161db4c0f83f5e14918057b3faaf7be46"
+            },
+            {
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/index.js",
+              "digest": "sha256:a83b3c4caa43ac6ab1996b708797e15cde6b5d4b036b95be1da918688142159d"
+            },
+            {
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/execution-authority-resolver.js",
+              "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/semantic-executor.js",
+              "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/disposition-resolver.js",
+              "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/execution-observer.js",
+              "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/composition.mjs",
+              "digest": "sha256:83f08d84fa0a0d669e397fb412e4b61d41d61eeaec9c5abe8e2e62de9be872dc"
+            },
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/scenario.mjs",
+              "digest": "sha256:7867f50b11a8aeec93e63630ec1479c252d747483c7e452f1b00093f40d10f10"
+            },
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/runtimes/node/schema-contract-admission-provider.mjs",
+              "digest": "sha256:b8b8b60d0023d2ab0bff2d1239a3e19d73ebe2d4405b47cef006004b370eac5a"
+            },
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/say-hello-world-port.mjs",
+              "digest": "sha256:9e80def457094b72bd8a2fe0fa8aeb363bb16a75d1a19d35d55dc700572cb576"
+            },
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/kernel/scenario-kernel.js",
+              "digest": "sha256:8a3cf0b6bac20fb514e631d27c29e5ec659625aaf885e2ccd64a7a340daa6384"
+            },
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/kernel/disposition-resolver.js",
+              "digest": "sha256:7cdae956253d6a48de978f1191c044d999d515f8aac7427393fa9da735faa688"
+            },
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/contract-validator.js",
+              "digest": "sha256:9ee125e72ba67428097f6af28d9698d161db4c0f83f5e14918057b3faaf7be46"
+            },
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/index.js",
+              "digest": "sha256:a83b3c4caa43ac6ab1996b708797e15cde6b5d4b036b95be1da918688142159d"
+            },
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/execution-authority-resolver.js",
+              "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/semantic-executor.js",
+              "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/disposition-resolver.js",
+              "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/dist/src/execution/execution-observer.js",
+              "digest": "sha256:8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+            },
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/providers/sda/languages/typescript/runtimes/node/schema-contract-admission-provider.mjs",
+              "digest": "sha256:b8b8b60d0023d2ab0bff2d1239a3e19d73ebe2d4405b47cef006004b370eac5a"
+            },
+            {
+              "kind": "installed-dependency",
+              "specifier": "ajv/dist/2020",
+              "version": "8.20.0"
+            },
+            {
+              "kind": "resource",
+              "id": "sidefx-memory://body/embodiments/say-hello-world/scenarios/say-hello-world/node/body/contracts/authority.json",
+              "digest": "sha256:d07f1f7f54a8932389677f9e71949f472b301018663e35a116d2ba5c019d4bca"
+            }
+          ],
+          "externalDependencies": [
+            {
+              "name": "ajv",
+              "version": "8.20.0"
+            }
+          ],
+          "process": {
+            "fsWriteAllowed": false,
+            "expandedBodyReadAllowed": false,
+            "databaseCacheReadAllowed": false,
+            "childCalls": [
+              {
+                "executable": "git",
+                "args": [
+                  "rev-parse",
+                  "HEAD"
+                ],
+                "cwd": "/workspace/repos/scenario-driven-architecture"
+              },
+              {
+                "executable": "git",
+                "args": [
+                  "diff",
+                  "--name-only",
+                  "716811046f52dd2a67f9ff308a50d755571cbbad",
+                  "--",
+                  "tools/src",
+                  "languages/typescript",
+                  "package.json"
+                ],
+                "cwd": "/workspace/repos/scenario-driven-architecture"
+              },
+              {
+                "executable": "git",
+                "args": [
+                  "ls-files",
+                  "--others",
+                  "--exclude-standard",
+                  "--",
+                  "tools/src",
+                  "languages/typescript",
+                  "package.json"
+                ],
+                "cwd": "/workspace/repos/scenario-driven-architecture"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "completedAt": "2026-09-10T16:21:38.886Z",
+    "presentation": {
+      "title": "Capability outcome",
+      "anchor": {
+        "kind": "scene-node",
+        "nodeIdentity": "cell:scenario:say-hello-world:outcome",
+        "fallback": "viewport-transition"
+      },
+      "layout": "dialogs/dialog-outcome-hello-world-greeting.json",
+      "elements": [
+        {
+          "componentId": "outcome-greeting-message",
+          "op": "text",
+          "label": "Greeting",
+          "emptyText": null,
+          "precision": null,
+          "dispositionLabels": null,
+          "values": {
+            "value": {
+              "present": true,
+              "value": "Hello, World!"
+            }
+          },
+          "rowFields": null
+        }
+      ]
+    }
+  },
+  "packageVersion": {
+    "contentDigest": "sha256:3d0f029645a5574d3d354b3e01eddc6ec36e796b72683e8387940eca2f840117",
+    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304"
+  },
+  "browserEvents": [
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:1",
+        "sequence": 1,
+        "kind": "run.accepted",
+        "observedAt": "2026-09-10T16:21:35.142Z"
+      },
+      "receivedAt": "2026-09-10T16:21:32.848Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:2",
+        "sequence": 2,
+        "kind": "run.executing",
+        "observedAt": "2026-09-10T16:21:35.189Z"
+      },
+      "receivedAt": "2026-09-10T16:21:32.848Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:3",
+        "sequence": 3,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:35.893Z",
+        "observation": {
+          "observationType": "delivery-phase",
+          "phase": "readAuthority",
+          "status": "started",
+          "observedAt": "2026-09-10T16:21:35.893Z"
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:33.698Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:4",
+        "sequence": 4,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:36.886Z",
+        "observation": {
+          "observationType": "delivery-phase",
+          "phase": "readAuthority",
+          "status": "completed",
+          "observedAt": "2026-09-10T16:21:36.885Z"
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:34.538Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:5",
+        "sequence": 5,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:36.938Z",
+        "observation": {
+          "observationType": "delivery-phase",
+          "phase": "planNativeBody",
+          "status": "started",
+          "observedAt": "2026-09-10T16:21:36.886Z"
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:34.538Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:6",
+        "sequence": 6,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:38.397Z",
+        "observation": {
+          "observationType": "delivery-phase",
+          "phase": "planNativeBody",
+          "status": "completed",
+          "observedAt": "2026-09-10T16:21:38.396Z"
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:36.425Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:7",
+        "sequence": 7,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:38.431Z",
+        "observation": {
+          "observationType": "delivery-phase",
+          "phase": "loadMemoryModules",
+          "status": "started",
+          "observedAt": "2026-09-10T16:21:38.397Z"
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:36.425Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:8",
+        "sequence": 8,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:38.465Z",
+        "observation": {
+          "observationType": "delivery-phase",
+          "phase": "loadMemoryModules",
+          "status": "completed",
+          "observedAt": "2026-09-10T16:21:38.402Z"
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:36.425Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:9",
+        "sequence": 9,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:38.498Z",
+        "observation": {
+          "observationType": "delivery-phase",
+          "phase": "createScenario",
+          "status": "started",
+          "observedAt": "2026-09-10T16:21:38.402Z"
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:36.425Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:10",
+        "sequence": 10,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:38.538Z",
+        "observation": {
+          "observationType": "delivery-phase",
+          "phase": "createScenario",
+          "status": "completed",
+          "observedAt": "2026-09-10T16:21:38.465Z"
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:36.425Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:11",
+        "sequence": 11,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:38.576Z",
+        "observation": {
+          "observationType": "delivery-phase",
+          "phase": "executeScenario",
+          "status": "started",
+          "observedAt": "2026-09-10T16:21:38.465Z"
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:36.425Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:12",
+        "sequence": 12,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:38.616Z",
+        "observation": {
+          "observationType": "scenario-execution-observation.v1",
+          "status": "observed",
+          "observedAt": "2026-09-10T16:21:38.466Z",
+          "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+          "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+          "parentExecutionId": null,
+          "scenarioId": "say-hello-world",
+          "stepId": "admit-input",
+          "sequence": 0
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:36.425Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:13",
+        "sequence": 13,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:38.655Z",
+        "observation": {
+          "observationType": "scenario-execution-observation.v1",
+          "status": "observed",
+          "observedAt": "2026-09-10T16:21:38.466Z",
+          "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+          "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+          "parentExecutionId": null,
+          "scenarioId": "say-hello-world",
+          "stepId": "resolve-event-authority",
+          "sequence": 1
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:36.425Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:14",
+        "sequence": 14,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:38.691Z",
+        "observation": {
+          "observationType": "scenario-execution-observation.v1",
+          "status": "observed",
+          "observedAt": "2026-09-10T16:21:38.466Z",
+          "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+          "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+          "parentExecutionId": null,
+          "scenarioId": "say-hello-world",
+          "stepId": "execute-event-authority",
+          "sequence": 2
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:36.425Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:15",
+        "sequence": 15,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:38.730Z",
+        "observation": {
+          "observationType": "scenario-execution-observation.v1",
+          "status": "observed",
+          "observedAt": "2026-09-10T16:21:38.466Z",
+          "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+          "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+          "parentExecutionId": null,
+          "scenarioId": "say-hello-world",
+          "stepId": "admit-outcome",
+          "sequence": 3
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:36.425Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:16",
+        "sequence": 16,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:38.770Z",
+        "observation": {
+          "observationType": "scenario-execution-observation.v1",
+          "status": "observed",
+          "observedAt": "2026-09-10T16:21:38.466Z",
+          "executionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+          "rootExecutionId": "d918abd8-ca70-418a-b108-44bc06d5c40c",
+          "parentExecutionId": null,
+          "scenarioId": "say-hello-world",
+          "stepId": "resolve-disposition",
+          "sequence": 4
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:36.425Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:17",
+        "sequence": 17,
+        "kind": "execution.observation",
+        "observedAt": "2026-09-10T16:21:38.811Z",
+        "observation": {
+          "observationType": "delivery-phase",
+          "phase": "executeScenario",
+          "status": "completed",
+          "observedAt": "2026-09-10T16:21:38.466Z"
+        }
+      },
+      "receivedAt": "2026-09-10T16:21:36.425Z"
+    },
+    {
+      "runId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83",
+      "event": {
+        "type": "event",
+        "eventId": "run-f5bc05e0dc5fb4ca6608bee5d02feaacfd7d6414cbac48046634dd3154c57c83:18",
+        "sequence": 18,
+        "kind": "run.terminal",
+        "observedAt": "2026-09-10T16:21:38.918Z"
+      },
+      "receivedAt": "2026-09-10T16:21:36.880Z"
+    }
+  ],
+  "browserErrors": [],
+  "dialogText": "HELLO-WORLD-GREETING.V1\nCapability outcome\nGREETING\n\nHello, World!\n\nThis outcome is retained testimony for its run. Its presentation may change; its meaning may not.\n\nClose",
+  "engine": "chromium",
+  "origin": "https://bpmsoftwaresolutions-sidefx.hf.space"
+}
