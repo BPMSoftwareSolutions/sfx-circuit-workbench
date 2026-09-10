@@ -19,7 +19,8 @@
       "fixtures/scenes/native-execution.scene.json"
     ],
     "runtime": "runtime/workbench-runtime.js",
-    "textPack": "profiles/workbench-en.text.json"
+    "textPack": "profiles/workbench-en.text.json",
+    "estateCatalogue": "fixtures/estate/estate-catalogue.json"
   },
   "requiredProviderFeatures": [
     "scene-payload",

@@ -560,6 +560,173 @@
     status(text.message("traceIdle"));
   }
 
+
+  /* ------------------------------------------------------- estate selection */
+
+  /* The catalogue is data: 218 capabilities, their views, their scenarios and
+   * what may be done with each. The runtime reads it and narrows — capability,
+   * then scenario, then view — rather than knowing any capability by name. */
+  var catalogue = config.estate || { capabilities: [] };
+
+  function capability(capabilityId) {
+    return catalogue.capabilities.filter(function (c) {
+      return c.capabilityId === capabilityId; })[0] || null;
+  }
+
+  function viewsFor(capabilityId, scenarioId) {
+    var record = capability(capabilityId);
+    if (!record) { return []; }
+    return record.views.filter(function (view) {
+      return !scenarioId || view.scenarioId === scenarioId;
+    });
+  }
+
+  function fillChoice(stateId, options, selected) {
+    var binding = bindingByState[stateId];
+    var node = binding && component(binding.component);
+    var control = node && binding.mutates
+      && node.querySelector(binding.mutates.selector);
+    if (!control) { return null; }
+    control.replaceChildren();
+    options.forEach(function (option) {
+      var element = document.createElement("option");
+      element.value = option.value;
+      element.textContent = option.label;
+      control.appendChild(element);
+    });
+    if (selected !== undefined && selected !== null) { control.value = selected; }
+    producerState[stateId] = control.value;
+    return control.value;
+  }
+
+  /* A capability the package cannot resolve a scene for is still offered, and
+   * says so when opened. Hiding it would misrepresent the estate. */
+  function renderCapabilities() {
+    var options = catalogue.capabilities.map(function (record) {
+      return {
+        value: record.capabilityId,
+        label: text.format("capabilityOption", {
+          capabilityId: record.capabilityId,
+          views: record.views.length,
+          affordance: text.message(record.affordances.indexOf("invoke") !== -1
+            ? "capabilityInvocable" : "capabilityInspectOnly")
+        })
+      };
+    });
+    return fillChoice("estate.capability", options, config.initialCapabilityId);
+  }
+
+  function renderScenarios(capabilityId) {
+    var record = capability(capabilityId);
+    var scenarios = (record && record.scenarios) || [];
+    var options = [{
+      value: "",
+      label: text.format("scenarioAll", { count: scenarios.length })
+    }].concat(scenarios.map(function (scenarioId) {
+      return { value: scenarioId, label: text.format("scenarioOption", { scenarioId: scenarioId }) };
+    }));
+    return fillChoice("estate.scenario", options, "");
+  }
+
+  function renderViews(capabilityId, scenarioId) {
+    var views = viewsFor(capabilityId, scenarioId);
+    var options = views.map(function (view) {
+      return {
+        value: view.viewId,
+        label: text.format("viewOption", {
+          label: view.label, nodes: view.coverage.nodes, routes: view.coverage.routes })
+      };
+    });
+    var chosen = fillChoice("view.selected", options, options.length ? options[0].value : "");
+    return chosen;
+  }
+
+  function selectedView(capabilityId, viewId) {
+    var views = viewsFor(capabilityId, null);
+    return views.filter(function (view) { return view.viewId === viewId; })[0] || null;
+  }
+
+  function openSelection(capabilityId, scenarioId, viewId) {
+    publish("capability.title", capabilityId);
+    var view = viewId && selectedView(capabilityId, viewId);
+    if (!view) {
+      publish("view.scope", text.message("graphUnavailable"));
+      unsupported(text.message("sceneUnpublished"));
+      return;
+    }
+    if (!view.scene) {
+      /* Catalogued, but its circuit is not in this package. Said plainly rather
+       * than shown as an empty diagram. */
+      publish("view.scope", text.message("graphUnavailable"));
+      publish("view.coverage", text.format("coverage", {
+        nodes: view.coverage.nodes, routes: view.coverage.routes,
+        omitted: view.coverage.omittedSourceNodes }));
+      unsupported(text.message("sceneNotPackaged"));
+      return;
+    }
+    loadSceneFrom(view);
+  }
+
+  /* Load a scene from an estate view descriptor. Race protection and the
+   * identity check are the same as any other load: a stale response can never
+   * replace the newly selected view. */
+  function loadSceneFrom(view) {
+    var mine = ++loadToken;
+    publish("view.scope", text.message("loadingGraph"));
+    fetch(view.scene, { credentials: "same-origin" })
+      .then(function (response) {
+        if (!response.ok) { throw new Error("scene unavailable"); }
+        return response.json();
+      })
+      .then(function (payload) {
+        if (mine !== loadToken) { return; }
+        if (payload.sceneVersion !== "circuit-scene.v1") {
+          publish("view.scope", text.message("sceneContractUnsupported"));
+          unsupported(text.message("sceneContractUnsupported"));
+          return;
+        }
+        if (payload.identities.viewId !== view.viewId) {
+          publish("view.scope", text.message("graphIdentityMismatch"));
+          return;
+        }
+        var artifact = view.scene.replace(/\.scene\.json$/, ".svg");
+        return fetch(artifact, { credentials: "same-origin" })
+          .then(function (r) { return r.ok ? r.text() : ""; })
+          .then(function (svg) {
+            if (mine !== loadToken) { return; }
+            adopt(payload, svg);
+          });
+      })
+      .catch(function () {
+        if (mine !== loadToken) { return; }
+        publish("view.scope", text.message("graphUnavailable"));
+        unsupported(text.message("sceneLoadFailed"));
+      });
+  }
+
+  /* --------------------------------------------------------- run telemetry */
+
+  /* Delivery phases are reported progress that maps to no circuit node. They
+   * are listed here, beside the circuit, and never drawn on it. */
+  function renderTelemetry(runId, phases) {
+    publish("telemetry.heading", runId
+      ? text.format("telemetryHeading", { runId: String(runId).slice(0, 18) })
+      : text.message("telemetryHeadingIdle"));
+
+    renderKeyed("run-telemetry", (phases || []).map(function (entry, index) {
+      return { key: entry.phase + ":" + index, entry: entry };
+    }), function (li, item, created) {
+      if (created) {
+        var line = document.createElement("span");
+        li.appendChild(line);
+      }
+      li.querySelector("span").textContent = text.format("telemetryPhase", {
+        label: item.entry.label, status: item.entry.status });
+      li.setAttribute("data-phase-status", item.entry.status || "");
+    });
+    producerState["telemetry.items"] = (phases || []).map(function (p) { return p.phase; });
+  }
+
   /* ------------------------------------------------------------ scene load */
 
   function loadScene(viewId) {
@@ -603,6 +770,97 @@
       });
   }
 
+
+  /* A derived circuit has geometry but no rendered artifact, because it was
+   * read from authority rather than compiled by the estate's renderer. Draw it
+   * from the scene itself: the contract already carries boxes, routes and hit
+   * targets, so the same selection and keyboard model applies either way. */
+  function renderSceneSvg(payload) {
+    var NS = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 " + payload.geometry.width + " " + payload.geometry.height);
+    svg.setAttribute("width", payload.geometry.width);
+    svg.setAttribute("height", payload.geometry.height);
+
+    var centre = {};
+    payload.graph.nodes.forEach(function (node) {
+      var box = payload.geometry.boxes[node.id];
+      if (!box) { return; }
+      centre[node.id] = { x: box[0] + box[2] / 2, y: box[1] + box[3] / 2,
+                          w: box[2], h: box[3], x0: box[0], y0: box[1] };
+    });
+
+    payload.graph.routes.forEach(function (route) {
+      var a = centre[route.source], b = centre[route.target];
+      if (!a || !b) { return; }
+      var group = document.createElementNS(NS, "g");
+      group.setAttribute("id", route.id);
+      group.setAttribute("data-route", route.id);
+      group.setAttribute("role", "button");
+      group.setAttribute("tabindex", "0");
+      group.setAttribute("aria-label", route.kind + ": " + (route.label || route.kind));
+      var path = document.createElementNS(NS, "path");
+      path.setAttribute("class", "route-path");
+      path.setAttribute("d", "M " + a.x + " " + a.y + " L " + b.x + " " + b.y);
+      path.setAttribute("fill", "none");
+      path.setAttribute("stroke", "#6f9fb0");
+      path.setAttribute("stroke-width", "2");
+      /* A provider binding is drawn as it is declared: not traversed. */
+      if (route.traversable === false) { path.setAttribute("stroke-dasharray", "8 6"); }
+      group.appendChild(path);
+      svg.appendChild(group);
+    });
+
+    payload.graph.nodes.forEach(function (node) {
+      var box = centre[node.id];
+      if (!box) { return; }
+      var group = document.createElementNS(NS, "g");
+      group.setAttribute("id", node.id);
+      group.setAttribute("data-entity", node.id);
+      group.setAttribute("role", "button");
+      group.setAttribute("tabindex", "0");
+      group.setAttribute("aria-label", node.kind + ": " + node.label);
+      var rect = document.createElementNS(NS, "rect");
+      rect.setAttribute("x", box.x0); rect.setAttribute("y", box.y0);
+      rect.setAttribute("width", box.w); rect.setAttribute("height", box.h);
+      rect.setAttribute("rx", "10");
+      rect.setAttribute("fill", "#0f2b3a");
+      rect.setAttribute("stroke", "#4fd1c5");
+      rect.setAttribute("stroke-width", "2");
+      group.appendChild(rect);
+
+      var kind = document.createElementNS(NS, "text");
+      kind.setAttribute("x", box.x); kind.setAttribute("y", box.y0 + 26);
+      kind.setAttribute("text-anchor", "middle");
+      kind.setAttribute("fill", "#7fd7c8");
+      kind.setAttribute("font-size", "13");
+      kind.setAttribute("font-family", "ui-monospace, monospace");
+      kind.textContent = node.kind.toUpperCase();
+      group.appendChild(kind);
+
+      /* Wrap the label rather than letting it run past the box. */
+      var words = String(node.label).split(/[\s.]+/);
+      var line = "", lines = [];
+      words.forEach(function (word) {
+        var candidate = line ? line + " " + word : word;
+        if (candidate.length > 24) { lines.push(line); line = word; } else { line = candidate; }
+      });
+      if (line) { lines.push(line); }
+      lines.slice(0, 4).forEach(function (row, index) {
+        var label = document.createElementNS(NS, "text");
+        label.setAttribute("x", box.x);
+        label.setAttribute("y", box.y0 + 54 + index * 19);
+        label.setAttribute("text-anchor", "middle");
+        label.setAttribute("fill", "#e6f6f4");
+        label.setAttribute("font-size", "15");
+        label.textContent = row;
+        group.appendChild(label);
+      });
+      svg.appendChild(group);
+    });
+    return svg;
+  }
+
   function adopt(payload, svg) {
     scene = payload;
     selected = null;
@@ -612,7 +870,11 @@
     visitedNodes = {};
 
     stage.textContent = "";
-    stage.insertAdjacentHTML("afterbegin", svg);
+    if (svg) {
+      stage.insertAdjacentHTML("afterbegin", svg);
+    } else {
+      stage.appendChild(renderSceneSvg(scene));
+    }
 
     scene.hitTargets.forEach(function (target) {
       var node = stage.querySelector("[id=\"" + target.targetId + "\"]");
@@ -638,8 +900,10 @@
     publish("trace.mode", scene.traceMode);
     publish("selection.kind", text.viewKindName(scene.identities.viewKind));
     publish("selection.title", scene.label);
-    publish("capability.title", scene.identities.viewKind === 'invocation' ? scene.label :
-      'Convergently author an SDA capability candidate from canonical source authority');
+    /* The title names whichever capability is loaded. The scene carries that
+     * identity, so no capability is named in this file. */
+    publish("capability.title", scene.identities.viewKind === "invocation"
+      ? scene.label : scene.identities.capabilityId);
     publish("experience.limit", scene.coverage.scope || config.evidenceLimit);
     publish("selection.detail", text.message("inspectPrompt"));
     publish("selection.facts", "");
@@ -706,7 +970,22 @@
    * observes that testimony rather than attaching a second handler, so the
    * admissibility decision is never made twice or made differently here. */
   var ACTIONS = {
-    "select-source-view": function () { loadScene(userState("view.selected")); },
+    "select-source-view": function () {
+      openSelection(userState("estate.capability"), userState("estate.scenario"),
+                    userState("view.selected"));
+    },
+    "select-capability": function () {
+      var capabilityId = userState("estate.capability");
+      renderScenarios(capabilityId);
+      var viewId = renderViews(capabilityId, null);
+      openSelection(capabilityId, null, viewId);
+    },
+    "select-scenario": function () {
+      var capabilityId = userState("estate.capability");
+      var scenarioId = userState("estate.scenario") || null;
+      var viewId = renderViews(capabilityId, scenarioId);
+      openSelection(capabilityId, scenarioId, viewId);
+    },
     "show-material": function () { applyPresentation("material"); },
     "show-base-svg": function () { applyPresentation("base"); },
     "fit-diagram": fit,
@@ -734,12 +1013,39 @@
   }).observe(document.documentElement,
     { attributes: true, attributeFilter: ["data-sidefx-last-dispatch"] });
 
-  /* Search and view selection are writable controls the generic runtime owns;
-   * observing its published state keeps a single owner for each. */
+  /* Search and the selection chain are writable controls the generic runtime
+   * owns; observing its published state keeps a single owner for each.
+   *
+   * A choice does not dispatch a semantic action when its value changes — it
+   * updates bound state. So the chain is driven from state here rather than
+   * from the action table, which only ever sees clicks. */
+  var lastSelection = { capability: null, scenario: null, view: null };
+
   new MutationObserver(function () {
-    if (scene) renderOutline();
-    var chosen = userState("view.selected");
-    if (chosen && (!scene || scene.identities.viewId !== chosen)) { loadScene(chosen); }
+    if (scene) { renderOutline(); }
+
+    var capabilityId = userState("estate.capability");
+    var scenarioId = userState("estate.scenario") || null;
+    var viewId = userState("view.selected");
+
+    if (capabilityId && capabilityId !== lastSelection.capability) {
+      lastSelection.capability = capabilityId;
+      lastSelection.scenario = null;
+      renderScenarios(capabilityId);
+      lastSelection.view = renderViews(capabilityId, null);
+      openSelection(capabilityId, null, lastSelection.view);
+      return;
+    }
+    if (scenarioId !== lastSelection.scenario) {
+      lastSelection.scenario = scenarioId;
+      lastSelection.view = renderViews(capabilityId, scenarioId);
+      openSelection(capabilityId, scenarioId, lastSelection.view);
+      return;
+    }
+    if (viewId && viewId !== lastSelection.view) {
+      lastSelection.view = viewId;
+      openSelection(capabilityId, scenarioId, viewId);
+    }
   }).observe(document.documentElement,
     { attributes: true, attributeFilter: ["data-sidefx-state"] });
 
@@ -755,11 +1061,25 @@
 
   /* ---------------------------------------------------------------- start */
 
-  loadScene(config.initialViewId);
+  var startCapability = renderCapabilities();
+  if (startCapability) {
+    renderScenarios(startCapability);
+    var startView = renderViews(startCapability, null);
+    renderTelemetry(null, []);
+    lastSelection.capability = startCapability;
+    lastSelection.scenario = null;
+    lastSelection.view = startView;
+    openSelection(startCapability, null, startView);
+  } else {
+    renderTelemetry(null, []);
+    loadScene(config.initialViewId);
+  }
   reportHeight();
 
   window.SFX_WORKBENCH = {
     findings: findings,
+    renderTelemetry: renderTelemetry,
+    catalogue: function () { return catalogue; },
     state: function () { return producerState; },
     scene: function () { return scene; },
     camera: function () { return scale; },

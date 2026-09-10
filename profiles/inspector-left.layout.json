@@ -10,7 +10,10 @@
     {
       "kind": "reorder-tracks",
       "container": "main",
-      "order": ["aside", "drawing"],
+      "order": [
+        "aside",
+        "drawing"
+      ],
       "reason": "Relocate the component outline from the right edge to the left."
     },
     {
@@ -23,8 +26,17 @@
     {
       "kind": "reorder-tracks",
       "container": "root",
-      "order": ["header", "summary", "toolbar", "inspection", "main", "flow", "routes"],
-      "reason": "Lift source inspection above the circuit, so it is no longer below the fold."
+      "order": [
+        "header",
+        "estate-bar",
+        "summary",
+        "toolbar",
+        "inspection",
+        "main",
+        "flow",
+        "routes"
+      ],
+      "reason": "Lift source inspection above the circuit, keeping the estate selection chain directly beneath the title where the narrowing reads top to bottom."
     },
     {
       "kind": "resize-track",

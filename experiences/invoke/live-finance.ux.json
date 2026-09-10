@@ -5,12 +5,11 @@
   "note": "Two editable fields: free text under a declared pattern, and an enumeration. The outcome puts the price first with its currency, market time and attribution, then the provider and normalisation evidence beneath it. Provider transport success and domain success stay separate facts, and a live price is compared to its own retained provider testimony rather than to a previous run's number.",
   "subject": "resolve-equity-market-price-evidence",
   "pins": {
-    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+    "publicationId": "sha256:51a125471207d06002b23b90371d666b3e7af9cc439a0617d392acda0e3db269",
     "inputContract": "live-equity-price-request.v1",
     "inputSchemaDigest": "sha256:97b2f584d847b242202f4c06d90d9051492a47f83293d6f74f0e6be54929d539",
-    "providerInputBindingDigest": "sha256:09ecb038af10e553a16ec517857dc1eaf9efd4a6e1e608bc47fb4ca27e947f9b",
     "outcomeSchemaDigests": {
-      "equity-market-price-evidence.v1": "sha256:7491b5daf9ab87fb56b86a61fe661ad86dc03b305cca97517d3819183d49ca24"
+      "equity-market-price-evidence.v1": "sha256:075cb1dd62d074a2000d8682572b05e54638a281d74163ae1b88abe5deff316b"
     }
   },
   "input": {
@@ -123,6 +122,49 @@
             "bindingId": "/providerTestimony/bindingId",
             "providerId": "/providerTestimony/providerId",
             "nativeShape": "/providerTestimony/nativeShape"
+          }
+        }
+      ]
+    },
+    {
+      "outcomeId": "provider-unavailable",
+      "contract": "equity-market-price-evidence.v1",
+      "dialogTitle": "Capability outcome",
+      "match": {
+        "contractId": "equity-market-price-evidence.v1",
+        "discriminatorPointer": "/disposition",
+        "discriminatorValues": [
+          "EQUITY_MARKET_PRICE_PROVIDER_UNAVAILABLE"
+        ]
+      },
+      "anchor": {
+        "kind": "scene-node",
+        "nodeIdentity": "cell:scenario:resolve-equity-market-price-evidence:outcome",
+        "fallback": "viewport-transition"
+      },
+      "layout": [
+        {
+          "elementId": "disposition",
+          "family": "disposition",
+          "label": "Domain disposition",
+          "pointer": "/disposition",
+          "dispositionLabels": {
+            "EQUITY_MARKET_PRICE_PROVIDER_UNAVAILABLE": "Provider unavailable; no price was produced"
+          }
+        },
+        {
+          "elementId": "reason",
+          "family": "text",
+          "label": "Hold reason",
+          "pointer": "/reasonCode"
+        },
+        {
+          "elementId": "provider",
+          "family": "evidence",
+          "label": "Provider",
+          "pointers": {
+            "bindingId": "/providerTestimony/bindingId",
+            "providerId": "/providerTestimony/providerId"
           }
         }
       ]

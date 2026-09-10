@@ -1,0 +1,335 @@
+{
+  "sceneVersion": "circuit-scene.v1",
+  "sceneId": "greet-by-name/n-1448289342f70aab4bff7d51",
+  "label": "Execution · Greet a caller by name",
+  "identities": {
+    "capabilityId": "greet-by-name",
+    "viewId": "n-1448289342f70aab4bff7d51",
+    "viewKind": "operations",
+    "sourceIdentity": "greet-by-name/execution/greet-by-name",
+    "scenarioId": "greet-by-name"
+  },
+  "traceMode": "ILLUSTRATIVE",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-c28696771d6f57b7a9e21044",
+        "identity": "greet-by-name/input",
+        "kind": "input",
+        "label": "personal greeting request",
+        "detail": "Input contract",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/nodes/0/scenario/input",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "contract": {
+            "contractId": "personal-greeting-request.v1"
+          }
+        }
+      },
+      {
+        "id": "n-19cd10f029912912189ed5f3",
+        "identity": "greet-by-name/outcome",
+        "kind": "outcome",
+        "label": "personal greeting",
+        "detail": "Declared outcome",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/nodes/0/scenario/outcome",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "contract": {
+            "contractId": "personal-greeting.v1"
+          },
+          "terminal": true
+        }
+      },
+      {
+        "id": "n-8b6b804c9a35a358da3ae9cf",
+        "identity": "greet-by-name.operation.1",
+        "kind": "provider-port",
+        "label": "greet by name port",
+        "detail": "invoke-port",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/nodes/0/operations/0",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "operation": {
+            "operationId": "greet-by-name.operation.1",
+            "mechanicBindingId": "port:greet-by-name-port"
+          }
+        }
+      },
+      {
+        "id": "n-9bae1b9e51d04ca27a98580d",
+        "identity": "port:greet-by-name-port/provider",
+        "kind": "provider",
+        "label": "sda authority transformation port.v1",
+        "detail": "Declared implementation",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/mechanicBindings/1",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "provider": "ScenarioKernel.NodePlatform.Execution.AuthorityTransformation",
+          "implementationRef": "languages/typescript/runtimes/node/admitted-consumer-platform.mjs",
+          "mechanicType": "event-port",
+          "bindingId": "port:greet-by-name-port"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "n-c3fbc675be737b7bbc2abe5e",
+        "identity": "greet-by-name/order/0",
+        "source": "n-c28696771d6f57b7a9e21044",
+        "target": "n-8b6b804c9a35a358da3ae9cf",
+        "kind": "operation-order",
+        "traversable": true,
+        "label": "1",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/nodes/0/operations/0",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "ordinal": 0
+        }
+      },
+      {
+        "id": "n-7fa2e46dab2d92a655826535",
+        "identity": "greet-by-name.operation.1/binding",
+        "source": "n-9bae1b9e51d04ca27a98580d",
+        "target": "n-8b6b804c9a35a358da3ae9cf",
+        "kind": "provider-binding",
+        "traversable": false,
+        "label": "event-port",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/mechanicBindings/1",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {}
+      },
+      {
+        "id": "n-937b5122b345c2ee5b60754f",
+        "identity": "greet-by-name/result",
+        "source": "n-8b6b804c9a35a358da3ae9cf",
+        "target": "n-19cd10f029912912189ed5f3",
+        "kind": "operation-result",
+        "traversable": true,
+        "label": "result",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/nodes/0",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {}
+      }
+    ]
+  },
+  "geometry": {
+    "width": 1113.5,
+    "height": 465.0,
+    "engine": "networkx",
+    "boxes": {
+      "n-c28696771d6f57b7a9e21044": [
+        40.0,
+        42.5,
+        270,
+        135
+      ],
+      "n-19cd10f029912912189ed5f3": [
+        803.5,
+        42.5,
+        270,
+        135
+      ],
+      "n-8b6b804c9a35a358da3ae9cf": [
+        434.5,
+        42.5,
+        270,
+        135
+      ],
+      "n-9bae1b9e51d04ca27a98580d": [
+        40.0,
+        262.5,
+        270,
+        135
+      ]
+    },
+    "overlaps": 0
+  },
+  "materials": [
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/026a7d50edb06ee81918c691e2c631d6947571cf91bb8b7f7f12d66938248afc.webp",
+      "sha256": "026a7d50edb06ee81918c691e2c631d6947571cf91bb8b7f7f12d66938248afc",
+      "retained": "fixtures/estate/greet-by-name/textures/026a7d50edb06ee81918c691e2c631d6947571cf91bb8b7f7f12d66938248afc.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a.webp",
+      "sha256": "49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a",
+      "retained": "fixtures/estate/greet-by-name/textures/49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e.webp",
+      "sha256": "7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e",
+      "retained": "fixtures/estate/greet-by-name/textures/7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126.webp",
+      "sha256": "8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126",
+      "retained": "fixtures/estate/greet-by-name/textures/8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126.webp"
+    }
+  ],
+  "hitTargets": [
+    {
+      "targetId": "n-c3fbc675be737b7bbc2abe5e",
+      "entityKind": "route",
+      "entityId": "n-c3fbc675be737b7bbc2abe5e",
+      "accessibleName": "operation-order: 1",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-7fa2e46dab2d92a655826535",
+      "entityKind": "route",
+      "entityId": "n-7fa2e46dab2d92a655826535",
+      "accessibleName": "provider-binding: event-port",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-937b5122b345c2ee5b60754f",
+      "entityKind": "route",
+      "entityId": "n-937b5122b345c2ee5b60754f",
+      "accessibleName": "operation-result: result",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-c28696771d6f57b7a9e21044",
+      "entityKind": "node",
+      "entityId": "n-c28696771d6f57b7a9e21044",
+      "accessibleName": "input: personal greeting request",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-19cd10f029912912189ed5f3",
+      "entityKind": "node",
+      "entityId": "n-19cd10f029912912189ed5f3",
+      "accessibleName": "outcome: personal greeting",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-8b6b804c9a35a358da3ae9cf",
+      "entityKind": "node",
+      "entityId": "n-8b6b804c9a35a358da3ae9cf",
+      "accessibleName": "provider-port: greet by name port",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-9bae1b9e51d04ca27a98580d",
+      "entityKind": "node",
+      "entityId": "n-9bae1b9e51d04ca27a98580d",
+      "accessibleName": "provider: sda authority transformation port.v1",
+      "keyboardActivable": true
+    }
+  ],
+  "scene": {
+    "kind": "svg",
+    "retained": "fixtures/estate/greet-by-name/n-1448289342f70aab4bff7d51.svg",
+    "sha256": "75488675f246122b48daf12ddd859fed3d1f44132ecd5ba01f832e90fff88bb9",
+    "bytes": 7183,
+    "screening": {
+      "scriptsRejected": true,
+      "eventHandlersRejected": true,
+      "unapprovedReferencesRejected": true,
+      "passed": true
+    }
+  },
+  "coverage": {
+    "nodes": 4,
+    "routes": 3,
+    "omittedSourceNodes": 0,
+    "omittedSourceEdges": 0,
+    "representationComplete": true,
+    "nodeKinds": {
+      "input": 1,
+      "outcome": 1,
+      "provider-port": 1,
+      "provider": 1
+    },
+    "routeKinds": {
+      "operation-order": 1,
+      "provider-binding": 1,
+      "operation-result": 1
+    },
+    "observability": {
+      "instrumented": false,
+      "note": "Declared topology only. No execution instrumentation exists for this view; representation completeness says nothing about observability."
+    }
+  },
+  "topology": {
+    "roots": [
+      "n-c28696771d6f57b7a9e21044",
+      "n-9bae1b9e51d04ca27a98580d"
+    ],
+    "leaves": [
+      "n-19cd10f029912912189ed5f3"
+    ],
+    "weakComponents": 1,
+    "cyclicComponentCount": 0
+  },
+  "provenance": {
+    "sourceAuthority": {
+      "id": "src-00002",
+      "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+      "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+      "pointer": "",
+      "kind": "DECLARED",
+      "label": "policy / consumer-execution-embodiment-plan.v1",
+      "encoding": "capsule-entry"
+    },
+    "ingestedFrom": {
+      "path": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/greet-by-name/n-1448289342f70aab4bff7d51.js",
+      "sha256": "0575ddac72d38242ba2520dba7d1135a4d6ffbb7c71cb3deae2b054eb88da2b3"
+    },
+    "adapter": {
+      "name": "ingest-topology-view",
+      "version": "1.0.0"
+    }
+  },
+  "findings": []
+}

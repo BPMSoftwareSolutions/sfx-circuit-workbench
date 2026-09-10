@@ -452,10 +452,6 @@ def check_pins(ux: dict, pilot: dict, publication: dict, findings: list) -> dict
         stale.append("outcomeSchemaDigests")
         findings.append({"code": "UX_PIN_STALE", "severity": "error", "subject": ux["subject"],
                          "detail": "outcome schemas differ from the publication"})
-    if pins.get("providerInputBindingDigest") != pilot["profile"].get("providerInputBindingDigest"):
-        stale.append("providerInputBindingDigest")
-        findings.append({"code": "UX_PIN_STALE", "severity": "error", "subject": ux["subject"],
-                         "detail": "provider binding differs from the publication"})
     return {"observed": observed, "stale": stale, "current": not stale}
 
 

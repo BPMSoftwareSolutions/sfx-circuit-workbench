@@ -1,0 +1,335 @@
+{
+  "sceneVersion": "circuit-scene.v1",
+  "sceneId": "say-hello-world/n-cce546f909357df4fad6822c",
+  "label": "Execution · Say Hello World without domain input",
+  "identities": {
+    "capabilityId": "say-hello-world",
+    "viewId": "n-cce546f909357df4fad6822c",
+    "viewKind": "operations",
+    "sourceIdentity": "say-hello-world/execution/say-hello-world",
+    "scenarioId": "say-hello-world"
+  },
+  "traceMode": "ILLUSTRATIVE",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-71b6c1dfe789cda31dcac986",
+        "identity": "say-hello-world/input",
+        "kind": "input",
+        "label": "hello world request",
+        "detail": "Input contract",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/nodes/0/scenario/input",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "contract": {
+            "contractId": "hello-world-request.v1"
+          }
+        }
+      },
+      {
+        "id": "n-3f11dceee33a83caf11bbd85",
+        "identity": "say-hello-world/outcome",
+        "kind": "outcome",
+        "label": "hello world greeting",
+        "detail": "Declared outcome",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/nodes/0/scenario/outcome",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "contract": {
+            "contractId": "hello-world-greeting.v1"
+          },
+          "terminal": true
+        }
+      },
+      {
+        "id": "n-05d9d54f846ab4362d1657d4",
+        "identity": "say-hello-world.operation.1",
+        "kind": "provider-port",
+        "label": "say hello world port",
+        "detail": "invoke-port",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/nodes/0/operations/0",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "operation": {
+            "operationId": "say-hello-world.operation.1",
+            "mechanicBindingId": "port:say-hello-world-port"
+          }
+        }
+      },
+      {
+        "id": "n-3d92603429062a1d6ff4feda",
+        "identity": "port:say-hello-world-port/provider",
+        "kind": "provider",
+        "label": "sda authority transformation port.v1",
+        "detail": "Declared implementation",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/mechanicBindings/1",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "provider": "ScenarioKernel.NodePlatform.Execution.AuthorityTransformation",
+          "implementationRef": "languages/typescript/runtimes/node/admitted-consumer-platform.mjs",
+          "mechanicType": "event-port",
+          "bindingId": "port:say-hello-world-port"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "n-014ad44a01e318e96fe410c4",
+        "identity": "say-hello-world/order/0",
+        "source": "n-71b6c1dfe789cda31dcac986",
+        "target": "n-05d9d54f846ab4362d1657d4",
+        "kind": "operation-order",
+        "traversable": true,
+        "label": "1",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/nodes/0/operations/0",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "ordinal": 0
+        }
+      },
+      {
+        "id": "n-6b1de3c983098d3a449abc8c",
+        "identity": "say-hello-world.operation.1/binding",
+        "source": "n-3d92603429062a1d6ff4feda",
+        "target": "n-05d9d54f846ab4362d1657d4",
+        "kind": "provider-binding",
+        "traversable": false,
+        "label": "event-port",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/mechanicBindings/1",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {}
+      },
+      {
+        "id": "n-2b0a330ff9fdd043e8861245",
+        "identity": "say-hello-world/result",
+        "source": "n-05d9d54f846ab4362d1657d4",
+        "target": "n-3f11dceee33a83caf11bbd85",
+        "kind": "operation-result",
+        "traversable": true,
+        "label": "result",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/nodes/0",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {}
+      }
+    ]
+  },
+  "geometry": {
+    "width": 1113.5,
+    "height": 465.0,
+    "engine": "networkx",
+    "boxes": {
+      "n-71b6c1dfe789cda31dcac986": [
+        40.0,
+        42.5,
+        270,
+        135
+      ],
+      "n-3f11dceee33a83caf11bbd85": [
+        803.5,
+        42.5,
+        270,
+        135
+      ],
+      "n-05d9d54f846ab4362d1657d4": [
+        434.5,
+        42.5,
+        270,
+        135
+      ],
+      "n-3d92603429062a1d6ff4feda": [
+        40.0,
+        262.5,
+        270,
+        135
+      ]
+    },
+    "overlaps": 0
+  },
+  "materials": [
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/026a7d50edb06ee81918c691e2c631d6947571cf91bb8b7f7f12d66938248afc.webp",
+      "sha256": "026a7d50edb06ee81918c691e2c631d6947571cf91bb8b7f7f12d66938248afc",
+      "retained": "fixtures/estate/say-hello-world/textures/026a7d50edb06ee81918c691e2c631d6947571cf91bb8b7f7f12d66938248afc.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a.webp",
+      "sha256": "49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a",
+      "retained": "fixtures/estate/say-hello-world/textures/49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e.webp",
+      "sha256": "7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e",
+      "retained": "fixtures/estate/say-hello-world/textures/7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126.webp",
+      "sha256": "8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126",
+      "retained": "fixtures/estate/say-hello-world/textures/8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126.webp"
+    }
+  ],
+  "hitTargets": [
+    {
+      "targetId": "n-014ad44a01e318e96fe410c4",
+      "entityKind": "route",
+      "entityId": "n-014ad44a01e318e96fe410c4",
+      "accessibleName": "operation-order: 1",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-6b1de3c983098d3a449abc8c",
+      "entityKind": "route",
+      "entityId": "n-6b1de3c983098d3a449abc8c",
+      "accessibleName": "provider-binding: event-port",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-2b0a330ff9fdd043e8861245",
+      "entityKind": "route",
+      "entityId": "n-2b0a330ff9fdd043e8861245",
+      "accessibleName": "operation-result: result",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-71b6c1dfe789cda31dcac986",
+      "entityKind": "node",
+      "entityId": "n-71b6c1dfe789cda31dcac986",
+      "accessibleName": "input: hello world request",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-3f11dceee33a83caf11bbd85",
+      "entityKind": "node",
+      "entityId": "n-3f11dceee33a83caf11bbd85",
+      "accessibleName": "outcome: hello world greeting",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-05d9d54f846ab4362d1657d4",
+      "entityKind": "node",
+      "entityId": "n-05d9d54f846ab4362d1657d4",
+      "accessibleName": "provider-port: say hello world port",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-3d92603429062a1d6ff4feda",
+      "entityKind": "node",
+      "entityId": "n-3d92603429062a1d6ff4feda",
+      "accessibleName": "provider: sda authority transformation port.v1",
+      "keyboardActivable": true
+    }
+  ],
+  "scene": {
+    "kind": "svg",
+    "retained": "fixtures/estate/say-hello-world/n-cce546f909357df4fad6822c.svg",
+    "sha256": "00b793eaf3f9baf65aefeea2b610026409f58b2ea79e59ab381317162477d9c1",
+    "bytes": 7208,
+    "screening": {
+      "scriptsRejected": true,
+      "eventHandlersRejected": true,
+      "unapprovedReferencesRejected": true,
+      "passed": true
+    }
+  },
+  "coverage": {
+    "nodes": 4,
+    "routes": 3,
+    "omittedSourceNodes": 0,
+    "omittedSourceEdges": 0,
+    "representationComplete": true,
+    "nodeKinds": {
+      "input": 1,
+      "outcome": 1,
+      "provider-port": 1,
+      "provider": 1
+    },
+    "routeKinds": {
+      "operation-order": 1,
+      "provider-binding": 1,
+      "operation-result": 1
+    },
+    "observability": {
+      "instrumented": false,
+      "note": "Declared topology only. No execution instrumentation exists for this view; representation completeness says nothing about observability."
+    }
+  },
+  "topology": {
+    "roots": [
+      "n-71b6c1dfe789cda31dcac986",
+      "n-3d92603429062a1d6ff4feda"
+    ],
+    "leaves": [
+      "n-3f11dceee33a83caf11bbd85"
+    ],
+    "weakComponents": 1,
+    "cyclicComponentCount": 0
+  },
+  "provenance": {
+    "sourceAuthority": {
+      "id": "src-00002",
+      "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+      "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+      "pointer": "",
+      "kind": "DECLARED",
+      "label": "policy / consumer-execution-embodiment-plan.v1",
+      "encoding": "capsule-entry"
+    },
+    "ingestedFrom": {
+      "path": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/say-hello-world/n-cce546f909357df4fad6822c.js",
+      "sha256": "1d3ec7e8b9cdca96d5e3df8fc994f0708dc93b05421a63d70d216da0042bbc6c"
+    },
+    "adapter": {
+      "name": "ingest-topology-view",
+      "version": "1.0.0"
+    }
+  },
+  "findings": []
+}

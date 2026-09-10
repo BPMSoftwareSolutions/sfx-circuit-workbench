@@ -1,0 +1,308 @@
+{
+  "sceneVersion": "circuit-scene.v1",
+  "sceneId": "resolve-equity-market-price-evidence/n-18572733fd6bb0416c161e43",
+  "label": "Execution · the canonical evidence retains symbol, region, currency, price, market time, mar",
+  "identities": {
+    "capabilityId": "resolve-equity-market-price-evidence",
+    "viewId": "n-18572733fd6bb0416c161e43",
+    "viewKind": "operations",
+    "sourceIdentity": "resolve-equity-market-price-evidence/operations/resolve-equity-market-price-evidence",
+    "scenarioId": "resolve-equity-market-price-evidence"
+  },
+  "traceMode": "ILLUSTRATIVE",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-69bc979f585911e310e62611",
+        "identity": "resolve-equity-market-price-evidence/input",
+        "kind": "input",
+        "label": "live-equity-price-request",
+        "detail": "Declared capability input contract.",
+        "source": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "e0303b20f842fe09426beb2ab6264915400652c125c6784a57a17a710b1f042c",
+          "pointer": "/input_id",
+          "kind": "DECLARED",
+          "label": "estate authority / resolve-equity-market-price-evidence",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "contractId": "live-equity-price-request",
+          "contractState": "RESOLVED",
+          "scenarioId": "resolve-equity-market-price-evidence"
+        }
+      },
+      {
+        "id": "n-a6f455423f3546b79ecad2b9",
+        "identity": "resolve-equity-market-price-evidence.operation.1",
+        "kind": "provider-port",
+        "label": "equity-market-price-evidence-requested",
+        "detail": "the canonical evidence retains symbol, region, currency, price, market time, market state, exchange, source attribution, and provider testimony identity, or names why resolution was held",
+        "source": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "e0303b20f842fe09426beb2ab6264915400652c125c6784a57a17a710b1f042c",
+          "pointer": "/event_id",
+          "kind": "DECLARED",
+          "label": "estate authority / resolve-equity-market-price-evidence",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "eventId": "equity-market-price-evidence-requested",
+          "eventAuthorityState": "RESOLVED",
+          "responsibility": "the canonical evidence retains symbol, region, currency, price, market time, market state, exchange, source attribution, and provider testimony identity, or names why resolution was held"
+        }
+      },
+      {
+        "id": "n-8232583936f30e05a6547ff1",
+        "identity": "resolve-equity-market-price-evidence/outcome",
+        "kind": "outcome",
+        "label": "equity-market-price-evidence",
+        "detail": "Declared capability outcome contract.",
+        "source": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "e0303b20f842fe09426beb2ab6264915400652c125c6784a57a17a710b1f042c",
+          "pointer": "/outcome_id",
+          "kind": "DECLARED",
+          "label": "estate authority / resolve-equity-market-price-evidence",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "contractId": "equity-market-price-evidence",
+          "outcomeContractVersionPk": "698",
+          "scenarioId": "resolve-equity-market-price-evidence"
+        }
+      },
+      {
+        "id": "n-c2a097fcb506d6bc7a25eacf",
+        "identity": "resolve-equity-market-price-evidence/provider",
+        "kind": "provider",
+        "label": "https://yahoo-finance166.p.rapidapi.com/api/stock/get-price?",
+        "detail": "Declared effect ports: sda-external-credential-reference-binding-port.v1, sda-governed-http-exchange-port.v1",
+        "source": {
+          "id": "authority",
+          "path": "interfaces.authority.json",
+          "sha256": "e0303b20f842fe09426beb2ab6264915400652c125c6784a57a17a710b1f042c",
+          "pointer": "/interfaces",
+          "kind": "DECLARED",
+          "label": "estate authority / resolve-equity-market-price-evidence",
+          "encoding": "declared-authority"
+        },
+        "facts": {
+          "effectPorts": [
+            "sda-external-credential-reference-binding-port.v1",
+            "sda-governed-http-exchange-port.v1"
+          ],
+          "endpointAuthorityDigest": "sha256:09ecb038af10e553a16ec517857dc1eaf9efd4a6e1e608bc47fb4ca27e947f9b",
+          "endpointPrefixes": [
+            "https://yahoo-finance166.p.rapidapi.com/api/stock/get-price?"
+          ],
+          "credentialReferences": [
+            "RAPID_API_KEY"
+          ]
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "n-7b2f3a0c4ca6482a50611be7",
+        "identity": "operation-order:n-69bc979f585911e310e62611->n-a6f455423f3546b79ecad2b9",
+        "source": "n-69bc979f585911e310e62611",
+        "target": "n-a6f455423f3546b79ecad2b9",
+        "kind": "operation-order",
+        "label": "admits",
+        "traversable": true,
+        "provenance": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "e0303b20f842fe09426beb2ab6264915400652c125c6784a57a17a710b1f042c",
+          "pointer": "/input_id",
+          "kind": "DECLARED",
+          "label": "estate authority / resolve-equity-market-price-evidence",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "scenarioId": "resolve-equity-market-price-evidence"
+        }
+      },
+      {
+        "id": "n-3409fe8162b81b4d1b2125d9",
+        "identity": "provider-binding:n-c2a097fcb506d6bc7a25eacf->n-a6f455423f3546b79ecad2b9",
+        "source": "n-c2a097fcb506d6bc7a25eacf",
+        "target": "n-a6f455423f3546b79ecad2b9",
+        "kind": "provider-binding",
+        "label": "bound effect port",
+        "traversable": false,
+        "provenance": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "e0303b20f842fe09426beb2ab6264915400652c125c6784a57a17a710b1f042c",
+          "pointer": "/interfaces/portBindings",
+          "kind": "DECLARED",
+          "label": "estate authority / resolve-equity-market-price-evidence",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "scenarioId": "resolve-equity-market-price-evidence"
+        }
+      },
+      {
+        "id": "n-b8169f048aaed04f48df21eb",
+        "identity": "operation-result:n-a6f455423f3546b79ecad2b9->n-8232583936f30e05a6547ff1",
+        "source": "n-a6f455423f3546b79ecad2b9",
+        "target": "n-8232583936f30e05a6547ff1",
+        "kind": "operation-result",
+        "label": "resolves",
+        "traversable": true,
+        "provenance": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "e0303b20f842fe09426beb2ab6264915400652c125c6784a57a17a710b1f042c",
+          "pointer": "/outcome_id",
+          "kind": "DECLARED",
+          "label": "estate authority / resolve-equity-market-price-evidence",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "scenarioId": "resolve-equity-market-price-evidence"
+        }
+      }
+    ]
+  },
+  "geometry": {
+    "width": 1730.0,
+    "height": 255.0,
+    "engine": "derive-circuit.v1",
+    "boxes": {
+      "n-69bc979f585911e310e62611": [
+        40.0,
+        60.0,
+        270.0,
+        135.0
+      ],
+      "n-a6f455423f3546b79ecad2b9": [
+        500.0,
+        60.0,
+        270.0,
+        135.0
+      ],
+      "n-8232583936f30e05a6547ff1": [
+        1420.0,
+        60.0,
+        270.0,
+        135.0
+      ],
+      "n-c2a097fcb506d6bc7a25eacf": [
+        960.0,
+        60.0,
+        270.0,
+        135.0
+      ]
+    },
+    "overlaps": 0
+  },
+  "materials": [],
+  "hitTargets": [
+    {
+      "targetId": "n-69bc979f585911e310e62611",
+      "entityKind": "node",
+      "entityId": "n-69bc979f585911e310e62611",
+      "accessibleName": "input: live-equity-price-request",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-a6f455423f3546b79ecad2b9",
+      "entityKind": "node",
+      "entityId": "n-a6f455423f3546b79ecad2b9",
+      "accessibleName": "provider-port: equity-market-price-evidence-requested",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-8232583936f30e05a6547ff1",
+      "entityKind": "node",
+      "entityId": "n-8232583936f30e05a6547ff1",
+      "accessibleName": "outcome: equity-market-price-evidence",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-c2a097fcb506d6bc7a25eacf",
+      "entityKind": "node",
+      "entityId": "n-c2a097fcb506d6bc7a25eacf",
+      "accessibleName": "provider: https://yahoo-finance166.p.rapidapi.com/api/stock/get-price?",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-7b2f3a0c4ca6482a50611be7",
+      "entityKind": "route",
+      "entityId": "n-7b2f3a0c4ca6482a50611be7",
+      "accessibleName": "operation-order: admits",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-3409fe8162b81b4d1b2125d9",
+      "entityKind": "route",
+      "entityId": "n-3409fe8162b81b4d1b2125d9",
+      "accessibleName": "provider-binding: bound effect port",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-b8169f048aaed04f48df21eb",
+      "entityKind": "route",
+      "entityId": "n-b8169f048aaed04f48df21eb",
+      "accessibleName": "operation-result: resolves",
+      "keyboardActivable": true
+    }
+  ],
+  "coverage": {
+    "nodes": 4,
+    "routes": 3,
+    "omittedSourceNodes": 0,
+    "omittedSourceEdges": 0,
+    "representationComplete": true,
+    "nodeKinds": {
+      "outcome": 1,
+      "provider-port": 1,
+      "input": 1,
+      "provider": 1
+    },
+    "routeKinds": {
+      "provider-binding": 1,
+      "operation-order": 1,
+      "operation-result": 1
+    },
+    "observability": {
+      "instrumented": true,
+      "note": "This capability reports scenario observations when invoked; the execution mapping places them on these nodes."
+    }
+  },
+  "topology": {
+    "roots": [
+      "n-69bc979f585911e310e62611"
+    ],
+    "leaves": [
+      "n-8232583936f30e05a6547ff1"
+    ],
+    "weakComponents": 1,
+    "cyclicComponentCount": 0
+  },
+  "provenance": {
+    "sourceAuthority": {
+      "snapshotId": "sha256:1a770ac0795d10665a88166f8d8c968dc5b2d030fdfab2b837aa6071d135f9e9",
+      "projectionDigest": "sha256:8aae1f306ced5952333da0fb936d2f846081f8ed31b6f627a2099ad49cbbfdb0",
+      "capabilityDefinitionDigest": "sha256:832f4f3ad1f10951ed3e925107fb8bf6d7712fba55f8a9376f5fe24d54905e10",
+      "scenarioDefinitionDigest": "sha256:e0303b20f842fe09426beb2ab6264915400652c125c6784a57a17a710b1f042c",
+      "readPerInvocation": true
+    },
+    "ingestedFrom": {
+      "path": "estate authority (read and planned per invocation)",
+      "sha256": "83b49f4bb82c6eb0e610d256f38a8632a620e1e6a06900b778ba3c79d4797f72"
+    },
+    "adapter": {
+      "name": "derive-circuit",
+      "version": "1.0.0"
+    }
+  },
+  "findings": []
+}

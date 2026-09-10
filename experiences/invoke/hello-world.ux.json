@@ -5,7 +5,7 @@
   "note": "The smallest complete case: no editable field at all. Every value is server-owned, so the dialog is an explicit Run and nothing else. It exists to prove that a capability with no user input still gets a real generated dialog rather than a special case.",
   "subject": "say-hello-world",
   "pins": {
-    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+    "publicationId": "sha256:51a125471207d06002b23b90371d666b3e7af9cc439a0617d392acda0e3db269",
     "inputContract": "hello-world-request.v1",
     "inputSchemaDigest": "sha256:0cb0cff2850d0636dd684850c859b4216e4b65e3ebb1f646fcb7c34771a08eb0",
     "outcomeSchemaDigests": {

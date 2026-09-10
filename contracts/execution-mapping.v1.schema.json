@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sidefx.local/sfx-circuit-workbench/contracts/execution-mapping.v1.schema.json",
+  "title": "execution-mapping.v1",
+  "description": "How reported execution observations reach circuit nodes. Keyed on node kind rather than capability name, so one declaration serves every capability whose views carry those kinds. The rule this encodes is the plan's: highlight only the node or scope the instrumentation can establish, and put everything it cannot place where a person can still see it.",
+  "type": "object",
+  "required": ["mappingVersion", "mappingId", "scenarioSteps", "deliveryPhases", "unplacedPolicy"],
+  "additionalProperties": false,
+  "properties": {
+    "mappingVersion": { "const": "execution-mapping.v1" },
+    "mappingId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "note": { "type": "string" },
+    "observationTypes": {
+      "type": "object",
+      "description": "The observation types this mapping understands. An observation of any other type is unplaced by definition.",
+      "required": ["scenario", "delivery"],
+      "additionalProperties": false,
+      "properties": {
+        "scenario": { "type": "string" },
+        "delivery": { "type": "string" }
+      }
+    },
+    "scenarioSteps": {
+      "type": "array",
+      "description": "Scenario execution steps, which do correspond to circuit nodes. Each names the node kinds it may illuminate, in preference order: the first kind present in the view wins, so a capability without a provider port still lights its event node.",
+      "items": {
+        "type": "object",
+        "required": ["stepId", "nodeKinds", "meaning"],
+        "additionalProperties": false,
+        "properties": {
+          "stepId": { "type": "string" },
+          "nodeKinds": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "description": "Candidate node kinds in preference order."
+          },
+          "meaning": { "type": "string" },
+          "establishes": {
+            "enum": ["node", "scope"],
+            "default": "node",
+            "description": "`node` when the step identifies one node; `scope` when it establishes only that a region was active, in which case mechanic-level detail stays marked unavailable."
+          }
+        }
+      }
+    },
+    "deliveryPhases": {
+      "type": "array",
+      "description": "Service delivery stages. These are real reported progress and are shown as telemetry, but they are deliberately mapped to no circuit node: the circuit is scenario topology, and lighting it from a delivery phase would claim evidence the instrumentation never produced.",
+      "items": {
+        "type": "object",
+        "required": ["phase", "label", "meaning"],
+        "additionalProperties": false,
+        "properties": {
+          "phase": { "type": "string" },
+          "label": { "type": "string" },
+          "meaning": { "type": "string" },
+          "conditional": {
+            "type": "boolean",
+            "default": false,
+            "description": "True for a phase that only occurs for some capabilities, such as binding a provider input. Its absence is not a gap."
+          }
+        }
+      }
+    },
+    "unplacedPolicy": {
+      "type": "object",
+      "description": "What happens to an observation this mapping cannot place. It is retained and shown, never dropped: an event that vanished because nothing knew where to draw it is worse than one shown as unplaced.",
+      "required": ["retain", "present"],
+      "additionalProperties": false,
+      "properties": {
+        "retain": { "type": "boolean", "const": true },
+        "present": { "enum": ["unplaced-evidence-panel"] },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

@@ -28,7 +28,6 @@
           "type": "object",
           "additionalProperties": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
         },
-        "providerInputBindingDigest": { "type": "string" },
         "capabilityRevision": { "type": "string" }
       }
     },

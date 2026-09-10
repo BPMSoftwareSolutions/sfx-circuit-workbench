@@ -31,7 +31,12 @@
     "isolatedComponent": "isolated component",
     "phaseStatus": "{phase} {separator} {status} {separator} {observedAt}",
     "metricTimestamp": "Market time {separator} {timestamp}",
-    "runCapabilityHint": "Choose a {quoteOpen}Run capability{quoteClose} source view, then select its input component."
+    "runCapabilityHint": "Choose a {quoteOpen}Run capability{quoteClose} source view, then select its input component.",
+    "capabilityOption": "{capabilityId} {separator} {views} views {separator} {affordance}",
+    "scenarioOption": "{scenarioId}",
+    "scenarioAll": "All scenarios {separator} {count}",
+    "telemetryPhase": "{label} {separator} {status}",
+    "telemetryHeading": "Reported delivery {separator} run {runId}"
   },
   "messages": {
     "traceIdle": "Select a component, then follow its declared routes.",
@@ -56,7 +61,13 @@
     "runEnded": "Run ended {separator} inspect the reported status.",
     "valueNull": "None",
     "valueNotReported": "Not reported",
-    "resultHeading": "Result"
+    "resultHeading": "Result",
+    "telemetryIdle": "No run reported yet.",
+    "telemetryHeadingIdle": "Reported delivery",
+    "sceneNotPackaged": "This capability is catalogued but its circuit is not packaged here.",
+    "capabilityInspectOnly": "inspect only",
+    "capabilityInvocable": "invocable",
+    "scenarioAny": "All scenarios"
   },
   "playLabels": {
     "idle": "Trace flow",

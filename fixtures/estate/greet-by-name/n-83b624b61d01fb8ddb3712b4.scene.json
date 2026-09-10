@@ -1,0 +1,397 @@
+{
+  "sceneVersion": "circuit-scene.v1",
+  "sceneId": "greet-by-name/n-83b624b61d01fb8ddb3712b4",
+  "label": "Mechanics · greet by name port",
+  "identities": {
+    "capabilityId": "greet-by-name",
+    "viewId": "n-83b624b61d01fb8ddb3712b4",
+    "viewKind": "expression",
+    "sourceIdentity": "greet-by-name/mechanic/port:greet-by-name-port",
+    "scenarioId": null
+  },
+  "traceMode": "ILLUSTRATIVE",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-7b2e253722ccccfe9bd280b9",
+        "identity": "/",
+        "kind": "event",
+        "label": "object",
+        "detail": "Expression result",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/mechanicBindings/1/configuration/expression",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "mechanicId": "object",
+          "definitionPk": "8720",
+          "responsibility": "Construct an object from evaluated fields.",
+          "parameters": {
+            "op": "object"
+          }
+        }
+      },
+      {
+        "id": "n-8f26361c22831cc5c9245a7a",
+        "identity": "/fields/contractId",
+        "kind": "event",
+        "label": "literal",
+        "detail": "/fields/contractId",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/contractId",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "mechanicId": "literal",
+          "definitionPk": "8719",
+          "responsibility": "Return the declared literal value.",
+          "parameters": {
+            "op": "literal",
+            "value": "personal-greeting.v1"
+          }
+        }
+      },
+      {
+        "id": "n-801c613a0733dfe776925104",
+        "identity": "/fields/payload",
+        "kind": "event",
+        "label": "object",
+        "detail": "/fields/payload",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/payload",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "mechanicId": "object",
+          "definitionPk": "8720",
+          "responsibility": "Construct an object from evaluated fields.",
+          "parameters": {
+            "op": "object"
+          }
+        }
+      },
+      {
+        "id": "n-9e97e4cbc547f3b1baff4d03",
+        "identity": "/fields/payload/fields/message",
+        "kind": "event",
+        "label": "format",
+        "detail": "/fields/payload/fields/message",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/payload/fields/message",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "mechanicId": "format",
+          "definitionPk": "8739",
+          "responsibility": "Substitute evaluated values into a declared template.",
+          "parameters": {
+            "op": "format",
+            "template": "Hello, {name}!"
+          }
+        }
+      },
+      {
+        "id": "n-5d0da1fd1837eb39a9fbd731",
+        "identity": "/fields/payload/fields/message/values/name",
+        "kind": "event",
+        "label": "path",
+        "detail": "/fields/payload/fields/message/values/name",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/payload/fields/message/values/name",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "mechanicId": "path",
+          "definitionPk": "8717",
+          "responsibility": "Read a value at a dotted path within a supplied carrier.",
+          "parameters": {
+            "from": "input",
+            "op": "path",
+            "path": "payload.name"
+          }
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "n-d6e978de7d701b1381a3b1a4",
+        "identity": "/fields/contractId",
+        "source": "n-8f26361c22831cc5c9245a7a",
+        "target": "n-7b2e253722ccccfe9bd280b9",
+        "kind": "argument-dependency",
+        "traversable": true,
+        "label": "fields/contractId",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/contractId",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "argument": "fields/contractId"
+        }
+      },
+      {
+        "id": "n-0313f1cdca7b99ab37ceb865",
+        "identity": "/fields/payload/fields/message/values/name",
+        "source": "n-5d0da1fd1837eb39a9fbd731",
+        "target": "n-9e97e4cbc547f3b1baff4d03",
+        "kind": "argument-dependency",
+        "traversable": true,
+        "label": "values/name",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/payload/fields/message/values/name",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "argument": "values/name"
+        }
+      },
+      {
+        "id": "n-8e4ada32a7f6f30c2c1121c2",
+        "identity": "/fields/payload/fields/message",
+        "source": "n-9e97e4cbc547f3b1baff4d03",
+        "target": "n-801c613a0733dfe776925104",
+        "kind": "argument-dependency",
+        "traversable": true,
+        "label": "fields/message",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/payload/fields/message",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "argument": "fields/message"
+        }
+      },
+      {
+        "id": "n-5800361e514e57414b6f8034",
+        "identity": "/fields/payload",
+        "source": "n-801c613a0733dfe776925104",
+        "target": "n-7b2e253722ccccfe9bd280b9",
+        "kind": "argument-dependency",
+        "traversable": true,
+        "label": "fields/payload",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+          "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/payload",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "argument": "fields/payload"
+        }
+      }
+    ]
+  },
+  "geometry": {
+    "width": 1592.8,
+    "height": 465.0,
+    "engine": "networkx",
+    "boxes": {
+      "n-7b2e253722ccccfe9bd280b9": [
+        1282.8,
+        152.5,
+        270,
+        135
+      ],
+      "n-8f26361c22831cc5c9245a7a": [
+        859.75,
+        42.5,
+        270,
+        135
+      ],
+      "n-801c613a0733dfe776925104": [
+        859.75,
+        262.5,
+        270,
+        135
+      ],
+      "n-9e97e4cbc547f3b1baff4d03": [
+        443.5,
+        262.5,
+        270,
+        135
+      ],
+      "n-5d0da1fd1837eb39a9fbd731": [
+        40.0,
+        262.5,
+        270,
+        135
+      ]
+    },
+    "overlaps": 0
+  },
+  "materials": [
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp",
+      "sha256": "bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c",
+      "retained": "fixtures/estate/greet-by-name/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp"
+    }
+  ],
+  "hitTargets": [
+    {
+      "targetId": "n-d6e978de7d701b1381a3b1a4",
+      "entityKind": "route",
+      "entityId": "n-d6e978de7d701b1381a3b1a4",
+      "accessibleName": "argument-dependency: fields/contractId",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-0313f1cdca7b99ab37ceb865",
+      "entityKind": "route",
+      "entityId": "n-0313f1cdca7b99ab37ceb865",
+      "accessibleName": "argument-dependency: values/name",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-8e4ada32a7f6f30c2c1121c2",
+      "entityKind": "route",
+      "entityId": "n-8e4ada32a7f6f30c2c1121c2",
+      "accessibleName": "argument-dependency: fields/message",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-5800361e514e57414b6f8034",
+      "entityKind": "route",
+      "entityId": "n-5800361e514e57414b6f8034",
+      "accessibleName": "argument-dependency: fields/payload",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-7b2e253722ccccfe9bd280b9",
+      "entityKind": "node",
+      "entityId": "n-7b2e253722ccccfe9bd280b9",
+      "accessibleName": "event: object",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-8f26361c22831cc5c9245a7a",
+      "entityKind": "node",
+      "entityId": "n-8f26361c22831cc5c9245a7a",
+      "accessibleName": "event: literal",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-801c613a0733dfe776925104",
+      "entityKind": "node",
+      "entityId": "n-801c613a0733dfe776925104",
+      "accessibleName": "event: object",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-9e97e4cbc547f3b1baff4d03",
+      "entityKind": "node",
+      "entityId": "n-9e97e4cbc547f3b1baff4d03",
+      "accessibleName": "event: format",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-5d0da1fd1837eb39a9fbd731",
+      "entityKind": "node",
+      "entityId": "n-5d0da1fd1837eb39a9fbd731",
+      "accessibleName": "event: path",
+      "keyboardActivable": true
+    }
+  ],
+  "scene": {
+    "kind": "svg",
+    "retained": "fixtures/estate/greet-by-name/n-83b624b61d01fb8ddb3712b4.svg",
+    "sha256": "7f2ba18af7323a11917dda57fa658319f22095cb26d3bb9dbc42875538dbf88e",
+    "bytes": 8655,
+    "screening": {
+      "scriptsRejected": true,
+      "eventHandlersRejected": true,
+      "unapprovedReferencesRejected": true,
+      "passed": true
+    }
+  },
+  "coverage": {
+    "nodes": 5,
+    "routes": 4,
+    "omittedSourceNodes": 0,
+    "omittedSourceEdges": 0,
+    "representationComplete": true,
+    "nodeKinds": {
+      "event": 5
+    },
+    "routeKinds": {
+      "argument-dependency": 4
+    },
+    "observability": {
+      "instrumented": false,
+      "note": "Declared topology only. No execution instrumentation exists for this view; representation completeness says nothing about observability."
+    }
+  },
+  "topology": {
+    "roots": [
+      "n-8f26361c22831cc5c9245a7a",
+      "n-5d0da1fd1837eb39a9fbd731"
+    ],
+    "leaves": [
+      "n-7b2e253722ccccfe9bd280b9"
+    ],
+    "weakComponents": 1,
+    "cyclicComponentCount": 0
+  },
+  "provenance": {
+    "sourceAuthority": {
+      "id": "src-00002",
+      "path": "data/capsule-evidence/entries/c880851ee921a5d6936aa01f88a8723f61b1d75ae7a4ddbfdfbe7286ee1ae55c-3461f5f3b1da31be.json",
+      "sha256": "1b5d4ca6e0888d455e91b360f688cac57f00a451ca80ea8d0f23fc61fa3f5c6d",
+      "pointer": "/mechanicBindings/1/configuration/expression",
+      "kind": "DECLARED",
+      "label": "policy / consumer-execution-embodiment-plan.v1",
+      "encoding": "capsule-entry"
+    },
+    "ingestedFrom": {
+      "path": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/greet-by-name/n-83b624b61d01fb8ddb3712b4.js",
+      "sha256": "8799953c7667bffc5463e8be135273015b131584df02737add0b819448ce5b9b"
+    },
+    "adapter": {
+      "name": "ingest-topology-view",
+      "version": "1.0.0"
+    }
+  },
+  "findings": []
+}

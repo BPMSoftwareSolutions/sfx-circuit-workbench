@@ -145,7 +145,6 @@
     if (!mapping || mapping.subject !== run.capability.subject) return;
     var o = event.observation, id = null;
     if (o && o.scenarioId === run.selection.scenarioId) id = mapping.stepNodes[o.stepId];
-    if (o && o.phase === 'bindProviderInput') id = mapping.providerNode;
     if (o && o.phase === 'executeScenario') id = mapping.eventNode;
     wb.stage().querySelectorAll('.live-active').forEach(function (n) { n.classList.remove('live-active'); });
     if (id) {
@@ -154,7 +153,7 @@
       if (edge && o && o.stepId) { var route = document.getElementById(edge.id); if (route) route.classList.add('live-observed'); }
     }
     var names = { readAuthority:'Reading selected database authority', planNativeBody:'Resolving native plan',
-      bindProviderInput:'Provider input binding', loadMemoryModules:'Loading verified runtime', createScenario:'Establishing scenario', executeScenario:'Executing scenario' };
+      loadMemoryModules:'Loading verified runtime', createScenario:'Establishing scenario', executeScenario:'Executing scenario' };
     if (o) message(said('phaseStatus', { phase: names[o.phase] || o.stepId || o.observationType,
       status: o.status, observedAt: event.observedAt }));
     run.events.push({ eventId:event.eventId, receivedAt:new Date().toISOString(), serverTime:event.observedAt, observation:o || null });

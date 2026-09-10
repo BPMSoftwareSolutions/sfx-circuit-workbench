@@ -1,0 +1,330 @@
+{
+  "sceneVersion": "circuit-scene.v1",
+  "sceneId": "say-hello-world/n-98c4f32694303bd5067aa6f4",
+  "label": "Mechanics · say hello world port",
+  "identities": {
+    "capabilityId": "say-hello-world",
+    "viewId": "n-98c4f32694303bd5067aa6f4",
+    "viewKind": "expression",
+    "sourceIdentity": "say-hello-world/mechanic/port:say-hello-world-port",
+    "scenarioId": null
+  },
+  "traceMode": "ILLUSTRATIVE",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-45de22d4aeee3269829f6057",
+        "identity": "/",
+        "kind": "event",
+        "label": "object",
+        "detail": "Expression result",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/mechanicBindings/1/configuration/expression",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "mechanicId": "object",
+          "definitionPk": "8720",
+          "responsibility": "Construct an object from evaluated fields.",
+          "parameters": {
+            "op": "object"
+          }
+        }
+      },
+      {
+        "id": "n-268953b39f7de23ce6dccbee",
+        "identity": "/fields/contractId",
+        "kind": "event",
+        "label": "literal",
+        "detail": "/fields/contractId",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/contractId",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "mechanicId": "literal",
+          "definitionPk": "8719",
+          "responsibility": "Return the declared literal value.",
+          "parameters": {
+            "op": "literal",
+            "value": "hello-world-greeting.v1"
+          }
+        }
+      },
+      {
+        "id": "n-f9a75ef9930b0e77ef98fee4",
+        "identity": "/fields/payload",
+        "kind": "event",
+        "label": "object",
+        "detail": "/fields/payload",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/payload",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "mechanicId": "object",
+          "definitionPk": "8720",
+          "responsibility": "Construct an object from evaluated fields.",
+          "parameters": {
+            "op": "object"
+          }
+        }
+      },
+      {
+        "id": "n-7fdf85f9509eae3d58a87a03",
+        "identity": "/fields/payload/fields/message",
+        "kind": "event",
+        "label": "literal",
+        "detail": "/fields/payload/fields/message",
+        "source": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/payload/fields/message",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "mechanicId": "literal",
+          "definitionPk": "8719",
+          "responsibility": "Return the declared literal value.",
+          "parameters": {
+            "op": "literal",
+            "value": "Hello, World!"
+          }
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "n-568e0d4199bba828b8752f6f",
+        "identity": "/fields/contractId",
+        "source": "n-268953b39f7de23ce6dccbee",
+        "target": "n-45de22d4aeee3269829f6057",
+        "kind": "argument-dependency",
+        "traversable": true,
+        "label": "fields/contractId",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/contractId",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "argument": "fields/contractId"
+        }
+      },
+      {
+        "id": "n-1be4ea7eafdf8cd8d13ce731",
+        "identity": "/fields/payload/fields/message",
+        "source": "n-7fdf85f9509eae3d58a87a03",
+        "target": "n-f9a75ef9930b0e77ef98fee4",
+        "kind": "argument-dependency",
+        "traversable": true,
+        "label": "fields/message",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/payload/fields/message",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "argument": "fields/message"
+        }
+      },
+      {
+        "id": "n-1ac9b405f5de21aa23cae0e5",
+        "identity": "/fields/payload",
+        "source": "n-f9a75ef9930b0e77ef98fee4",
+        "target": "n-45de22d4aeee3269829f6057",
+        "kind": "argument-dependency",
+        "traversable": true,
+        "label": "fields/payload",
+        "provenance": {
+          "id": "src-00002",
+          "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+          "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+          "pointer": "/mechanicBindings/1/configuration/expression/fields/payload",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "argument": "fields/payload"
+        }
+      }
+    ]
+  },
+  "geometry": {
+    "width": 1189.2,
+    "height": 465.0,
+    "engine": "networkx",
+    "boxes": {
+      "n-45de22d4aeee3269829f6057": [
+        879.25,
+        152.5,
+        270,
+        135
+      ],
+      "n-268953b39f7de23ce6dccbee": [
+        456.25,
+        42.5,
+        270,
+        135
+      ],
+      "n-f9a75ef9930b0e77ef98fee4": [
+        456.25,
+        262.5,
+        270,
+        135
+      ],
+      "n-7fdf85f9509eae3d58a87a03": [
+        40.0,
+        262.5,
+        270,
+        135
+      ]
+    },
+    "overlaps": 0
+  },
+  "materials": [
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp",
+      "sha256": "bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c",
+      "retained": "fixtures/estate/say-hello-world/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp"
+    }
+  ],
+  "hitTargets": [
+    {
+      "targetId": "n-568e0d4199bba828b8752f6f",
+      "entityKind": "route",
+      "entityId": "n-568e0d4199bba828b8752f6f",
+      "accessibleName": "argument-dependency: fields/contractId",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-1be4ea7eafdf8cd8d13ce731",
+      "entityKind": "route",
+      "entityId": "n-1be4ea7eafdf8cd8d13ce731",
+      "accessibleName": "argument-dependency: fields/message",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-1ac9b405f5de21aa23cae0e5",
+      "entityKind": "route",
+      "entityId": "n-1ac9b405f5de21aa23cae0e5",
+      "accessibleName": "argument-dependency: fields/payload",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-45de22d4aeee3269829f6057",
+      "entityKind": "node",
+      "entityId": "n-45de22d4aeee3269829f6057",
+      "accessibleName": "event: object",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-268953b39f7de23ce6dccbee",
+      "entityKind": "node",
+      "entityId": "n-268953b39f7de23ce6dccbee",
+      "accessibleName": "event: literal",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-f9a75ef9930b0e77ef98fee4",
+      "entityKind": "node",
+      "entityId": "n-f9a75ef9930b0e77ef98fee4",
+      "accessibleName": "event: object",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-7fdf85f9509eae3d58a87a03",
+      "entityKind": "node",
+      "entityId": "n-7fdf85f9509eae3d58a87a03",
+      "accessibleName": "event: literal",
+      "keyboardActivable": true
+    }
+  ],
+  "scene": {
+    "kind": "svg",
+    "retained": "fixtures/estate/say-hello-world/n-98c4f32694303bd5067aa6f4.svg",
+    "sha256": "80cbad10a57ee1e8afbd6561b10a671d6b2dc4dac2c9eefc39ee5e1b09595769",
+    "bytes": 6883,
+    "screening": {
+      "scriptsRejected": true,
+      "eventHandlersRejected": true,
+      "unapprovedReferencesRejected": true,
+      "passed": true
+    }
+  },
+  "coverage": {
+    "nodes": 4,
+    "routes": 3,
+    "omittedSourceNodes": 0,
+    "omittedSourceEdges": 0,
+    "representationComplete": true,
+    "nodeKinds": {
+      "event": 4
+    },
+    "routeKinds": {
+      "argument-dependency": 3
+    },
+    "observability": {
+      "instrumented": false,
+      "note": "Declared topology only. No execution instrumentation exists for this view; representation completeness says nothing about observability."
+    }
+  },
+  "topology": {
+    "roots": [
+      "n-268953b39f7de23ce6dccbee",
+      "n-7fdf85f9509eae3d58a87a03"
+    ],
+    "leaves": [
+      "n-45de22d4aeee3269829f6057"
+    ],
+    "weakComponents": 1,
+    "cyclicComponentCount": 0
+  },
+  "provenance": {
+    "sourceAuthority": {
+      "id": "src-00002",
+      "path": "data/capsule-evidence/entries/f9fa409a601d3d1acb84633c665f76d24062cf5a9146b1ab05dc06129889fefb-5e1697d1afbe2a10.json",
+      "sha256": "444c61b7d47b05d5677a5d01aae65efedde48be5656a68f948b15198ac9e535c",
+      "pointer": "/mechanicBindings/1/configuration/expression",
+      "kind": "DECLARED",
+      "label": "policy / consumer-execution-embodiment-plan.v1",
+      "encoding": "capsule-entry"
+    },
+    "ingestedFrom": {
+      "path": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/say-hello-world/n-98c4f32694303bd5067aa6f4.js",
+      "sha256": "38c8757192c9a51babddf6de1cc49bb60d3aad9feec6839846fa2eca1782ce4a"
+    },
+    "adapter": {
+      "name": "ingest-topology-view",
+      "version": "1.0.0"
+    }
+  },
+  "findings": []
+}

@@ -49,7 +49,11 @@ from resolve_ui_dependencies import now_utc, sha256_file  # noqa: E402
 # A string literal in the runtime that reads like prose rather than like a
 # selector, an identifier or a code. Two words with a space, starting with a
 # capital, is the shape of a sentence and not the shape of a CSS selector.
-PROSE = re.compile(r'"([A-Z][a-z]+(?: [a-z]+){2,}[^"]*)"')
+#
+# Both quote styles are checked. Scanning only double quotes let a hard-coded
+# capability title sit in the runtime through a passing check, because it
+# happened to be written with single quotes.
+PROSE = re.compile(r"""["']([A-Z][a-z]+(?: [a-z]+){2,}[^"']*)["']""")
 STRING_LITERAL = re.compile(r'"((?:[^"\\]|\\.)*)"')
 
 # Runtime files that carry no user-visible text by design.

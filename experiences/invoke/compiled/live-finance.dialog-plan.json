@@ -3,15 +3,14 @@
   "uxId": "live-finance",
   "subject": "resolve-equity-market-price-evidence",
   "pins": {
-    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+    "publicationId": "sha256:51a125471207d06002b23b90371d666b3e7af9cc439a0617d392acda0e3db269",
     "inputContract": "live-equity-price-request.v1",
     "inputSchemaDigest": "sha256:97b2f584d847b242202f4c06d90d9051492a47f83293d6f74f0e6be54929d539",
-    "providerInputBindingDigest": "sha256:09ecb038af10e553a16ec517857dc1eaf9efd4a6e1e608bc47fb4ca27e947f9b",
     "outcomeSchemaDigests": {
-      "equity-market-price-evidence.v1": "sha256:7491b5daf9ab87fb56b86a61fe661ad86dc03b305cca97517d3819183d49ca24"
+      "equity-market-price-evidence.v1": "sha256:075cb1dd62d074a2000d8682572b05e54638a281d74163ae1b88abe5deff316b"
     },
     "observed": {
-      "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+      "publicationId": "sha256:51a125471207d06002b23b90371d666b3e7af9cc439a0617d392acda0e3db269",
       "inputContract": "live-equity-price-request.v1",
       "inputSchemaDigest": "sha256:97b2f584d847b242202f4c06d90d9051492a47f83293d6f74f0e6be54929d539"
     },
@@ -415,6 +414,140 @@
           "itemPath": null,
           "fields": null,
           "label": "Provider and normalisation",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        }
+      ]
+    },
+    {
+      "outcomeId": "provider-unavailable",
+      "contract": "equity-market-price-evidence.v1",
+      "dialogTitle": "Capability outcome",
+      "match": {
+        "contractId": "equity-market-price-evidence.v1",
+        "discriminatorPointer": "/disposition",
+        "discriminatorValues": [
+          "EQUITY_MARKET_PRICE_PROVIDER_UNAVAILABLE"
+        ]
+      },
+      "isNegative": false,
+      "anchor": {
+        "kind": "scene-node",
+        "nodeIdentity": "cell:scenario:resolve-equity-market-price-evidence:outcome",
+        "fallback": "viewport-transition"
+      },
+      "state": [
+        {
+          "stateId": "outcome.provider-unavailable.disposition",
+          "semanticType": "text",
+          "meaning": "Domain disposition",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.provider-unavailable.reason",
+          "semanticType": "text",
+          "meaning": "Hold reason",
+          "mutability": "fixed",
+          "initialValue": ""
+        },
+        {
+          "stateId": "outcome.provider-unavailable.provider",
+          "semanticType": "text",
+          "meaning": "Provider",
+          "mutability": "fixed",
+          "initialValue": ""
+        }
+      ],
+      "components": [
+        {
+          "id": "outcome-provider-unavailable-disposition",
+          "componentType": "value",
+          "semanticIdentity": "resolve-equity-market-price-evidence#provider-unavailable.disposition",
+          "presentationIntent": "outcome-disposition",
+          "content": {
+            "value": ""
+          }
+        },
+        {
+          "id": "outcome-provider-unavailable-reason",
+          "componentType": "text",
+          "semanticIdentity": "resolve-equity-market-price-evidence#provider-unavailable.reason",
+          "presentationIntent": "outcome-text",
+          "content": {
+            "text": ""
+          }
+        },
+        {
+          "id": "outcome-provider-unavailable-provider",
+          "componentType": "text",
+          "semanticIdentity": "resolve-equity-market-price-evidence#provider-unavailable.provider",
+          "presentationIntent": "outcome-evidence",
+          "content": {
+            "text": ""
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "bindingId": "bind-o-provider-unavailable-disposition",
+          "component": "outcome-provider-unavailable-disposition",
+          "state": "outcome.provider-unavailable.disposition",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-provider-unavailable-reason",
+          "component": "outcome-provider-unavailable-reason",
+          "state": "outcome.provider-unavailable.reason",
+          "direction": "read"
+        },
+        {
+          "bindingId": "bind-o-provider-unavailable-provider",
+          "component": "outcome-provider-unavailable-provider",
+          "state": "outcome.provider-unavailable.provider",
+          "direction": "read"
+        }
+      ],
+      "elements": [
+        {
+          "elementId": "disposition",
+          "family": "disposition",
+          "pointers": {
+            "value": "/disposition"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Domain disposition",
+          "emptyText": null,
+          "dispositionLabels": {
+            "EQUITY_MARKET_PRICE_PROVIDER_UNAVAILABLE": "Provider unavailable; no price was produced"
+          },
+          "precision": null
+        },
+        {
+          "elementId": "reason",
+          "family": "text",
+          "pointers": {
+            "value": "/reasonCode"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Hold reason",
+          "emptyText": null,
+          "dispositionLabels": null,
+          "precision": null
+        },
+        {
+          "elementId": "provider",
+          "family": "evidence",
+          "pointers": {
+            "bindingId": "/providerTestimony/bindingId",
+            "providerId": "/providerTestimony/providerId"
+          },
+          "itemPath": null,
+          "fields": null,
+          "label": "Provider",
           "emptyText": null,
           "dispositionLabels": null,
           "precision": null

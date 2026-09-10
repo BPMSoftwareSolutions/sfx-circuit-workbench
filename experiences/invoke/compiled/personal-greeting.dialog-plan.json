@@ -3,14 +3,14 @@
   "uxId": "personal-greeting",
   "subject": "greet-by-name",
   "pins": {
-    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+    "publicationId": "sha256:51a125471207d06002b23b90371d666b3e7af9cc439a0617d392acda0e3db269",
     "inputContract": "personal-greeting-request.v1",
     "inputSchemaDigest": "sha256:b800857e3c2d721221a37b98ef2fb2daf2e761df365e89a92359b5a6eabee1fb",
     "outcomeSchemaDigests": {
       "personal-greeting.v1": "sha256:18489ffe8c38d0181db073af4e471ac1329a76a4441fb53037208800a5439424"
     },
     "observed": {
-      "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+      "publicationId": "sha256:51a125471207d06002b23b90371d666b3e7af9cc439a0617d392acda0e3db269",
       "inputContract": "personal-greeting-request.v1",
       "inputSchemaDigest": "sha256:b800857e3c2d721221a37b98ef2fb2daf2e761df365e89a92359b5a6eabee1fb"
     },

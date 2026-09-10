@@ -32,20 +32,17 @@ def assess():
             assert before_terminal, 'No reported observation reached the browser before completion: ' + file
             runs.append({'file':file,'runId':proof['runId'],'observations':len(observed),'observationsReceivedBeforeCompletion':len(before_terminal)})
         finance = load('evidence/browser/resolve-equity-market-price-evidence-chromium.json')['snapshot']['result']
-        exchange = finance['evidence']['providerInput']['exchange']
-        assert exchange['httpStatus'] == 200 and exchange['exchangeCount'] == 1 and exchange['redactionVerified']
-        native = finance['execution']['result']['input']
-        # Compare the normalized value with the retained native provider input;
-        # no second quote call can establish this run's result.
-        result_payload = finance['outcome']['payload']
-        def prices(value):
-            if isinstance(value, dict):
-                if 'regularMarketPrice' in value: yield value['regularMarketPrice']
-                for child in value.values(): yield from prices(child)
-            elif isinstance(value, list):
-                for child in value: yield from prices(child)
-        candidates = [v.get('raw') if isinstance(v,dict) else v for v in prices(native)]
-        assert result_payload['observedPrice'] in candidates, 'Price differs from its own provider testimony'
+        outcome = finance['outcome']
+        # The capability performs the credential binding and bounded HTTP
+        # exchange as declared effect ports inside its own scenario, so the
+        # invocation envelope no longer carries transport evidence. Verify the
+        # capability's own reported outcome against the request it executed.
+        assert outcome['disposition'] == 'EQUITY_MARKET_PRICE_EVIDENCE_RESOLVED', outcome.get('disposition')
+        submitted = finance['execution']['result']['input']['payload']
+        assert outcome['payload']['symbol'] == submitted['symbol']
+        assert isinstance(outcome['payload']['observedPrice'], (int, float)) and outcome['payload']['observedPrice'] > 0
+        assert outcome['payload']['currency']
+        assert outcome['providerTestimony']['providerId']
         interactions = load('evidence/browser/interaction-checks.json')
         assert {i['engine'] for i in interactions} == {'chromium','firefox','webkit'}
         assert all(i['passed'] and i['origin']==ORIGIN and i['packageVersion']['contentDigest']==package['contentDigest'] for i in interactions)

@@ -1,0 +1,335 @@
+{
+  "sceneVersion": "circuit-scene.v1",
+  "sceneId": "resolve-sidefx-eligible-providers/n-622666a2a114c4cb7b6bf71f",
+  "label": "Execution · Admit only providers whose binding, conformance, and target are declared",
+  "identities": {
+    "capabilityId": "resolve-sidefx-eligible-providers",
+    "viewId": "n-622666a2a114c4cb7b6bf71f",
+    "viewKind": "operations",
+    "sourceIdentity": "resolve-sidefx-eligible-providers/execution/resolve-sidefx-eligible-providers",
+    "scenarioId": "resolve-sidefx-eligible-providers"
+  },
+  "traceMode": "ILLUSTRATIVE",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-5c03e6277985de73cbc7c07b",
+        "identity": "resolve-sidefx-eligible-providers/input",
+        "kind": "input",
+        "label": "sidefx provider resolution request",
+        "detail": "Input contract",
+        "source": {
+          "id": "src-00001",
+          "path": "data/capsule-evidence/entries/5c12ba8abf30973988acf415a46926d47da38dc22f2c7deb13383e772c5aaae7-88790fc7557ab137.json",
+          "sha256": "6c1a693c27134b7477c1672debc361fcdc8e8848bc177cf1ea98f5cdf2078b95",
+          "pointer": "/nodes/0/scenario/input",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "contract": {
+            "contractId": "sidefx-provider-resolution-request.v1"
+          }
+        }
+      },
+      {
+        "id": "n-f447baea482f1c67e4826207",
+        "identity": "resolve-sidefx-eligible-providers/outcome",
+        "kind": "outcome",
+        "label": "sidefx semantic provider resolution",
+        "detail": "Declared outcome",
+        "source": {
+          "id": "src-00001",
+          "path": "data/capsule-evidence/entries/5c12ba8abf30973988acf415a46926d47da38dc22f2c7deb13383e772c5aaae7-88790fc7557ab137.json",
+          "sha256": "6c1a693c27134b7477c1672debc361fcdc8e8848bc177cf1ea98f5cdf2078b95",
+          "pointer": "/nodes/0/scenario/outcome",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "contract": {
+            "contractId": "sidefx-semantic-provider-resolution.v1"
+          },
+          "terminal": true
+        }
+      },
+      {
+        "id": "n-b3f45c81978d50271ea94351",
+        "identity": "resolve-sidefx-eligible-providers.operation.1",
+        "kind": "provider-port",
+        "label": "resolve sidefx eligible providers port",
+        "detail": "invoke-port",
+        "source": {
+          "id": "src-00001",
+          "path": "data/capsule-evidence/entries/5c12ba8abf30973988acf415a46926d47da38dc22f2c7deb13383e772c5aaae7-88790fc7557ab137.json",
+          "sha256": "6c1a693c27134b7477c1672debc361fcdc8e8848bc177cf1ea98f5cdf2078b95",
+          "pointer": "/nodes/0/operations/0",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "operation": {
+            "operationId": "resolve-sidefx-eligible-providers.operation.1",
+            "mechanicBindingId": "port:resolve-sidefx-eligible-providers-port"
+          }
+        }
+      },
+      {
+        "id": "n-ed714d9bfbf7c12802572cff",
+        "identity": "port:resolve-sidefx-eligible-providers-port/provider",
+        "kind": "provider",
+        "label": "sda authority transformation port.v1",
+        "detail": "Declared implementation",
+        "source": {
+          "id": "src-00001",
+          "path": "data/capsule-evidence/entries/5c12ba8abf30973988acf415a46926d47da38dc22f2c7deb13383e772c5aaae7-88790fc7557ab137.json",
+          "sha256": "6c1a693c27134b7477c1672debc361fcdc8e8848bc177cf1ea98f5cdf2078b95",
+          "pointer": "/mechanicBindings/1",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "provider": "ScenarioKernel.NodePlatform.Execution.AuthorityTransformation",
+          "implementationRef": "languages/typescript/runtimes/node/admitted-consumer-platform.mjs",
+          "mechanicType": "event-port",
+          "bindingId": "port:resolve-sidefx-eligible-providers-port"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "n-e7733b032fc85157323a7e0e",
+        "identity": "resolve-sidefx-eligible-providers/order/0",
+        "source": "n-5c03e6277985de73cbc7c07b",
+        "target": "n-b3f45c81978d50271ea94351",
+        "kind": "operation-order",
+        "traversable": true,
+        "label": "1",
+        "provenance": {
+          "id": "src-00001",
+          "path": "data/capsule-evidence/entries/5c12ba8abf30973988acf415a46926d47da38dc22f2c7deb13383e772c5aaae7-88790fc7557ab137.json",
+          "sha256": "6c1a693c27134b7477c1672debc361fcdc8e8848bc177cf1ea98f5cdf2078b95",
+          "pointer": "/nodes/0/operations/0",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {
+          "ordinal": 0
+        }
+      },
+      {
+        "id": "n-70e3fb4be3f0c686b5fdffb0",
+        "identity": "resolve-sidefx-eligible-providers.operation.1/binding",
+        "source": "n-ed714d9bfbf7c12802572cff",
+        "target": "n-b3f45c81978d50271ea94351",
+        "kind": "provider-binding",
+        "traversable": false,
+        "label": "event-port",
+        "provenance": {
+          "id": "src-00001",
+          "path": "data/capsule-evidence/entries/5c12ba8abf30973988acf415a46926d47da38dc22f2c7deb13383e772c5aaae7-88790fc7557ab137.json",
+          "sha256": "6c1a693c27134b7477c1672debc361fcdc8e8848bc177cf1ea98f5cdf2078b95",
+          "pointer": "/mechanicBindings/1",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {}
+      },
+      {
+        "id": "n-8c06aae4c782082e72bd2199",
+        "identity": "resolve-sidefx-eligible-providers/result",
+        "source": "n-b3f45c81978d50271ea94351",
+        "target": "n-f447baea482f1c67e4826207",
+        "kind": "operation-result",
+        "traversable": true,
+        "label": "result",
+        "provenance": {
+          "id": "src-00001",
+          "path": "data/capsule-evidence/entries/5c12ba8abf30973988acf415a46926d47da38dc22f2c7deb13383e772c5aaae7-88790fc7557ab137.json",
+          "sha256": "6c1a693c27134b7477c1672debc361fcdc8e8848bc177cf1ea98f5cdf2078b95",
+          "pointer": "/nodes/0",
+          "kind": "DECLARED",
+          "label": "policy / consumer-execution-embodiment-plan.v1",
+          "encoding": "capsule-entry"
+        },
+        "facts": {}
+      }
+    ]
+  },
+  "geometry": {
+    "width": 1113.5,
+    "height": 465.0,
+    "engine": "networkx",
+    "boxes": {
+      "n-5c03e6277985de73cbc7c07b": [
+        40.0,
+        42.5,
+        270,
+        135
+      ],
+      "n-f447baea482f1c67e4826207": [
+        803.5,
+        42.5,
+        270,
+        135
+      ],
+      "n-b3f45c81978d50271ea94351": [
+        434.5,
+        42.5,
+        270,
+        135
+      ],
+      "n-ed714d9bfbf7c12802572cff": [
+        40.0,
+        262.5,
+        270,
+        135
+      ]
+    },
+    "overlaps": 0
+  },
+  "materials": [
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/026a7d50edb06ee81918c691e2c631d6947571cf91bb8b7f7f12d66938248afc.webp",
+      "sha256": "026a7d50edb06ee81918c691e2c631d6947571cf91bb8b7f7f12d66938248afc",
+      "retained": "fixtures/estate/resolve-sidefx-eligible-providers/textures/026a7d50edb06ee81918c691e2c631d6947571cf91bb8b7f7f12d66938248afc.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a.webp",
+      "sha256": "49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a",
+      "retained": "fixtures/estate/resolve-sidefx-eligible-providers/textures/49d7605833bb79859ac0e7af145aa220c1113d79ce095fba3edb69faedb9172a.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e.webp",
+      "sha256": "7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e",
+      "retained": "fixtures/estate/resolve-sidefx-eligible-providers/textures/7050ba6630711017207836082ad574ba31c2015d7cec965f186e4a4966b4601e.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126.webp",
+      "sha256": "8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126",
+      "retained": "fixtures/estate/resolve-sidefx-eligible-providers/textures/8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126.webp"
+    }
+  ],
+  "hitTargets": [
+    {
+      "targetId": "n-e7733b032fc85157323a7e0e",
+      "entityKind": "route",
+      "entityId": "n-e7733b032fc85157323a7e0e",
+      "accessibleName": "operation-order: 1",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-70e3fb4be3f0c686b5fdffb0",
+      "entityKind": "route",
+      "entityId": "n-70e3fb4be3f0c686b5fdffb0",
+      "accessibleName": "provider-binding: event-port",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-8c06aae4c782082e72bd2199",
+      "entityKind": "route",
+      "entityId": "n-8c06aae4c782082e72bd2199",
+      "accessibleName": "operation-result: result",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-5c03e6277985de73cbc7c07b",
+      "entityKind": "node",
+      "entityId": "n-5c03e6277985de73cbc7c07b",
+      "accessibleName": "input: sidefx provider resolution request",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-f447baea482f1c67e4826207",
+      "entityKind": "node",
+      "entityId": "n-f447baea482f1c67e4826207",
+      "accessibleName": "outcome: sidefx semantic provider resolution",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-b3f45c81978d50271ea94351",
+      "entityKind": "node",
+      "entityId": "n-b3f45c81978d50271ea94351",
+      "accessibleName": "provider-port: resolve sidefx eligible providers port",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-ed714d9bfbf7c12802572cff",
+      "entityKind": "node",
+      "entityId": "n-ed714d9bfbf7c12802572cff",
+      "accessibleName": "provider: sda authority transformation port.v1",
+      "keyboardActivable": true
+    }
+  ],
+  "scene": {
+    "kind": "svg",
+    "retained": "fixtures/estate/resolve-sidefx-eligible-providers/n-622666a2a114c4cb7b6bf71f.svg",
+    "sha256": "630f45ee6f806dc2722f9e4753064364682946094aa8d057ffe096598faf0055",
+    "bytes": 7943,
+    "screening": {
+      "scriptsRejected": true,
+      "eventHandlersRejected": true,
+      "unapprovedReferencesRejected": true,
+      "passed": true
+    }
+  },
+  "coverage": {
+    "nodes": 4,
+    "routes": 3,
+    "omittedSourceNodes": 0,
+    "omittedSourceEdges": 0,
+    "representationComplete": true,
+    "nodeKinds": {
+      "input": 1,
+      "outcome": 1,
+      "provider-port": 1,
+      "provider": 1
+    },
+    "routeKinds": {
+      "operation-order": 1,
+      "provider-binding": 1,
+      "operation-result": 1
+    },
+    "observability": {
+      "instrumented": false,
+      "note": "Declared topology only. No execution instrumentation exists for this view; representation completeness says nothing about observability."
+    }
+  },
+  "topology": {
+    "roots": [
+      "n-5c03e6277985de73cbc7c07b",
+      "n-ed714d9bfbf7c12802572cff"
+    ],
+    "leaves": [
+      "n-f447baea482f1c67e4826207"
+    ],
+    "weakComponents": 1,
+    "cyclicComponentCount": 0
+  },
+  "provenance": {
+    "sourceAuthority": {
+      "id": "src-00001",
+      "path": "data/capsule-evidence/entries/5c12ba8abf30973988acf415a46926d47da38dc22f2c7deb13383e772c5aaae7-88790fc7557ab137.json",
+      "sha256": "6c1a693c27134b7477c1672debc361fcdc8e8848bc177cf1ea98f5cdf2078b95",
+      "pointer": "",
+      "kind": "DECLARED",
+      "label": "policy / consumer-execution-embodiment-plan.v1",
+      "encoding": "capsule-entry"
+    },
+    "ingestedFrom": {
+      "path": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/resolve-sidefx-eligible-providers/n-622666a2a114c4cb7b6bf71f.js",
+      "sha256": "b6533cd130651fcbce06f16f2d11b708048bcd2b74e1f364c6cd705fa1032987"
+    },
+    "adapter": {
+      "name": "ingest-topology-view",
+      "version": "1.0.0"
+    }
+  },
+  "findings": []
+}

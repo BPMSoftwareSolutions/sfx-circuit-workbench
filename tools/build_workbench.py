@@ -82,7 +82,36 @@ def fill_template(template: str, values: dict, glyphs: dict) -> str:
     return re.sub(r"\{([a-zA-Z0-9_]+)\}", substitute, template)
 
 
-def resolve_option_text(node, pack, catalogue, findings, path="/"):
+def option_source_rows(source: str, catalogue: list, estate: list, initial: str) -> list:
+    """The data a declared option source draws from.
+
+    A choice says which data names its options; the build supplies the rows. The
+    surface therefore declares no capability, scenario or view by name, and the
+    markup still ships with its options filled.
+    """
+    if source == "scenes":
+        return None  # labelled in place against the packaged catalogue
+    if source == "capabilities":
+        return [{"value": c["capabilityId"], "capabilityId": c["capabilityId"],
+                 "views": len(c["views"]),
+                 "affordance": ("capabilityInvocable" if "invoke" in c["affordances"]
+                                else "capabilityInspectOnly")}
+                for c in estate]
+    if source == "views":
+        record = next((c for c in estate if c["capabilityId"] == initial), None)
+        return [{"value": v["viewId"], "label_": v["label"],
+                 "nodes": v["coverage"]["nodes"], "routes": v["coverage"]["routes"]}
+                for v in (record or {}).get("views", [])]
+    if source == "scenarios":
+        record = next((c for c in estate if c["capabilityId"] == initial), None)
+        scenarios = (record or {}).get("scenarios", [])
+        return ([{"value": "", "scenarioId": "", "count": len(scenarios), "all": True}]
+                + [{"value": s, "scenarioId": s} for s in scenarios])
+    return None
+
+
+def resolve_option_text(node, pack, catalogue, findings, path="/",
+                        estate=None, initial=None):
     """Fill each option's label from its declared format and the data at hand.
 
     Option text is static once the catalogue is known, so it is resolved here
@@ -100,9 +129,22 @@ def resolve_option_text(node, pack, catalogue, findings, path="/"):
                                            % content["optionTextFormat"]})
             else:
                 source = content.get("optionTextSource")
+                generated = option_source_rows(source, catalogue, estate or [], initial)
+                if generated is not None:
+                    content["options"] = generated
                 for option in content.get("options", []):
                     values = dict(option)
-                    if source == "scenes":
+                    # Per option: a row that needs a different format must not
+                    # leave the loop using it for every row after it.
+                    row_template = template
+                    if source == "views":
+                        values["label"] = option.pop("label_", "")
+                    elif source == "capabilities":
+                        values["affordance"] = pack["messages"].get(
+                            option.get("affordance", ""), "")
+                    elif source == "scenarios" and option.get("all"):
+                        row_template = pack["formats"]["scenarioAll"]
+                    elif source == "scenes":
                         entry = next((c for c in catalogue
                                       if c["viewId"] == option["value"]), None)
                         if entry is None:
@@ -114,14 +156,19 @@ def resolve_option_text(node, pack, catalogue, findings, path="/"):
                         values.update({"label": entry["label"],
                                        "nodes": entry["coverage"]["nodes"],
                                        "routes": entry["coverage"]["routes"]})
-                    option["label"] = fill_template(template, values, pack["glyphs"])
+                    option["label"] = fill_template(row_template, values, pack["glyphs"])
+                    for key in ("affordance", "all", "count", "capabilityId",
+                                "scenarioId", "views", "nodes", "routes", "label_"):
+                        option.pop(key, None)
                 content = {k: v for k, v in content.items()
                            if k not in ("optionTextFormat", "optionTextSource")}
                 node = dict(node, content=content)
-        return {k: resolve_option_text(v, pack, catalogue, findings, path + str(k) + "/")
+        return {k: resolve_option_text(v, pack, catalogue, findings, path + str(k) + "/",
+                                       estate, initial)
                 for k, v in node.items()}
     if isinstance(node, list):
-        return [resolve_option_text(v, pack, catalogue, findings, path + str(i) + "/")
+        return [resolve_option_text(v, pack, catalogue, findings, path + str(i) + "/",
+                                    estate, initial)
                 for i, v in enumerate(node)]
     return node
 
@@ -244,6 +291,9 @@ def main(argv=None) -> int:
     # --- compose ----------------------------------------------------------
     surface = WORKBENCH / experience["declarations"]["surface"]
     resolved_surface = json.loads(surface.read_text(encoding="utf-8"))
+    estate_path = WORKBENCH / experience["declarations"]["estateCatalogue"]
+    estate = json.loads(estate_path.read_text(encoding="utf-8"))
+
     catalogue = []
     for reference in experience["declarations"]["scenes"]:
         entry = json.loads((WORKBENCH / reference).read_text(encoding="utf-8"))
@@ -257,8 +307,63 @@ def main(argv=None) -> int:
                          "omittedSourceNodes": entry["coverage"]["omittedSourceNodes"]},
         })
 
+    # Package every capability so the estate is selectable, and carry each view's
+    # scene reference only where the scene is actually packaged. A capability
+    # whose circuit is absent is offered and says so, rather than being hidden.
+    estate_scenes = {}
+    estate_capabilities = []
+    for record in estate["capabilities"]:
+        views = []
+        for view in record["views"]:
+            packaged = None
+            if view.get("scene") and (WORKBENCH / view["scene"]).is_file():
+                packaged = "scenes/%s-%s.scene.json" % (record["capabilityId"], view["viewId"])
+                estate_scenes[packaged] = WORKBENCH / view["scene"]
+                if view.get("artifact") and (WORKBENCH / view["artifact"]).is_file():
+                    estate_scenes["scenes/%s-%s.svg" % (record["capabilityId"], view["viewId"])]                         = WORKBENCH / view["artifact"]
+            views.append({
+                "viewId": view["viewId"], "viewKind": view["viewKind"],
+                "label": view["label"], "scenarioId": view.get("scenarioId"),
+                "coverage": view["coverage"], "scene": packaged,
+                "derived": view.get("derived", False),
+            })
+        estate_capabilities.append({
+            "capabilityId": record["capabilityId"],
+            "views": views,
+            "scenarios": record.get("scenarios", []),
+            "affordances": record["affordances"],
+        })
+
+    for target, origin in estate_scenes.items():
+        destination = package / target
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(origin, destination)
+
+    materials_dir = package / "materials"
+    materials_dir.mkdir(parents=True, exist_ok=True)
+    material_count = 0
+    for reference in experience["declarations"]["scenes"]:
+        scene = json.loads((WORKBENCH / reference).read_text(encoding="utf-8"))
+        for material in scene.get("materials", []):
+            source = WORKBENCH / material["retained"]
+            if source.is_file():
+                shutil.copyfile(source, materials_dir / source.name)
+                material_count += 1
+
+    # Prefer a capability that can be both seen and run; fall back to any whose
+    # circuit is packaged; only then to the first catalogued.
+    def openable(record):
+        return any(v["scene"] for v in record["views"])
+    initial_capability = next(
+        (c["capabilityId"] for c in estate_capabilities
+         if openable(c) and "invoke" in c["affordances"]),
+        next((c["capabilityId"] for c in estate_capabilities if openable(c)),
+             estate_capabilities[0]["capabilityId"] if estate_capabilities else None))
+
     resolved_surface = resolve_text_refs(resolved_surface, text_pack, findings)
-    resolved_surface = resolve_option_text(resolved_surface, text_pack, catalogue, findings)
+    resolved_surface = resolve_option_text(resolved_surface, text_pack, catalogue, findings,
+                                           estate=estate_capabilities,
+                                           initial=initial_capability)
     staged_surface = staging / surface.name
     staged_surface.write_text(
         json.dumps(resolved_surface, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -326,17 +431,6 @@ def main(argv=None) -> int:
                          "omittedSourceNodes": scene["coverage"]["omittedSourceNodes"]},
         })
 
-    materials_dir = package / "materials"
-    materials_dir.mkdir(parents=True, exist_ok=True)
-    material_count = 0
-    for reference in experience["declarations"]["scenes"]:
-        scene = json.loads((WORKBENCH / reference).read_text(encoding="utf-8"))
-        for material in scene.get("materials", []):
-            source = WORKBENCH / material["retained"]
-            if source.is_file():
-                shutil.copyfile(source, materials_dir / source.name)
-                material_count += 1
-
     runtime_source = WORKBENCH / experience["declarations"]["runtime"]
     shutil.copyfile(runtime_source, package / "workbench-runtime.js")
     # Modules the runtime depends on, each separate so it can be checked under
@@ -358,6 +452,13 @@ def main(argv=None) -> int:
         "traceMode": "ILLUSTRATIVE",
         "embed": {"reportHeight": True, "commandChannel": False},
         "overlay": presentation.get("overlay", {}),
+        "estate": {
+            "catalogueVersion": estate["catalogueVersion"],
+            "available": estate["available"],
+            "invocable": estate["invocable"],
+            "capabilities": estate_capabilities,
+        },
+        "initialCapabilityId": initial_capability,
         "evidenceLimit": ("Declared topology. This experience invokes no capability and "
                           "establishes no execution evidence."),
     }
@@ -410,6 +511,10 @@ def main(argv=None) -> int:
                          "sha256": sha256_file(provider)},
             "runtime": {"path": experience["declarations"]["runtime"],
                         "sha256": sha256_file(runtime_source)},
+            "estateCatalogue": {"path": experience["declarations"]["estateCatalogue"],
+                                "sha256": sha256_file(estate_path),
+                                "capabilities": len(estate_capabilities),
+                                "packagedScenes": len(estate_scenes)},
             "textPack": {"path": experience["declarations"]["textPack"],
                          "packId": text_pack["packId"], "locale": text_pack["locale"],
                          "sha256": sha256_file(text_pack_path)},

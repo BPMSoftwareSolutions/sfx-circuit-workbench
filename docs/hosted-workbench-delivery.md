@@ -13,7 +13,7 @@ Choose a **Run capability** entry in **Source view**, then select its input comp
 | Hello World | Explicit Submit | Database-selected scenario returns greeting text. |
 | Personal greeting | Required name, 1–100 Unicode characters | The scenario preserves supplied text; the generated greeting renders as escaped text. |
 | Provider demonstration | Select one of four retained examples | The service supplies the entire canonical fixture. Both resolved and not-observable outcomes show disposition, considered/eligible counts, provider reasons, findings and trace digests. |
-| Live stock price | Symbol and declared region | The remote service invokes the declared RapidAPI binding and runs database-selected normalization. The generated outcome shows price, currency, market time, quote details, provider identity and evidence. |
+| Live stock price | Symbol and declared region | The declared capability binds the RapidAPI credential reference and observes one bounded HTTP exchange as declared effect ports, then runs database-selected normalization. The generated outcome shows price, currency, market time, quote details, provider identity and evidence. |
 
 The provider demonstration is explicitly a retained fixture. Live finance obtains a new provider response. A normal terminal return and a positive domain disposition remain separate facts.
 
@@ -29,7 +29,7 @@ The first viewport deployment exposed a zoom regression with visible scrollbars:
 
 ## What changed and where
 
-`experiences/invoke/*.ux.json` declares dialog labels, field grouping, ownership-compatible controls, outcome layouts and node anchors. `adapters/invocation/compile_capability_ux.py` binds these declarations to the published input and outcome schema digests and provider binding digest. Unknown input shapes, outcome pointers and collection fields produce compilation findings. Schemas continue to determine admissible values; UX declarations cannot widen them.
+`experiences/invoke/*.ux.json` declares dialog labels, field grouping, ownership-compatible controls, outcome layouts and node anchors. `adapters/invocation/compile_capability_ux.py` binds these declarations to the published input and outcome schema digests. Unknown input shapes, outcome pointers and collection fields produce compilation findings. Schemas continue to determine admissible values; UX declarations cannot widen them.
 
 `build_dialog_surface.py` produces semantic surfaces and submits them to the existing composition, projection and interaction-lowering capabilities in `sidefx-ui`. `tools/package_interactive_workbench.py` packages those resolved dialogs with the workbench and its scenes. Changing labels, layout or outcome fields does not require a capability-specific browser branch.
 
@@ -43,7 +43,7 @@ The entity-neutral `sidefx-cli` SDK gains an optional observation callback. The 
 
 The complete retained authoring blueprint has **30 nodes / 45 routes**; the native execution source view has **10 nodes / 9 routes**. Both are hosted. Fit uses the available circuit viewport; the percentage varies with window size and the inspection panel.
 
-The four runnable views are additional **scenario interface views** derived from verified SQL input/event/outcome relationships. Finance also shows the declared provider binding and its native input boundary. They explicitly state their limited scope. They do not replace the complete source scenes or claim to depict every internal mechanic.
+The four runnable views are additional **scenario interface views** derived from verified SQL input/event/outcome relationships. Finance also shows its declared effect ports and the external provider boundary. They explicitly state their limited scope. They do not replace the complete source scenes or claim to depict every internal mechanic.
 
 `LIVE` reflects genuine delivery-phase and kernel observations received from the service. Polling uses a 350 ms interval, ordered event IDs and a resume cursor. Source-only illustrative playback is separate and cannot run during an active invocation. A phase marked completed means that phase returned; the actual terminal outcome determines the domain disposition. No timer invents a successful branch or intermediate result. Very fast kernel steps can arrive together in one poll.
 
@@ -67,7 +67,7 @@ The hosted verification gate checks:
 
 - All seven cases: Hello World, personal greeting, live finance and every retained provider example.
 - Generated outcome presentation and a reported execution observation received before terminal completion.
-- Live finance's HTTP exchange, provider evidence and equality between the displayed normalized price and its own retained native testimony.
+- Live finance's declared exchange outcome: resolved disposition, the submitted symbol, a positive price, currency and provider attribution, consistent with the request it executed.
 - Chromium, Firefox and WebKit checks for required/length validation, keyboard opening, focus return, reduced motion, draft retention and cancellation without invocation.
 - Loss of an admission response, reload, explicit deduplication and a completed result retained across an actual service restart.
 

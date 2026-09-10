@@ -1,0 +1,268 @@
+{
+  "sceneVersion": "circuit-scene.v1",
+  "sceneId": "say-hello-world/n-0488ca164201c8dc6cb2146d",
+  "label": "Capability blueprint",
+  "identities": {
+    "capabilityId": "say-hello-world",
+    "viewId": "n-0488ca164201c8dc6cb2146d",
+    "viewKind": "blueprint",
+    "sourceIdentity": "say-hello-world/blueprint",
+    "scenarioId": null
+  },
+  "traceMode": "ILLUSTRATIVE",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-c79c451c75325f52b3b87402",
+        "identity": "say-hello-world",
+        "kind": "event",
+        "label": "say hello world",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/d01d04b0a576238bbd8bc02431dae25ef7ee0929b33742095fa5b0e48029e9aa.json",
+          "sha256": "d8df8727c363dfa90908e6287a67d64984b05dd2d7b6142c8aa500af2cebc1d8",
+          "pointer": "/semantics/nodes/0",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8712",
+          "definitionDigest": "d01d04b0a576238bbd8bc02431dae25ef7ee0929b33742095fa5b0e48029e9aa"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "say-hello-world.v1",
+                "digest": "sha256:673d5f9accb6f40be3e4de6b146b1f3b202c9b54c605d577980f4d569460b503"
+              },
+              "identity": "say-hello-world"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "hello-world-request.v1",
+                "digest": "sha256:673d5f9accb6f40be3e4de6b146b1f3b202c9b54c605d577980f4d569460b503"
+              },
+              "identity": "hello-world-request"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "hello-world-greeting.v1",
+                "digest": "sha256:673d5f9accb6f40be3e4de6b146b1f3b202c9b54c605d577980f4d569460b503"
+              },
+              "identity": "hello-world-greeting"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+            },
+            "authorizedDimensions": [
+              "execution-id",
+              "route-id",
+              "terminal-disposition"
+            ],
+            "causalAddress": "say-hello-world/say-hello-world",
+            "checkpoints": [
+              "say-hello-world-admit-input",
+              "say-hello-world-emit-outcome"
+            ],
+            "evidenceDestination": "say-hello-world-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "say-hello-world-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/say-hello-world/node/say-hello-world"
+          }
+        }
+      },
+      {
+        "id": "n-c410d80f87031d1c589df581",
+        "identity": "hello-world-greeting-established",
+        "kind": "termination",
+        "label": "hello world greeting established",
+        "detail": "COMPLETED",
+        "source": {
+          "path": "outputs/estate-topology/sources/d01d04b0a576238bbd8bc02431dae25ef7ee0929b33742095fa5b0e48029e9aa.json",
+          "sha256": "d8df8727c363dfa90908e6287a67d64984b05dd2d7b6142c8aa500af2cebc1d8",
+          "pointer": "/semantics/nodes/1",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8712",
+          "definitionDigest": "d01d04b0a576238bbd8bc02431dae25ef7ee0929b33742095fa5b0e48029e9aa"
+        },
+        "facts": {
+          "nativeKind": "terminal",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": "COMPLETED",
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": null
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "n-07730aea6da8cac46a033a2b",
+        "identity": "hello-world-greeting-terminates",
+        "source": "n-c79c451c75325f52b3b87402",
+        "target": "n-c410d80f87031d1c589df581",
+        "kind": "TRANSITION",
+        "traversable": true,
+        "label": "TERMINATES",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/d01d04b0a576238bbd8bc02431dae25ef7ee0929b33742095fa5b0e48029e9aa.json",
+          "sha256": "d8df8727c363dfa90908e6287a67d64984b05dd2d7b6142c8aa500af2cebc1d8",
+          "pointer": "/semantics/edges/0",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8712",
+          "definitionDigest": "d01d04b0a576238bbd8bc02431dae25ef7ee0929b33742095fa5b0e48029e9aa"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+            },
+            "checkpoints": [
+              "hello-world-greeting-terminates-traversed"
+            ]
+          },
+          "projectionOrdinal": 0,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "TERMINATES"
+        }
+      }
+    ]
+  },
+  "geometry": {
+    "width": 860,
+    "height": 260,
+    "engine": "networkx",
+    "boxes": {
+      "n-c79c451c75325f52b3b87402": [
+        92.875,
+        42.5,
+        270,
+        135
+      ],
+      "n-c410d80f87031d1c589df581": [
+        497.125,
+        42.5,
+        270,
+        135
+      ]
+    },
+    "overlaps": 0
+  },
+  "materials": [
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/9637072de851f78ab39cd1aae35a0d6c0dd9ed1bf36a5aed756d85e58855ccd6.webp",
+      "sha256": "9637072de851f78ab39cd1aae35a0d6c0dd9ed1bf36a5aed756d85e58855ccd6",
+      "retained": "fixtures/estate/say-hello-world/textures/9637072de851f78ab39cd1aae35a0d6c0dd9ed1bf36a5aed756d85e58855ccd6.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp",
+      "sha256": "bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c",
+      "retained": "fixtures/estate/say-hello-world/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp"
+    }
+  ],
+  "hitTargets": [
+    {
+      "targetId": "n-07730aea6da8cac46a033a2b",
+      "entityKind": "route",
+      "entityId": "n-07730aea6da8cac46a033a2b",
+      "accessibleName": "TRANSITION: TERMINATES",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-c79c451c75325f52b3b87402",
+      "entityKind": "node",
+      "entityId": "n-c79c451c75325f52b3b87402",
+      "accessibleName": "event: say hello world",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-c410d80f87031d1c589df581",
+      "entityKind": "node",
+      "entityId": "n-c410d80f87031d1c589df581",
+      "accessibleName": "termination: hello world greeting established",
+      "keyboardActivable": true
+    }
+  ],
+  "scene": {
+    "kind": "svg",
+    "retained": "fixtures/estate/say-hello-world/n-0488ca164201c8dc6cb2146d.svg",
+    "sha256": "e5c8b1e546d7743819918bfa346fb70b7d6e5f14af993647f1110708a011f2d5",
+    "bytes": 3295,
+    "screening": {
+      "scriptsRejected": true,
+      "eventHandlersRejected": true,
+      "unapprovedReferencesRejected": true,
+      "passed": true
+    }
+  },
+  "coverage": {
+    "nodes": 2,
+    "routes": 1,
+    "omittedSourceNodes": 0,
+    "omittedSourceEdges": 0,
+    "representationComplete": true,
+    "nodeKinds": {
+      "event": 1,
+      "termination": 1
+    },
+    "routeKinds": {
+      "TRANSITION": 1
+    },
+    "observability": {
+      "instrumented": false,
+      "note": "Declared topology only. No execution instrumentation exists for this view; representation completeness says nothing about observability."
+    }
+  },
+  "topology": {
+    "roots": [
+      "n-c79c451c75325f52b3b87402"
+    ],
+    "leaves": [
+      "n-c410d80f87031d1c589df581"
+    ],
+    "weakComponents": 1,
+    "cyclicComponentCount": 0
+  },
+  "provenance": {
+    "sourceAuthority": {
+      "path": "outputs/estate-topology/sources/d01d04b0a576238bbd8bc02431dae25ef7ee0929b33742095fa5b0e48029e9aa.json",
+      "sha256": "d8df8727c363dfa90908e6287a67d64984b05dd2d7b6142c8aa500af2cebc1d8",
+      "pointer": "/semantics",
+      "kind": "DECLARED",
+      "label": "SQL selected blueprint definition",
+      "definitionPk": "8712",
+      "definitionDigest": "d01d04b0a576238bbd8bc02431dae25ef7ee0929b33742095fa5b0e48029e9aa"
+    },
+    "ingestedFrom": {
+      "path": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/say-hello-world/n-0488ca164201c8dc6cb2146d.js",
+      "sha256": "a644f693f6178f8e16f8b8998d55869fc756ec7c9d348b63dea28d31f71c2311"
+    },
+    "adapter": {
+      "name": "ingest-topology-view",
+      "version": "1.0.0"
+    }
+  },
+  "findings": []
+}

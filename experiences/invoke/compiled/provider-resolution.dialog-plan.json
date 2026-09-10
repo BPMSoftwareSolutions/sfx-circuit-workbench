@@ -3,14 +3,14 @@
   "uxId": "provider-resolution",
   "subject": "resolve-sidefx-eligible-providers",
   "pins": {
-    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+    "publicationId": "sha256:51a125471207d06002b23b90371d666b3e7af9cc439a0617d392acda0e3db269",
     "inputContract": "sidefx-provider-resolution-request.v1",
     "inputSchemaDigest": "sha256:40f6fb9a386c4db5c230acb03293e2d7c129898f689d991eb965b06a572997a2",
     "outcomeSchemaDigests": {
       "sidefx-semantic-provider-resolution.v1": "sha256:7e62ab89e4058fc1c550d0e77401db57b463de2294b391d8983c0825993525a9"
     },
     "observed": {
-      "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+      "publicationId": "sha256:51a125471207d06002b23b90371d666b3e7af9cc439a0617d392acda0e3db269",
       "inputContract": "sidefx-provider-resolution-request.v1",
       "inputSchemaDigest": "sha256:40f6fb9a386c4db5c230acb03293e2d7c129898f689d991eb965b06a572997a2"
     },

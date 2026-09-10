@@ -1,0 +1,654 @@
+{
+  "sceneVersion": "circuit-scene.v1",
+  "sceneId": "greet-by-name/n-7612aa6582bc98b641cca829",
+  "label": "Capability blueprint",
+  "identities": {
+    "capabilityId": "greet-by-name",
+    "viewId": "n-7612aa6582bc98b641cca829",
+    "viewKind": "blueprint",
+    "sourceIdentity": "greet-by-name/blueprint",
+    "scenarioId": null
+  },
+  "traceMode": "ILLUSTRATIVE",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-b472d9a044a1147f5999a16d",
+        "identity": "greet-by-name",
+        "kind": "event",
+        "label": "greet by name",
+        "detail": "CAPABILITY",
+        "source": {
+          "path": "outputs/estate-topology/sources/99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065.json",
+          "sha256": "464ee5e447a829947bb04624eb870944e132e845afa3861d12da0bd366a64100",
+          "pointer": "/semantics/nodes/0",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8696",
+          "definitionDigest": "99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": null,
+          "cell": {
+            "energized": {
+              "authority": {
+                "authorityId": "greet-by-name.v1",
+                "digest": "sha256:fbabd8af1d50b6aad34477e9fb7ebb295e6836f7c283e2d13e5294a0b9a8c222"
+              },
+              "identity": "greet-by-name"
+            },
+            "first": {
+              "contract": {
+                "authorityId": "personal-greeting-request.v1",
+                "digest": "sha256:bd40abcedc238e30316c51e59dd6d1cdecc6661d0385dc07ab8f6a6ad97695d5"
+              },
+              "identity": "personal-greeting-request"
+            },
+            "result": {
+              "contract": {
+                "authorityId": "personal-greeting.v1",
+                "digest": "sha256:5419cde6e99c1d8f54632a249905eb3e3cb64c9ab0156c6763efbcab5284a3df"
+              },
+              "identity": "personal-greeting"
+            }
+          },
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+            },
+            "authorizedDimensions": [
+              "execution-id",
+              "route-id",
+              "terminal-disposition"
+            ],
+            "causalAddress": "greet-by-name/greet-by-name",
+            "checkpoints": [
+              "greet-by-name-admit-input",
+              "greet-by-name-emit-outcome"
+            ],
+            "evidenceDestination": "greet-by-name-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "greet-by-name-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/greet-by-name/node/greet-by-name"
+          }
+        }
+      },
+      {
+        "id": "n-07ca02a8532ecf10a3538030",
+        "identity": "greet-by-name-construct-personal-greeting-operation",
+        "kind": "event",
+        "label": "greet by name construct personal greeting operation",
+        "detail": "OPERATION",
+        "source": {
+          "path": "outputs/estate-topology/sources/99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065.json",
+          "sha256": "464ee5e447a829947bb04624eb870944e132e845afa3861d12da0bd366a64100",
+          "pointer": "/semantics/nodes/1",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8696",
+          "definitionDigest": "99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "OPERATION",
+          "terminalDisposition": null,
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+            },
+            "authorizedDimensions": [
+              "execution-id",
+              "route-id",
+              "terminal-disposition"
+            ],
+            "causalAddress": "greet-by-name/greet-by-name-construct-personal-greeting-operation",
+            "checkpoints": [
+              "greet-by-name-construct-personal-greeting-operation-admit-input",
+              "greet-by-name-construct-personal-greeting-operation-emit-outcome"
+            ],
+            "evidenceDestination": "greet-by-name-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "greet-by-name-construct-personal-greeting-operation-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/greet-by-name/node/greet-by-name-construct-personal-greeting-operation"
+          }
+        }
+      },
+      {
+        "id": "n-9d069f523ee3dbd4b5e95e5b",
+        "identity": "greet-by-name-construct-personal-greeting-resumption",
+        "kind": "input",
+        "label": "greet by name construct personal greeting resumption",
+        "detail": "OPERATION",
+        "source": {
+          "path": "outputs/estate-topology/sources/99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065.json",
+          "sha256": "464ee5e447a829947bb04624eb870944e132e845afa3861d12da0bd366a64100",
+          "pointer": "/semantics/nodes/2",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8696",
+          "definitionDigest": "99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065"
+        },
+        "facts": {
+          "nativeKind": "state",
+          "altitude": "OPERATION",
+          "terminalDisposition": null,
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+            },
+            "authorizedDimensions": [
+              "execution-id",
+              "route-id",
+              "terminal-disposition"
+            ],
+            "causalAddress": "greet-by-name/greet-by-name-construct-personal-greeting-resumption",
+            "checkpoints": [
+              "greet-by-name-construct-personal-greeting-resumption-admit-input",
+              "greet-by-name-construct-personal-greeting-resumption-emit-outcome"
+            ],
+            "evidenceDestination": "greet-by-name-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "greet-by-name-construct-personal-greeting-resumption-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/greet-by-name/node/greet-by-name-construct-personal-greeting-resumption"
+          }
+        }
+      },
+      {
+        "id": "n-66634da00521d1ee596de652",
+        "identity": "greet-by-name-construct-personal-greeting-format-personal-greeting-mechanic",
+        "kind": "event",
+        "label": "greet by name construct personal greeting format personal greeting mechanic",
+        "detail": "MECHANIC",
+        "source": {
+          "path": "outputs/estate-topology/sources/99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065.json",
+          "sha256": "464ee5e447a829947bb04624eb870944e132e845afa3861d12da0bd366a64100",
+          "pointer": "/semantics/nodes/3",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8696",
+          "definitionDigest": "99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065"
+        },
+        "facts": {
+          "nativeKind": "responsibility",
+          "altitude": "MECHANIC",
+          "terminalDisposition": null,
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+            },
+            "authorizedDimensions": [
+              "execution-id",
+              "route-id",
+              "terminal-disposition"
+            ],
+            "causalAddress": "greet-by-name/greet-by-name-construct-personal-greeting-format-personal-greeting-mechanic",
+            "checkpoints": [
+              "greet-by-name-construct-personal-greeting-format-personal-greeting-mechanic-admit-input",
+              "greet-by-name-construct-personal-greeting-format-personal-greeting-mechanic-emit-outcome"
+            ],
+            "evidenceDestination": "greet-by-name-evidence-ledger",
+            "measurements": [
+              {
+                "measurementId": "greet-by-name-construct-personal-greeting-format-personal-greeting-mechanic-completion",
+                "unit": "count"
+              }
+            ],
+            "sampling": {
+              "strategy": "ALWAYS"
+            },
+            "semanticAddress": "sidefx://capability/greet-by-name/node/greet-by-name-construct-personal-greeting-format-personal-greeting-mechanic"
+          }
+        }
+      },
+      {
+        "id": "n-077875853a673bc9eaa7fc93",
+        "identity": "greet-by-name-complete",
+        "kind": "termination",
+        "label": "greet by name complete",
+        "detail": "COMPLETED",
+        "source": {
+          "path": "outputs/estate-topology/sources/99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065.json",
+          "sha256": "464ee5e447a829947bb04624eb870944e132e845afa3861d12da0bd366a64100",
+          "pointer": "/semantics/nodes/4",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8696",
+          "definitionDigest": "99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065"
+        },
+        "facts": {
+          "nativeKind": "terminal",
+          "altitude": "CAPABILITY",
+          "terminalDisposition": "COMPLETED",
+          "cell": null,
+          "providerSlot": null,
+          "requiredProducts": null,
+          "observability": null
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "n-fd2a41462379f2b17efdbf56",
+        "identity": "greet-by-name-construct-personal-greeting-operation-descends-to-greet-by-name-construct-personal-greeting-format-personal-greeting-mechanic",
+        "source": "n-07ca02a8532ecf10a3538030",
+        "target": "n-66634da00521d1ee596de652",
+        "kind": "ALTITUDE_DESCENT",
+        "traversable": true,
+        "label": "DESCENDS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065.json",
+          "sha256": "464ee5e447a829947bb04624eb870944e132e845afa3861d12da0bd366a64100",
+          "pointer": "/semantics/edges/0",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8696",
+          "definitionDigest": "99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+            },
+            "checkpoints": [
+              "greet-by-name-construct-personal-greeting-operation-descends-to-greet-by-name-construct-personal-greeting-format-personal-greeting-mechanic-traversed"
+            ]
+          },
+          "projectionOrdinal": 0,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "DESCENDS"
+        }
+      },
+      {
+        "id": "n-7271f1fce0edd18ab7edd206",
+        "identity": "greet-by-name-construct-personal-greeting-format-personal-greeting-mechanic-returns-to-greet-by-name-construct-personal-greeting-resumption",
+        "source": "n-66634da00521d1ee596de652",
+        "target": "n-9d069f523ee3dbd4b5e95e5b",
+        "kind": "BOUNDED_RETURN",
+        "traversable": true,
+        "label": "BOUNDED_RETURN",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065.json",
+          "sha256": "464ee5e447a829947bb04624eb870944e132e845afa3861d12da0bd366a64100",
+          "pointer": "/semantics/edges/1",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8696",
+          "definitionDigest": "99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+          },
+          "boundedReturn": {
+            "authority": {
+              "authorityId": "greet-by-name.v1",
+              "digest": "sha256:fbabd8af1d50b6aad34477e9fb7ebb295e6836f7c283e2d13e5294a0b9a8c222"
+            },
+            "bound": 1,
+            "kind": "RESUMPTION"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+            },
+            "checkpoints": [
+              "greet-by-name-construct-personal-greeting-format-personal-greeting-mechanic-returns-to-greet-by-name-construct-personal-greeting-resumption-traversed"
+            ]
+          },
+          "projectionOrdinal": 1,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "BOUNDED_RETURN"
+        }
+      },
+      {
+        "id": "n-3d1aa571ae923c99b003f591",
+        "identity": "greet-by-name-descends-to-construct-personal-greeting",
+        "source": "n-b472d9a044a1147f5999a16d",
+        "target": "n-07ca02a8532ecf10a3538030",
+        "kind": "ALTITUDE_DESCENT",
+        "traversable": true,
+        "label": "DESCENDS",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065.json",
+          "sha256": "464ee5e447a829947bb04624eb870944e132e845afa3861d12da0bd366a64100",
+          "pointer": "/semantics/edges/2",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8696",
+          "definitionDigest": "99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+            },
+            "checkpoints": [
+              "greet-by-name-descends-to-construct-personal-greeting-traversed"
+            ]
+          },
+          "projectionOrdinal": 2,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "DESCENDS"
+        }
+      },
+      {
+        "id": "n-0dc2d17c7384ab180f7f73b5",
+        "identity": "greet-by-name-construct-personal-greeting-resumption-returns-to-greet-by-name",
+        "source": "n-9d069f523ee3dbd4b5e95e5b",
+        "target": "n-b472d9a044a1147f5999a16d",
+        "kind": "BOUNDED_RETURN",
+        "traversable": true,
+        "label": "BOUNDED_RETURN",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065.json",
+          "sha256": "464ee5e447a829947bb04624eb870944e132e845afa3861d12da0bd366a64100",
+          "pointer": "/semantics/edges/3",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8696",
+          "definitionDigest": "99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+          },
+          "boundedReturn": {
+            "authority": {
+              "authorityId": "greet-by-name.v1",
+              "digest": "sha256:fbabd8af1d50b6aad34477e9fb7ebb295e6836f7c283e2d13e5294a0b9a8c222"
+            },
+            "bound": 1,
+            "kind": "RESUMPTION"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+            },
+            "checkpoints": [
+              "greet-by-name-construct-personal-greeting-resumption-returns-to-greet-by-name-traversed"
+            ]
+          },
+          "projectionOrdinal": 3,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "BOUNDED_RETURN"
+        }
+      },
+      {
+        "id": "n-05bc6196bd9d2f1c99dbb826",
+        "identity": "greet-by-name-establishes-greet-by-name-complete",
+        "source": "n-b472d9a044a1147f5999a16d",
+        "target": "n-077875853a673bc9eaa7fc93",
+        "kind": "TRANSITION",
+        "traversable": true,
+        "label": "TERMINATES",
+        "provenance": {
+          "path": "outputs/estate-topology/sources/99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065.json",
+          "sha256": "464ee5e447a829947bb04624eb870944e132e845afa3861d12da0bd366a64100",
+          "pointer": "/semantics/edges/4",
+          "kind": "DECLARED",
+          "label": "SQL selected blueprint definition",
+          "definitionPk": "8696",
+          "definitionDigest": "99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065"
+        },
+        "facts": {
+          "bindingAuthority": {
+            "authorityId": "adr-001-blueprint-binding.v1",
+            "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+          },
+          "observability": {
+            "authority": {
+              "authorityId": "adr-001-observability.v1",
+              "digest": "sha256:1299d2b7f0808b5c17842cedf132f41dd1276825441f032dbfa29d73ee36e1ee"
+            },
+            "checkpoints": [
+              "greet-by-name-establishes-greet-by-name-complete-traversed"
+            ]
+          },
+          "projectionOrdinal": 4,
+          "semanticPrecedence": "REQUIRED",
+          "semanticProgress": "TERMINATES"
+        }
+      }
+    ]
+  },
+  "geometry": {
+    "width": 1199.5,
+    "height": 718.56,
+    "engine": "networkx",
+    "boxes": {
+      "n-b472d9a044a1147f5999a16d": [
+        76.94999999999999,
+        256.05999999999995,
+        270,
+        135
+      ],
+      "n-07ca02a8532ecf10a3538030": [
+        481.20000000000005,
+        72.05999999999995,
+        270,
+        135
+      ],
+      "n-9d069f523ee3dbd4b5e95e5b": [
+        76.94999999999999,
+        516.06,
+        270,
+        135
+      ],
+      "n-66634da00521d1ee596de652": [
+        875.7,
+        72.05999999999995,
+        270,
+        135
+      ],
+      "n-077875853a673bc9eaa7fc93": [
+        481.20000000000005,
+        292.05999999999995,
+        270,
+        135
+      ]
+    },
+    "overlaps": 0
+  },
+  "materials": [
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126.webp",
+      "sha256": "8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126",
+      "retained": "fixtures/estate/greet-by-name/textures/8fea27caed885cd94f14371632894dc48592018eab35926733f305b085a5a126.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/9637072de851f78ab39cd1aae35a0d6c0dd9ed1bf36a5aed756d85e58855ccd6.webp",
+      "sha256": "9637072de851f78ab39cd1aae35a0d6c0dd9ed1bf36a5aed756d85e58855ccd6",
+      "retained": "fixtures/estate/greet-by-name/textures/9637072de851f78ab39cd1aae35a0d6c0dd9ed1bf36a5aed756d85e58855ccd6.webp"
+    },
+    {
+      "reference": "/media/library/outputs/estate-topology/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp",
+      "sha256": "bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c",
+      "retained": "fixtures/estate/greet-by-name/textures/bd6fec244bff0256906391b26b8381795fd8acd4b1a047695c197cb3aab64d6c.webp"
+    }
+  ],
+  "hitTargets": [
+    {
+      "targetId": "n-fd2a41462379f2b17efdbf56",
+      "entityKind": "route",
+      "entityId": "n-fd2a41462379f2b17efdbf56",
+      "accessibleName": "ALTITUDE_DESCENT: DESCENDS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-7271f1fce0edd18ab7edd206",
+      "entityKind": "route",
+      "entityId": "n-7271f1fce0edd18ab7edd206",
+      "accessibleName": "BOUNDED_RETURN: BOUNDED_RETURN",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-3d1aa571ae923c99b003f591",
+      "entityKind": "route",
+      "entityId": "n-3d1aa571ae923c99b003f591",
+      "accessibleName": "ALTITUDE_DESCENT: DESCENDS",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-0dc2d17c7384ab180f7f73b5",
+      "entityKind": "route",
+      "entityId": "n-0dc2d17c7384ab180f7f73b5",
+      "accessibleName": "BOUNDED_RETURN: BOUNDED_RETURN",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-05bc6196bd9d2f1c99dbb826",
+      "entityKind": "route",
+      "entityId": "n-05bc6196bd9d2f1c99dbb826",
+      "accessibleName": "TRANSITION: TERMINATES",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-b472d9a044a1147f5999a16d",
+      "entityKind": "node",
+      "entityId": "n-b472d9a044a1147f5999a16d",
+      "accessibleName": "event: greet by name",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-07ca02a8532ecf10a3538030",
+      "entityKind": "node",
+      "entityId": "n-07ca02a8532ecf10a3538030",
+      "accessibleName": "event: greet by name construct personal greeting operation",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-9d069f523ee3dbd4b5e95e5b",
+      "entityKind": "node",
+      "entityId": "n-9d069f523ee3dbd4b5e95e5b",
+      "accessibleName": "input: greet by name construct personal greeting resumption",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-66634da00521d1ee596de652",
+      "entityKind": "node",
+      "entityId": "n-66634da00521d1ee596de652",
+      "accessibleName": "event: greet by name construct personal greeting format personal greeting mechanic",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-077875853a673bc9eaa7fc93",
+      "entityKind": "node",
+      "entityId": "n-077875853a673bc9eaa7fc93",
+      "accessibleName": "termination: greet by name complete",
+      "keyboardActivable": true
+    }
+  ],
+  "scene": {
+    "kind": "svg",
+    "retained": "fixtures/estate/greet-by-name/n-7612aa6582bc98b641cca829.svg",
+    "sha256": "f60237df684a14c4727c7895b84db04feda85cc70c0590635e85e3e24020b908",
+    "bytes": 12344,
+    "screening": {
+      "scriptsRejected": true,
+      "eventHandlersRejected": true,
+      "unapprovedReferencesRejected": true,
+      "passed": true
+    }
+  },
+  "coverage": {
+    "nodes": 5,
+    "routes": 5,
+    "omittedSourceNodes": 0,
+    "omittedSourceEdges": 0,
+    "representationComplete": true,
+    "nodeKinds": {
+      "event": 3,
+      "input": 1,
+      "termination": 1
+    },
+    "routeKinds": {
+      "ALTITUDE_DESCENT": 2,
+      "BOUNDED_RETURN": 2,
+      "TRANSITION": 1
+    },
+    "observability": {
+      "instrumented": false,
+      "note": "Declared topology only. No execution instrumentation exists for this view; representation completeness says nothing about observability."
+    }
+  },
+  "topology": {
+    "roots": [],
+    "leaves": [
+      "n-077875853a673bc9eaa7fc93"
+    ],
+    "weakComponents": 1,
+    "cyclicComponentCount": 1
+  },
+  "provenance": {
+    "sourceAuthority": {
+      "path": "outputs/estate-topology/sources/99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065.json",
+      "sha256": "464ee5e447a829947bb04624eb870944e132e845afa3861d12da0bd366a64100",
+      "pointer": "/semantics",
+      "kind": "DECLARED",
+      "label": "SQL selected blueprint definition",
+      "definitionPk": "8696",
+      "definitionDigest": "99404a41b19646feaa7a519f6801bee063a654065a1ac2985319f6c0babbd065"
+    },
+    "ingestedFrom": {
+      "path": "C:/lab/repos/sfx-platform/public/media/library/outputs/estate-topology/greet-by-name/n-7612aa6582bc98b641cca829.js",
+      "sha256": "8b662da57ba94e5ab9a75a00166a89cce5813ea0bf878164ae4cca3b2bb11d57"
+    },
+    "adapter": {
+      "name": "ingest-topology-view",
+      "version": "1.0.0"
+    }
+  },
+  "findings": []
+}

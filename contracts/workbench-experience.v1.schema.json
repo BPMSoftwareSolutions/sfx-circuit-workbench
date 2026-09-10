@@ -53,7 +53,8 @@
       "required": [
         "surface",
         "presentationProfile",
-        "textPack"
+        "textPack",
+        "estateCatalogue"
       ],
       "additionalProperties": false,
       "properties": {
@@ -81,6 +82,10 @@
         "textPack": {
           "type": "string",
           "description": "The workbench-text.v1 pack this experience presents through. Required: an experience with no declared pack would leave its wording to whatever the runtime happened to hard-code, which is the arrangement this contract exists to prevent."
+        },
+        "estateCatalogue": {
+          "type": "string",
+          "description": "The estate catalogue this experience offers. Every capability in it is selectable; a view whose scene is not packaged is offered and says so."
         }
       }
     },

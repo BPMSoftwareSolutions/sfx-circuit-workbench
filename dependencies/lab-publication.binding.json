@@ -5,7 +5,7 @@
     "default": "C:/lab/repos/sfx-platform/generated/lab-publication.json",
     "environmentVariable": "SFX_LAB_PUBLICATION",
     "producedBy": "npm run publish:lab, in sfx-platform",
-    "note": "Regeneration checks source bytes, schema pins, the fixture digest, the provider-input binding and the exact fixture allow-list before writing a publication."
+    "note": "Regeneration checks source bytes, schema pins, the fixture digest and the exact fixture allow-list before writing a publication."
   },
   "governance": {
     "grantsManagedAdmission": false,
@@ -34,8 +34,8 @@
       "validate the returned outcome against the retained schema"
     ],
     "refusalCodes": {
-      "INVOCATION_BINDING_STALE": "The pinned plan no longer matches the selected authority.",
-      "INVOCATION_BINDING_REFUSED": "An unlisted identity, or a preparation request that is not permitted."
+      "STALE_PUBLICATION": "The pinned publication no longer matches the displayed experience.",
+      "EXECUTION_BINDING_MISMATCH": "The returned execution does not match the published input and authority."
     },
     "note": "Reproduced from the Lab's own ownership policy so the workbench adapter can be checked against it. The loopback command service independently applies the same policy, so a direct command request cannot forge fixture inventory either."
   },

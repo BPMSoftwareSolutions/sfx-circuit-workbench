@@ -1,0 +1,73 @@
+{
+  "mappingVersion": "execution-mapping.v1",
+  "mappingId": "estate-execution",
+  "note": "Derived from the observation vocabulary the hosted service actually emits, read from retained run records rather than from documentation. Two streams arrive together and are treated differently on purpose: scenario execution corresponds to circuit topology and lights it; delivery phases are the service's own stages and are shown as telemetry beside the circuit, because the circuit is not a picture of the delivery pipeline.",
+  "observationTypes": {
+    "scenario": "scenario-execution-observation.v1",
+    "delivery": "delivery-phase"
+  },
+  "scenarioSteps": [
+    {
+      "stepId": "admit-input",
+      "nodeKinds": ["input"],
+      "meaning": "The capability's input was admitted against its contract.",
+      "establishes": "node"
+    },
+    {
+      "stepId": "resolve-event-authority",
+      "nodeKinds": ["provider-port", "event", "decision"],
+      "meaning": "The authority for the scenario's event was resolved. In an operations view this is the port; where a capability declares none, the event node is the nearest thing the instrumentation establishes.",
+      "establishes": "node"
+    },
+    {
+      "stepId": "execute-event-authority",
+      "nodeKinds": ["provider", "provider-port", "event"],
+      "meaning": "The resolved authority executed. For a provider-backed capability this is the provider node; the observation does not establish which internal mechanic ran.",
+      "establishes": "scope"
+    },
+    {
+      "stepId": "admit-outcome",
+      "nodeKinds": ["outcome", "termination"],
+      "meaning": "A returned outcome was admitted against its contract.",
+      "establishes": "node"
+    },
+    {
+      "stepId": "resolve-disposition",
+      "nodeKinds": ["outcome", "termination"],
+      "meaning": "The domain disposition was resolved. Provider success and business success remain separate facts.",
+      "establishes": "node"
+    }
+  ],
+  "deliveryPhases": [
+    {
+      "phase": "readAuthority",
+      "label": "Read authority",
+      "meaning": "Selected estate authority was read from the database."
+    },
+    {
+      "phase": "planNativeBody",
+      "label": "Plan native body",
+      "meaning": "The executable plan was assembled from the selected authority."
+    },
+    {
+      "phase": "loadMemoryModules",
+      "label": "Load modules",
+      "meaning": "The planned modules were loaded for execution."
+    },
+    {
+      "phase": "createScenario",
+      "label": "Create scenario",
+      "meaning": "The scenario was instantiated."
+    },
+    {
+      "phase": "executeScenario",
+      "label": "Execute scenario",
+      "meaning": "The scenario ran. Its internal steps arrive as scenario observations."
+    }
+  ],
+  "unplacedPolicy": {
+    "retain": true,
+    "present": "unplaced-evidence-panel",
+    "note": "An observation with no mapped node keeps its identities and is listed with them. Dropping it would make the circuit look more complete than the evidence is."
+  }
+}

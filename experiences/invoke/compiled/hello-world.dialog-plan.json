@@ -3,14 +3,14 @@
   "uxId": "hello-world",
   "subject": "say-hello-world",
   "pins": {
-    "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+    "publicationId": "sha256:51a125471207d06002b23b90371d666b3e7af9cc439a0617d392acda0e3db269",
     "inputContract": "hello-world-request.v1",
     "inputSchemaDigest": "sha256:0cb0cff2850d0636dd684850c859b4216e4b65e3ebb1f646fcb7c34771a08eb0",
     "outcomeSchemaDigests": {
       "hello-world-greeting.v1": "sha256:032a564e36eb1123f46c112386f96eded1a50c074537eb5e0f40c8beb7ba83c8"
     },
     "observed": {
-      "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
+      "publicationId": "sha256:51a125471207d06002b23b90371d666b3e7af9cc439a0617d392acda0e3db269",
       "inputContract": "hello-world-request.v1",
       "inputSchemaDigest": "sha256:0cb0cff2850d0636dd684850c859b4216e4b65e3ebb1f646fcb7c34771a08eb0"
     },

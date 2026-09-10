@@ -6,7 +6,7 @@
     "profile": "viewport",
     "dimensions": {
       "width": 1220,
-      "height": 1180
+      "height": 1386
     },
     "coordinateSpace": "top-left-down",
     "overflow": "scroll",
@@ -81,7 +81,7 @@
                                   "semanticIdentity": "capability-title",
                                   "presentationIntent": "brand",
                                   "content": {
-                                    "text": "Convergently author an SDA capability candidate from canonical source authority"
+                                    "text": ""
                                   }
                                 }
                               ]
@@ -90,12 +90,78 @@
                         ]
                       }
                     }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "size": "76px",
+            "container": {
+              "id": "estate-bar",
+              "role": "estate-selection",
+              "presentation": {
+                "padding": [
+                  10,
+                  26
+                ]
+              },
+              "layout": {
+                "kind": "stack",
+                "direction": "row",
+                "gap": 12,
+                "crossAlign": "stretch",
+                "tracks": [
+                  {
+                    "size": "1fr",
+                    "container": {
+                      "id": "capability-slot",
+                      "components": [
+                        {
+                          "id": "capability-select",
+                          "componentType": "choice",
+                          "semanticIdentity": "selected-capability",
+                          "presentationIntent": "view-selector",
+                          "content": {
+                            "label": "Capability",
+                            "options": [],
+                            "optionTextFormat": "capabilityOption",
+                            "optionTextSource": "capabilities"
+                          },
+                          "interaction": {
+                            "semanticAction": "select-capability"
+                          }
+                        }
+                      ]
+                    }
                   },
                   {
-                    "size": "532px",
+                    "size": "340px",
+                    "container": {
+                      "id": "scenario-slot",
+                      "components": [
+                        {
+                          "id": "scenario-select",
+                          "componentType": "choice",
+                          "semanticIdentity": "selected-scenario",
+                          "presentationIntent": "view-selector",
+                          "content": {
+                            "label": "Scenario",
+                            "options": [],
+                            "optionTextFormat": "scenarioOption",
+                            "optionTextSource": "scenarios"
+                          },
+                          "interaction": {
+                            "semanticAction": "select-scenario"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "size": "420px",
                     "container": {
                       "id": "view-slot",
-                      "role": "source-view-selection",
                       "components": [
                         {
                           "id": "source-view",
@@ -104,20 +170,9 @@
                           "presentationIntent": "view-selector",
                           "content": {
                             "label": "Source view",
-                            "options": [
-                              {
-                                "value": "n-69b6853533ab1d663473efb6",
-                                "label": "",
-                                "group": "Blueprint authority"
-                              },
-                              {
-                                "value": "n-0bdad09bdc9fab51e42f65dd",
-                                "label": "",
-                                "group": "Native execution graph"
-                              }
-                            ],
+                            "options": [],
                             "optionTextFormat": "viewOption",
-                            "optionTextSource": "scenes"
+                            "optionTextSource": "views"
                           },
                           "interaction": {
                             "semanticAction": "select-source-view"
@@ -419,7 +474,7 @@
             }
           },
           {
-            "size": "630px",
+            "size": "760px",
             "container": {
               "id": "main",
               "role": "circuit-and-outline",
@@ -528,6 +583,60 @@
                                   }
                                 }
                               ]
+                            }
+                          },
+                          {
+                            "size": "196px",
+                            "container": {
+                              "id": "telemetry-slot",
+                              "role": "run-telemetry",
+                              "presentation": {
+                                "overflow": "scroll"
+                              },
+                              "layout": {
+                                "kind": "stack",
+                                "direction": "column",
+                                "gap": 6,
+                                "crossAlign": "stretch",
+                                "tracks": [
+                                  {
+                                    "size": "16px",
+                                    "container": {
+                                      "id": "telemetry-heading",
+                                      "components": [
+                                        {
+                                          "id": "telemetry-title",
+                                          "componentType": "label",
+                                          "semanticIdentity": "run-telemetry-heading",
+                                          "presentationIntent": "section-label",
+                                          "content": {
+                                            "text": ""
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "size": "1fr",
+                                    "container": {
+                                      "id": "telemetry-list-slot",
+                                      "components": [
+                                        {
+                                          "id": "run-telemetry",
+                                          "componentType": "collection",
+                                          "semanticIdentity": "reported-delivery-phases",
+                                          "presentationIntent": "vertical-list",
+                                          "content": {
+                                            "items": [],
+                                            "itemIdentity": "phase",
+                                            "emptyText": ""
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
                             }
                           }
                         ]
@@ -1100,8 +1209,8 @@
       "stateId": "capability.title",
       "semanticType": "text",
       "mutability": "fixed",
-      "meaning": "Selected experience context",
-      "initialValue": "Convergently author an SDA capability candidate from canonical source authority"
+      "meaning": "Identity of the loaded capability. Produced from the scene, not authored for one capability.",
+      "initialValue": ""
     },
     {
       "stateId": "experience.limit",
@@ -1109,6 +1218,34 @@
       "mutability": "fixed",
       "meaning": "Selected experience context",
       "initialValue": "Declared topology. Illustrative playback does not execute a capability."
+    },
+    {
+      "stateId": "estate.capability",
+      "semanticType": "selection",
+      "meaning": "Which estate capability is selected.",
+      "mutability": "mutable",
+      "initialValue": ""
+    },
+    {
+      "stateId": "estate.scenario",
+      "semanticType": "selection",
+      "meaning": "Which of the selected capability's scenarios is in view. Empty means every scenario.",
+      "mutability": "mutable",
+      "initialValue": ""
+    },
+    {
+      "stateId": "telemetry.items",
+      "semanticType": "collection",
+      "meaning": "Reported delivery phases for the current run. These map to no circuit node and are never drawn on it.",
+      "mutability": "fixed",
+      "initialValue": []
+    },
+    {
+      "stateId": "telemetry.heading",
+      "semanticType": "text",
+      "meaning": "Heading for the telemetry region, naming the run it reports.",
+      "mutability": "fixed",
+      "initialValue": ""
     }
   ],
   "bindings": [
@@ -1224,6 +1361,30 @@
       "bindingId": "bind-experience-limit",
       "component": "evidence-limit",
       "state": "experience.limit",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-capability",
+      "component": "capability-select",
+      "state": "estate.capability",
+      "direction": "read-write"
+    },
+    {
+      "bindingId": "bind-scenario",
+      "component": "scenario-select",
+      "state": "estate.scenario",
+      "direction": "read-write"
+    },
+    {
+      "bindingId": "bind-telemetry",
+      "component": "run-telemetry",
+      "state": "telemetry.items",
+      "direction": "read"
+    },
+    {
+      "bindingId": "bind-telemetry-title",
+      "component": "telemetry-title",
+      "state": "telemetry.heading",
       "direction": "read"
     }
   ],
@@ -1425,6 +1586,18 @@
       "meaning": "Choose whether the camera follows the animated point.",
       "requiresAdmissible": [],
       "scenarioEvent": "workbench.illustrative-trace.follow-toggled"
+    },
+    {
+      "actionId": "select-capability",
+      "meaning": "Select a capability from the estate catalogue.",
+      "requiresAdmissible": [],
+      "scenarioEvent": "workbench.capability.selected"
+    },
+    {
+      "actionId": "select-scenario",
+      "meaning": "Narrow the selected capability to one of its declared scenarios.",
+      "requiresAdmissible": [],
+      "scenarioEvent": "workbench.scenario.selected"
     }
   ]
 }

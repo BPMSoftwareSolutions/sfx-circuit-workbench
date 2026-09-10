@@ -30,6 +30,21 @@ def run(*args):
     if result.returncode: raise RuntimeError(result.stderr[-1500:] + result.stdout[-1000:])
 def digest(data): return 'sha256:' + hashlib.sha256(data).hexdigest()
 
+TRANSFORMATION_PORT = 'sda-authority-transformation-port.v1'
+
+def declared_effect_ports(retained):
+    """The capability's declared effect ports, read from its interface authority.
+
+    A capability obtains external testimony through declared effect ports, not a
+    provider-input binding document. The circuit is built from the same authority
+    the planner materializes."""
+    prefix = 'capabilities/' + retained['subject'] + '/interfaces.authority.json'
+    records = retained['bundle']['authority']['recordsets'][1] + retained['bundle']['authority']['recordsets'][2]
+    record = next((r for r in records if r.get('source_path') == prefix), None)
+    if not record: return []
+    document = json.loads(base64.b64decode(record['content_bytes']['base64']).decode('utf-8'))
+    return [b for b in document.get('portBindings', []) if b.get('platformCapabilityId') != TRANSFORMATION_PORT]
+
 def interface_scene(pilot, retained):
     subject = pilot['profile']['subject']; scenario = pilot['authority']['scenarioId']
     rows = retained['bundle']['authority']['recordsets'][0]
@@ -43,19 +58,20 @@ def interface_scene(pilot, retained):
                 'kind': kind, 'label': label, 'detail': detail, 'source': src, 'facts': {'scenarioId': scenario}}
         nodes.append(item); return item
     incoming = node('input', 'input', pilot['profile']['inputContract'], 'Select to enter capability input.')
-    binding = pilot['profile'].get('providerInputBindingDigest')
+    ports = declared_effect_ports(retained)
     provider = None
-    if binding:
-        provider = node('provider-input-binding', 'provider-port', 'Provider input binding',
-                        'The declared binding obtains native provider testimony for this scenario.',
-                        src={'label': 'Published provider input binding', 'sha256': binding, 'pointer': '/providerInputBinding'})
-        node('native-input', 'input', selected['input_id'], 'Native testimony supplied by the declared binding; read-only.')
+    if ports:
+        exchange = next((p for p in ports if (p.get('configuration') or {}).get('endpointAuthorities')), None)
+        endpoint = ((exchange or {}).get('configuration') or {}).get('endpointAuthorities', [{}])[0]
+        origins = endpoint.get('urlPrefixes') or []
+        provider = node('provider', 'provider-port', origins[0] if origins else 'Declared provider',
+                        'Declared effect ports: ' + ', '.join(p.get('platformCapabilityId', '') for p in ports))
     event = node('event', 'event', selected['event_id'], selected['responsibility'])
     outcome = node('outcome', 'outcome', pilot['profile']['outcome']['contract'], 'Select to reopen this run’s outcome.')
     for index, (left, right) in enumerate(zip(nodes, nodes[1:])):
         routes.append({'id': f'r-{subject}-{index}', 'identity': f'{subject}:interface:{index}',
                        'source': left['id'], 'target': right['id'], 'kind': 'interface-binding',
-                       'label': 'binding' if binding and index < 2 else 'scenario interface', 'provenance': source})
+                       'label': 'binding' if ports and index == 0 else 'scenario interface', 'provenance': source})
     width = len(nodes) * 280 + 60; height = 330
     boxes = {n['id']: [40 + i * 280, 95, 230, 125] for i, n in enumerate(nodes)}
     svg = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="group" aria-label="{html.escape(pilot["profile"]["label"])}">',
@@ -81,13 +97,13 @@ def interface_scene(pilot, retained):
       'traceMode':'ILLUSTRATIVE','graph':{'nodes':nodes,'routes':routes},
       'geometry':{'width':width,'height':height,'boxes':boxes,'engine':'declared-interface-row'},
       'coverage':{'nodes':len(nodes),'routes':len(routes),'omittedSourceNodes':0,
-        'scope':'Selected scenario input/event/outcome and declared provider binding. Internal mechanics are a separate view.'},
+        'scope':'Selected scenario input/event/outcome and declared effect ports. Internal mechanics are a separate view.'},
       'topology':{'roots':[incoming['id']],'leaves':[outcome['id']]}, 'findings':[], 'materials':[],
       'hitTargets':[{'targetId':n['id'],'entityId':n['id'],'keyboardActivable':True} for n in nodes+routes],
       'provenance':{'authority':pilot['authority'],'publicationId':retained['publicationId']},
       'invocation':{'subject':subject, 'inputNode':incoming['id'],'outcomeNode':outcome['id'],
         'providerNode':provider['id'] if provider else None, 'eventNode':event['id'],
-        'stepNodes':{'admit-input':nodes[-3]['id'] if binding else incoming['id'],
+        'stepNodes':{'admit-input':incoming['id'],
           'resolve-event-authority':event['id'],'execute-event-authority':event['id'],
           'admit-outcome':outcome['id'],'resolve-disposition':outcome['id']}}}
     return scene, svg

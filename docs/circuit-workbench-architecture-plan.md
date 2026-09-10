@@ -84,9 +84,9 @@ The [capability gap inventory](../../sidefx-ui/sidefx-compose-ui-surface/docs/ca
 
 ### The hosted execution foundation
 
-The [deployed private Lab](../../repos/sfx-platform/docs/live-finance-deployment.md) already records successful Hugging Face runs for Hello World, personal greeting, retained provider examples and live stock retrieval. Its path is Space → authenticated Azure service → selected database authority and declared provider-input binding → RapidAPI → native normalization. This evidence is dated 9 September local time / 10 September UTC; reverify the selected deployment during implementation.
+The [deployed private Lab](../../repos/sfx-platform/docs/live-finance-deployment.md) already records successful Hugging Face runs for Hello World, personal greeting, retained provider examples and live stock retrieval. Its path is Space → authenticated Azure service → selected database authority and declared effect ports → RapidAPI → native normalization. This evidence is dated 9 September local time / 10 September UTC; reverify the selected deployment during implementation.
 
-Reuse its [input ownership and invocation contracts](../../repos/sfx-platform/docs/private-lab.md), server assembly, exact authority checks and refusal behavior. The live finance root remains a normalizer; the separately declared provider-input binding obtains the native testimony. HTTP evidence and kernel outcome remain separate.
+Reuse its [input ownership and invocation contracts](../../repos/sfx-platform/docs/private-lab.md), server assembly, exact authority checks and refusal behavior. The live finance capability is a declared composition: it binds the external credential reference, observes one bounded HTTP exchange and normalizes the observed testimony, all as declared effect ports rather than invocation-time code. HTTP evidence and kernel outcome remain separate.
 
 The retained [CLI result](../../repos/sfx-embody/evidence/hugging-face-live-finance/cli-result.json) contains execution identities and observations with scenario, step, sequence, status and time. It contains one execution and five observations for that run. This is a seed for mapping evidence to topology, not proof of an event stream or observation of every displayed mechanic. The deployed pilot is synchronous and has no durable asynchronous run-status service.
 
@@ -221,7 +221,7 @@ Retain the Lab's established ownership:
 | Hello World | Explicit Run | Exact contract and empty payload; greeting text. |
 | Personal greeting | Required name, 1–100 Unicode code points | Fixed contract and declared payload child; output escaped as text. |
 | Provider demonstration | One of four retained examples, then Run | Complete canonical fixture remains server-owned; show disposition, counts, reasons, findings and digests. |
-| Live finance | Allowed symbol and region | Declared request and credential binding; actual provider response passed to the normalizer; price, currency, market/retrieval times and attribution. |
+| Live finance | Allowed symbol and region | Declared request; the capability binds the credential reference and observes one bounded exchange through declared effect ports; price, currency, market/retrieval times and attribution. |
 
 Contracts remain the source for admissible values; fixtures remain the source for examples and expected outcomes. Interaction profiles express presentation and ownership bound to schema digests. They do not replace registered authority or grant permission by themselves.
 
