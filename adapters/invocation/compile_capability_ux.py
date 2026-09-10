@@ -553,7 +553,7 @@ def main(argv=None) -> int:
             refused += 1
         else:
             target = args.out_dir / (ux["uxId"] + ".dialog-plan.json")
-            target.write_text(json.dumps(plan, indent=2) + "\n", encoding="utf-8")
+            target.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             plan["output"] = target.relative_to(WORKBENCH).as_posix()
 
         results.append({

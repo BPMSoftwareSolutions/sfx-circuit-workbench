@@ -107,15 +107,17 @@
                             "options": [
                               {
                                 "value": "n-69b6853533ab1d663473efb6",
-                                "label": "Capability blueprint \u00c2\u00b7 30 components / 45 routes",
+                                "label": "",
                                 "group": "Blueprint authority"
                               },
                               {
                                 "value": "n-0bdad09bdc9fab51e42f65dd",
-                                "label": "Execution \u00c2\u00b7 Admit the capability authoring context \u00c2\u00b7 10 components / 9 routes",
+                                "label": "",
                                 "group": "Native execution graph"
                               }
-                            ]
+                            ],
+                            "optionTextFormat": "viewOption",
+                            "optionTextSource": "scenes"
                           },
                           "interaction": {
                             "semanticAction": "select-source-view"
@@ -156,7 +158,7 @@
                           "semanticIdentity": "source-view-kind",
                           "presentationIntent": "section-label",
                           "content": {
-                            "value": "Blueprint authority"
+                            "value": ""
                           }
                         }
                       ]
@@ -173,7 +175,7 @@
                           "semanticIdentity": "source-coverage",
                           "presentationIntent": "coverage-readout",
                           "content": {
-                            "value": "30 components \u00c2\u00b7 45 routes \u00c2\u00b7 0 source components omitted"
+                            "value": ""
                           }
                         }
                       ]
@@ -338,7 +340,8 @@
                                   "semanticIdentity": "reduce-camera-scale",
                                   "presentationIntent": "secondary-action",
                                   "content": {
-                                    "label": "\u2212",
+                                    "textRef": "glyphs.zoomOut",
+                                    "label": "",
                                     "accessibleName": "Zoom out"
                                   },
                                   "interaction": {
@@ -359,7 +362,7 @@
                                   "semanticIdentity": "camera-scale",
                                   "presentationIntent": "zoom-readout",
                                   "content": {
-                                    "value": "15%"
+                                    "value": ""
                                   }
                                 }
                               ]
@@ -376,7 +379,8 @@
                                   "semanticIdentity": "raise-camera-scale",
                                   "presentationIntent": "secondary-action",
                                   "content": {
-                                    "label": "+",
+                                    "textRef": "glyphs.zoomIn",
+                                    "label": "",
                                     "accessibleName": "Zoom in"
                                   },
                                   "interaction": {
@@ -636,21 +640,22 @@
                                     "options": [
                                       {
                                         "value": "1",
-                                        "label": "1\u00c3\u2014"
+                                        "label": ""
                                       },
                                       {
                                         "value": "4",
-                                        "label": "4\u00c3\u2014"
+                                        "label": ""
                                       },
                                       {
                                         "value": "16",
-                                        "label": "16\u00c3\u2014"
+                                        "label": ""
                                       },
                                       {
                                         "value": "64",
-                                        "label": "64\u00c3\u2014"
+                                        "label": ""
                                       }
-                                    ]
+                                    ],
+                                    "optionTextFormat": "speedOption"
                                   },
                                   "interaction": {
                                     "semanticAction": "set-trace-speed"
@@ -704,7 +709,7 @@
                                   "semanticIdentity": "illustrative-trace-status",
                                   "presentationIntent": "live-status",
                                   "content": {
-                                    "text": "Select a component, then follow its declared routes.",
+                                    "text": "",
                                     "liveRegion": "polite"
                                   }
                                 }
@@ -723,7 +728,7 @@
                                   "semanticIdentity": "declared-trace-mode",
                                   "presentationIntent": "trace-mode-badge",
                                   "content": {
-                                    "value": "ILLUSTRATIVE"
+                                    "value": ""
                                   }
                                 }
                               ]
@@ -806,7 +811,7 @@
                                   "semanticIdentity": "selected-entity-kind",
                                   "presentationIntent": "section-label",
                                   "content": {
-                                    "value": "INSPECT THE SOURCE"
+                                    "value": ""
                                   }
                                 }
                               ]
@@ -823,7 +828,7 @@
                                   "semanticIdentity": "selected-entity-label",
                                   "presentationIntent": "card-title",
                                   "content": {
-                                    "text": "Every component keeps its identity."
+                                    "text": ""
                                   }
                                 }
                               ]
@@ -840,7 +845,7 @@
                                   "semanticIdentity": "selected-entity-responsibility",
                                   "presentationIntent": "body",
                                   "content": {
-                                    "text": "Select a shape or route to inspect its responsibility, contracts and exact source."
+                                    "text": ""
                                   }
                                 }
                               ]
@@ -954,21 +959,21 @@
     {
       "stateId": "view.scope",
       "semanticType": "text",
-      "meaning": "Display name of the loaded view kind, or the load failure state.",
+      "meaning": "Display name of the loaded view kind, or the load failure state. Produced at runtime; not authored here.",
       "mutability": "fixed",
-      "initialValue": "Blueprint authority"
+      "initialValue": ""
     },
     {
       "stateId": "view.coverage",
       "semanticType": "text",
-      "meaning": "Component, route and omission counts for the loaded view.",
+      "meaning": "Component, route and omission counts for the loaded view. Produced at runtime; not authored here.",
       "mutability": "fixed",
-      "initialValue": "30 components \u00c2\u00b7 45 routes \u00c2\u00b7 0 source components omitted"
+      "initialValue": ""
     },
     {
       "stateId": "view.findings",
       "semanticType": "text",
-      "meaning": "Findings carried by the loaded view, as code and identity.",
+      "meaning": "Findings carried by the loaded view, as code and identity. Produced at runtime; not authored here.",
       "mutability": "fixed",
       "initialValue": ""
     },
@@ -989,9 +994,9 @@
     {
       "stateId": "camera.zoom-label",
       "semanticType": "text",
-      "meaning": "Camera scale as a whole percentage.",
+      "meaning": "Camera scale as a whole percentage. Produced at runtime; not authored here.",
       "mutability": "fixed",
-      "initialValue": "15%"
+      "initialValue": ""
     },
     {
       "stateId": "search.query",
@@ -1024,35 +1029,35 @@
     {
       "stateId": "selection.kind",
       "semanticType": "text",
-      "meaning": "Kind of the selected entity, or the view kind when nothing is selected.",
+      "meaning": "Kind of the selected entity, or the view kind when nothing is selected. Produced at runtime; not authored here.",
       "mutability": "fixed",
-      "initialValue": "INSPECT THE SOURCE"
+      "initialValue": ""
     },
     {
       "stateId": "selection.title",
       "semanticType": "text",
-      "meaning": "Label of the selected entity.",
+      "meaning": "Label of the selected entity. Produced at runtime; not authored here.",
       "mutability": "fixed",
-      "initialValue": "Every component keeps its identity."
+      "initialValue": ""
     },
     {
       "stateId": "selection.detail",
       "semanticType": "text",
-      "meaning": "Declared responsibility of the selected entity, or its detail.",
+      "meaning": "Declared responsibility of the selected entity, or its detail. Produced at runtime; not authored here.",
       "mutability": "fixed",
-      "initialValue": "Select a shape or route to inspect its responsibility, contracts and exact source."
+      "initialValue": ""
     },
     {
       "stateId": "selection.facts",
       "semanticType": "text",
-      "meaning": "Identity and declared facts of the selected entity.",
+      "meaning": "Identity and declared facts of the selected entity. Produced at runtime; not authored here.",
       "mutability": "fixed",
       "initialValue": ""
     },
     {
       "stateId": "selection.source",
       "semanticType": "text",
-      "meaning": "Source label, SHA-256 digest and pointer for the selected entity.",
+      "meaning": "Source label, SHA-256 digest and pointer for the selected entity. Produced at runtime; not authored here.",
       "mutability": "fixed",
       "initialValue": ""
     },
@@ -1066,16 +1071,16 @@
     {
       "stateId": "trace.status",
       "semanticType": "text",
-      "meaning": "Live-announced playback status and route coverage.",
+      "meaning": "Live-announced playback status and route coverage. Produced at runtime; not authored here.",
       "mutability": "fixed",
-      "initialValue": "Select a component, then follow its declared routes."
+      "initialValue": ""
     },
     {
       "stateId": "trace.play-label",
       "semanticType": "text",
-      "meaning": "Current playback affordance: trace, pause, resume or replay.",
+      "meaning": "Current playback affordance: trace, pause, resume or replay. Produced at runtime; not authored here.",
       "mutability": "fixed",
-      "initialValue": "Trace flow"
+      "initialValue": ""
     },
     {
       "stateId": "trace.speed",

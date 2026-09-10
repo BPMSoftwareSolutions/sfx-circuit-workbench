@@ -1,7 +1,7 @@
 {
   "receiptType": "specimen-reproduction-receipt.v1",
   "statement": "Retained sidefx-ui specimen products recomposed against the relocated dependency closure and compared field by field.",
-  "reproducedAt": "2026-09-10T16:23:33+00:00",
+  "reproducedAt": "2026-09-10T17:47:50+00:00",
   "criterion": "SEMANTIC_EQUIVALENCE_WITH_ENUMERATED_DELTAS",
   "byteIdenticalResolvedProduct": false,
   "root": {
@@ -35,7 +35,7 @@
           {
             "path": "/resolvedAt",
             "retained": "2026-08-31T18:10:04+00:00",
-            "produced": "2026-09-10T16:23:31+00:00"
+            "produced": "2026-09-10T17:47:48+00:00"
           }
         ],
         "divergences": [],
@@ -107,7 +107,7 @@
           {
             "path": "/composedAt",
             "retained": "2026-08-31T18:10:04+00:00",
-            "produced": "2026-09-10T16:23:31+00:00"
+            "produced": "2026-09-10T17:47:48+00:00"
           },
           {
             "path": "/composition/declarationSha256",
@@ -137,12 +137,12 @@
           {
             "path": "/outputs/resolved/path",
             "retained": "C:\\lab\\sidefx-compose-ui-surface\\out\\design-canvas.resolved.json",
-            "produced": "C:\\Users\\Sidney Jones\\AppData\\Local\\Temp\\sfx-m0-reproduce-qemqxqhz\\design-canvas.resolved.json"
+            "produced": "C:\\Users\\Sidney Jones\\AppData\\Local\\Temp\\sfx-m0-reproduce-tex7tknd\\design-canvas.resolved.json"
           },
           {
             "path": "/outputs/resolved/sha256",
             "retained": "291fe11f02a5bd6168c901801fd0ffe9ab503c3500fb632aff54efa662b3e7b8",
-            "produced": "fbd3d5dfe418ec6f5ae5b4ad24066e6f2ee070c30e46a80a11b64b722df73ab3"
+            "produced": "2a7d535cded6b0bd103f24f9572c1054f8977c1a1f0450082a58ccc4cdc0c63a"
           }
         ],
         "divergences": [],
@@ -170,7 +170,7 @@
           {
             "path": "/resolvedAt",
             "retained": "2026-08-31T18:10:06+00:00",
-            "produced": "2026-09-10T16:23:32+00:00"
+            "produced": "2026-09-10T17:47:48+00:00"
           }
         ],
         "divergences": [],
@@ -242,7 +242,7 @@
           {
             "path": "/composedAt",
             "retained": "2026-08-31T18:10:06+00:00",
-            "produced": "2026-09-10T16:23:32+00:00"
+            "produced": "2026-09-10T17:47:48+00:00"
           },
           {
             "path": "/composition/declarationSha256",
@@ -272,12 +272,12 @@
           {
             "path": "/outputs/resolved/path",
             "retained": "C:\\lab\\sidefx-compose-ui-surface\\out\\mortgage-application.resolved.json",
-            "produced": "C:\\Users\\Sidney Jones\\AppData\\Local\\Temp\\sfx-m0-reproduce-qemqxqhz\\mortgage-application.resolved.json"
+            "produced": "C:\\Users\\Sidney Jones\\AppData\\Local\\Temp\\sfx-m0-reproduce-tex7tknd\\mortgage-application.resolved.json"
           },
           {
             "path": "/outputs/resolved/sha256",
             "retained": "d400d0a77aa729b2f192546de7ede02eafe122a49f73a1bc57474ef92b240458",
-            "produced": "16b18809a498ff9b243565bc4195b91b1f0e33a0575324a4d59f190db74b9007"
+            "produced": "980881a01daaa3b9c7969ffdad1f26fbd1931fb098d8a937e5bdab70fc362c6b"
           }
         ],
         "divergences": [],
@@ -305,7 +305,7 @@
           {
             "path": "/resolvedAt",
             "retained": "2026-08-31T18:10:06+00:00",
-            "produced": "2026-09-10T16:23:32+00:00"
+            "produced": "2026-09-10T17:47:49+00:00"
           }
         ],
         "divergences": [],
@@ -377,7 +377,7 @@
           {
             "path": "/composedAt",
             "retained": "2026-08-31T18:10:06+00:00",
-            "produced": "2026-09-10T16:23:32+00:00"
+            "produced": "2026-09-10T17:47:49+00:00"
           },
           {
             "path": "/composition/declarationSha256",
@@ -407,12 +407,12 @@
           {
             "path": "/outputs/resolved/path",
             "retained": "C:\\lab\\sidefx-compose-ui-surface\\out\\component-families.resolved.json",
-            "produced": "C:\\Users\\Sidney Jones\\AppData\\Local\\Temp\\sfx-m0-reproduce-qemqxqhz\\component-families.resolved.json"
+            "produced": "C:\\Users\\Sidney Jones\\AppData\\Local\\Temp\\sfx-m0-reproduce-tex7tknd\\component-families.resolved.json"
           },
           {
             "path": "/outputs/resolved/sha256",
             "retained": "c429ca9fa05064ee61a1ff0acb98b5bbc4307c278df2e7c028f0e29ff6070dcf",
-            "produced": "19aaaf6851b60e6a9dfc2455512e77503de7f64c6dae815cc1eabca6667dd5e1"
+            "produced": "91905c35d8767a2d9cc2e4f3a539564be6e9c6ae94f194b3eb46ff190a187c09"
           }
         ],
         "divergences": [],
@@ -440,7 +440,7 @@
           {
             "path": "/resolvedAt",
             "retained": "2026-08-31T18:10:04+00:00",
-            "produced": "2026-09-10T16:23:33+00:00"
+            "produced": "2026-09-10T17:47:49+00:00"
           }
         ],
         "divergences": [],
@@ -512,7 +512,7 @@
           {
             "path": "/composedAt",
             "retained": "2026-08-31T18:10:04+00:00",
-            "produced": "2026-09-10T16:23:33+00:00"
+            "produced": "2026-09-10T17:47:49+00:00"
           },
           {
             "path": "/composition/declarationSha256",
@@ -542,12 +542,12 @@
           {
             "path": "/outputs/resolved/path",
             "retained": "C:\\lab\\sidefx-compose-ui-surface\\out\\site-shell.resolved.json",
-            "produced": "C:\\Users\\Sidney Jones\\AppData\\Local\\Temp\\sfx-m0-reproduce-qemqxqhz\\site-shell.resolved.json"
+            "produced": "C:\\Users\\Sidney Jones\\AppData\\Local\\Temp\\sfx-m0-reproduce-tex7tknd\\site-shell.resolved.json"
           },
           {
             "path": "/outputs/resolved/sha256",
             "retained": "565be503b306b40a0bfe5a87b7bf32dba6d25812f503784fd8313a9c1e857272",
-            "produced": "99947afd16ddc2d14db462eb89febff17056432362828fd095864df456a76e7c"
+            "produced": "ab33327e02890475e6e17a98c0b0d23d2bb0bafdeb4eebe57dc9fb051850b9d9"
           }
         ],
         "divergences": [],
@@ -575,7 +575,7 @@
           {
             "path": "/resolvedAt",
             "retained": "2026-08-31T18:10:05+00:00",
-            "produced": "2026-09-10T16:23:33+00:00"
+            "produced": "2026-09-10T17:47:50+00:00"
           }
         ],
         "divergences": [],
@@ -647,7 +647,7 @@
           {
             "path": "/composedAt",
             "retained": "2026-08-31T18:10:05+00:00",
-            "produced": "2026-09-10T16:23:33+00:00"
+            "produced": "2026-09-10T17:47:50+00:00"
           },
           {
             "path": "/composition/declarationSha256",
@@ -677,12 +677,12 @@
           {
             "path": "/outputs/resolved/path",
             "retained": "C:\\lab\\sidefx-compose-ui-surface\\out\\overlay-policy.resolved.json",
-            "produced": "C:\\Users\\Sidney Jones\\AppData\\Local\\Temp\\sfx-m0-reproduce-qemqxqhz\\overlay-policy.resolved.json"
+            "produced": "C:\\Users\\Sidney Jones\\AppData\\Local\\Temp\\sfx-m0-reproduce-tex7tknd\\overlay-policy.resolved.json"
           },
           {
             "path": "/outputs/resolved/sha256",
             "retained": "cd4770240b01fe8c5056c2fe7470144e05364886a5865df1945f3589cd5b6c57",
-            "produced": "7d456eff1974d03262f38c9b1e0b1116a4d949883927872606785bed68ec00b5"
+            "produced": "42b1f48e97583a5b6f9126a9cf83a82faa5910c7c8a0a21ff94fac41052b2d24"
           }
         ],
         "divergences": [],

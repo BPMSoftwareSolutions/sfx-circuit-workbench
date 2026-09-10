@@ -1,7 +1,7 @@
 {
   "sceneVersion": "circuit-scene.v1",
   "sceneId": "author-tooling-capability-candidate/n-0bdad09bdc9fab51e42f65dd",
-  "label": "Execution \u00b7 Admit the capability authoring context",
+  "label": "Execution · Admit the capability authoring context",
   "identities": {
     "capabilityId": "author-tooling-capability-candidate",
     "viewId": "n-0bdad09bdc9fab51e42f65dd",

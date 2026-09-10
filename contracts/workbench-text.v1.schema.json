@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sidefx.local/sfx-circuit-workbench/contracts/workbench-text.v1.schema.json",
+  "title": "workbench-text.v1",
+  "description": "The third swappable pack, alongside presentation and layout: everything a person reads that is not domain data. Glyph tokens, format templates for derived readouts, and the message set. It exists because presentation text with no owner ends up hard-coded in the runtime and duplicated into authored surfaces, where it drifts from the data it claims to describe and cannot be verified, swapped or translated.",
+  "type": "object",
+  "required": [
+    "textVersion",
+    "packId",
+    "locale",
+    "glyphs",
+    "formats",
+    "messages"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "textVersion": {
+      "const": "workbench-text.v1"
+    },
+    "packId": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "locale": {
+      "type": "string",
+      "description": "BCP 47 tag. One pack, one locale."
+    },
+    "title": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "glyphs": {
+      "type": "object",
+      "description": "Every non-ASCII character the interface presents, named once. This is the only place such characters are authored, which is what makes a text-encoding check cheap and total instead of a hunt through string literals.",
+      "required": [
+        "separator",
+        "routeArrow",
+        "speedSuffix",
+        "ellipsis"
+      ],
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4
+      },
+      "properties": {
+        "separator": {
+          "type": "string"
+        },
+        "routeArrow": {
+          "type": "string"
+        },
+        "speedSuffix": {
+          "type": "string"
+        },
+        "ellipsis": {
+          "type": "string"
+        },
+        "rangeDash": {
+          "type": "string"
+        }
+      }
+    },
+    "formats": {
+      "type": "object",
+      "description": "Templates for values derived from the scene, the camera or a run. `{name}` placeholders are filled from supplied values and from glyphs. A readout is formatted here, never assembled by concatenation at the point of use, so the same fact cannot be phrased two ways in two places.",
+      "required": [
+        "coverage",
+        "zoom",
+        "viewOption",
+        "speedOption",
+        "sourcePointer",
+        "routeChoice",
+        "traceStep",
+        "traceParallel",
+        "tracePaused",
+        "traceComplete",
+        "finding",
+        "exportFileName"
+      ],
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "messages": {
+      "type": "object",
+      "description": "Fixed text with no derived values. Includes the states a person must be able to tell apart: idle, unavailable, mismatched and unsupported are four different messages because they are four different facts.",
+      "required": [
+        "traceIdle",
+        "traceIdleExpression",
+        "convergence",
+        "fanOut",
+        "chooseRoute",
+        "endOfPath",
+        "loadingGraph",
+        "graphUnavailable",
+        "graphIdentityMismatch",
+        "sceneContractUnsupported",
+        "sceneUnpublished",
+        "sceneLoadFailed",
+        "anchorUnavailable"
+      ],
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "playLabels": {
+      "type": "object",
+      "description": "The playback affordance's label per lifecycle state. It cannot be a binding, because an action component declares no binding directions, so it is declared here rather than embedded in the runtime.",
+      "required": [
+        "idle",
+        "running",
+        "paused",
+        "complete"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "viewKindNames": {
+      "type": "object",
+      "description": "Display name per source view kind. Previously a dictionary inside the build tool, which put presentation text in a place no profile could reach.",
+      "required": [
+        "blueprint",
+        "operations",
+        "native",
+        "expression"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "unresolvedTemplate": {
+      "type": "string",
+      "description": "What to render when a template or placeholder is missing. It must be visibly wrong rather than silently empty: a blank readout looks like a legitimate absence of data.",
+      "default": "[{name} unresolved]"
+    }
+  }
+}

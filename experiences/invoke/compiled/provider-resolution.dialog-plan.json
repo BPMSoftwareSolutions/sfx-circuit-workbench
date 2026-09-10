@@ -2,7 +2,7 @@
   "planVersion": "capability-dialog-plan.v1",
   "uxId": "provider-resolution",
   "subject": "resolve-sidefx-eligible-providers",
-  "compiledAt": "2026-09-10T16:41:36+00:00",
+  "compiledAt": "2026-09-10T17:48:33+00:00",
   "pins": {
     "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
     "inputContract": "sidefx-provider-resolution-request.v1",
@@ -45,19 +45,19 @@
           "options": [
             {
               "value": "hold-admitted-providers-that-declare-no-target",
-              "label": "No target declared \u2014 eligibility held"
+              "label": "No target declared — eligibility held"
             },
             {
               "value": "admit-provider-once-its-target-is-declared",
-              "label": "Matching target declared \u2014 eligible provider"
+              "label": "Matching target declared — eligible provider"
             },
             {
               "value": "refuse-target-the-binding-does-not-declare",
-              "label": "Different target requested \u2014 eligibility held"
+              "label": "Different target requested — eligibility held"
             },
             {
               "value": "refuse-unadmitted-and-unconformed-providers",
-              "label": "Admission or conformance missing \u2014 eligibility held"
+              "label": "Admission or conformance missing — eligibility held"
             }
           ]
         }

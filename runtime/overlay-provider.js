@@ -107,8 +107,13 @@
        * than pointing confidently at nothing. */
       var note = provider.element.querySelector("[data-anchor-note]");
       if (note) {
+        /* The wording is the text pack's; only the reason is the provider's.
+         * `anchorNote` is optional so an overlay can be created without a pack
+         * in a check, but a caller that has one gets declared phrasing. */
         note.textContent = provider.anchor.available ? ""
-          : "This capability's node is not in the current view — " + provider.anchor.reason + ".";
+          : (options.anchorNote
+              ? options.anchorNote(provider.anchor.reason)
+              : provider.anchor.reason);
         note.hidden = provider.anchor.available;
       }
     }

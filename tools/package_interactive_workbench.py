@@ -100,7 +100,10 @@ def main():
     shutil.copytree(ROOT / 'build/source-inspection/package', OUT, dirs_exist_ok=True)
     document = (OUT/'index.html').read_text(encoding='utf-8')
     match = re.search(r'(<script type="application/json" id="sfx-workbench-config">)(.*?)(</script>)', document, re.S)
-    config = json.loads(match.group(2)); config['viewKindNames']['invocation'] = 'Executable scenario interface'
+    config = json.loads(match.group(2))
+    # View-kind names are declared in the text pack, which the build already
+    # placed in the config. Injecting one here would put presentation text in a
+    # packaging step, where no profile could reach it.
     publication = load('C:/lab/repos/sfx-platform/generated/lab-publication.json')
     pilots = {p['profile']['subject']:p for p in publication['pilots']}
     web_manifest = {'publicationId':publication['publicationId'],'capabilities':[]}

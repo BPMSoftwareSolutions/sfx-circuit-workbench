@@ -1,0 +1,90 @@
+{
+  "receiptType": "presentation-text-receipt.v1",
+  "checkedAt": "2026-09-10T17:48:48+00:00",
+  "statement": "Presentation text belongs to a declared pack. The runtime supplies values and asks for names; it spells nothing. Surfaces bake no value the runtime produces. Only the pack authors non-ASCII, which is what makes the encoding check total rather than a hunt.",
+  "pack": {
+    "path": "profiles/workbench-en.text.json",
+    "packId": "workbench-en",
+    "locale": "en",
+    "sha256": "cc1f1e396e119a900cfd62e7128d341ae23548473d9c454bdd02cefdfe796b31",
+    "glyphs": {
+      "separator": "·",
+      "routeArrow": "→",
+      "speedSuffix": "×",
+      "ellipsis": "…",
+      "rangeDash": "–",
+      "zoomOut": "−",
+      "zoomIn": "+",
+      "quoteOpen": "“",
+      "quoteClose": "”"
+    },
+    "formats": 16,
+    "messages": 23
+  },
+  "passed": true,
+  "checks": {
+    "packValid": {
+      "clean": true
+    },
+    "glyphContainment": {
+      "filesScanned": 23,
+      "offenders": [],
+      "clean": true
+    },
+    "runtimeProse": {
+      "offenders": [],
+      "clean": true
+    },
+    "surfaceLiterals": {
+      "offenders": [],
+      "clean": true
+    },
+    "packResolves": {
+      "asked": {
+        "formats": [
+          "coverage",
+          "exportFileName",
+          "finding",
+          "isolatedComponent",
+          "routeChoice",
+          "sourcePointer",
+          "speedOption",
+          "traceComplete",
+          "traceParallel",
+          "tracePaused",
+          "traceStep",
+          "viewOption",
+          "zoom"
+        ],
+        "messages": [
+          "convergence",
+          "endOfPath",
+          "graphIdentityMismatch",
+          "graphUnavailable",
+          "inspectPrompt",
+          "loadingGraph",
+          "sceneContractUnsupported",
+          "sceneLoadFailed",
+          "sceneUnpublished",
+          "traceIdle"
+        ],
+        "glyphs": [
+          "separator"
+        ],
+        "playLabels": [
+          "complete",
+          "idle",
+          "paused"
+        ]
+      },
+      "missing": [],
+      "unusedFormats": [
+        "metricTimestamp",
+        "phaseStatus",
+        "runCapabilityHint"
+      ],
+      "clean": true
+    }
+  },
+  "findings": []
+}

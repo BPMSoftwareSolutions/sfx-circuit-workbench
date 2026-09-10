@@ -2,12 +2,27 @@
   "receiptType": "milestone-gate-receipt.v1",
   "milestone": "M1",
   "title": "Recreate the full source workbench",
-  "evaluatedAt": "2026-09-10T16:23:38+00:00",
+  "evaluatedAt": "2026-09-10T17:47:56+00:00",
   "locallyVerifiablePassed": true,
   "milestoneComplete": false,
   "steps": [
     {
       "step": "m0-gate",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "step": "check-text-encoding",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "step": "check-presentation-text",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "step": "text-format",
       "exitCode": 0,
       "passed": true
     },

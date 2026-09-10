@@ -1,6 +1,6 @@
 {
   "receiptType": "topology-ingestion-receipt.v1",
-  "ingestedAt": "2026-09-10T16:41:34+00:00",
+  "ingestedAt": "2026-09-10T17:48:32+00:00",
   "adapter": {
     "name": "ingest-topology-view",
     "version": "1.0.0"
@@ -32,7 +32,7 @@
     {
       "fixtureId": "native-execution",
       "scene": "fixtures/scenes/native-execution.scene.json",
-      "sha256": "c64182e3018eff5331f3eeb47555624aab725b0cc002597d1dc653795d3a8457",
+      "sha256": "fe646fc60a205b9938c92efbde014ed32eb32b0b94c3660b1f235217ad4cf596",
       "schemaValid": true,
       "schemaDetail": null,
       "screeningPassed": true,

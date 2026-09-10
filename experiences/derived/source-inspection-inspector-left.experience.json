@@ -18,7 +18,8 @@
       "fixtures/scenes/blueprint-authority.scene.json",
       "fixtures/scenes/native-execution.scene.json"
     ],
-    "runtime": "runtime/workbench-runtime.js"
+    "runtime": "runtime/workbench-runtime.js",
+    "textPack": "profiles/workbench-en.text.json"
   },
   "requiredProviderFeatures": [
     "scene-payload",

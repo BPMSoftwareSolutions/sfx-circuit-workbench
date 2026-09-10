@@ -1,0 +1,14 @@
+{
+  "receiptType": "text-encoding-receipt.v1",
+  "checkedAt": "2026-09-10T17:48:48+00:00",
+  "statement": "Authored and generated declarations are checked for text that was written as UTF-8 and read back as Latin-1 or CP1252. These strings are content a person reads, so the damage is a visible defect rather than a file-format detail.",
+  "mode": "check",
+  "summary": {
+    "filesScanned": 83,
+    "filesDamaged": 0,
+    "filesRepaired": 0,
+    "clean": true
+  },
+  "damaged": [],
+  "repaired": []
+}

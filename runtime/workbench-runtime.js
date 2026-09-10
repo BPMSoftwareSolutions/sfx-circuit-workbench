@@ -46,6 +46,17 @@
 
   function note(code, detail) { findings.push({ code: code, detail: detail }); }
 
+  /* Every user-visible string is resolved through the declared text pack.
+   * The runtime supplies values; the pack supplies wording, punctuation and
+   * glyphs. Nothing below this line spells a separator or a message out. */
+  var textModule = (typeof SFX_TEXT_FORMAT !== "undefined")
+    ? SFX_TEXT_FORMAT : window.SFX_TEXT_FORMAT;
+  if (!textModule || !config.text) {
+    note("WORKBENCH_TEXT_PACK_UNAVAILABLE", "no declared text pack in this package");
+    return;
+  }
+  var text = textModule.create(config.text, note);
+
   /* ---------------------------------------------------------------- plan */
 
   function component(componentId) {
@@ -57,15 +68,6 @@
   plan.bindings.forEach(function (b) {
     if (b.aspect === "value") { bindingByState[b.state] = b; }
   });
-  var viewChoice = component('source-view');
-  if (viewChoice && viewChoice.querySelector('select')) {
-    var choice = viewChoice.querySelector('select');
-    choice.replaceChildren();
-    config.scenes.forEach(function (s) {
-      var option = document.createElement('option'); option.value = s.viewId; option.textContent = s.label;
-      choice.appendChild(option);
-    });
-  }
 
   /* --------------------------------------------- producer state channel */
 
@@ -156,7 +158,8 @@
       svg.style.height = scene.geometry.height * scale + "px";
     }
     publish("camera.scale", scale);
-    publish("camera.zoom-label", Math.round(scale * 100) + "%");
+    publish("camera.zoom-label",
+            text.format("zoom", { percent: Math.round(scale * 100) }));
   }
 
   function fit() {
@@ -215,7 +218,8 @@
 
     var source = record.source || record.provenance;
     publish("selection.source", source
-      ? source.label + " · SHA-256 " + source.sha256 + " · " + source.pointer
+      ? text.format("sourcePointer", { label: source.label,
+          sha256: source.sha256, pointer: source.pointer })
       : "");
 
     highlight(record.id);
@@ -322,20 +326,20 @@
         if (n.id === item.route.target) { target = n; return true; }
         return false;
       });
-      li.querySelector("button").textContent =
-        (item.route.label || item.route.kind) + " → " + (target ? target.label : item.route.target);
+      li.querySelector("button").textContent = text.format("routeChoice", {
+        label: item.route.label || item.route.kind,
+        target: target ? target.label : item.route.target });
     });
 
     if (!selected) { return; }
     var node = entity(selected);
     if (node && node.record.kind === "convergence") {
-      status("Convergence: inspect its declared requirements before following the continuation.");
+      status(text.message("convergence"));
     } else if (outgoing.length > 1) {
-      status(node && node.record.kind === "fan-out"
-        ? "All fan-out members are declared. Choose a member to inspect."
-        : "Choose a declared route to follow. Alternatives are not executed by this diagram.");
+      status(text.message(node && node.record.kind === "fan-out"
+        ? "fanOut" : "chooseRoute"));
     } else if (!outgoing.length) {
-      status("End of this declared path.");
+      status(text.message("endOfPath"));
     }
   }
 
@@ -373,14 +377,16 @@
 
   function stopTrace() {
     if (running) {
-      status("Trace paused · " + Object.keys(visitedRoutes).length
-        + " / " + scene.graph.routes.length + " routes");
+      status(text.format("tracePaused", {
+        visited: Object.keys(visitedRoutes).length,
+        total: scene.graph.routes.length }));
     }
     running = false;
     parallelCamera = false;
     travelToken += 1;
     playToken += 1;
-    playLabel(trace.length && cursor < trace.length ? "Resume trace" : "Trace flow");
+    playLabel(text.playLabel(
+      trace.length && cursor < trace.length ? "paused" : "idle"));
   }
 
   function followPoint(point) {
@@ -452,7 +458,7 @@
     var mine = ++playToken;
     travelToken += 1;
     running = play;
-    playLabel(play ? "Pause trace" : "Trace flow");
+    playLabel(text.playLabel(play ? "running" : "idle"));
 
     function advance() {
       var wave = trace[cursor];
@@ -468,10 +474,13 @@
       var routeCount = batch.filter(function (i) { return i.edgeId; }).length;
       var done = Object.keys(visitedRoutes).length;
       status(batch.length > 1
-        ? "Tracing " + (done + 1) + "–" + (done + routeCount) + " / "
-          + scene.graph.routes.length + " · " + batch.length + " parallel branches"
-        : "Tracing " + Math.min(done + 1, scene.graph.routes.length) + " / "
-          + scene.graph.routes.length + " · " + (batch[0].kind || "isolated component"));
+        ? text.format("traceParallel", {
+            from: done + 1, to: done + routeCount,
+            total: scene.graph.routes.length, branches: batch.length })
+        : text.format("traceStep", {
+            index: Math.min(done + 1, scene.graph.routes.length),
+            total: scene.graph.routes.length,
+            kind: batch[0].kind || text.format("isolatedComponent", {}) }));
 
       return Promise.all(batch.map(function (item) {
         if (item.edgeId) {
@@ -502,16 +511,18 @@
       if (mine !== playToken || outcome === null) { return; }
       if (cursor === trace.length) {
         stopTrace();
-        playLabel("Replay trace");
-        status("Trace complete · " + Object.keys(visitedRoutes).length + " / "
-          + scene.graph.routes.length + " routes · " + Object.keys(visitedNodes).length
-          + " / " + scene.graph.nodes.length
-          + " components. All declared alternatives inspected.");
+        playLabel(text.playLabel("complete"));
+        status(text.format("traceComplete", {
+          visited: Object.keys(visitedRoutes).length,
+          total: scene.graph.routes.length,
+          components: Object.keys(visitedNodes).length,
+          totalComponents: scene.graph.nodes.length }));
       } else {
         running = false;
-        playLabel("Resume trace");
-        status("Trace paused · " + Object.keys(visitedRoutes).length + " / "
-          + scene.graph.routes.length + " routes");
+        playLabel(text.playLabel("paused"));
+        status(text.format("tracePaused", {
+          visited: Object.keys(visitedRoutes).length,
+          total: scene.graph.routes.length }));
       }
     });
   }
@@ -542,11 +553,11 @@
     visitedRoutes = {};
     visitedNodes = {};
     selected = null;
-    playLabel("Trace flow");
+    playLabel(text.playLabel("idle"));
     Array.prototype.forEach.call(stage.querySelectorAll(".selected, .active-route"),
       function (el) { el.classList.remove("selected", "active-route"); });
     renderRoutes();
-    status("Select a component, then follow its declared routes.");
+    status(text.message("traceIdle"));
   }
 
   /* ------------------------------------------------------------ scene load */
@@ -554,12 +565,12 @@
   function loadScene(viewId) {
     var descriptor = config.scenes.filter(function (s) { return s.viewId === viewId; })[0];
     if (!descriptor) {
-      publish("view.scope", "Source graph unavailable");
-      unsupported("No scene is published for view " + viewId + ".");
+      publish("view.scope", text.message("graphUnavailable"));
+      unsupported(text.message("sceneUnpublished"));
       return;
     }
     var mine = ++loadToken;
-    publish("view.scope", "Loading source graph…");
+    publish("view.scope", text.message("loadingGraph"));
 
     fetch(descriptor.scene, { credentials: "same-origin" })
       .then(function (response) {
@@ -570,12 +581,12 @@
         /* A stale response can never replace the newly selected graph. */
         if (mine !== loadToken) { return; }
         if (payload.sceneVersion !== "circuit-scene.v1") {
-          publish("view.scope", "Source graph contract unsupported");
-          unsupported("Scene contract " + payload.sceneVersion + " is not supported.");
+          publish("view.scope", text.message("sceneContractUnsupported"));
+          unsupported(text.message("sceneContractUnsupported"));
           return;
         }
         if (payload.identities.viewId !== viewId) {
-          publish("view.scope", "Source graph identity mismatch");
+          publish("view.scope", text.message("graphIdentityMismatch"));
           return;
         }
         return fetch(descriptor.artifact, { credentials: "same-origin" })
@@ -587,8 +598,8 @@
       })
       .catch(function () {
         if (mine !== loadToken) { return; }
-        publish("view.scope", "Source graph unavailable");
-        unsupported("The source graph for this view could not be loaded.");
+        publish("view.scope", text.message("graphUnavailable"));
+        unsupported(text.message("sceneLoadFailed"));
       });
   }
 
@@ -617,24 +628,25 @@
       }
     });
 
-    publish("view.scope", config.viewKindNames[scene.identities.viewKind] || scene.identities.viewKind);
-    publish("view.coverage", scene.coverage.nodes + " components · " + scene.coverage.routes
-      + " routes · " + scene.coverage.omittedSourceNodes + " source components omitted");
+    publish("view.scope", text.viewKindName(scene.identities.viewKind));
+    publish("view.coverage", text.format("coverage", {
+      nodes: scene.coverage.nodes, routes: scene.coverage.routes,
+      omitted: scene.coverage.omittedSourceNodes }));
     publish("view.findings", (scene.findings || []).map(function (f) {
-      return f.code + ": " + (f.identity || ""); }).join(" · "));
+      return text.format("finding", { code: f.code, identity: f.identity || "" });
+    }).join(" " + text.glyph("separator") + " "));
     publish("trace.mode", scene.traceMode);
-    publish("selection.kind", config.viewKindNames[scene.identities.viewKind] || scene.identities.viewKind);
+    publish("selection.kind", text.viewKindName(scene.identities.viewKind));
     publish("selection.title", scene.label);
     publish("capability.title", scene.identities.viewKind === 'invocation' ? scene.label :
       'Convergently author an SDA capability candidate from canonical source authority');
     publish("experience.limit", scene.coverage.scope || config.evidenceLimit);
-    publish("selection.detail", "Select a component or route to inspect its meaning.");
+    publish("selection.detail", text.message("inspectPrompt"));
     publish("selection.facts", "");
     publish("selection.source", "");
-    playLabel("Trace flow");
-    status(scene.identities.viewKind === "expression"
-      ? "Arrows show named expression dependencies; conditional arguments remain distinct."
-      : "Select a component, then follow its declared routes.");
+    playLabel(text.playLabel("idle"));
+    status(text.message(scene.identities.viewKind === "expression"
+      ? "traceIdleExpression" : "traceIdle"));
 
     /* Playback speed follows graph size, as the reference does. */
     var waves = planTrace(null).length;
@@ -647,6 +659,38 @@
     fit();
     reportHeight();
     window.dispatchEvent(new CustomEvent("sfx-scene-loaded", { detail: { sceneId: scene.sceneId } }));
+  }
+
+  /* Option labels are formatted from data at load: the source views from the
+   * packaged scene catalogue, the speeds from their declared values. The surface
+   * declares the options' identities and order; it does not spell their text,
+   * because that text describes counts the scene owns. */
+  function renderOptions() {
+    var viewBinding = bindingByState["view.selected"];
+    var viewNode = viewBinding && component(viewBinding.component);
+    var viewControl = viewNode && viewNode.querySelector(viewBinding.mutates.selector);
+    if (viewControl) {
+      viewControl.replaceChildren();
+      config.scenes.forEach(function (descriptor) {
+        var option = document.createElement("option");
+        option.value = descriptor.viewId;
+        option.textContent = text.format("viewOption", {
+          label: descriptor.label,
+          nodes: descriptor.coverage.nodes,
+          routes: descriptor.coverage.routes
+        });
+        viewControl.appendChild(option);
+      });
+    }
+
+    var speedBinding = bindingByState["trace.speed"];
+    var speedNode = speedBinding && component(speedBinding.component);
+    var speedControl = speedNode && speedNode.querySelector(speedBinding.mutates.selector);
+    if (speedControl) {
+      Array.prototype.forEach.call(speedControl.options, function (option) {
+        option.textContent = text.format("speedOption", { value: option.value });
+      });
+    }
   }
 
   function setSpeed(value) {
@@ -681,7 +725,9 @@
     var url = URL.createObjectURL(blob);
     var anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = scene.identities.capabilityId + "-" + scene.identities.viewId + ".svg";
+    anchor.download = text.format("exportFileName", {
+      capabilityId: scene.identities.capabilityId,
+      viewId: scene.identities.viewId });
     anchor.click();
     setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
   }
@@ -741,6 +787,7 @@
 
   /* ---------------------------------------------------------------- start */
 
+  renderOptions();
   loadScene(config.initialViewId);
   reportHeight();
 

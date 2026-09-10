@@ -296,7 +296,7 @@ def main(argv=None) -> int:
                               + [("outcome", outcome_surface(plan, v))
                                  for v in plan["outcomes"]]):
             surface_path = surfaces_dir / (surface["surfaceId"] + ".surface.json")
-            surface_path.write_text(json.dumps(surface, indent=2) + "\n", encoding="utf-8")
+            surface_path.write_text(json.dumps(surface, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             code, findings = compose(surface_path, manifest, root, declaration, staging)
             errors = [f for f in findings if f.get("severity") == "error"]
             resolved = staging / (surface["surfaceId"] + ".resolved.json")

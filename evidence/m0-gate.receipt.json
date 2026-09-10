@@ -2,7 +2,7 @@
   "receiptType": "milestone-gate-receipt.v1",
   "milestone": "M0",
   "title": "Freeze the reference and make composition portable",
-  "evaluatedAt": "2026-09-10T16:23:34+00:00",
+  "evaluatedAt": "2026-09-10T17:47:50+00:00",
   "passed": true,
   "declarations": [
     {

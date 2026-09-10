@@ -62,27 +62,28 @@ def run_step(name: str, argv: list, findings: list, quiet: bool = False) -> dict
     return record
 
 
-def run_trace_parity(findings: list) -> dict:
-    """Compare the reimplemented trace planner against the frozen reference.
+def run_trace_parity(findings: list, name: str = "trace-parity",
+                     script: str = "tests/trace-parity.test.cjs") -> dict:
+    """Run a Node check.
 
-    This needs Node, which the browser checks do not. When Node is absent the
-    step is reported as unrun rather than quietly passing, because a skipped
-    check that prints nothing is how a gate starts lying.
+    Node is not needed by the other steps, so when it is absent the check is
+    reported as unrun rather than quietly passing: a skipped check that prints
+    nothing is how a gate starts lying.
     """
     if shutil.which("node") is None:
-        findings.append({"code": "M1_TRACE_PARITY_UNRUN", "severity": "error",
-                         "detail": "node is unavailable, so planner parity was not verified"})
-        print("  trace parity   UNRUN (node unavailable)")
-        return {"step": "trace-parity", "exitCode": None, "passed": False,
+        findings.append({"code": "M1_CHECK_UNRUN", "severity": "error",
+                         "detail": "node is unavailable, so %s was not verified" % name})
+        print("  %-14s UNRUN (node unavailable)" % name)
+        return {"step": name, "exitCode": None, "passed": False,
                 "detail": "node unavailable"}
-    result = subprocess.run(["node", "tests/trace-parity.test.cjs"],
+    result = subprocess.run(["node", script],
                             capture_output=True, text=True, cwd=str(WORKBENCH))
     print(result.stdout, end="")
     if result.returncode != 0:
         print(result.stderr, end="", file=sys.stderr)
         findings.append({"code": "M1_STEP_FAILED", "severity": "error",
-                         "detail": "trace-parity exited %d" % result.returncode})
-    return {"step": "trace-parity", "exitCode": result.returncode,
+                         "detail": "%s exited %d" % (name, result.returncode)})
+    return {"step": name, "exitCode": result.returncode,
             "passed": result.returncode == 0}
 
 
@@ -100,6 +101,14 @@ def main(argv=None) -> int:
     print("== M0 gate ==")
     steps = [run_step("m0-gate", ["tools/m0_gate.py"] + root_argv, findings, quiet=True)]
     print("  %s" % ("passed" if steps[-1]["passed"] else "FAILED"))
+
+    print("\n== presentation text ==")
+    # Two nets with different jobs: the encoding check catches damage from any
+    # source, the text check catches text drifting out of its declared pack.
+    steps.append(run_step("check-text-encoding", ["tools/check_text_encoding.py"], findings))
+    steps.append(run_step("check-presentation-text",
+                          ["tools/check_presentation_text.py"], findings))
+    steps.append(run_trace_parity(findings, "text-format", "tests/text-format.test.cjs"))
 
     print("\n== scenes ==")
     steps.append(run_step("ingest-scenes", ["adapters/topology/ingest_topology_view.py"], findings))

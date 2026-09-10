@@ -1,6 +1,6 @@
 {
   "receiptType": "baseline-verification-receipt.v1",
-  "verifiedAt": "2026-09-10T16:23:34+00:00",
+  "verifiedAt": "2026-09-10T17:47:50+00:00",
   "manifest": {
     "path": "C:/lab/sfx-circuit-workbench/fixtures/baseline/baseline-manifest.json",
     "sha256": "6b0b479f4871124b3970d325e00fa90bbcb564e9a3cf17360d3fd95a47e639e3"

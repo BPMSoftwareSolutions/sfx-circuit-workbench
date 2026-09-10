@@ -8,6 +8,12 @@
   var selector = document.querySelector('[data-component-id="source-view"] select');
   var pendingKey = 'sidefx-workbench-pending';
   var scriptConfig = JSON.parse(document.getElementById('sfx-workbench-config').textContent);
+  /* Wording, punctuation and glyphs come from the declared pack, as they do in
+   * the workbench runtime. This file supplies values and asks for names. */
+  var text = (window.SFX_TEXT_FORMAT && scriptConfig.text)
+    ? window.SFX_TEXT_FORMAT.create(scriptConfig.text) : null;
+  function say(name, values) { return text ? text.message(name, values) : name; }
+  function said(name, values) { return text ? text.format(name, values) : name; }
   var scrim = document.createElement('div'); scrim.className = 'sfx-overlay-scrim'; scrim.hidden = true; document.body.appendChild(scrim);
   function current() { return manifest && manifest.capabilities.find(function (c) { return wb.scene() && c.sceneId === wb.scene().sceneId; }); }
   function message(text) { wb.status(text); }
@@ -84,7 +90,7 @@
         overlay.dispatch({ type: 'edit', draft: state });
         var submitted = overlay.dispatch({ type: 'submit', requestId: command.requestId });
         if (submitted.refused) return;
-        selector.disabled = true; fieldsEnabled(content, false); error('Submitting…');
+        selector.disabled = true; fieldsEnabled(content, false); error(say('submitting'));
         document.documentElement.removeAttribute('data-sfx-run-result');
         active.command = command; remember({ command: command });
         try { await establishSession(); await submit(active, error); }
@@ -105,7 +111,7 @@
         run.runId = result.runId; run.selection = result.selection;
         remember({ command: run.command, runId: run.runId });
         run.overlay.dispatch({ type: 'admitted', runId: run.runId });
-        wb.stopTrace(); wb.publish('trace.mode', 'LIVE'); message('Accepted · waiting for reported execution');
+        wb.stopTrace(); wb.publish('trace.mode', 'LIVE'); message(say('runAccepted'));
         poll(run); return;
       }
       if (result.code === 'SESSION_REQUIRED') {
@@ -149,7 +155,8 @@
     }
     var names = { readAuthority:'Reading selected database authority', planNativeBody:'Resolving native plan',
       bindProviderInput:'Provider input binding', loadMemoryModules:'Loading verified runtime', createScenario:'Establishing scenario', executeScenario:'Executing scenario' };
-    if (o) message((names[o.phase] || o.stepId || o.observationType) + ' · ' + o.status + ' · ' + event.observedAt);
+    if (o) message(said('phaseStatus', { phase: names[o.phase] || o.stepId || o.observationType,
+      status: o.status, observedAt: event.observedAt }));
     run.events.push({ eventId:event.eventId, receivedAt:new Date().toISOString(), serverTime:event.observedAt, observation:o || null });
     document.documentElement.setAttribute('data-sfx-live-run', JSON.stringify({ runId:run.runId, cursor:event.sequence, event:event.kind, observation:o || null }));
     window.dispatchEvent(new CustomEvent('sfx-live-event', { detail:{ runId:run.runId, event:event, receivedAt:new Date().toISOString() } }));
@@ -175,7 +182,7 @@
           catch (failure) { message('The run ended, but its outcome display failed: ' + failure.message); console.error(failure); }
           return;
         }
-      } catch (_) { message('Connection interrupted · the run may still be executing. Reconnecting to its retained status…'); }
+      } catch (_) { message(say('connectionInterrupted')); }
       await new Promise(function (resolve) { setTimeout(resolve, 350); });
     }
   }
@@ -211,7 +218,7 @@
     var node=document.getElementById(wb.scene().invocation.outcomeNode);
     if(node)node.classList.add(snapshot.presentation?'live-result':'live-uncertain');
     selector.disabled=false;
-    message(snapshot.presentation?'Outcome received · select the outcome node to reopen it.':'Run ended · inspect the reported status.');
+    message(say(snapshot.presentation ? 'outcomeReceived' : 'runEnded'));
     document.documentElement.setAttribute('data-sfx-run-result',JSON.stringify({runId:run.runId,state:snapshot.state,subject:run.capability.subject,presented:!!snapshot.presentation}));
     window.SFX_WORKBENCH_RUN={runId:run.runId,events:run.events,snapshot:snapshot};
   }
@@ -251,7 +258,7 @@
         overlay.dispatch({type:'open'});overlay.dispatch({type:'submit',requestId:saved.command.requestId});overlay.dispatch({type:'admitted',runId:saved.runId});
         selector.disabled=true;wb.publish('trace.mode','LIVE');poll(active);
       });
-    }else message('Choose a “Run capability” source view, then select its input component.');
+    }else message(said('runCapabilityHint', {}));
     if(capability){selector.value=capability.sceneId;selector.dispatchEvent(new Event('change',{bubbles:true}));}
   }).catch(function(){message('Capability experiences could not be loaded.');});
 })();

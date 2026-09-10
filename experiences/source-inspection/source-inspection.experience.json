@@ -4,7 +4,12 @@
   "title": "Source inspection: the recreated reference workbench",
   "note": "M1's mode. It recreates the supplied workbench through declarations rather than page handlers, and deliberately does not add invocation, authoring, composition or deployment. Every finding this experience produces is listed below with the reason it stands; the gate fails on anything else.",
   "mode": "source-inspection",
-  "supportedViewKinds": ["blueprint", "operations", "native", "expression"],
+  "supportedViewKinds": [
+    "blueprint",
+    "operations",
+    "native",
+    "expression"
+  ],
   "declarations": {
     "surface": "experiences/source-inspection/source-inspection.surface.json",
     "presentationProfile": "profiles/workbench-dark.presentation.json",
@@ -13,7 +18,8 @@
       "fixtures/scenes/blueprint-authority.scene.json",
       "fixtures/scenes/native-execution.scene.json"
     ],
-    "runtime": "runtime/workbench-runtime.js"
+    "runtime": "runtime/workbench-runtime.js",
+    "textPack": "profiles/workbench-en.text.json"
   },
   "requiredProviderFeatures": [
     "scene-payload",
@@ -42,27 +48,94 @@
     }
   },
   "stateProducers": [
-    { "stateId": "view.selected", "producer": "user" },
-    { "stateId": "search.query", "producer": "user" },
-    { "stateId": "trace.speed", "producer": "user", "note": "Also set by the workbench runtime from graph size at load, as the reference does." },
-    { "stateId": "trace.follow", "producer": "user" },
-    { "stateId": "presentation.mode", "producer": "user", "note": "Reflected through action pressed-state, which the binding model cannot express." },
-    { "stateId": "view.scope", "producer": "workbench-runtime" },
-    { "stateId": "view.coverage", "producer": "workbench-runtime" },
-    { "stateId": "view.findings", "producer": "workbench-runtime" },
-    { "stateId": "trace.mode", "producer": "workbench-runtime", "note": "Comes from the scene contract, never from the interface." },
-    { "stateId": "trace.status", "producer": "workbench-runtime" },
-    { "stateId": "trace.play-label", "producer": "workbench-runtime" },
-    { "stateId": "outline.items", "producer": "workbench-runtime" },
-    { "stateId": "routes.items", "producer": "workbench-runtime" },
-    { "stateId": "camera.scale", "producer": "scene-provider", "note": "A provider-owned physical operation, not a domain value." },
-    { "stateId": "camera.zoom-label", "producer": "scene-provider" },
-    { "stateId": "selection.entity-id", "producer": "scene-provider" },
-    { "stateId": "selection.kind", "producer": "scene-provider" },
-    { "stateId": "selection.title", "producer": "scene-provider" },
-    { "stateId": "selection.detail", "producer": "scene-provider" },
-    { "stateId": "selection.facts", "producer": "scene-provider" },
-    { "stateId": "selection.source", "producer": "scene-provider" }
+    {
+      "stateId": "view.selected",
+      "producer": "user"
+    },
+    {
+      "stateId": "search.query",
+      "producer": "user"
+    },
+    {
+      "stateId": "trace.speed",
+      "producer": "user",
+      "note": "Also set by the workbench runtime from graph size at load, as the reference does."
+    },
+    {
+      "stateId": "trace.follow",
+      "producer": "user"
+    },
+    {
+      "stateId": "presentation.mode",
+      "producer": "user",
+      "note": "Reflected through action pressed-state, which the binding model cannot express."
+    },
+    {
+      "stateId": "view.scope",
+      "producer": "workbench-runtime"
+    },
+    {
+      "stateId": "view.coverage",
+      "producer": "workbench-runtime"
+    },
+    {
+      "stateId": "view.findings",
+      "producer": "workbench-runtime"
+    },
+    {
+      "stateId": "trace.mode",
+      "producer": "workbench-runtime",
+      "note": "Comes from the scene contract, never from the interface."
+    },
+    {
+      "stateId": "trace.status",
+      "producer": "workbench-runtime"
+    },
+    {
+      "stateId": "trace.play-label",
+      "producer": "workbench-runtime"
+    },
+    {
+      "stateId": "outline.items",
+      "producer": "workbench-runtime"
+    },
+    {
+      "stateId": "routes.items",
+      "producer": "workbench-runtime"
+    },
+    {
+      "stateId": "camera.scale",
+      "producer": "scene-provider",
+      "note": "A provider-owned physical operation, not a domain value."
+    },
+    {
+      "stateId": "camera.zoom-label",
+      "producer": "scene-provider"
+    },
+    {
+      "stateId": "selection.entity-id",
+      "producer": "scene-provider"
+    },
+    {
+      "stateId": "selection.kind",
+      "producer": "scene-provider"
+    },
+    {
+      "stateId": "selection.title",
+      "producer": "scene-provider"
+    },
+    {
+      "stateId": "selection.detail",
+      "producer": "scene-provider"
+    },
+    {
+      "stateId": "selection.facts",
+      "producer": "scene-provider"
+    },
+    {
+      "stateId": "selection.source",
+      "producer": "scene-provider"
+    }
   ],
   "expectedFindings": [
     {

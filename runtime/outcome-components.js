@@ -2,12 +2,28 @@
  * This layer selects no contracts, variants, units or business dispositions. */
 (function (global) {
   'use strict';
+  /* Wording comes from the declared pack. Resolved lazily because this module
+   * may load before the configuration element is parsed. */
+  var resolver = null;
+  function phrase() {
+    if (resolver === null) {
+      var node = document.getElementById('sfx-workbench-config');
+      var config = node ? JSON.parse(node.textContent) : null;
+      resolver = (global.SFX_TEXT_FORMAT && config && config.text)
+        ? global.SFX_TEXT_FORMAT.create(config.text) : false;
+    }
+    return resolver;
+  }
+  function say(name, values) {
+    var found = phrase();
+    return found ? (values ? found.format(name, values) : found.message(name)) : '';
+  }
   function text(value) {
-    if (value === null) return 'None';
+    if (value === null) return say('valueNull');
     if (typeof value === 'object') return JSON.stringify(value);
     return String(value);
   }
-  function show(bound) { return !bound || !bound.present ? 'Not reported' : text(bound.value); }
+  function show(bound) { return !bound || !bound.present ? say('valueNotReported') : text(bound.value); }
   function element(tag, content, className) {
     var node = document.createElement(tag); if (content !== undefined) node.textContent = content;
     if (className) node.className = className; return node;
@@ -27,7 +43,7 @@
       if (amount && amount.present && typeof amount.value === 'number' && Number.isInteger(e.precision)) display = amount.value.toFixed(e.precision);
       var unit = e.values.currency || e.values.unit;
       target.append(element('p', display + (unit && unit.present ? ' ' + unit.value : ''), 'sfx-result-metric'));
-      if (e.values.timestamp && e.values.timestamp.present) target.append(element('p', 'Market time · ' + new Date(Number(e.values.timestamp.value) * 1000).toISOString(), 'sfx-result-meta'));
+      if (e.values.timestamp && e.values.timestamp.present) target.append(element('p', say('metricTimestamp', { timestamp: new Date(Number(e.values.timestamp.value) * 1000).toISOString() }), 'sfx-result-meta'));
     },
     'key-value': function (target, e) {
       rows(target, e.fields || Object.keys(e.values).map(function (key) { return Object.assign({ label: key }, e.values[key]); }));
@@ -51,7 +67,7 @@
       var region = root.querySelector('[data-component-id="' + e.componentId + '"]');
       if (!region || !operations[e.op]) throw new Error('OUTCOME_COMPONENT_UNSUPPORTED');
       var content = element('section', undefined, 'sfx-result-component');
-      content.append(element('h3', e.label || 'Result'));
+      content.append(element('h3', e.label || say('resultHeading')));
       operations[e.op](content, e); region.replaceChildren(content);
     });
   } };

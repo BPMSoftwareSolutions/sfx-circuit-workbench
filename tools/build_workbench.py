@@ -42,12 +42,88 @@ DEFAULT_OUT = WORKBENCH / "build"
 sys.path.insert(0, str(HERE))
 from resolve_ui_dependencies import now_utc, select_root, sha256_file  # noqa: E402
 
-VIEW_KIND_NAMES = {
-    "blueprint": "Blueprint authority",
-    "operations": "Declared operation flow",
-    "native": "Native execution graph",
-    "expression": "Mechanic dependencies",
-}
+def resolve_text_refs(node, pack, findings, path="/"):
+    """Substitute `textRef` against the pack before composition.
+
+    A static label must exist in the projected HTML before any script runs, so a
+    surface cannot wait for the runtime to supply it. Referencing the pack keeps
+    one owner for the text while still producing static markup: the surface says
+    which text it wants, the pack says what that text is.
+    """
+    if isinstance(node, dict):
+        reference = node.get("textRef")
+        if isinstance(reference, str):
+            group, _, name = reference.partition(".")
+            value = (pack.get(group) or {}).get(name)
+            if value is None:
+                findings.append({"code": "TEXT_REF_UNDECLARED", "stage": "package",
+                                 "severity": "error", "subject": path,
+                                 "detail": "surface references %r; the pack has no such entry"
+                                           % reference})
+            else:
+                node = {k: v for k, v in node.items() if k != "textRef"}
+                node["label" if "label" in node else "text"] = value
+                return node
+        return {k: resolve_text_refs(v, pack, findings, path + str(k) + "/")
+                for k, v in node.items()}
+    if isinstance(node, list):
+        return [resolve_text_refs(v, pack, findings, path + str(i) + "/")
+                for i, v in enumerate(node)]
+    return node
+
+
+def fill_template(template: str, values: dict, glyphs: dict) -> str:
+    """Fill `{name}` from supplied values, falling back to the pack's glyphs."""
+    def substitute(match):
+        name = match.group(1)
+        if name in values:
+            return str(values[name])
+        return glyphs.get(name, match.group(0))
+    return re.sub(r"\{([a-zA-Z0-9_]+)\}", substitute, template)
+
+
+def resolve_option_text(node, pack, catalogue, findings, path="/"):
+    """Fill each option's label from its declared format and the data at hand.
+
+    Option text is static once the catalogue is known, so it is resolved here
+    rather than by the runtime. Leaving it to a script produces a control that is
+    blank until the script runs and unusable if it never does.
+    """
+    if isinstance(node, dict):
+        content = node.get("content")
+        if isinstance(content, dict) and content.get("optionTextFormat"):
+            template = pack["formats"].get(content["optionTextFormat"])
+            if template is None:
+                findings.append({"code": "TEXT_FORMAT_UNDECLARED", "stage": "package",
+                                 "severity": "error", "subject": path,
+                                 "detail": "option format %r is not in the pack"
+                                           % content["optionTextFormat"]})
+            else:
+                source = content.get("optionTextSource")
+                for option in content.get("options", []):
+                    values = dict(option)
+                    if source == "scenes":
+                        entry = next((c for c in catalogue
+                                      if c["viewId"] == option["value"]), None)
+                        if entry is None:
+                            findings.append({
+                                "code": "TEXT_OPTION_SOURCE_UNRESOLVED", "stage": "package",
+                                "severity": "error", "subject": path,
+                                "detail": "no packaged scene for option %r" % option["value"]})
+                            continue
+                        values.update({"label": entry["label"],
+                                       "nodes": entry["coverage"]["nodes"],
+                                       "routes": entry["coverage"]["routes"]})
+                    option["label"] = fill_template(template, values, pack["glyphs"])
+                content = {k: v for k, v in content.items()
+                           if k not in ("optionTextFormat", "optionTextSource")}
+                node = dict(node, content=content)
+        return {k: resolve_option_text(v, pack, catalogue, findings, path + str(k) + "/")
+                for k, v in node.items()}
+    if isinstance(node, list):
+        return [resolve_option_text(v, pack, catalogue, findings, path + str(i) + "/")
+                for i, v in enumerate(node)]
+    return node
 
 
 def run(argv: list, stage: str, findings: list) -> tuple[int, str]:
@@ -146,6 +222,9 @@ def main(argv=None) -> int:
         print("dependencies   UNRESOLVED", file=sys.stderr)
         return 9
 
+    text_pack_path = WORKBENCH / experience["declarations"]["textPack"]
+    text_pack = json.loads(text_pack_path.read_text(encoding="utf-8"))
+
     presentation = json.loads(
         (WORKBENCH / experience["declarations"]["presentationProfile"])
         .read_text(encoding="utf-8"))
@@ -164,9 +243,14 @@ def main(argv=None) -> int:
 
     # --- compose ----------------------------------------------------------
     surface = WORKBENCH / experience["declarations"]["surface"]
+    resolved_surface = json.loads(surface.read_text(encoding="utf-8"))
+    resolved_surface = resolve_text_refs(resolved_surface, text_pack, findings)
+    staged_surface = staging / surface.name
+    staged_surface.write_text(
+        json.dumps(resolved_surface, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     code, output = run([
         str(compose_workspace / manifest["composition"]["module"]),
-        "--authority", str(surface),
+        "--authority", str(staged_surface),
         "--schema", str(compose_workspace / manifest["composition"]["schemas"]["authority"]),
         "--capability-schema", str(compose_workspace / manifest["composition"]["schemas"]["capability"]),
         "--declaration", str(declaration),
@@ -221,6 +305,11 @@ def main(argv=None) -> int:
             "scene": "scenes/" + scene_path.name,
             "artifact": "scenes/" + artifact.name,
             "sha256": sha256_file(scene_path),
+            # The option label is formatted from these counts at load, so the
+            # catalogue carries the numbers rather than a pre-built string.
+            "coverage": {"nodes": scene["coverage"]["nodes"],
+                         "routes": scene["coverage"]["routes"],
+                         "omittedSourceNodes": scene["coverage"]["omittedSourceNodes"]},
         })
 
     materials_dir = package / "materials"
@@ -239,7 +328,7 @@ def main(argv=None) -> int:
     # Modules the runtime depends on, each separate so it can be checked under
     # Node against the behaviour it is supposed to reproduce. Order matters:
     # every one of these must load before the runtime that consumes it.
-    RUNTIME_MODULES = ["illustrative-trace.js", "overlay-anchor.js",
+    RUNTIME_MODULES = ["text-format.js", "illustrative-trace.js", "overlay-anchor.js",
                        "dialog-lifecycle.js", "focus-containment.js",
                        "overlay-provider.js"]
     for module_name in RUNTIME_MODULES:
@@ -249,7 +338,7 @@ def main(argv=None) -> int:
         "experienceId": experience_id,
         "surfaceId": surface_id,
         "initialViewId": scene_descriptors[0]["viewId"] if scene_descriptors else None,
-        "viewKindNames": VIEW_KIND_NAMES,
+        "text": text_pack,
         "scenes": scene_descriptors,
         "requiredProviderFeatures": experience["requiredProviderFeatures"],
         "traceMode": "ILLUSTRATIVE",
@@ -301,11 +390,15 @@ def main(argv=None) -> int:
                        "experienceId": experience_id, "mode": experience["mode"]},
         "inputs": {
             "surface": {"path": experience["declarations"]["surface"],
-                        "sha256": sha256_file(surface)},
+                        "sha256": sha256_file(surface),
+                        "textResolved": staged_surface.relative_to(WORKBENCH).as_posix()},
             "provider": {"path": provider.relative_to(WORKBENCH).as_posix(),
                          "sha256": sha256_file(provider)},
             "runtime": {"path": experience["declarations"]["runtime"],
                         "sha256": sha256_file(runtime_source)},
+            "textPack": {"path": experience["declarations"]["textPack"],
+                         "packId": text_pack["packId"], "locale": text_pack["locale"],
+                         "sha256": sha256_file(text_pack_path)},
             "resolvedDeclaration": {"path": declaration.relative_to(WORKBENCH).as_posix(),
                                     "sha256": sha256_file(declaration)},
         },

@@ -1,6 +1,6 @@
 {
   "receiptType": "overlay-provider-receipt.v1",
-  "verifiedAt": "2026-09-10T16:23:45+00:00",
+  "verifiedAt": "2026-09-10T17:47:41+00:00",
   "statement": "The overlay provider's decisions — anchor resolution against a real scene, placement and clipping avoidance, motion intent under reduced motion, the input-to-outcome lifecycle, and focus containment — are exercised as pure logic.",
   "modules": [
     "runtime/overlay-anchor.js",

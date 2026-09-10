@@ -1,6 +1,6 @@
 {
   "receiptType": "outcome-presentation-receipt.v1",
-  "checkedAt": "2026-09-10T16:23:44+00:00",
+  "checkedAt": "2026-09-10T17:47:41+00:00",
   "statement": "Declared outcome plans are bound to actual returned data, including the retained live-finance result, and checked for variant matching, negative outcomes, unpresentable shapes, delivery states and the distinctness of missing, null and zero.",
   "retainedEvidence": {
     "path": "sfx-embody/evidence/hugging-face-live-finance/cli-result.json",

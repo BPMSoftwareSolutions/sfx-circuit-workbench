@@ -219,7 +219,7 @@ def main(argv=None) -> int:
 
         if not errors:
             target = args.out_dir / (profile["surfaceId"] + ".surface.json")
-            target.write_text(json.dumps(derived, indent=2) + "\n", encoding="utf-8")
+            target.write_text(json.dumps(derived, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             record["derived"] = {"path": target.relative_to(WORKBENCH).as_posix(),
                                  "sha256": sha256_file(target)}
             record["experience"] = emit_experience(profile, basis_path, target, args.out_dir)

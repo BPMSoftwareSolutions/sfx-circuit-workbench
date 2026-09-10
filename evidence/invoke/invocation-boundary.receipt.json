@@ -1,6 +1,6 @@
 {
   "receiptType": "invocation-boundary-receipt.v1",
-  "checkedAt": "2026-09-10T16:23:44+00:00",
+  "checkedAt": "2026-09-10T17:47:40+00:00",
   "statement": "The workbench command boundary is exercised against forgery, stale publications, undeclared and non-editable pointers, impermissible examples, contract violations and duplicate submission.",
   "publicationId": "sha256:2f43afdafdf734303c449cab844ad0a0dddc3c5d5645178fe3b004e6e547b304",
   "summary": {
@@ -182,7 +182,7 @@
     {
       "case": "a repeated requestId reconciles to the same run",
       "passed": true,
-      "runId": "fb146a25-43fe-4342-bad1-1793bce92bec"
+      "runId": "fd3d75b0-e3c7-4383-92f3-f2dde09c948c"
     }
   ],
   "notEstablished": [

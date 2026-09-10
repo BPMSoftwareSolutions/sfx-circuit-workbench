@@ -1,6 +1,6 @@
 {
   "receiptType": "trace-parity-receipt.v1",
-  "verifiedAt": "2026-09-10T16:23:38+00:00",
+  "verifiedAt": "2026-09-10T17:47:56+00:00",
   "statement": "The reimplemented illustrative trace planner is compared against the frozen reference implementation, wave for wave and route order for route order, on every ingested scene. Coverage completeness is asserted separately from ordering.",
   "reference": "fixtures/baseline/viewer/viewer.js",
   "ported": "runtime/illustrative-trace.js",

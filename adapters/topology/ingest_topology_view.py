@@ -312,7 +312,7 @@ def main(argv=None) -> int:
                                     "/".join(str(p) for p in error.absolute_path))
 
         scene_path = scenes_dir / (fixture_id + ".scene.json")
-        scene_path.write_text(json.dumps(scene, indent=2) + "\n", encoding="utf-8")
+        scene_path.write_text(json.dumps(scene, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
         errors = [f for f in scene["findings"] if f["severity"] == "error"]
         ok = valid and not errors and scene["scene"]["screening"]["passed"]
