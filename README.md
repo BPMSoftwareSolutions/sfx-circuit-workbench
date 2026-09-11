@@ -44,9 +44,16 @@ the exact package fingerprint; its receipt distinguishes local success from mile
 package carries only a few circuits; every other view resolves on demand from the host endpoint
 declared in `dependencies/estate-scene.binding.json`
 (`/workbench/scene/{capabilityId}/{viewId}`). That endpoint is served by `sfx-platform`
-(`app/workbench/scene/[capabilityId]/[viewId]/route.ts`), which lowers the compiled estate topology
-under `public/media/library/outputs/estate-topology/` into `circuit-scene.v1`. It is gated by
+(`app/workbench/scene/[capabilityId]/[viewId]/route.ts`), which calls the estate service's
+`capability circuit` operation. The service derives `circuit-scene.v1` from the selected database
+authority — the same authority invocation reads — through `sfx-embody/src/derive-circuit.mjs`. The
+database is the only source; no separately compiled product participates. It is gated by
 `SIDEFX_LAB_ENABLED=1`, which the Space build sets.
+
+Until the catalogue itself is derived from authority, the resolver falls back to the compiled
+products under `public/media/library/outputs/estate-topology/` for the legacy views whose
+identifiers came from the content-creation-mission compiler (the two sources use different node-id
+schemes). That fallback is transitional and is removed once the catalogue is authority-derived.
 
 So the browser gates must run against the workbench **as served by the platform**, not a bare static
 server. A static server cannot answer the resolver path, and the "resolved from host" journeys then
