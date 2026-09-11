@@ -53,7 +53,15 @@ def run_node(name: str, script: str, findings: list, extra: list | None = None) 
 
 
 def run_ux(findings: list) -> dict:
-    """Drive the served workbench through its journeys, if one is being served."""
+    """Drive the served workbench through its journeys, if one is being served.
+
+    The workbench package carries only a few circuits; every other view resolves
+    from the host endpoint declared in dependencies/estate-scene.binding.json,
+    which sfx-platform serves. Point SFX_WORKBENCH_ORIGIN at the workbench as
+    served by the platform (for example http://127.0.0.1:3000/workbench). A bare
+    static server cannot answer /workbench/scene/..., so the resolved journeys
+    404 even though the package itself is fine.
+    """
     import urllib.error
     import urllib.request
     origin = os.environ.get("SFX_WORKBENCH_ORIGIN", "http://127.0.0.1:8787")
@@ -61,8 +69,8 @@ def run_ux(findings: list) -> dict:
         urllib.request.urlopen(origin + "/index.html", timeout=3).read(64)
     except (urllib.error.URLError, OSError):
         findings.append({"code": "M2_UX_UNRUN", "severity": "error",
-                         "detail": "nothing served at %s; serve a built package and re-run"
-                                   % origin})
+                         "detail": "nothing served at %s; serve the workbench from the platform "
+                                   "(see README) and re-run" % origin})
         print("  user journeys  UNRUN (no package served at %s)" % origin)
         return {"step": "ux-journey", "exitCode": None, "passed": False,
                 "detail": "no served package"}

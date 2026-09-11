@@ -38,6 +38,37 @@ Each exits non-zero if a local step fails. M2 also evaluates retained hosted evi
 the exact package fingerprint; its receipt distinguishes local success from milestone completion.
 `python tools/verify_hosted.py` exits non-zero when the hosted evidence is absent, stale or fails.
 
+### Browser journeys need the platform host
+
+`tests/ux-journey.test.mjs` and `tests/estate-sweep.test.mjs` drive the workbench in Chromium. The
+package carries only a few circuits; every other view resolves on demand from the host endpoint
+declared in `dependencies/estate-scene.binding.json`
+(`/workbench/scene/{capabilityId}/{viewId}`). That endpoint is served by `sfx-platform`
+(`app/workbench/scene/[capabilityId]/[viewId]/route.ts`), which lowers the compiled estate topology
+under `public/media/library/outputs/estate-topology/` into `circuit-scene.v1`. It is gated by
+`SIDEFX_LAB_ENABLED=1`, which the Space build sets.
+
+So the browser gates must run against the workbench **as served by the platform**, not a bare static
+server. A static server cannot answer the resolver path, and the "resolved from host" journeys then
+404 even though the package itself is fine.
+
+```sh
+# 1. serve the platform: it serves public/workbench and the scene route.
+cd C:/lab/repos/sfx-platform && SIDEFX_LAB_ENABLED=1 npm run dev
+# 2. point the gates at it (PowerShell sets the same variables with $env:)
+cd C:/lab/sfx-circuit-workbench
+node tests/ux-journey.test.mjs http://127.0.0.1:3000/workbench   # workbench base
+node tests/estate-sweep.test.mjs http://127.0.0.1:3000           # platform root
+# or drive m2_gate at the same origin
+SFX_WORKBENCH_ORIGIN=http://127.0.0.1:3000/workbench python tools/m2_gate.py
+```
+
+`tools/m2_gate.py` runs the journey only when something is served at `SFX_WORKBENCH_ORIGIN`; it
+reports UNRUN rather than passing silently. `tests/ux-journey.test.mjs` takes the workbench base and
+appends `/index.html`; `tests/estate-sweep.test.mjs` takes the platform root and appends
+`/workbench/index.html`. Playwright and Chromium are resolved from `SFX_PLAYWRIGHT` and
+`SFX_CHROMIUM`.
+
 Individual steps:
 
 ```sh
