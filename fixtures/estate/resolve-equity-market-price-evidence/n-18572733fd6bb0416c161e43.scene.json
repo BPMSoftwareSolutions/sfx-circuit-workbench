@@ -172,33 +172,33 @@
     ]
   },
   "geometry": {
-    "width": 1730.0,
-    "height": 255.0,
+    "width": 1730,
+    "height": 255,
     "engine": "derive-circuit.v1",
     "boxes": {
       "n-69bc979f585911e310e62611": [
-        40.0,
-        60.0,
-        270.0,
-        135.0
+        40,
+        60,
+        270,
+        135
       ],
       "n-a6f455423f3546b79ecad2b9": [
-        500.0,
-        60.0,
-        270.0,
-        135.0
+        500,
+        60,
+        270,
+        135
       ],
       "n-8232583936f30e05a6547ff1": [
-        1420.0,
-        60.0,
-        270.0,
-        135.0
+        1420,
+        60,
+        270,
+        135
       ],
       "n-c2a097fcb506d6bc7a25eacf": [
-        960.0,
-        60.0,
-        270.0,
-        135.0
+        960,
+        60,
+        270,
+        135
       ]
     },
     "overlaps": 0
@@ -262,14 +262,14 @@
     "omittedSourceEdges": 0,
     "representationComplete": true,
     "nodeKinds": {
-      "outcome": 1,
-      "provider-port": 1,
       "input": 1,
+      "provider-port": 1,
+      "outcome": 1,
       "provider": 1
     },
     "routeKinds": {
-      "provider-binding": 1,
       "operation-order": 1,
+      "provider-binding": 1,
       "operation-result": 1
     },
     "observability": {
@@ -297,7 +297,7 @@
     },
     "ingestedFrom": {
       "path": "estate authority (read and planned per invocation)",
-      "sha256": "83b49f4bb82c6eb0e610d256f38a8632a620e1e6a06900b778ba3c79d4797f72"
+      "sha256": "f55952917ef1c8b81dd7533e12d17504e82e80c1052c441f647db682e4d8ebe1"
     },
     "adapter": {
       "name": "derive-circuit",

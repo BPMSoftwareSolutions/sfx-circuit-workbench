@@ -1,0 +1,243 @@
+{
+  "sceneVersion": "circuit-scene.v1",
+  "sceneId": "resolve-sidefx-eligible-providers/n-be3267ef95318b8d865b50d7",
+  "label": "Execution · each binding is checked for capability match, admission, conformance evidence, a",
+  "identities": {
+    "capabilityId": "resolve-sidefx-eligible-providers",
+    "viewId": "n-be3267ef95318b8d865b50d7",
+    "viewKind": "operations",
+    "sourceIdentity": "resolve-sidefx-eligible-providers/operations/resolve-sidefx-eligible-providers",
+    "scenarioId": "resolve-sidefx-eligible-providers"
+  },
+  "traceMode": "ILLUSTRATIVE",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-a9453bd588dede5239251dec",
+        "identity": "resolve-sidefx-eligible-providers/input",
+        "kind": "input",
+        "label": "sidefx-provider-resolution-request",
+        "detail": "Declared capability input contract.",
+        "source": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "a18c0e606e1a70c22c5efd173e130016747bbaaf14f3f875bcc6428d9cc6a93f",
+          "pointer": "/input_id",
+          "kind": "DECLARED",
+          "label": "estate authority / resolve-sidefx-eligible-providers",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "contractId": "sidefx-provider-resolution-request",
+          "contractState": "RESOLVED",
+          "scenarioId": "resolve-sidefx-eligible-providers"
+        }
+      },
+      {
+        "id": "n-44300cae5028c2bf0c6159ca",
+        "identity": "resolve-sidefx-eligible-providers.operation.1",
+        "kind": "provider-port",
+        "label": "sidefx-provider-resolution-requested",
+        "detail": "each binding is checked for capability match, admission, conformance evidence, and declared target",
+        "source": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "a18c0e606e1a70c22c5efd173e130016747bbaaf14f3f875bcc6428d9cc6a93f",
+          "pointer": "/event_id",
+          "kind": "DECLARED",
+          "label": "estate authority / resolve-sidefx-eligible-providers",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "eventId": "sidefx-provider-resolution-requested",
+          "eventAuthorityState": "RESOLVED",
+          "responsibility": "each binding is checked for capability match, admission, conformance evidence, and declared target"
+        }
+      },
+      {
+        "id": "n-70ba44f7b03c583377fa1964",
+        "identity": "resolve-sidefx-eligible-providers/outcome",
+        "kind": "outcome",
+        "label": "sidefx-semantic-provider-resolution",
+        "detail": "Declared capability outcome contract.",
+        "source": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "a18c0e606e1a70c22c5efd173e130016747bbaaf14f3f875bcc6428d9cc6a93f",
+          "pointer": "/outcome_id",
+          "kind": "DECLARED",
+          "label": "estate authority / resolve-sidefx-eligible-providers",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "contractId": "sidefx-semantic-provider-resolution",
+          "outcomeContractVersionPk": "518",
+          "scenarioId": "resolve-sidefx-eligible-providers"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "n-aeb2de557a9c7f745dba24e4",
+        "identity": "operation-order:n-a9453bd588dede5239251dec->n-44300cae5028c2bf0c6159ca",
+        "source": "n-a9453bd588dede5239251dec",
+        "target": "n-44300cae5028c2bf0c6159ca",
+        "kind": "operation-order",
+        "label": "admits",
+        "traversable": true,
+        "provenance": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "a18c0e606e1a70c22c5efd173e130016747bbaaf14f3f875bcc6428d9cc6a93f",
+          "pointer": "/input_id",
+          "kind": "DECLARED",
+          "label": "estate authority / resolve-sidefx-eligible-providers",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "scenarioId": "resolve-sidefx-eligible-providers"
+        }
+      },
+      {
+        "id": "n-d825b2a1a69d54e9187cf492",
+        "identity": "operation-result:n-44300cae5028c2bf0c6159ca->n-70ba44f7b03c583377fa1964",
+        "source": "n-44300cae5028c2bf0c6159ca",
+        "target": "n-70ba44f7b03c583377fa1964",
+        "kind": "operation-result",
+        "label": "resolves",
+        "traversable": true,
+        "provenance": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "a18c0e606e1a70c22c5efd173e130016747bbaaf14f3f875bcc6428d9cc6a93f",
+          "pointer": "/outcome_id",
+          "kind": "DECLARED",
+          "label": "estate authority / resolve-sidefx-eligible-providers",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "scenarioId": "resolve-sidefx-eligible-providers"
+        }
+      }
+    ]
+  },
+  "geometry": {
+    "width": 1730,
+    "height": 255,
+    "engine": "derive-circuit.v1",
+    "boxes": {
+      "n-a9453bd588dede5239251dec": [
+        40,
+        60,
+        270,
+        135
+      ],
+      "n-44300cae5028c2bf0c6159ca": [
+        500,
+        60,
+        270,
+        135
+      ],
+      "n-70ba44f7b03c583377fa1964": [
+        1420,
+        60,
+        270,
+        135
+      ]
+    },
+    "overlaps": 0
+  },
+  "materials": [],
+  "hitTargets": [
+    {
+      "targetId": "n-a9453bd588dede5239251dec",
+      "entityKind": "node",
+      "entityId": "n-a9453bd588dede5239251dec",
+      "accessibleName": "input: sidefx-provider-resolution-request",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-44300cae5028c2bf0c6159ca",
+      "entityKind": "node",
+      "entityId": "n-44300cae5028c2bf0c6159ca",
+      "accessibleName": "provider-port: sidefx-provider-resolution-requested",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-70ba44f7b03c583377fa1964",
+      "entityKind": "node",
+      "entityId": "n-70ba44f7b03c583377fa1964",
+      "accessibleName": "outcome: sidefx-semantic-provider-resolution",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-aeb2de557a9c7f745dba24e4",
+      "entityKind": "route",
+      "entityId": "n-aeb2de557a9c7f745dba24e4",
+      "accessibleName": "operation-order: admits",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-d825b2a1a69d54e9187cf492",
+      "entityKind": "route",
+      "entityId": "n-d825b2a1a69d54e9187cf492",
+      "accessibleName": "operation-result: resolves",
+      "keyboardActivable": true
+    }
+  ],
+  "coverage": {
+    "nodes": 3,
+    "routes": 2,
+    "omittedSourceNodes": 0,
+    "omittedSourceEdges": 0,
+    "representationComplete": true,
+    "nodeKinds": {
+      "input": 1,
+      "provider-port": 1,
+      "outcome": 1
+    },
+    "routeKinds": {
+      "operation-order": 1,
+      "operation-result": 1
+    },
+    "observability": {
+      "instrumented": true,
+      "note": "This capability reports scenario observations when invoked; the execution mapping places them on these nodes."
+    }
+  },
+  "topology": {
+    "roots": [
+      "n-a9453bd588dede5239251dec"
+    ],
+    "leaves": [
+      "n-70ba44f7b03c583377fa1964"
+    ],
+    "weakComponents": 1,
+    "cyclicComponentCount": 0
+  },
+  "provenance": {
+    "sourceAuthority": {
+      "snapshotId": "sha256:1a770ac0795d10665a88166f8d8c968dc5b2d030fdfab2b837aa6071d135f9e9",
+      "projectionDigest": "sha256:8aae1f306ced5952333da0fb936d2f846081f8ed31b6f627a2099ad49cbbfdb0",
+      "capabilityDefinitionDigest": "sha256:3233f0d608b55391e5c1fe49a14cded932b682817e9971e8ec49473e0731f5bb",
+      "scenarioDefinitionDigest": "sha256:a18c0e606e1a70c22c5efd173e130016747bbaaf14f3f875bcc6428d9cc6a93f",
+      "readPerInvocation": true
+    },
+    "ingestedFrom": {
+      "path": "estate authority (read and planned per invocation)",
+      "sha256": "70b5732c5409d5d2e216f374e36cca8ad203059c8653b66f70335110af4f9516"
+    },
+    "adapter": {
+      "name": "derive-circuit",
+      "version": "1.0.0"
+    }
+  },
+  "findings": [
+    {
+      "code": "CIRCUIT_PROVIDER_BINDING_ABSENT",
+      "severity": "info",
+      "identity": "resolve-sidefx-eligible-providers",
+      "detail": "no declared effect port; the operation stands alone"
+    }
+  ]
+}

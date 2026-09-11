@@ -50,10 +50,11 @@ authority — the same authority invocation reads — through `sfx-embody/src/de
 database is the only source; no separately compiled product participates. It is gated by
 `SIDEFX_LAB_ENABLED=1`, which the Space build sets.
 
-Until the catalogue itself is derived from authority, the resolver falls back to the compiled
-products under `public/media/library/outputs/estate-topology/` for the legacy views whose
-identifiers came from the content-creation-mission compiler (the two sources use different node-id
-schemes). That fallback is transitional and is removed once the catalogue is authority-derived.
+`fixtures/estate/estate-catalogue.json` is derived from authority by
+`tools/derive_estate_circuits.mjs`: one `operations` view per capability, whose view ids match the
+resolver. The runnable (published) capabilities also carry their derived scene in the package so the
+local observation-mapping checks need no server; every other view resolves on demand. No compiled
+topology product participates.
 
 So the browser gates must run against the workbench **as served by the platform**, not a bare static
 server. A static server cannot answer the resolver path, and the "resolved from host" journeys then

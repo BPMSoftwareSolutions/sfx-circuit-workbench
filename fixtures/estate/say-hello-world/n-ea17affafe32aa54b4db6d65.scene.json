@@ -1,0 +1,243 @@
+{
+  "sceneVersion": "circuit-scene.v1",
+  "sceneId": "say-hello-world/n-ea17affafe32aa54b4db6d65",
+  "label": "Execution · the canonical Hello World greeting is requested",
+  "identities": {
+    "capabilityId": "say-hello-world",
+    "viewId": "n-ea17affafe32aa54b4db6d65",
+    "viewKind": "operations",
+    "sourceIdentity": "say-hello-world/operations/say-hello-world",
+    "scenarioId": "say-hello-world"
+  },
+  "traceMode": "ILLUSTRATIVE",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-acd0faa01ed92d868229d424",
+        "identity": "say-hello-world/input",
+        "kind": "input",
+        "label": "hello-world-request",
+        "detail": "Declared capability input contract.",
+        "source": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "123b5017f236eae5d2cfcd3b0f7a27a1f85b01119bf2e1fe440dd65f7c539e8c",
+          "pointer": "/input_id",
+          "kind": "DECLARED",
+          "label": "estate authority / say-hello-world",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "contractId": "hello-world-request",
+          "contractState": "RESOLVED",
+          "scenarioId": "say-hello-world"
+        }
+      },
+      {
+        "id": "n-a57b76216a9a7e2b925eda12",
+        "identity": "say-hello-world.operation.1",
+        "kind": "provider-port",
+        "label": "say-hello-world",
+        "detail": "the canonical Hello World greeting is requested",
+        "source": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "123b5017f236eae5d2cfcd3b0f7a27a1f85b01119bf2e1fe440dd65f7c539e8c",
+          "pointer": "/event_id",
+          "kind": "DECLARED",
+          "label": "estate authority / say-hello-world",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "eventId": "say-hello-world",
+          "eventAuthorityState": "RESOLVED",
+          "responsibility": "the canonical Hello World greeting is requested"
+        }
+      },
+      {
+        "id": "n-e2ea2f6c03cf92df1442f561",
+        "identity": "say-hello-world/outcome",
+        "kind": "outcome",
+        "label": "hello-world-greeting",
+        "detail": "Declared capability outcome contract.",
+        "source": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "123b5017f236eae5d2cfcd3b0f7a27a1f85b01119bf2e1fe440dd65f7c539e8c",
+          "pointer": "/outcome_id",
+          "kind": "DECLARED",
+          "label": "estate authority / say-hello-world",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "contractId": "hello-world-greeting",
+          "outcomeContractVersionPk": "553",
+          "scenarioId": "say-hello-world"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "n-ed4daebdbe1a88712ab876ce",
+        "identity": "operation-order:n-acd0faa01ed92d868229d424->n-a57b76216a9a7e2b925eda12",
+        "source": "n-acd0faa01ed92d868229d424",
+        "target": "n-a57b76216a9a7e2b925eda12",
+        "kind": "operation-order",
+        "label": "admits",
+        "traversable": true,
+        "provenance": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "123b5017f236eae5d2cfcd3b0f7a27a1f85b01119bf2e1fe440dd65f7c539e8c",
+          "pointer": "/input_id",
+          "kind": "DECLARED",
+          "label": "estate authority / say-hello-world",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "scenarioId": "say-hello-world"
+        }
+      },
+      {
+        "id": "n-6a30d4cc9546fe441b5fef55",
+        "identity": "operation-result:n-a57b76216a9a7e2b925eda12->n-e2ea2f6c03cf92df1442f561",
+        "source": "n-a57b76216a9a7e2b925eda12",
+        "target": "n-e2ea2f6c03cf92df1442f561",
+        "kind": "operation-result",
+        "label": "resolves",
+        "traversable": true,
+        "provenance": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "123b5017f236eae5d2cfcd3b0f7a27a1f85b01119bf2e1fe440dd65f7c539e8c",
+          "pointer": "/outcome_id",
+          "kind": "DECLARED",
+          "label": "estate authority / say-hello-world",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "scenarioId": "say-hello-world"
+        }
+      }
+    ]
+  },
+  "geometry": {
+    "width": 1730,
+    "height": 255,
+    "engine": "derive-circuit.v1",
+    "boxes": {
+      "n-acd0faa01ed92d868229d424": [
+        40,
+        60,
+        270,
+        135
+      ],
+      "n-a57b76216a9a7e2b925eda12": [
+        500,
+        60,
+        270,
+        135
+      ],
+      "n-e2ea2f6c03cf92df1442f561": [
+        1420,
+        60,
+        270,
+        135
+      ]
+    },
+    "overlaps": 0
+  },
+  "materials": [],
+  "hitTargets": [
+    {
+      "targetId": "n-acd0faa01ed92d868229d424",
+      "entityKind": "node",
+      "entityId": "n-acd0faa01ed92d868229d424",
+      "accessibleName": "input: hello-world-request",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-a57b76216a9a7e2b925eda12",
+      "entityKind": "node",
+      "entityId": "n-a57b76216a9a7e2b925eda12",
+      "accessibleName": "provider-port: say-hello-world",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-e2ea2f6c03cf92df1442f561",
+      "entityKind": "node",
+      "entityId": "n-e2ea2f6c03cf92df1442f561",
+      "accessibleName": "outcome: hello-world-greeting",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-ed4daebdbe1a88712ab876ce",
+      "entityKind": "route",
+      "entityId": "n-ed4daebdbe1a88712ab876ce",
+      "accessibleName": "operation-order: admits",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-6a30d4cc9546fe441b5fef55",
+      "entityKind": "route",
+      "entityId": "n-6a30d4cc9546fe441b5fef55",
+      "accessibleName": "operation-result: resolves",
+      "keyboardActivable": true
+    }
+  ],
+  "coverage": {
+    "nodes": 3,
+    "routes": 2,
+    "omittedSourceNodes": 0,
+    "omittedSourceEdges": 0,
+    "representationComplete": true,
+    "nodeKinds": {
+      "input": 1,
+      "provider-port": 1,
+      "outcome": 1
+    },
+    "routeKinds": {
+      "operation-order": 1,
+      "operation-result": 1
+    },
+    "observability": {
+      "instrumented": true,
+      "note": "This capability reports scenario observations when invoked; the execution mapping places them on these nodes."
+    }
+  },
+  "topology": {
+    "roots": [
+      "n-acd0faa01ed92d868229d424"
+    ],
+    "leaves": [
+      "n-e2ea2f6c03cf92df1442f561"
+    ],
+    "weakComponents": 1,
+    "cyclicComponentCount": 0
+  },
+  "provenance": {
+    "sourceAuthority": {
+      "snapshotId": "sha256:1a770ac0795d10665a88166f8d8c968dc5b2d030fdfab2b837aa6071d135f9e9",
+      "projectionDigest": "sha256:8aae1f306ced5952333da0fb936d2f846081f8ed31b6f627a2099ad49cbbfdb0",
+      "capabilityDefinitionDigest": "sha256:91bd3b021d67fcc2149b23def6bd75da8b89a7f5eab7f844a0395568b4200373",
+      "scenarioDefinitionDigest": "sha256:123b5017f236eae5d2cfcd3b0f7a27a1f85b01119bf2e1fe440dd65f7c539e8c",
+      "readPerInvocation": true
+    },
+    "ingestedFrom": {
+      "path": "estate authority (read and planned per invocation)",
+      "sha256": "bd04f218ff98ec920ba5b9ce885dd61440baf8dac12771df0a74fdfdea28a693"
+    },
+    "adapter": {
+      "name": "derive-circuit",
+      "version": "1.0.0"
+    }
+  },
+  "findings": [
+    {
+      "code": "CIRCUIT_PROVIDER_BINDING_ABSENT",
+      "severity": "info",
+      "identity": "say-hello-world",
+      "detail": "no declared effect port; the operation stands alone"
+    }
+  ]
+}

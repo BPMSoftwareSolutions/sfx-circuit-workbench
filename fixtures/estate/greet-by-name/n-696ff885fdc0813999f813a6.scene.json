@@ -1,0 +1,243 @@
+{
+  "sceneVersion": "circuit-scene.v1",
+  "sceneId": "greet-by-name/n-696ff885fdc0813999f813a6",
+  "label": "Execution · a personalized greeting is requested",
+  "identities": {
+    "capabilityId": "greet-by-name",
+    "viewId": "n-696ff885fdc0813999f813a6",
+    "viewKind": "operations",
+    "sourceIdentity": "greet-by-name/operations/greet-by-name",
+    "scenarioId": "greet-by-name"
+  },
+  "traceMode": "ILLUSTRATIVE",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-09cea3bf208f6c480b94f7f9",
+        "identity": "greet-by-name/input",
+        "kind": "input",
+        "label": "personal-greeting-request",
+        "detail": "Declared capability input contract.",
+        "source": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "07f4cbb2048538eb88e3a73b6d60d1fa15e08bc49293a00f6e6da055a9b08b54",
+          "pointer": "/input_id",
+          "kind": "DECLARED",
+          "label": "estate authority / greet-by-name",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "contractId": "personal-greeting-request",
+          "contractState": "RESOLVED",
+          "scenarioId": "greet-by-name"
+        }
+      },
+      {
+        "id": "n-5afcaf818c8a9081385c6310",
+        "identity": "greet-by-name.operation.1",
+        "kind": "provider-port",
+        "label": "greet-by-name",
+        "detail": "a personalized greeting is requested",
+        "source": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "07f4cbb2048538eb88e3a73b6d60d1fa15e08bc49293a00f6e6da055a9b08b54",
+          "pointer": "/event_id",
+          "kind": "DECLARED",
+          "label": "estate authority / greet-by-name",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "eventId": "greet-by-name",
+          "eventAuthorityState": "RESOLVED",
+          "responsibility": "a personalized greeting is requested"
+        }
+      },
+      {
+        "id": "n-3df6f643971ff6130aa0e413",
+        "identity": "greet-by-name/outcome",
+        "kind": "outcome",
+        "label": "personal-greeting",
+        "detail": "Declared capability outcome contract.",
+        "source": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "07f4cbb2048538eb88e3a73b6d60d1fa15e08bc49293a00f6e6da055a9b08b54",
+          "pointer": "/outcome_id",
+          "kind": "DECLARED",
+          "label": "estate authority / greet-by-name",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "contractId": "personal-greeting",
+          "outcomeContractVersionPk": "240",
+          "scenarioId": "greet-by-name"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "id": "n-b7bf2790aac97f07bc9e2051",
+        "identity": "operation-order:n-09cea3bf208f6c480b94f7f9->n-5afcaf818c8a9081385c6310",
+        "source": "n-09cea3bf208f6c480b94f7f9",
+        "target": "n-5afcaf818c8a9081385c6310",
+        "kind": "operation-order",
+        "label": "admits",
+        "traversable": true,
+        "provenance": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "07f4cbb2048538eb88e3a73b6d60d1fa15e08bc49293a00f6e6da055a9b08b54",
+          "pointer": "/input_id",
+          "kind": "DECLARED",
+          "label": "estate authority / greet-by-name",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "scenarioId": "greet-by-name"
+        }
+      },
+      {
+        "id": "n-cc06b2fbfa979850b5080c41",
+        "identity": "operation-result:n-5afcaf818c8a9081385c6310->n-3df6f643971ff6130aa0e413",
+        "source": "n-5afcaf818c8a9081385c6310",
+        "target": "n-3df6f643971ff6130aa0e413",
+        "kind": "operation-result",
+        "label": "resolves",
+        "traversable": true,
+        "provenance": {
+          "id": "authority",
+          "path": "analysis/capability-embodiment.sql",
+          "sha256": "07f4cbb2048538eb88e3a73b6d60d1fa15e08bc49293a00f6e6da055a9b08b54",
+          "pointer": "/outcome_id",
+          "kind": "DECLARED",
+          "label": "estate authority / greet-by-name",
+          "encoding": "sql-recordset"
+        },
+        "facts": {
+          "scenarioId": "greet-by-name"
+        }
+      }
+    ]
+  },
+  "geometry": {
+    "width": 1730,
+    "height": 255,
+    "engine": "derive-circuit.v1",
+    "boxes": {
+      "n-09cea3bf208f6c480b94f7f9": [
+        40,
+        60,
+        270,
+        135
+      ],
+      "n-5afcaf818c8a9081385c6310": [
+        500,
+        60,
+        270,
+        135
+      ],
+      "n-3df6f643971ff6130aa0e413": [
+        1420,
+        60,
+        270,
+        135
+      ]
+    },
+    "overlaps": 0
+  },
+  "materials": [],
+  "hitTargets": [
+    {
+      "targetId": "n-09cea3bf208f6c480b94f7f9",
+      "entityKind": "node",
+      "entityId": "n-09cea3bf208f6c480b94f7f9",
+      "accessibleName": "input: personal-greeting-request",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-5afcaf818c8a9081385c6310",
+      "entityKind": "node",
+      "entityId": "n-5afcaf818c8a9081385c6310",
+      "accessibleName": "provider-port: greet-by-name",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-3df6f643971ff6130aa0e413",
+      "entityKind": "node",
+      "entityId": "n-3df6f643971ff6130aa0e413",
+      "accessibleName": "outcome: personal-greeting",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-b7bf2790aac97f07bc9e2051",
+      "entityKind": "route",
+      "entityId": "n-b7bf2790aac97f07bc9e2051",
+      "accessibleName": "operation-order: admits",
+      "keyboardActivable": true
+    },
+    {
+      "targetId": "n-cc06b2fbfa979850b5080c41",
+      "entityKind": "route",
+      "entityId": "n-cc06b2fbfa979850b5080c41",
+      "accessibleName": "operation-result: resolves",
+      "keyboardActivable": true
+    }
+  ],
+  "coverage": {
+    "nodes": 3,
+    "routes": 2,
+    "omittedSourceNodes": 0,
+    "omittedSourceEdges": 0,
+    "representationComplete": true,
+    "nodeKinds": {
+      "input": 1,
+      "provider-port": 1,
+      "outcome": 1
+    },
+    "routeKinds": {
+      "operation-order": 1,
+      "operation-result": 1
+    },
+    "observability": {
+      "instrumented": true,
+      "note": "This capability reports scenario observations when invoked; the execution mapping places them on these nodes."
+    }
+  },
+  "topology": {
+    "roots": [
+      "n-09cea3bf208f6c480b94f7f9"
+    ],
+    "leaves": [
+      "n-3df6f643971ff6130aa0e413"
+    ],
+    "weakComponents": 1,
+    "cyclicComponentCount": 0
+  },
+  "provenance": {
+    "sourceAuthority": {
+      "snapshotId": "sha256:1a770ac0795d10665a88166f8d8c968dc5b2d030fdfab2b837aa6071d135f9e9",
+      "projectionDigest": "sha256:8aae1f306ced5952333da0fb936d2f846081f8ed31b6f627a2099ad49cbbfdb0",
+      "capabilityDefinitionDigest": "sha256:8de7bf4a1ab2d4cc8914c25638263eb93841b2a9f1b1b899471da6b820071d85",
+      "scenarioDefinitionDigest": "sha256:07f4cbb2048538eb88e3a73b6d60d1fa15e08bc49293a00f6e6da055a9b08b54",
+      "readPerInvocation": true
+    },
+    "ingestedFrom": {
+      "path": "estate authority (read and planned per invocation)",
+      "sha256": "73d5d511cc8b5bbf1a26582fe11045d4621b294de43facdb3ee64d70fd76be6f"
+    },
+    "adapter": {
+      "name": "derive-circuit",
+      "version": "1.0.0"
+    }
+  },
+  "findings": [
+    {
+      "code": "CIRCUIT_PROVIDER_BINDING_ABSENT",
+      "severity": "info",
+      "identity": "greet-by-name",
+      "detail": "no declared effect port; the operation stands alone"
+    }
+  ]
+}

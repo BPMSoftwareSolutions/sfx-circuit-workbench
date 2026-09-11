@@ -1,6 +1,6 @@
 {
   "bindingVersion": "estate-scene-binding.v1",
-  "statement": "Where a capability's circuit comes from. The circuit is a view of the selected database authority, derived on demand by the estate service through the same `capability circuit` operation invocation uses. The database is the only source; no separately compiled topology product participates.",
+  "statement": "Where a capability's circuit comes from. The circuit is a view of the selected database authority, derived on demand by the estate service through the same `capability circuit` operation invocation uses. The database is the only source; no separately compiled topology product participates and there is no fallback.",
   "resolver": {
     "endpoint": "/workbench/scene/{capabilityId}/{viewId}",
     "response": "single",
@@ -19,10 +19,6 @@
       "identical": ["graph", "geometry", "coverage", "hitTargets", "topology", "findings", "provenance.sourceAuthority"]
     }
   },
-  "transitional": {
-    "mediaFallback": "For legacy views whose catalogue identifiers were produced by the content-creation-mission topology compiler, the resolver falls back to the compiled products under public/media. The two sources use different node-id schemes, so both exist only until the workbench catalogue is itself derived from authority. The fallback is removed at that point.",
-    "catalogueMigration": "estate-catalogue.json and the packaged scenes still come from the compiler for most capabilities; finance alone is authority-derived. Migrating the catalogue to authority makes the fallback dead and removes content-creation-mission from the runtime story entirely."
-  },
   "governance": {
     "grantsManagedAdmission": false,
     "note": "Deriving a circuit reads selected authority. It is not registered estate authority and confers no admission."
@@ -31,6 +27,6 @@
     "SCENE_IDENTITY_INVALID": "The capability or view identity is not the shape the compiler emits.",
     "VIEW_IDENTITY_MISMATCH": "The derived scene declares a different view.",
     "SCENE_REFUSED": "The scene carried error findings, so neither its graph nor its bytes are served.",
-    "SCENE_UNAVAILABLE": "No view could be derived for that identity."
+    "SCENE_UNAVAILABLE": "No circuit could be derived, or the estate service was unavailable."
   }
 }
