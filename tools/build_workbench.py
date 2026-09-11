@@ -307,11 +307,17 @@ def main(argv=None) -> int:
                          "omittedSourceNodes": entry["coverage"]["omittedSourceNodes"]},
         })
 
-    # Package every capability so the estate is selectable, and carry each view's
-    # scene reference only where the scene is actually packaged. A capability
-    # whose circuit is absent is offered and says so, rather than being hidden.
+    # Package every capability so the estate is selectable. A view's scene is
+    # carried here when it is packaged; otherwise it resolves from the host,
+    # which lowers the estate's compiled topology on demand. The estate is far
+    # larger than a package, so resolving is the normal path and packaging is
+    # the exception — not the other way round.
+    scene_binding = json.loads(
+        (WORKBENCH / "dependencies/estate-scene.binding.json").read_text(encoding="utf-8"))
+    resolver = scene_binding["resolver"]
     estate_scenes = {}
     estate_capabilities = []
+    resolved = 0
     for record in estate["capabilities"]:
         views = []
         for view in record["views"]:
@@ -327,6 +333,8 @@ def main(argv=None) -> int:
                 "coverage": view["coverage"], "scene": packaged,
                 "derived": view.get("derived", False),
             })
+            if packaged is None:
+                resolved += 1
         estate_capabilities.append({
             "capabilityId": record["capabilityId"],
             "views": views,
@@ -339,9 +347,33 @@ def main(argv=None) -> int:
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(origin, destination)
 
+    # An estate scene's artifact references its materials by the path the website
+    # serves them from. Those are not in this package, so the references are
+    # rewritten to the copies beside it and the material presentation keeps
+    # working; a reference left pointing at the website would simply 404.
+    estate_materials = {}
+    for target in list(estate_scenes):
+        if not target.endswith(".scene.json"):
+            continue
+        scene_doc = json.loads((package / target).read_text(encoding="utf-8"))
+        artifact = package / target.replace(".scene.json", ".svg")
+        if not artifact.is_file():
+            continue
+        svg_text = artifact.read_text(encoding="utf-8")
+        for material in scene_doc.get("materials", []) or []:
+            name = material["reference"].rsplit("/", 1)[-1]
+            source = WORKBENCH / material["retained"] if material.get("retained") else None
+            if source and source.is_file():
+                estate_materials[name] = source
+                svg_text = svg_text.replace(material["reference"], "../materials/" + name)
+        artifact.write_text(svg_text, encoding="utf-8")
+
     materials_dir = package / "materials"
     materials_dir.mkdir(parents=True, exist_ok=True)
     material_count = 0
+    for name, origin in estate_materials.items():
+        shutil.copyfile(origin, materials_dir / name)
+        material_count += 1
     for reference in experience["declarations"]["scenes"]:
         scene = json.loads((WORKBENCH / reference).read_text(encoding="utf-8"))
         for material in scene.get("materials", []):
@@ -457,6 +489,9 @@ def main(argv=None) -> int:
             "available": estate["available"],
             "invocable": estate["invocable"],
             "capabilities": estate_capabilities,
+            # Declared, not assumed: the runtime asks the binding where an
+            # unpackaged circuit comes from rather than knowing a path.
+            "sceneResolver": resolver,
         },
         "initialCapabilityId": initial_capability,
         "evidenceLimit": ("Declared topology. This experience invokes no capability and "

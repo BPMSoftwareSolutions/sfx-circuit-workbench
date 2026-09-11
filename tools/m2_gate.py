@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -34,14 +35,14 @@ def run_step(name: str, argv: list, findings: list, quiet: bool = False) -> dict
     return record
 
 
-def run_node(name: str, script: str, findings: list) -> dict:
+def run_node(name: str, script: str, findings: list, extra: list | None = None) -> dict:
     """Run a Node check, reporting an absent Node as a failure rather than a skip."""
     if shutil.which("node") is None:
         findings.append({"code": "M2_CHECK_UNRUN", "severity": "error",
                          "detail": "node is unavailable, so %s was not verified" % name})
         print("  %-14s UNRUN (node unavailable)" % name)
         return {"step": name, "exitCode": None, "passed": False, "detail": "node unavailable"}
-    result = subprocess.run(["node", script], capture_output=True, text=True,
+    result = subprocess.run(["node", script] + (extra or []), capture_output=True, text=True,
                             cwd=str(WORKBENCH))
     print(result.stdout, end="")
     if result.returncode != 0:
@@ -49,6 +50,23 @@ def run_node(name: str, script: str, findings: list) -> dict:
         findings.append({"code": "M2_STEP_FAILED", "severity": "error",
                          "detail": "%s exited %d" % (name, result.returncode)})
     return {"step": name, "exitCode": result.returncode, "passed": result.returncode == 0}
+
+
+def run_ux(findings: list) -> dict:
+    """Drive the served workbench through its journeys, if one is being served."""
+    import urllib.error
+    import urllib.request
+    origin = os.environ.get("SFX_WORKBENCH_ORIGIN", "http://127.0.0.1:8787")
+    try:
+        urllib.request.urlopen(origin + "/index.html", timeout=3).read(64)
+    except (urllib.error.URLError, OSError):
+        findings.append({"code": "M2_UX_UNRUN", "severity": "error",
+                         "detail": "nothing served at %s; serve a built package and re-run"
+                                   % origin})
+        print("  user journeys  UNRUN (no package served at %s)" % origin)
+        return {"step": "ux-journey", "exitCode": None, "passed": False,
+                "detail": "no served package"}
+    return run_node("ux-journey", "tests/ux-journey.test.mjs", findings, [origin])
 
 
 def load(path: Path):
@@ -81,6 +99,12 @@ def main(argv=None) -> int:
     print("\n== outcome presentation ==")
     steps.append(run_step("outcome-presentation",
                           ["adapters/invocation/present_outcome.py", "--self-check"], findings))
+
+    print("\n== user journeys ==")
+    # Opening the page is the only check that sees what a person sees. It needs a
+    # browser and a served package, so it reports UNRUN rather than passing when
+    # either is absent — a UX suite that silently skips is worse than none.
+    steps.append(run_ux(findings))
 
     print("\n== overlay provider ==")
     steps.append(run_node("overlay-provider", "tests/overlay-provider.test.cjs", findings))

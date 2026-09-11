@@ -71,7 +71,25 @@ def compile_viewport(output):
         prefix+' .sfx-inspection-drawer[open]>.sfx-inspection-content{display:grid;grid-template-rows:'+' '.join(profile['inspection']['rows'])+';max-height:'+profile['inspection']['maxHeight']+';overflow:auto;}',
         prefix+' .sfx-inspection-drawer:not([open])>.sfx-inspection-content{display:none;}',
         prefix+' [data-region-id="inspection"]{--inspect:var(--panel);--inspect-ink:var(--ink);--inspect-muted:var(--muted);}',
-        '@media(max-width:700px){'+prefix+' [data-region-id="header"]{grid-template-columns:minmax(0,1fr);grid-template-rows:58px 62px;padding:10px 16px;gap:0;}'+prefix+' [data-region-id="root"]{grid-template-rows:140px 64px 36px 46px minmax(0,1fr) 76px auto;}'+prefix+' [data-region-id="aside"]{display:none;}'+prefix+' [data-region-id="main"]{grid-template-columns:minmax(0,1fr);}}',
+        '@media(max-width:700px){'
+        +prefix+' [data-region-id="header"]{grid-template-columns:minmax(0,1fr);grid-template-rows:58px 62px;padding:10px 16px;gap:0;}'
+        # The selection chain stacks rather than competing for width: three
+        # side-by-side choices at phone width crush their labels into each other.
+        +prefix+' [data-region-id="estate-bar"]{grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(3,58px);gap:8px;padding:8px 16px;}'
+        +prefix+' [data-region-id="root"]{grid-template-rows:140px 214px 48px 152px minmax(0,1fr) 88px auto;}'
+        +prefix+' [data-region-id="summary"]{grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(2,auto);gap:2px;}'
+        # The toolbar is a three-column grid whose areas sit in columns 1 and 3.
+        # Collapsing it to one column leaves those area rules pointing at columns
+        # that no longer exist, so the groups are re-placed onto two rows.
+        +prefix+' [data-region-id="toolbar"]{grid-template-columns:minmax(0,1fr);grid-template-rows:40px 88px;row-gap:8px;}'
+        +prefix+' [data-region-id="presentation-group"]{grid-column:1/2!important;grid-row:1/2!important;}'
+        +prefix+' [data-region-id="camera-group"]{grid-column:1/2!important;grid-row:2/3!important;'
+        # Six camera controls cannot share a phone's width; they flow three to a
+        # row rather than shrinking the last one off the screen.
+        +'grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-template-rows:repeat(2,40px)!important;gap:8px;}'
+        +prefix+' [data-region-id="flow"]{grid-template-rows:auto minmax(0,1fr);}'
+        +prefix+' [data-region-id="aside"]{display:none;}'
+        +prefix+' [data-region-id="main"]{grid-template-columns:minmax(0,1fr);}}',
     ]
     (output/'viewport.css').write_text('\n'.join(rules)+'\n',encoding='utf-8')
     return {'inspection':profile['inspection']}

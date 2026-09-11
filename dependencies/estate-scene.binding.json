@@ -1,0 +1,39 @@
+{
+  "bindingVersion": "estate-scene-binding.v1",
+  "statement": "Where a capability's circuit is resolved from when it is not packaged beside the workbench. The estate's compiled topology is a product of the platform; 218 capabilities of it are far larger than a workbench package, so the package carries the catalogue and resolves scene bytes on demand.",
+  "resolver": {
+    "endpoint": "/workbench/scene/{capabilityId}/{viewId}",
+    "response": "combined",
+    "servedBy": "sfx-platform, app/workbench/scene/[capabilityId]/[viewId]/route.ts",
+    "note": "The response carries the lowered circuit-scene.v1 document and its screened artifact together, so a scene and the bytes it describes cannot be fetched out of step with one another."
+  },
+  "lowering": {
+    "performedBy": "server",
+    "rationale": [
+      "the browser receives a resolved scene rather than a compiled product it would have to interpret",
+      "screening that rejects scripts, inline handlers and unapproved references runs before any bytes reach a page",
+      "a refused scene is refused once, at the boundary, rather than by every consumer"
+    ],
+    "parity": {
+      "with": "adapters/topology/ingest_topology_view.py",
+      "identical": ["graph", "geometry", "coverage", "hitTargets", "topology", "findings", "scene.sha256", "scene.bytes"],
+      "divergent": {
+        "materials[].retained": "the local adapter copies textures; the server references the ones the platform already serves",
+        "scene.retained": "null on the server; the artifact is resolved from its source rather than copied",
+        "scene.source": "server only; names the product the scene was lowered from",
+        "provenance.adapter.name": "lower-scene, because a different adapter produced it",
+        "provenance.ingestedFrom.path": "served-relative on the server, which does not disclose host filesystem paths"
+      }
+    }
+  },
+  "governance": {
+    "grantsManagedAdmission": false,
+    "note": "Resolving a circuit reads a compiled product. It is not registered estate authority and confers no admission."
+  },
+  "refusalCodes": {
+    "SCENE_IDENTITY_INVALID": "The capability or view identity is not the shape the compiler emits.",
+    "VIEW_IDENTITY_MISMATCH": "The product found at that path declares a different view.",
+    "SCENE_REFUSED": "The scene did not pass screening, so neither its graph nor its bytes are served.",
+    "SCENE_UNAVAILABLE": "No compiled view exists at that identity."
+  }
+}

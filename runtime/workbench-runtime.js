@@ -141,8 +141,29 @@
   var selected = null;
   var loadToken = 0;
 
+  /* The stage between two scenes: nothing drawn, and said to be busy rather
+   * than left looking like an empty result. */
+  function beginLoad() {
+    scene = null;
+    selected = null;
+    stage.textContent = "";
+    stage.removeAttribute("data-scene-id");
+    stage.setAttribute("aria-busy", "true");
+    renderKeyed("component-outline", [], function () {});
+    renderKeyed("outgoing-routes", [], function () {});
+  }
+
   function unsupported(message) {
-    /* A missing scene is shown, never silently reduced to an empty box. */
+    /* A missing scene is shown, never silently reduced to an empty box — and the
+     * previously loaded circuit is cleared first, so no diagram is left standing
+     * under a message about a different capability. */
+    scene = null;
+    selected = null;
+    stage.textContent = "";
+    stage.removeAttribute("data-scene-id");
+    stage.removeAttribute("aria-busy");
+    renderKeyed("component-outline", [], function () {});
+    renderKeyed("outgoing-routes", [], function () {});
     var notice = stage.querySelector(".circuit-unsupported")
       || document.createElement("p");
     notice.className = "circuit-unsupported";
@@ -654,9 +675,9 @@
       unsupported(text.message("sceneUnpublished"));
       return;
     }
-    if (!view.scene) {
-      /* Catalogued, but its circuit is not in this package. Said plainly rather
-       * than shown as an empty diagram. */
+    if (!view.scene && !resolverFor(capabilityId, view)) {
+      /* Catalogued, but its circuit is neither packaged here nor resolvable
+       * from a host. Said plainly rather than shown as an empty diagram. */
       publish("view.scope", text.message("graphUnavailable"));
       publish("view.coverage", text.format("coverage", {
         nodes: view.coverage.nodes, routes: view.coverage.routes,
@@ -664,22 +685,58 @@
       unsupported(text.message("sceneNotPackaged"));
       return;
     }
-    loadSceneFrom(view);
+    loadSceneFrom(view, capabilityId);
+  }
+
+  /* Where an unpackaged circuit is resolved from. The endpoint is declared by
+   * the estate binding the build carried in, so the runtime substitutes an
+   * identity into a template it was given and never knows a path of its own. */
+  function resolverFor(capabilityId, view) {
+    var declared = catalogue.sceneResolver;
+    if (!declared || !declared.endpoint) { return null; }
+    return {
+      url: declared.endpoint
+        .replace("{capabilityId}", encodeURIComponent(capabilityId))
+        .replace("{viewId}", encodeURIComponent(view.viewId)),
+      combined: declared.response === "combined"
+    };
   }
 
   /* Load a scene from an estate view descriptor. Race protection and the
    * identity check are the same as any other load: a stale response can never
    * replace the newly selected view. */
-  function loadSceneFrom(view) {
+  function loadSceneFrom(view, capabilityId) {
     var mine = ++loadToken;
+    var resolver = view.scene ? null : resolverFor(capabilityId, view);
     publish("view.scope", text.message("loadingGraph"));
-    fetch(view.scene, { credentials: "same-origin" })
+    /* A scene that resolves from a host arrives over the network, so the
+     * previous circuit would otherwise stay on screen — under the newly
+     * selected capability's title — until the response lands. Clear it. */
+    beginLoad();
+    fetch(resolver ? resolver.url : view.scene, { credentials: "same-origin" })
       .then(function (response) {
         if (!response.ok) { throw new Error("scene unavailable"); }
         return response.json();
       })
-      .then(function (payload) {
+      .then(function (body) {
         if (mine !== loadToken) { return; }
+        /* A resolved response carries the scene and the bytes it describes
+         * together, so the two cannot be fetched out of step. A packaged one
+         * is the scene itself, with its artifact beside it. */
+        var payload = resolver && resolver.combined ? body.scene : body;
+        if (resolver && resolver.combined) {
+          if (!payload || payload.sceneVersion !== "circuit-scene.v1") {
+            publish("view.scope", text.message("sceneContractUnsupported"));
+            unsupported(text.message("sceneContractUnsupported"));
+            return;
+          }
+          if (payload.identities.viewId !== view.viewId) {
+            publish("view.scope", text.message("graphIdentityMismatch"));
+            return;
+          }
+          adopt(payload, body.artifact || "");
+          return;
+        }
         if (payload.sceneVersion !== "circuit-scene.v1") {
           publish("view.scope", text.message("sceneContractUnsupported"));
           unsupported(text.message("sceneContractUnsupported"));
@@ -689,8 +746,11 @@
           publish("view.scope", text.message("graphIdentityMismatch"));
           return;
         }
-        var artifact = view.scene.replace(/\.scene\.json$/, ".svg");
-        return fetch(artifact, { credentials: "same-origin" })
+        if (!view.artifact) {
+          adopt(payload, "");
+          return;
+        }
+        return fetch(view.artifact, { credentials: "same-origin" })
           .then(function (r) { return r.ok ? r.text() : ""; })
           .then(function (svg) {
             if (mine !== loadToken) { return; }
@@ -870,6 +930,8 @@
     visitedNodes = {};
 
     stage.textContent = "";
+    stage.setAttribute("data-scene-id", scene.sceneId);
+    stage.removeAttribute("aria-busy");
     if (svg) {
       stage.insertAdjacentHTML("afterbegin", svg);
     } else {

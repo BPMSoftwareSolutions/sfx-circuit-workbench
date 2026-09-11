@@ -50,6 +50,12 @@
       "meaning": "The executable plan was assembled from the selected authority."
     },
     {
+      "phase": "bindProviderInput",
+      "label": "Bind provider input",
+      "meaning": "Retained runs emitted this when a declared provider binding obtained their native request. The exchange is now a declared effect port inside the scenario, so new runs do not emit it; historical telemetry is still placed.",
+      "conditional": true
+    },
+    {
       "phase": "loadMemoryModules",
       "label": "Load modules",
       "meaning": "The planned modules were loaded for execution."
